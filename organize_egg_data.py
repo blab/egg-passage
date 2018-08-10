@@ -71,9 +71,19 @@ def organize_egg_data_csv(positions= '[160,194,186,225,219,203,156,138]', tree_p
 
     for p in positions:
         df['circulating'+str(p)] = df['clade'].map(clade_gtype[p])
+    #Determine whether there sequence has mutated relative to clade background, at each position
+    for p in positions:
+
+        df['mut'+str(p)] = np.select(
+        (df[p]==df['circulating'+str(p)], df[p]!=df['circulating'+str(p)]),
+        (False, True))
 
     #Save organized data to a .csv
-    df.to_csv('egg_data.csv')
+    df.to_csv('dataframes/auspice_df.csv')
+
+    #Make egg-seq only DF and save to .csv
+    egg_df = df[df['passage']=='egg']
+    egg_df.to_csv('dataframes/egg_df.csv')
 
 
 
@@ -96,7 +106,7 @@ def organize_egg_data_csv(positions= '[160,194,186,225,219,203,156,138]', tree_p
             count+=1
 
     #Save organized data to a .csv
-    mut_df.to_csv('egg_data_by_tipmut.csv')
+    mut_df.to_csv('dataframes/auspice_by_tipmut.csv')
 
 
 if __name__ == '__main__':
