@@ -39,6 +39,8 @@ def organize_egg_data_csv(positions= '[160,194,186,225,219,203,156,138]', tree_p
 
             tip_muts[branch['strain']]=[branch['aa_muts']['HA1'], branch['aa_muts']['HA2'],
                                         branch['aa_muts']['SigPep'],branch['attr']['num_date'],
+                                        branch['attr']['dTiterSub'],
+                                        branch['attr']['cTiterSub'],
                                         branch['attr']['clade_membership']] + [str(seq[str(branch['clade'])]['HA1'][pos]) if pos in seq[str(branch['clade'])]['HA1'] else str(ref_aa)
                                         for pos, ref_aa in pos_list]
 
@@ -52,10 +54,11 @@ def organize_egg_data_csv(positions= '[160,194,186,225,219,203,156,138]', tree_p
     #Organize data in a DF
     df = pd.DataFrame(tip_muts).T
     df.reset_index(inplace=True)
-    df.columns = ['strain', 'tip_HA1_muts', 'tip_HA2_muts', 'tip_SigPep_muts', 'date', 'clade']+positions
+    df.columns = ['strain', 'tip_HA1_muts', 'tip_HA2_muts', 'tip_SigPep_muts', 'date','dTiterSub','cTiterSub', 'clade']+positions
     df['passage'] = np.select((df.strain.str.contains('egg'), df.strain.str.contains('cell')), ('egg', 'cell'))
     df['source'] = np.select((df.passage=='egg', df.passage=='cell', df.passage=='0'),
                              (df.strain.str.replace('-egg',''), df.strain.str.replace('-cell',''), df.strain))
+    df['dTiterSub'], df['cTiterSub']= df['dTiterSub'].astype(float, inplace=True), df['cTiterSub'].astype(float, inplace=True)
 
     #!!!! Must first check all sites of insterest to make sure clades have predeominantly one genotype!!!!
     #At each position, find predominant genotype of circulating virus by clade
