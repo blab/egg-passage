@@ -1,0 +1,535 @@
+,strain,tip_HA1_muts,tip_HA2_muts,tip_SigPep_muts,date,clade,160,194,186,225,219,203,156,138,passage,source,circulating160,circulating194,circulating186,circulating225,circulating219,circulating203,circulating156,circulating138,mut160,mut194,mut186,mut225,mut219,mut203,mut156,mut138
+1,A/Taiwan/70120/2008-egg,[],[],[],2008.03832991102,unassigned,K,L,S,G,S,T,K,A,egg,A/Taiwan/70120/2008,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+3,A/Singapore/215/2008-egg,[],[],[],2008.0958247775495,unassigned,K,P,S,G,S,T,K,A,egg,A/Singapore/215/2008,K,L,S,G,S,T,K,A,0,1,0,0,0,0,0,0
+4,A/Singapore/21/2008-egg,[],[],[],2008.3340177960301,unassigned,K,P,S,G,S,T,K,A,egg,A/Singapore/21/2008,K,L,S,G,S,T,K,A,0,1,0,0,0,0,0,0
+7,A/Taiwan/471/2008-egg,[],[],[],2008.6379192334018,unassigned,K,L,V,G,S,T,R,A,egg,A/Taiwan/471/2008,K,L,S,G,S,T,K,A,0,0,1,0,0,0,1,0
+9,A/Perth/4/2008-egg,[],[],[],2008.2354551676933,unassigned,K,L,V,G,S,T,K,A,egg,A/Perth/4/2008,K,L,S,G,S,T,K,A,0,0,1,0,0,0,0,0
+10,A/Brisbane/10/2008-egg,[],[],[],2008.1478439425052,unassigned,K,L,V,G,S,T,Q,A,egg,A/Brisbane/10/2008,K,L,S,G,S,T,K,A,0,0,1,0,0,0,1,0
+12,A/Colorado/6/2009-egg,['G186V'],[],[],2009.0547570157426,unassigned,K,L,V,G,S,T,K,A,egg,A/Colorado/6/2009,K,L,S,G,S,T,K,A,0,0,1,0,0,0,0,0
+14,A/Victoria/500/2008-egg,[],[],[],2008.5092402464065,unassigned,K,M,S,G,S,T,K,A,egg,A/Victoria/500/2008,K,L,S,G,S,T,K,A,0,1,0,0,0,0,0,0
+16,A/Thessaloniki/19/2009-egg,[],[],[],2009.03832991102,unassigned,K,L,S,G,S,T,K,A,egg,A/Thessaloniki/19/2009,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+17,A/Missouri/5/2008-egg,[],[],[],2008.1533196440794,unassigned,K,L,V,G,S,T,Q,A,egg,A/Missouri/5/2008,K,L,S,G,S,T,K,A,0,0,1,0,0,0,1,0
+18,A/Mississippi/4/2008-egg,[],[],[],2008.03832991102,unassigned,K,L,V,G,S,T,Q,A,egg,A/Mississippi/4/2008,K,L,S,G,S,T,K,A,0,0,1,0,0,0,1,0
+19,A/Kenya/1544/2008-egg,['L194P'],[],[],2008.561259411362,unassigned,K,P,S,G,S,T,K,A,egg,A/Kenya/1544/2008,K,L,S,G,S,T,K,A,0,1,0,0,0,0,0,0
+23,A/Brisbane/24/2008-egg,[],[],[],2008.476386036961,unassigned,K,L,V,G,S,T,K,S,egg,A/Brisbane/24/2008,K,L,S,G,S,T,K,A,0,0,1,0,0,0,0,1
+24,A/Taiwan/240/2009-egg,['S45N'],[],[],2009.1177275838468,unassigned,K,P,S,G,S,T,K,A,egg,A/Taiwan/240/2009,K,L,S,G,S,T,K,A,0,1,0,0,0,0,0,0
+26,A/Perth/5/2008-egg,[],[],[],2008.2162902121834,unassigned,K,P,S,G,S,T,K,A,egg,A/Perth/5/2008,K,L,S,G,S,T,K,A,0,1,0,0,0,0,0,0
+28,A/Brisbane/54/2009-egg,[],[],[],2009.3449691991786,unassigned,K,P,S,G,S,T,K,A,egg,A/Brisbane/54/2009,K,L,S,G,S,T,K,A,0,1,0,0,0,0,0,0
+29,A/Tunisia/723/2009-egg,['D175N'],[],[],2009.0355920602328,unassigned,K,L,S,G,S,T,K,A,egg,A/Tunisia/723/2009,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+31,A/HongKong/2210/2009-egg,[],[],[],2009.394250513347,unassigned,K,L,S,G,S,T,K,A,egg,A/HongKong/2210/2009,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+34,A/Singapore/H2009332C/2009-egg,[],['G57R'],[],2009.3285420944558,unassigned,K,L,S,G,S,T,K,A,egg,A/Singapore/H2009332C/2009,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+36,A/Brisbane/53/2009-egg,[],[],[],2009.3203285420946,unassigned,K,L,S,G,S,T,K,A,egg,A/Brisbane/53/2009,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+38,A/Singapore/H2009485/2009-egg,[],[],[],2009.4818617385351,unassigned,K,L,S,G,S,T,K,A,egg,A/Singapore/H2009485/2009,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+39,A/Singapore/H2009334C/2009-egg,[],[],[],2009.331279945243,unassigned,K,L,S,G,S,T,K,A,egg,A/Singapore/H2009334C/2009,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+41,A/Singapore/H2009510/2009-egg,[],[],[],2009.5065023956195,unassigned,K,L,S,G,S,T,K,A,egg,A/Singapore/H2009510/2009,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+43,A/Singapore/H2009389b/2009-egg,[],[],[],2009.3860369609856,unassigned,K,L,S,G,S,T,K,A,egg,A/Singapore/H2009389b/2009,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+45,A/Singapore/H2009518/2009-egg,[],[],[],2009.514715947981,unassigned,K,L,S,G,S,T,K,A,egg,A/Singapore/H2009518/2009,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+47,A/Singapore/H2009471C/2009-egg,['S45I'],[],[],2009.4681724845996,unassigned,K,L,S,G,S,T,K,A,egg,A/Singapore/H2009471C/2009,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+49,A/Victoria/209/2009-egg,[],[],[],2009.416153319644,unassigned,K,L,S,G,S,T,K,A,egg,A/Victoria/209/2009,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+51,A/Singapore/C2009485a/2009-egg,[],[],[],2009.4818617385351,unassigned,K,L,S,G,S,T,K,A,egg,A/Singapore/C2009485a/2009,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+52,A/Singapore/C2009485b/2009-egg,[],[],[],2009.4818617385351,unassigned,K,L,S,G,S,T,K,A,egg,A/Singapore/C2009485b/2009,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+54,A/Ontario/C627683/2010-egg,[],[],[],2010.766598220397,unassigned,K,L,S,G,S,T,K,A,egg,A/Ontario/C627683/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+55,A/Taiwan/851/2010-egg,[],[],[],2010.7036276522929,unassigned,K,L,S,G,S,T,K,A,egg,A/Taiwan/851/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+57,A/ShanghaiLuwan/188/2011-egg,[],[],[],2011.1204654346338,unassigned,K,L,S,G,S,T,K,A,egg,A/ShanghaiLuwan/188/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+59,A/Ontario/C575591/2010-egg,"['M168I', 'A304T']",[],[],2010.7446954140999,unassigned,K,L,S,G,S,T,K,A,egg,A/Ontario/C575591/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+60,A/Jiangsu-Xinpu/1205/2012-egg,[],[],[],2012.3477070499657,unassigned,K,P,S,G,S,T,K,A,egg,A/Jiangsu-Xinpu/1205/2012,K,L,S,G,S,T,K,A,0,1,0,0,0,0,0,0
+61,A/Jiangsu-Danyang/1647/2012-egg,[],[],[],2012.7775496235456,unassigned,K,P,S,G,S,T,K,A,egg,A/Jiangsu-Danyang/1647/2012,K,L,S,G,S,T,K,A,0,1,0,0,0,0,0,0
+62,A/Jiangsu-Wujin/318/2013-egg,[],['C220R'],[],2013.9281314168377,unassigned,K,P,S,G,S,T,K,A,egg,A/Jiangsu-Wujin/318/2013,K,L,S,G,S,T,K,A,0,1,0,0,0,0,0,0
+63,A/Jiangsu-Tianning/1707/2013-egg,[],[],[],2013.8213552361397,unassigned,K,P,S,G,S,T,K,A,egg,A/Jiangsu-Tianning/1707/2013,K,L,S,G,S,T,K,A,0,1,0,0,0,0,0,0
+64,A/Jiangsu-Donghai/57/2012-egg,['G186A'],[],[],2012.6735112936344,unassigned,K,P,A,G,S,T,K,A,egg,A/Jiangsu-Donghai/57/2012,K,L,S,G,S,T,K,A,0,1,1,0,0,0,0,0
+65,A/Jiangsu-Xinpu/1385/2012-egg,[],[],[],2012.640657084189,unassigned,K,P,S,G,S,T,K,A,egg,A/Jiangsu-Xinpu/1385/2012,K,L,S,G,S,T,K,A,0,1,0,0,0,0,0,0
+66,A/Jiangsu-Chongchuan/12908/2015-egg,[],[],[],2015.9199178644765,unassigned,K,P,S,G,S,T,K,A,egg,A/Jiangsu-Chongchuan/12908/2015,K,L,S,G,S,T,K,A,0,1,0,0,0,0,0,0
+67,A/Jiangsu-Chongchuan/12714/2015-egg,[],[],[],2015.8624229979466,unassigned,K,P,S,G,S,T,K,A,egg,A/Jiangsu-Chongchuan/12714/2015,K,L,S,G,S,T,K,A,0,1,0,0,0,0,0,0
+68,A/Jiangsu-Chongchuan/12179/2014-egg,[],[],[],2014.6926762491444,unassigned,K,P,S,G,S,T,K,A,egg,A/Jiangsu-Chongchuan/12179/2014,K,L,S,G,S,T,K,A,0,1,0,0,0,0,0,0
+69,A/Jiangsu-Chongchuan/1830/2014-egg,[],[],[],2014.2655715263518,unassigned,K,P,S,G,S,T,K,A,egg,A/Jiangsu-Chongchuan/1830/2014,K,L,S,G,S,T,K,A,0,1,0,0,0,0,0,0
+70,A/HongKong/2154/2009-egg,"['I51V', 'Y94H', 'L243I']",[],[],2009.375085557837,unassigned,K,L,S,G,S,T,K,A,egg,A/HongKong/2154/2009,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+74,A/Perth/15/2009-egg,[],[],[],2009.2628336755647,unassigned,K,L,S,G,S,T,K,A,egg,A/Perth/15/2009,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+75,A/Perth/16/2009-egg,[],[],[],2009.2628336755647,unassigned,K,L,S,G,S,T,K,A,egg,A/Perth/16/2009,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+78,A/Pennsylvania/15/2010-egg,[],[],[],2010.72553045859,unassigned,K,L,S,G,S,T,K,A,egg,A/Pennsylvania/15/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+80,A/Singapore/C2009515/2009-egg,[],[],[],2009.5119780971936,unassigned,K,L,S,G,S,T,K,A,egg,A/Singapore/C2009515/2009,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+81,A/Ontario/C728447/2010-egg,"['N133D', 'R142G', 'T212A']","['K39R', 'N169K', 'V176I']",[],2010.8761122518822,unassigned,K,L,S,G,S,T,K,A,egg,A/Ontario/C728447/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+82,A/HongKong/2142/2009-egg,[],[],[],2009.37234770705,unassigned,K,L,S,G,S,T,K,A,egg,A/HongKong/2142/2009,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+84,A/Singapore/C2009863/2009-egg,[],[],[],2009.8596851471596,unassigned,K,L,S,G,S,T,K,A,egg,A/Singapore/C2009863/2009,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+86,A/Philippines/2191/2009-egg,[],[],[],2009.3969883641341,unassigned,K,P,S,G,S,T,K,A,egg,A/Philippines/2191/2009,K,L,S,G,S,T,K,A,0,1,0,0,0,0,0,0
+88,A/Wisconsin/15/2009-egg,['L194P'],[],[],2009.4298425735797,unassigned,K,P,S,G,S,T,K,A,egg,A/Wisconsin/15/2009,K,L,S,G,S,T,K,A,0,1,0,0,0,0,0,0
+91,A/Qingdao/505/2009-egg,"['F147L', 'T283A', 'P293S']",[],['L13M'],2009.6488706365503,unassigned,K,L,S,G,S,T,K,A,egg,A/Qingdao/505/2009,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+94,A/Fujian-Tongan/196/2009-egg,[],[],[],2009.3449691991786,unassigned,K,L,S,G,S,T,K,A,egg,A/Fujian-Tongan/196/2009,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+95,A/HongKong/4544/2009-egg,[],[],[],2009.5229295003423,unassigned,K,L,S,G,S,T,K,A,egg,A/HongKong/4544/2009,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+97,A/HongKong/26560/2009-egg,[],[],[],2009.7118412046543,unassigned,K,P,S,G,S,T,K,A,egg,A/HongKong/26560/2009,K,L,S,G,S,T,K,A,0,1,0,0,0,0,0,0
+98,A/GuangdongFutian/1253/2009-egg,[],[],[],2009.564608591236,unassigned,K,L,S,G,S,T,K,A,egg,A/GuangdongFutian/1253/2009,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+100,A/Qingdao/522/2009-egg,[],['T59A'],[],2009.6652977412732,unassigned,K,L,S,G,S,T,K,A,egg,A/Qingdao/522/2009,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+102,A/Taiwan/839/2009-egg,[],[],[],2009.7501711156742,unassigned,K,P,S,G,S,T,K,A,egg,A/Taiwan/839/2009,K,L,S,G,S,T,K,A,0,1,0,0,0,0,0,0
+103,A/HongKong/4494/2009-egg,[],[],[],2009.520191649555,unassigned,K,L,S,G,S,T,K,A,egg,A/HongKong/4494/2009,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+104,A/Singapore/H2009679/2009-egg,[],[],[],2009.6762491444217,unassigned,K,L,S,G,S,T,K,A,egg,A/Singapore/H2009679/2009,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+106,A/Guangdong-Luohu/1257/2009-egg,[],[],[],2009.413415468857,unassigned,K,P,S,G,S,T,K,A,egg,A/Guangdong-Luohu/1257/2009,K,L,S,G,S,T,K,A,0,1,0,0,0,0,0,0
+107,A/Guangdong-Luohu/1256/2009-egg,[],[],[],2009.413415468857,unassigned,K,P,S,G,S,T,K,A,egg,A/Guangdong-Luohu/1256/2009,K,L,S,G,S,T,K,A,0,1,0,0,0,0,0,0
+111,A/Geneva/1479911/2009-egg,[],[],[],2009.0547570157426,unassigned,K,L,S,G,S,T,K,A,egg,A/Geneva/1479911/2009,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+113,A/Bangladesh/5014/2009-egg,[],[],[],2009.37234770705,unassigned,K,L,V,G,S,T,Q,A,egg,A/Bangladesh/5014/2009,K,L,S,G,S,T,K,A,0,0,1,0,0,0,1,0
+116,A/HongKong/4547/2009-egg,[],[],[],2009.520191649555,unassigned,K,L,S,G,S,T,K,A,egg,A/HongKong/4547/2009,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+119,A/Singapore/H2010384/2010-egg,[],[],[],2010.3805612594113,unassigned,K,L,S,G,S,T,K,A,egg,A/Singapore/H2010384/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+120,A/Singapore/H2010564C/2010-egg,['R269K'],[],[],2010.561259411362,unassigned,K,L,S,G,S,T,K,A,egg,A/Singapore/H2010564C/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+121,A/Singapore/H2010619/2010-egg,[],[],[],2010.6160164271048,unassigned,K,L,S,G,S,T,K,A,egg,A/Singapore/H2010619/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+123,A/Ontario/C432471/2010-egg,[],[],[],2010.6050650239563,unassigned,K,L,S,G,S,T,K,A,egg,A/Ontario/C432471/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+124,A/Victoria/563/2010-egg,"['G186V', 'S219Y']",[],[],2010.7028304532932,unassigned,K,L,V,G,Y,T,K,A,egg,A/Victoria/563/2010,K,L,S,G,S,T,K,A,0,0,1,0,1,0,0,0
+127,A/HoChiMinh/5947/2010-egg,[],[],[],2010.561259411362,unassigned,K,L,S,G,S,T,K,A,egg,A/HoChiMinh/5947/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+128,A/HoChiMinh/5677/2010-egg,[],[],[],2010.539356605065,unassigned,K,L,S,G,S,T,K,A,egg,A/HoChiMinh/5677/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+129,A/HoChiMinh/5897/2010-egg,['L3I'],[],[],2010.558521560575,unassigned,K,L,S,G,S,T,K,A,egg,A/HoChiMinh/5897/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+130,A/HoChiMinh/6398/2010-egg,[],[],[],2010.624229979466,unassigned,K,L,S,G,S,T,K,A,egg,A/HoChiMinh/6398/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+131,A/HoChiMinh/6077/2010-egg,['N6D'],"['T107A', 'H142L', 'A192T', 'I193E']",[],2010.5667351129364,unassigned,K,L,S,G,S,T,K,A,egg,A/HoChiMinh/6077/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+132,A/HoChiMinh/5527/2010-egg,['A280E'],"['V84I', 'N218I', 'I219T']",[],2010.5338809034909,unassigned,K,L,S,G,S,T,K,A,egg,A/HoChiMinh/5527/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+133,A/HoChiMinh/5186/2010-egg,"['L3V', 'T318P']","['K68N', 'N95I']",[],2010.4845995893224,unassigned,K,L,S,G,S,T,K,A,egg,A/HoChiMinh/5186/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+134,A/HoChiMinh/5517/2010-egg,[],[],[],2010.5338809034909,unassigned,K,L,S,G,S,T,K,A,egg,A/HoChiMinh/5517/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+135,A/HoChiMinh/6117/2010-egg,[],"['K68N', 'N95I', 'A96G']",[],2010.5749486652978,unassigned,K,L,S,G,S,T,K,A,egg,A/HoChiMinh/6117/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+136,A/HoChiMinh/6528/2010-egg,[],[],[],2010.6297056810404,unassigned,K,L,S,G,S,T,K,A,egg,A/HoChiMinh/6528/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+137,A/HoChiMinh/6318/2010-egg,[],[],[],2010.621492128679,unassigned,K,L,S,G,S,T,K,A,egg,A/HoChiMinh/6318/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+138,A/HoChiMinh/6328/2010-egg,[],"['A96G', 'Q105H']",[],2010.6160164271048,unassigned,K,L,S,G,S,T,K,A,egg,A/HoChiMinh/6328/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+139,A/HoChiMinh/6388/2010-egg,[],"['C29S', 'G79D', 'Q105H', 'L198I', 'I215L']",['A16T'],2010.624229979466,unassigned,K,L,S,G,S,T,K,A,egg,A/HoChiMinh/6388/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+140,A/HoChiMinh/6127/2010-egg,[],['N95I'],[],2010.577686516085,unassigned,K,L,S,G,S,T,K,A,egg,A/HoChiMinh/6127/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+141,A/HoChiMinh/7218/2010-egg,"['D7E', 'C14G', 'G78D', 'T313N']","['C29S', 'L80R', 'N95I', 'L98F']",[],2010.6570841889118,unassigned,K,L,S,G,S,T,K,A,egg,A/HoChiMinh/7218/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+142,A/HoChiMinh/85410/2010-egg,[],"['K39E', 'L52M', 'L80R', 'I99L', 'A101D', 'L118V', 'L187Q', 'A201S']",[],2010.6187542778919,unassigned,K,L,S,G,S,T,K,A,egg,A/HoChiMinh/85410/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+143,A/HoChiMinh/6268/2010-egg,['K208R'],"['T59S', 'K68N', 'T107A', 'H142L', 'C210R']",[],2010.6050650239563,unassigned,K,L,S,G,S,T,K,A,egg,A/HoChiMinh/6268/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+144,A/Ontario/C543493/2010-egg,"['S146G', 'F159Y']",[],['K2R'],2010.7173169062287,unassigned,K,L,S,G,S,T,K,A,egg,A/Ontario/C543493/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+145,A/Singapore/H2010797/2010-egg,[],[],[],2010.7939767282683,unassigned,K,L,S,G,S,T,K,A,egg,A/Singapore/H2010797/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+149,A/Brisbane/220/2010-egg,[],[],[],2010.6872005475702,unassigned,K,L,S,G,S,T,K,A,egg,A/Brisbane/220/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+152,A/Townsville/87/2010-egg,[],[],[],2010.9007529089665,unassigned,K,P,S,G,S,T,K,A,egg,A/Townsville/87/2010,K,L,S,G,S,T,K,A,0,1,0,0,0,0,0,0
+154,A/Singapore/H2011751/2011-egg,[],[],[],2011.7474332648871,unassigned,K,L,S,G,S,T,K,A,egg,A/Singapore/H2011751/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+157,A/Singapore/C2011825/2011-egg,[],[],[],2011.8213552361397,unassigned,K,L,S,G,S,T,K,A,egg,A/Singapore/C2011825/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+158,A/Ontario/C37332/2011-egg,"['S199P', 'I242K', 'V323I']",[],[],2011.0301163586585,unassigned,K,L,S,G,S,T,K,A,egg,A/Ontario/C37332/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+159,A/Ontario/C526567/2010-egg,['R220K'],[],[],2010.7036276522929,unassigned,K,L,S,G,S,T,K,A,egg,A/Ontario/C526567/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+160,A/Ontario/C575478/2010-egg,[],['C195G'],[],2010.7419575633128,unassigned,K,L,S,G,S,T,K,A,egg,A/Ontario/C575478/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+161,A/Ontario/C610464/2010-egg,[],[],[],2010.7802874743327,unassigned,K,L,S,G,S,T,K,A,egg,A/Ontario/C610464/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+162,A/Ontario/C720531/2010-egg,[],[],[],2010.8788501026695,unassigned,K,L,S,G,S,T,K,A,egg,A/Ontario/C720531/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+163,A/Ontario/C706265/2010-egg,[],[],[],2010.8624229979466,unassigned,K,L,S,G,S,T,K,A,egg,A/Ontario/C706265/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+164,A/Ontario/C706264/2010-egg,[],[],[],2010.8596851471596,unassigned,K,L,S,G,S,T,K,A,egg,A/Ontario/C706264/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+165,A/Ontario/P21548/2010-egg,[],[],[],2010.7693360711842,unassigned,K,L,S,G,S,T,K,A,egg,A/Ontario/P21548/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+166,A/Ontario/P21546/2010-egg,[],[],[],2010.7693360711842,unassigned,K,L,S,G,S,T,K,A,egg,A/Ontario/P21546/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+167,A/Ontario/C537546/2010-egg,[],[],[],2010.7091033538672,unassigned,K,L,S,G,S,T,K,A,egg,A/Ontario/C537546/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+168,A/Ontario/C575475/2010-egg,[],[],[],2010.7419575633128,unassigned,K,L,S,G,S,T,K,A,egg,A/Ontario/C575475/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+169,A/Ontario/C575589/2010-egg,[],[],[],2010.7474332648871,unassigned,K,L,S,G,S,T,K,A,egg,A/Ontario/C575589/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+170,A/Ontario/C575590/2010-egg,[],[],[],2010.7474332648871,unassigned,K,L,S,G,S,T,K,A,egg,A/Ontario/C575590/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+171,A/Ontario/C582144/2010-egg,[],[],[],2010.7529089664613,unassigned,K,L,S,G,S,T,K,A,egg,A/Ontario/C582144/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+172,A/Ontario/C582096/2010-egg,[],[],[],2010.7501711156742,unassigned,K,L,S,G,S,T,K,A,egg,A/Ontario/C582096/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+173,A/Brisbane/210/2010-egg,"['G186V', 'S219Y']",[],[],2010.6297056810404,unassigned,K,L,V,G,Y,T,K,A,egg,A/Brisbane/210/2010,K,L,S,G,S,T,K,A,0,0,1,0,1,0,0,0
+176,A/Perth/10/2010-egg,[],[],[],2010.394250513347,unassigned,K,L,S,G,S,T,K,A,egg,A/Perth/10/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+179,A/Ontario/C1995/2010-egg,[],[],[],2010.7008898015058,unassigned,K,L,S,G,S,T,K,A,egg,A/Ontario/C1995/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+180,A/Ontario/C76206/2011-egg,['N225D'],[],[],2011.062970568104,unassigned,K,L,S,D,S,T,K,A,egg,A/Ontario/C76206/2011,K,L,S,G,S,T,K,A,0,0,0,1,0,0,0,0
+181,A/Ontario/K4023106/2010-egg,['T10P'],[],[],2010.9171800136892,unassigned,K,L,S,G,S,T,K,A,egg,A/Ontario/K4023106/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+182,A/Ontario/C835942/2010-egg,[],[],[],2010.9883641341546,unassigned,K,L,S,G,S,T,K,A,egg,A/Ontario/C835942/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+183,A/Ontario/C5828/2011-egg,[],[],[],2011.002737850787,unassigned,K,L,S,G,S,T,K,A,egg,A/Ontario/C5828/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+184,A/Ontario/R3296/2011-egg,[],['I149L'],[],2011.065708418891,unassigned,K,L,S,G,S,T,K,A,egg,A/Ontario/R3296/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+185,A/Ontario/C653602/2011-egg,[],[],[],2011.0520191649555,unassigned,K,L,S,G,S,T,K,A,egg,A/Ontario/C653602/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+186,A/Ontario/K4050772/2010-egg,[],[],[],2010.9253935660506,unassigned,K,L,S,G,S,T,K,A,egg,A/Ontario/K4050772/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+187,A/Ontario/C687409/2010-egg,[],[],[],2010.8843258042436,unassigned,K,L,S,G,S,T,K,A,egg,A/Ontario/C687409/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+188,A/Ontario/C687408/2010-egg,[],[],[],2010.8843258042436,unassigned,K,L,S,G,S,T,K,A,egg,A/Ontario/C687408/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+191,A/Montana/5/2011-egg,['H183L'],[],[],2011.1642710472279,unassigned,K,L,S,G,S,T,K,A,egg,A/Montana/5/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+193,A/Singapore/H2010822/2010-egg,[],[],[],2010.8186173853526,unassigned,K,L,S,G,S,T,K,A,egg,A/Singapore/H2010822/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+194,A/Hunan-Beihu/1143/2011-egg,['L194P'],['D160N'],[],2011.1889117043122,unassigned,K,P,S,G,S,T,K,A,egg,A/Hunan-Beihu/1143/2011,K,L,S,G,S,T,K,A,0,1,0,0,0,0,0,0
+195,A/Singapore/H2011140C/2011-egg,[],[],[],2011.1368925393565,unassigned,K,L,S,G,S,T,K,A,egg,A/Singapore/H2011140C/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+197,A/Singapore/C2011173/2011-egg,[],[],[],2011.1697467488023,unassigned,K,L,S,G,S,T,K,A,egg,A/Singapore/C2011173/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+202,A/Acores/SU43/2012-egg,[],[],['A16T'],2012.848733744011,unassigned,K,L,S,G,S,T,K,A,egg,A/Acores/SU43/2012,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+214,A/Stockholm/40/2012-egg,['H183L'],[],[],2012.870636550308,unassigned,K,L,S,G,S,T,K,A,egg,A/Stockholm/40/2012,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+217,A/Guadeloupe/202/2010-egg,['L194P'],[],[],2010.911704312115,unassigned,K,P,S,G,S,T,K,A,egg,A/Guadeloupe/202/2010,K,L,S,G,S,T,K,A,0,1,0,0,0,0,0,0
+220,A/Ontario/C4144/2011-egg,[],[],[],2011.0,unassigned,K,L,S,G,S,T,K,A,egg,A/Ontario/C4144/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+221,A/Ontario/C582093/2010-egg,[],[],[],2010.7556468172484,unassigned,K,L,S,G,S,T,K,A,egg,A/Ontario/C582093/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+222,A/Ontario/N91738/2010-egg,[],[],[],2010.7227926078028,unassigned,K,L,S,G,S,T,K,A,egg,A/Ontario/N91738/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+223,A/Ontario/N91737/2010-egg,[],[],[],2010.7227926078028,unassigned,K,L,S,G,S,T,K,A,egg,A/Ontario/N91737/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+224,A/Iowa/119/2010-egg,"['G186S', 'A196T']",[],[],2010.5743995704402,unassigned,K,L,S,G,S,T,K,A,egg,A/Iowa/119/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+226,A/Arizona/13/2010-egg,['L194P'],[],[],2010.9281314168377,unassigned,K,P,S,G,S,T,K,A,egg,A/Arizona/13/2010,K,L,S,G,S,T,K,A,0,1,0,0,0,0,0,0
+228,A/Florida/21/2011-egg,['N246H'],[],[],2011.6187542778919,unassigned,K,L,S,G,S,T,K,A,egg,A/Florida/21/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+229,A/CzechRepublic/126/2012-egg,['K310N'],[],[],2012.2956878850102,unassigned,K,L,S,G,S,T,K,A,egg,A/CzechRepublic/126/2012,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+231,A/Alaska/5/2010-egg,"['H156Q', 'G186V', 'S219F']",[],[],2010.6105407255304,unassigned,K,L,V,G,F,T,Q,A,egg,A/Alaska/5/2010,K,L,S,G,S,T,K,A,0,0,1,0,1,0,1,0
+233,A/Christchurch/28/2011-egg,"['G186V', 'S219F']",[],[],2011.5913757700205,unassigned,K,L,V,G,F,T,K,A,egg,A/Christchurch/28/2011,K,L,S,G,S,T,K,A,0,0,1,0,1,0,0,0
+235,A/Brisbane/299/2011-egg,['H183L'],[],[],2011.6132785763175,unassigned,K,L,S,G,S,T,K,A,egg,A/Brisbane/299/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+236,A/Kentucky/5/2011-egg,"['H156R', 'S219F']",[],[],2011.8405201916496,unassigned,K,L,S,G,F,T,R,A,egg,A/Kentucky/5/2011,K,L,S,G,S,T,K,A,0,0,0,0,1,0,1,0
+241,A/Ontario/K4022160/2010-egg,[],[],[],2010.9171800136892,unassigned,K,L,S,G,S,T,K,A,egg,A/Ontario/K4022160/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+243,A/Micronesia/6689/2012-egg,"['E62G', 'G186V', 'S209G', 'T248K', 'R261Q']",[],[],2012.2299794661192,unassigned,K,L,V,G,S,T,K,A,egg,A/Micronesia/6689/2012,K,L,S,G,S,T,K,A,0,0,1,0,0,0,0,0
+244,A/Missouri/2/2012-egg,['L194P'],[],[],2012.043805612594,unassigned,K,P,S,G,S,T,K,A,egg,A/Missouri/2/2012,K,L,S,G,S,T,K,A,0,1,0,0,0,0,0,0
+246,A/Ontario/C720525/2010-egg,[],[],[],2010.8788501026695,unassigned,K,L,S,G,S,T,K,A,egg,A/Ontario/C720525/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+247,A/Ontario/C698767/2010-egg,[],[],[],2010.8596851471596,unassigned,K,L,S,G,S,T,K,A,egg,A/Ontario/C698767/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+250,A/PuertoRico/36/2011-egg,"['A196T', 'N246H']",[],[],2011.8843258042436,unassigned,K,L,S,G,S,T,K,A,egg,A/PuertoRico/36/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+251,A/Florida/68/2012-egg,['H183L'],[],[],2012.479123887748,unassigned,K,L,S,G,S,T,K,A,egg,A/Florida/68/2012,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+253,A/Lisbon/SU91/2012-egg,['G186V'],[],[],2012.9445585215606,unassigned,K,L,V,G,S,T,K,A,egg,A/Lisbon/SU91/2012,K,L,S,G,S,T,K,A,0,0,1,0,0,0,0,0
+254,A/Virginia/16/2012-egg,['H183L'],[],[],2012.9281314168377,unassigned,K,L,S,G,S,T,K,A,egg,A/Virginia/16/2012,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+256,A/CzechRepublic/130/2012-egg,['L157S'],[],[],2012.145106091718,unassigned,K,L,S,G,S,T,K,A,egg,A/CzechRepublic/130/2012,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+257,A/CzechRepublic/114/2012-egg,['I252V'],[],[],2012.3011635865846,unassigned,K,L,S,G,S,T,K,A,egg,A/CzechRepublic/114/2012,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+258,A/CzechRepublic/20/2012-egg,[],[],[],2012.1423682409309,unassigned,K,L,S,G,S,T,K,A,egg,A/CzechRepublic/20/2012,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+259,A/CzechRepublic/98/2012-egg,[],['A201V'],[],2012.2436687200548,unassigned,K,L,S,G,S,T,K,A,egg,A/CzechRepublic/98/2012,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+261,A/CzechRepublic/138/2012-egg,['D7Y'],[],[],2012.3668720054757,unassigned,K,L,S,G,S,T,K,A,egg,A/CzechRepublic/138/2012,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+263,A/Victoria/208/2009-egg,[],[],[],2009.416153319644,unassigned,K,L,S,G,S,T,K,A,egg,A/Victoria/208/2009,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+272,A/RhodeIsland/1/2010-egg,"['H183L', 'D188Y']",[],[],2010.0684462696784,unassigned,K,L,S,G,S,T,K,A,egg,A/RhodeIsland/1/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+273,A/Victoria/8/2010-egg,['L194P'],[],[],2010.6050650239563,unassigned,K,P,S,G,S,T,K,A,egg,A/Victoria/8/2010,K,L,S,G,S,T,K,A,0,1,0,0,0,0,0,0
+276,A/Singapore/H2010321C/2010-egg,[],[],[],2010.3175906913073,unassigned,K,L,S,G,S,T,K,A,egg,A/Singapore/H2010321C/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+277,A/Singapore/H2010301/2010-egg,[],[],[],2010.2984257357973,unassigned,K,L,S,G,S,T,K,A,egg,A/Singapore/H2010301/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+279,A/Austria/64/2011-egg,[],[],[],2011.104038329911,unassigned,K,L,S,G,S,T,K,A,egg,A/Austria/64/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+280,A/Singapore/H2010666C/2010-egg,[],[],[],2010.662559890486,unassigned,K,L,S,G,S,T,K,A,egg,A/Singapore/H2010666C/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+281,A/Ontario/C835943/2010-egg,[],[],[],2010.9883641341546,unassigned,K,L,S,G,S,T,K,A,egg,A/Ontario/C835943/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+282,A/Ontario/C835944/2010-egg,[],[],[],2010.9883641341546,unassigned,K,L,S,G,S,T,K,A,egg,A/Ontario/C835944/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+285,A/Brisbane/11/2010-egg,"['L194P', 'V309I']",[],[],2010.3969883641341,unassigned,K,P,S,G,S,T,K,A,egg,A/Brisbane/11/2010,K,L,S,G,S,T,K,A,0,1,0,0,0,0,0,0
+288,A/Perth/501/2010-egg,['L194P'],[],[],2010.3805612594113,unassigned,K,P,S,G,S,T,K,A,egg,A/Perth/501/2010,K,L,S,G,S,T,K,A,0,1,0,0,0,0,0,0
+291,A/Singapore/H2010370C/2010-egg,[],[],[],2010.3668720054757,unassigned,K,L,S,G,S,T,K,A,egg,A/Singapore/H2010370C/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+292,A/Singapore/H2010471C/2010-egg,[],['I77V'],[],2010.4681724845996,unassigned,K,L,S,G,S,T,K,A,egg,A/Singapore/H2010471C/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+293,A/Singapore/H2010389/2010-egg,[],[],[],2010.3860369609856,unassigned,K,L,S,G,S,T,K,A,egg,A/Singapore/H2010389/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+295,A/Madagascar/153/2010-egg,['S124R'],[],[],2010.0684462696784,unassigned,K,L,S,G,S,T,K,A,egg,A/Madagascar/153/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+296,A/Ontario/U10611/2010-egg,['D291E'],['K139T'],[],2010.602327173169,unassigned,K,L,S,G,S,T,K,A,egg,A/Ontario/U10611/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+297,A/Singapore/H2010211/2010-egg,[],[],[],2010.208076659822,unassigned,K,L,S,G,S,T,K,A,egg,A/Singapore/H2010211/2010,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+300,A/SouthAustralia/30/2012-egg,"['I140K', 'L194P']",[],[],2012.3559206023272,unassigned,K,P,S,G,S,T,K,A,egg,A/SouthAustralia/30/2012,K,L,S,G,S,T,K,A,0,1,0,0,0,0,0,0
+309,A/Alaska/22/2012-egg,['L194P'],['V18M'],[],2012.7501711156742,unassigned,K,P,S,G,S,T,K,A,egg,A/Alaska/22/2012,K,L,S,G,S,T,K,A,0,1,0,0,0,0,0,0
+312,A/AthensGR/59/2012-egg,[],[],[],2012.060232717317,unassigned,K,L,S,G,S,T,K,A,egg,A/AthensGR/59/2012,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+316,A/Sydney/195/2012-egg,"['G186V', 'N246H']",[],[],2012.5968514715948,unassigned,K,L,V,G,S,T,K,A,egg,A/Sydney/195/2012,K,L,S,G,S,T,K,A,0,0,1,0,0,0,0,0
+319,A/Maryland/2/2012-egg,"['H156Q', 'G186V', 'S219Y']",[],[],2012.0465434633813,3b,K,L,V,G,Y,T,Q,A,egg,A/Maryland/2/2012,K,L,S,G,S,T,K,A,0,0,1,0,1,0,1,0
+320,A/Singapore/C2011301/2011-egg,[],[],[],2011.2984257357973,3b,K,L,S,G,S,T,K,A,egg,A/Singapore/C2011301/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+321,A/Singapore/H2011474/2011-egg,[],[],[],2011.4709103353866,3b,K,L,S,G,S,T,K,A,egg,A/Singapore/H2011474/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+323,A/Singapore/C2011384/2011-egg,[],[],[],2011.3805612594113,3b,K,L,S,G,S,T,K,A,egg,A/Singapore/C2011384/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+325,A/Singapore/C2011545C/2011-egg,[],['D160N'],[],2011.542094455852,3b,K,L,S,G,S,T,K,A,egg,A/Singapore/C2011545C/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+326,A/Singapore/C2011422/2011-egg,[],[],[],2011.4188911704312,3b,K,L,S,G,S,T,K,A,egg,A/Singapore/C2011422/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+329,A/Singapore/H2011499a/2011-egg,[],[],[],2011.495550992471,3b,K,L,S,G,S,T,K,A,egg,A/Singapore/H2011499a/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+330,A/Singapore/H2011479/2011-egg,[],[],[],2011.476386036961,3b,K,L,S,G,S,T,K,A,egg,A/Singapore/H2011479/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+333,A/Singapore/H2011482/2011-egg,[],[],[],2011.479123887748,3b,K,L,S,G,S,T,K,A,egg,A/Singapore/H2011482/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+334,A/Singapore/C2011458/2011-egg,[],[],[],2011.454483230664,3b,K,L,S,G,S,T,K,A,egg,A/Singapore/C2011458/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+337,A/Singapore/C2011471/2011-egg,[],[],[],2011.4681724845996,3b,K,L,S,G,S,T,K,A,egg,A/Singapore/C2011471/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+339,A/Singapore/C2011493/2011-egg,[],[],[],2011.4900752908966,3b,K,L,S,G,S,T,K,A,egg,A/Singapore/C2011493/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+341,A/Singapore/H2011460a/2011-egg,[],[],[],2011.457221081451,3b,K,L,S,G,S,T,K,A,egg,A/Singapore/H2011460a/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+342,A/Singapore/H2011460cC/2011-egg,[],[],[],2011.457221081451,3b,K,L,S,G,S,T,K,A,egg,A/Singapore/H2011460cC/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+343,A/Singapore/H2011704C/2011-egg,[],[],[],2011.7008898015058,3b,K,L,S,G,S,T,K,A,egg,A/Singapore/H2011704C/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+344,A/Singapore/H2011463/2011-egg,[],[],[],2011.4599589322381,3b,K,L,S,G,S,T,K,A,egg,A/Singapore/H2011463/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+346,A/Singapore/C2011477/2011-egg,[],[],[],2011.473648186174,3b,K,L,S,G,S,T,K,A,egg,A/Singapore/C2011477/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+348,A/Singapore/H2011515/2011-egg,[],[],[],2011.5119780971936,3b,K,L,S,G,S,T,K,A,egg,A/Singapore/H2011515/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+351,A/Singapore/H2011471a/2011-egg,[],[],[],2011.4681724845996,3b,K,L,S,G,S,T,K,A,egg,A/Singapore/H2011471a/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+353,A/Singapore/H2011471c/2011-egg,[],[],[],2011.4681724845996,3b,K,L,S,G,S,T,K,A,egg,A/Singapore/H2011471c/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+355,A/Singapore/H2011471b/2011-egg,[],[],[],2011.4681724845996,3b,K,L,S,G,S,T,K,A,egg,A/Singapore/H2011471b/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+357,A/Virginia/5/2012-egg,['L194P'],[],[],2012.1286789869953,3b,K,P,S,G,S,T,K,A,egg,A/Virginia/5/2012,K,L,S,G,S,T,K,A,0,1,0,0,0,0,0,0
+358,A/Nevada/20/2012-egg,"['G186V', 'N246T']",[],[],2012.2546201232033,3b,K,L,V,G,S,T,K,A,egg,A/Nevada/20/2012,K,L,S,G,S,T,K,A,0,0,1,0,0,0,0,0
+360,A/SouthAustralia/2/2013-egg,"['V43I', 'G186V', 'S219F', 'I267T']",['N158H'],[],2013.021902806297,3b,K,L,V,G,F,T,K,A,egg,A/SouthAustralia/2/2013,K,L,S,G,S,T,K,A,0,0,1,0,1,0,0,0
+366,A/CzechRepublic/119/2012-egg,[],[],[],2012.1587953456537,3b,K,L,S,G,S,T,K,A,egg,A/CzechRepublic/119/2012,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+367,A/CzechRepublic/120/2012-egg,[],[],[],2012.1587953456537,3b,K,L,S,G,S,T,K,A,egg,A/CzechRepublic/120/2012,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+369,A/Singapore/C2011452/2011-egg,[],[],[],2011.4490075290896,3b,K,L,S,G,S,T,K,A,egg,A/Singapore/C2011452/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+374,A/Christchurch/512/2012-egg,"['G186V', 'I242M', 'N246H']",[],[],2012.5092402464065,3b,K,L,V,G,S,T,K,A,egg,A/Christchurch/512/2012,K,L,S,G,S,T,K,A,0,0,1,0,0,0,0,0
+377,A/Singapore/H2011504C/2011-egg,[],[],[],2011.501026694045,3b,K,L,S,G,S,T,K,A,egg,A/Singapore/H2011504C/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+378,A/Singapore/C2011614/2011-egg,[],[],[],2011.6105407255304,3b,K,L,S,G,S,T,K,A,egg,A/Singapore/C2011614/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+379,A/Singapore/C2011564/2011-egg,[],[],[],2011.561259411362,3b,K,L,S,G,S,T,K,A,egg,A/Singapore/C2011564/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+380,A/Singapore/H2011518/2011-egg,[],[],[],2011.514715947981,3b,K,L,S,G,S,T,K,A,egg,A/Singapore/H2011518/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+383,A/Singapore/C2011518/2011-egg,[],[],[],2011.514715947981,3b,K,L,S,G,S,T,K,A,egg,A/Singapore/C2011518/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+384,A/Singapore/H2011570/2011-egg,[],[],[],2011.5667351129364,3b,K,L,S,G,S,T,K,A,egg,A/Singapore/H2011570/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+387,A/Singapore/C2011573/2011-egg,[],[],[],2011.5694729637235,3b,K,L,S,G,S,T,K,A,egg,A/Singapore/C2011573/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+388,A/Singapore/C2011647/2011-egg,[],[],[],2011.643394934976,3b,K,L,S,G,S,T,K,A,egg,A/Singapore/C2011647/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+407,A/Singapore/H2011507/2011-egg,[],[],[],2011.5037645448324,3c,K,L,S,G,S,T,K,A,egg,A/Singapore/H2011507/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+408,A/Singapore/C2011512/2011-egg,[],[],[],2011.5092402464065,3c,K,L,S,G,S,T,K,A,egg,A/Singapore/C2011512/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+411,A/Singapore/C2011641/2011-egg,[],[],[],2011.6379192334018,3c,K,L,S,G,S,T,K,A,egg,A/Singapore/C2011641/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+412,A/CzechRepublic/131/2012-egg,[],[],[],2012.3121149897331,3c,K,L,S,G,S,T,K,A,egg,A/CzechRepublic/131/2012,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+413,A/CzechRepublic/132/2012-egg,[],[],[],2012.3121149897331,3c,K,L,S,G,S,T,K,A,egg,A/CzechRepublic/132/2012,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+415,A/Cairo/51/2012-egg,[],['F196L'],[],2012.930869267625,3c,K,L,S,G,S,T,K,A,egg,A/Cairo/51/2012,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+417,A/Singapore/C2011244/2011-egg,[],[],[],2011.2409308692677,3c,K,L,S,G,S,T,K,A,egg,A/Singapore/C2011244/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+419,A/Singapore/C2011411/2011-egg,[],[],[],2011.4079397672826,3c,K,L,S,G,S,T,K,A,egg,A/Singapore/C2011411/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+420,A/Victoria/527/2012-egg,"['N171D', 'G186V']",[],[],2012.457221081451,3c,K,L,V,G,S,T,K,A,egg,A/Victoria/527/2012,K,L,S,G,S,T,K,A,0,0,1,0,0,0,0,0
+421,A/Singapore/H2011797/2011-egg,[],[],[],2011.7939767282683,3c,K,L,S,G,S,T,K,A,egg,A/Singapore/H2011797/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+424,A/Victoria/361/2011-egg,"['H156R', 'G186V']",[],[],2011.8104038329911,3c,K,L,V,G,S,T,R,A,egg,A/Victoria/361/2011,K,L,S,G,S,T,K,A,0,0,1,0,0,0,1,0
+426,A/Singapore/H2011447/2011-egg,[],[],[],2011.4435318275155,3c,K,L,S,G,S,T,K,A,egg,A/Singapore/H2011447/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+429,A/CzechRepublic/76/2012-egg,['I179V'],[],[],2012.2135523613963,3c,K,L,S,G,S,T,K,A,egg,A/CzechRepublic/76/2012,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+431,A/Berlin/93/2011-egg,"['H156R', 'G186S']",['I193T'],[],2011.501026694045,3c,K,L,S,G,S,T,R,A,egg,A/Berlin/93/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,1,0
+433,A/Singapore/H2011808bC/2011-egg,[],[],[],2011.8049281314168,3c,K,L,S,G,S,T,K,A,egg,A/Singapore/H2011808bC/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+434,A/Brisbane/1/2012-egg,['G186V'],[],[],2012.0136892539356,3c,K,L,V,G,S,T,K,A,egg,A/Brisbane/1/2012,K,L,S,G,S,T,K,A,0,0,1,0,0,0,0,0
+437,A/Norway/1292/2012-egg,['L194P'],[],[],2012.3258042436687,3c,K,P,S,G,S,T,K,A,egg,A/Norway/1292/2012,K,L,S,G,S,T,K,A,0,1,0,0,0,0,0,0
+439,A/Maine/5/2012-egg,"['Y98F', 'I226N']",[],[],2012.2546201232033,3c,K,L,S,G,S,T,K,A,egg,A/Maine/5/2012,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+440,A/Almaty/3277/2012-egg,[],[],[],2012.0,3c,K,L,S,G,S,T,K,A,egg,A/Almaty/3277/2012,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+442,A/Texas/50/2012-egg,"['G186V', 'S219F', 'I226N']",[],[],2012.2874743326488,3c,K,L,V,G,F,T,K,A,egg,A/Texas/50/2012,K,L,S,G,S,T,K,A,0,0,1,0,1,0,0,0
+443,A/Taiwan/613/2012-egg,[],[],['F15V'],2012.37234770705,3c,K,L,S,G,S,T,K,A,egg,A/Taiwan/613/2012,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+447,A/CzechRepublic/121/2012-egg,"['E50K', 'N171D']",[],[],2012.1779603011637,3c,K,L,S,G,S,T,K,A,egg,A/CzechRepublic/121/2012,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+454,A/Taiwan/285/2012-egg,['D190G'],[],[],2012.1779603011637,3c,K,L,S,G,S,T,K,A,egg,A/Taiwan/285/2012,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+456,A/Singapore/C2011803/2011-egg,[],[],[],2011.7994524298426,3c,K,L,S,G,S,T,K,A,egg,A/Singapore/C2011803/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+457,A/Singapore/H2011808a/2011-egg,[],[],[],2011.8049281314168,3c,K,L,S,G,S,T,K,A,egg,A/Singapore/H2011808a/2011,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+461,A/Hawaii/22/2012-egg,['I226S'],[],[],2012.520191649555,3c,K,L,V,G,S,T,K,A,egg,A/Hawaii/22/2012,K,L,S,G,S,T,K,A,0,0,1,0,0,0,0,0
+462,A/Hawaii/25/2012-egg,"['S124G', 'S219F']",[],[],2012.6735112936344,3c,K,L,V,G,F,T,K,A,egg,A/Hawaii/25/2012,K,L,S,G,S,T,K,A,0,0,1,0,1,0,0,0
+464,A/NewHampshire/11/2012-egg,['L194P'],[],[],2012.7118412046543,3c,K,P,S,G,S,T,K,A,egg,A/NewHampshire/11/2012,K,L,S,G,S,T,K,A,0,1,0,0,0,0,0,0
+469,A/Pennsylvania/9/2012-egg,['L194P'],[],[],2012.3039014373717,3c,K,P,S,G,S,T,K,A,egg,A/Pennsylvania/9/2012,K,L,S,G,S,T,K,A,0,1,0,0,0,0,0,0
+474,A/NewHampshire/10/2012-egg,"['H156Q', 'G186V', 'S219F']",[],[],2012.3422313483916,3c,K,L,V,G,F,T,Q,A,egg,A/NewHampshire/10/2012,K,L,S,G,S,T,K,A,0,0,1,0,1,0,1,0
+476,A/NewHampshire/16/2012-egg,['G186V'],['A201V'],[],2012.8843258042436,3c,K,L,V,G,S,T,K,A,egg,A/NewHampshire/16/2012,K,L,S,G,S,T,K,A,0,0,1,0,0,0,0,0
+477,A/Glasgow/407664/2012-egg,['L194P'],[],[],2012.2546201232033,3c,K,P,S,G,S,T,K,A,egg,A/Glasgow/407664/2012,K,L,S,G,S,T,K,A,0,1,0,0,0,0,0,0
+494,A/Alaska/4/2012-egg,"['G186V', 'N246S', 'K264N']",[],[],2012.3668720054757,3c,K,L,V,G,S,T,K,A,egg,A/Alaska/4/2012,K,L,S,G,S,T,K,A,0,0,1,0,0,0,0,0
+512,A/Almaty/2958/2013-egg,"['I140K', 'G186V', 'S219F']",[],[],2013.0711841204654,3c3,K,L,V,G,F,T,K,A,egg,A/Almaty/2958/2013,K,L,S,G,S,T,K,A,0,0,1,0,1,0,0,0
+513,A/Newcastle/1/2013-egg,"['D7N', 'G186V', 'S219F']",[],[],2013.0355920602328,3c3,K,L,V,G,F,T,K,A,egg,A/Newcastle/1/2013,K,L,S,G,S,T,K,A,0,0,1,0,1,0,0,0
+518,A/SaoPaulo/5-13834/2014-egg,[],[],[],2014.5311430527036,3c3,K,L,S,G,S,T,K,A,egg,A/SaoPaulo/5-13834/2014,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+535,A/Singapore/H2013403/2013-egg,[],[],[],2013.3997262149212,3c3,K,L,S,G,S,T,K,A,egg,A/Singapore/H2013403/2013,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+536,A/Singapore/H2013721d/2013-egg,[],[],[],2013.7173169062287,3c3,K,L,S,G,S,T,K,A,egg,A/Singapore/H2013721d/2013,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+537,A/Singapore/H2013721f/2013-egg,[],[],[],2013.7173169062287,3c3,K,L,S,G,S,T,K,A,egg,A/Singapore/H2013721f/2013,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+538,A/Singapore/H2013721a/2013-egg,[],[],[],2013.7173169062287,3c3,K,L,S,G,S,T,K,A,egg,A/Singapore/H2013721a/2013,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+539,A/Singapore/H2013729/2013-egg,[],[],[],2013.72553045859,3c3,K,L,S,G,S,T,K,A,egg,A/Singapore/H2013729/2013,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+571,A/Hubei-Wuchang/170/2014-egg,[],[],[],2014.0355920602328,3c3,K,L,S,G,S,T,K,A,egg,A/Hubei-Wuchang/170/2014,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+577,A/Canberra/2/2014-egg,"['H156Q', 'G186V']",[],[],2014.060232717317,3c3,K,L,V,G,S,T,Q,A,egg,A/Canberra/2/2014,K,L,S,G,S,T,K,A,0,0,1,0,0,0,1,0
+615,A/SaoPaulo/10-22878/2015-egg,[],[],[],2015.495550992471,3c3.A,K,L,S,D,S,T,K,S,egg,A/SaoPaulo/10-22878/2015,K,L,S,D,S,T,K,S,0,0,0,0,0,0,0,0
+617,A/SaoPaulo/52081/2015-egg,[],[],[],2015.4052019164956,3c3.A,K,L,S,D,S,T,K,S,egg,A/SaoPaulo/52081/2015,K,L,S,D,S,T,K,S,0,0,0,0,0,0,0,0
+626,A/NewYork/5/2014-egg,"['D225G', 'N246T']",[],[],2014.0547570157426,3c3.A,K,L,S,G,S,T,K,S,egg,A/NewYork/5/2014,K,L,S,D,S,T,K,S,0,0,0,1,0,0,0,0
+627,A/Switzerland/9715293/2013-egg,"['I140R', 'S219Y']",[],[],2013.9281314168377,3c3.A,K,L,V,D,Y,T,K,S,egg,A/Switzerland/9715293/2013,K,L,S,D,S,T,K,S,0,0,1,0,1,0,0,0
+628,A/NorthCarolina/13/2014-egg,[],[],[],2014.2847364818617,3c3.A,K,L,V,D,S,T,K,S,egg,A/NorthCarolina/13/2014,K,L,S,D,S,T,K,S,0,0,1,0,0,0,0,0
+631,A/Singapore/GP1940/2013-egg,"['H156R', 'D225G']",[],['A16T'],2013.9281314168377,3c3.A,K,L,S,G,S,T,R,S,egg,A/Singapore/GP1940/2013,K,L,S,D,S,T,K,S,0,0,0,1,0,0,1,0
+639,A/Jiangsu-Xinpu/1963/2014-egg,[],[],[],2014.9199178644765,3c3.A,K,L,R,D,S,T,K,S,egg,A/Jiangsu-Xinpu/1963/2014,K,L,S,D,S,T,K,S,0,0,1,0,0,0,0,0
+640,A/Jiangsu-Qingpu/1660/2015-egg,[],[],[],2015.3230663928816,3c3.A,K,L,R,D,S,T,K,S,egg,A/Jiangsu-Qingpu/1660/2015,K,L,S,D,S,T,K,S,0,0,1,0,0,0,0,0
+641,A/Jiangsu-Sucheng/1309/2016-egg,[],[],[],2016.2956878850102,3c3.A,K,L,R,D,S,T,K,S,egg,A/Jiangsu-Sucheng/1309/2016,K,L,S,D,S,T,K,S,0,0,1,0,0,0,0,0
+642,A/Jiangsu-Sucheng/1834/2017-egg,[],[],[],2017.7939767282683,3c3.A,K,L,R,D,S,T,K,S,egg,A/Jiangsu-Sucheng/1834/2017,K,L,S,D,S,T,K,S,0,0,1,0,0,0,0,0
+643,A/Jiangsu-Sucheng/1489/2017-egg,[],[],[],2017.4681724845996,3c3.A,K,L,R,D,S,T,K,S,egg,A/Jiangsu-Sucheng/1489/2017,K,L,S,D,S,T,K,S,0,0,1,0,0,0,0,0
+678,A/CzechRepublic/20/2014-egg,['A212S'],['D160N'],[],2014.996577686516,3c3.A,K,L,S,D,S,T,K,S,egg,A/CzechRepublic/20/2014,K,L,S,D,S,T,K,S,0,0,0,0,0,0,0,0
+683,A/Shandong-Laicheng/1763/2016-egg,"['I140M', 'G186I', 'I214T', 'D225G', 'N246H']",[],[],2016.9472963723476,3c3.A,K,L,I,G,S,T,K,S,egg,A/Shandong-Laicheng/1763/2016,K,L,S,D,S,T,K,S,0,0,1,1,0,0,0,0
+699,A/Tasmania/11/2014-egg,"['G186D', 'D190G', 'D225G']",[],[],2014.2026009582478,3c3.A,K,L,D,G,S,T,K,S,egg,A/Tasmania/11/2014,K,L,S,D,S,T,K,S,0,0,1,1,0,0,0,0
+704,A/SouthAustralia/55/2014-egg,"['H156R', 'G186E']",[],[],2014.4900752908966,3c3.A,K,L,E,G,S,T,R,S,egg,A/SouthAustralia/55/2014,K,L,S,D,S,T,K,S,0,0,1,1,0,0,1,0
+705,A/Southaustralia/55/2014-egg,['S145N'],[],[],2014.4490075290896,3c3.A,K,L,S,G,S,T,K,S,egg,A/Southaustralia/55/2014,K,L,S,D,S,T,K,S,0,0,0,1,0,0,0,0
+717,A/Brisbane/4/2017-egg,[],[],['A16T'],2017.021902806297,3c3.A,K,L,S,D,S,T,K,S,egg,A/Brisbane/4/2017,K,L,S,D,S,T,K,S,0,0,0,0,0,0,0,0
+720,A/Goias/386531/2017-egg,[],[],[],2017.6954140999314,3c3.A,K,L,S,D,S,T,K,S,egg,A/Goias/386531/2017,K,L,S,D,S,T,K,S,0,0,0,0,0,0,0,0
+725,A/Kansas/14/2017-egg,"['D190N', 'N246S']",[],[],2017.950034223135,3c3.A,K,L,S,D,S,T,K,S,egg,A/Kansas/14/2017,K,L,S,D,S,T,K,S,0,0,0,0,0,0,0,0
+766,A/Idaho/33/2016-egg,[],[],[],2016.432580424367,3c3.A,K,L,S,D,S,T,K,S,egg,A/Idaho/33/2016,K,L,S,D,S,T,K,S,0,0,0,0,0,0,0,0
+769,A/SouthAustralia/54/2016-egg,['D225G'],['G175E'],[],2016.5284052019165,3c3.A,K,L,S,G,S,T,K,S,egg,A/SouthAustralia/54/2016,K,L,S,D,S,T,K,S,0,0,0,1,0,0,0,0
+773,A/Sydney/142/2016-egg,"['H156Q', 'D225G']",[],[],2016.495550992471,3c3.A,K,L,S,G,S,T,Q,S,egg,A/Sydney/142/2016,K,L,S,D,S,T,K,S,0,0,0,1,0,0,1,0
+785,A/Massachusetts/11/2013-egg,['L194P'],[],[],2013.520191649555,3c3,K,P,S,G,S,T,K,A,egg,A/Massachusetts/11/2013,K,L,S,G,S,T,K,A,0,1,0,0,0,0,0,0
+789,A/SaoPaulo/3-29553/2014-egg,[],[],[],2014.495550992471,3c3,K,L,S,G,S,T,K,A,egg,A/SaoPaulo/3-29553/2014,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+791,A/Pennsylvania/CHOP9/2013-egg,[],[],[],2013.1642710472279,3c3,K,L,S,G,S,T,K,A,egg,A/Pennsylvania/CHOP9/2013,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+793,A/SaoPaulo/10-38324/2013-egg,[],[],[],2013.8459958932237,3c3,K,L,S,G,S,T,K,A,egg,A/SaoPaulo/10-38324/2013,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+794,A/SaoPaulo/13-13137/2013-egg,[],['I219V'],[],2013.5557837097879,3c3,K,L,S,G,S,T,K,A,egg,A/SaoPaulo/13-13137/2013,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+796,A/Goias/3910/2014-egg,[],[],[],2014.0164271047229,3c3,K,L,S,G,S,T,K,A,egg,A/Goias/3910/2014,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+797,A/SaoPaulo/10774/2014-egg,[],['N95K'],[],2014.1341546885694,3c3,K,L,S,G,S,T,K,A,egg,A/SaoPaulo/10774/2014,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+800,A/SouthAfrica/8766/2013-egg,['V166A'],[],[],2013.6872005475702,3c3,K,L,S,G,S,T,K,A,egg,A/SouthAfrica/8766/2013,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+801,A/SouthAfrica/9061/2013-egg,['I245V'],[],[],2013.7063655030802,3c3,K,L,S,G,S,T,K,A,egg,A/SouthAfrica/9061/2013,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+803,A/SouthAfrica/5853/2013-egg,[],[],[],2013.5284052019165,3c3,K,L,S,G,S,T,K,A,egg,A/SouthAfrica/5853/2013,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+804,A/SouthAfrica/8195/2013-egg,[],[],[],2013.6543463381245,3c3,K,L,S,G,S,T,K,A,egg,A/SouthAfrica/8195/2013,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+805,A/SouthAfrica/8324/2013-egg,[],[],[],2013.6652977412732,3c3,K,L,S,G,S,T,K,A,egg,A/SouthAfrica/8324/2013,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+807,A/SouthAfrica/7241/2013-egg,[],[],[],2013.5968514715948,3c3,K,L,S,G,S,T,K,A,egg,A/SouthAfrica/7241/2013,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+808,A/SouthAfrica/7279/2013-egg,[],[],[],2013.5968514715948,3c3,K,L,S,G,S,T,K,A,egg,A/SouthAfrica/7279/2013,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+810,A/SouthAfrica/6451/2013-egg,[],[],[],2013.5639972621493,3c3,K,L,S,G,S,T,K,A,egg,A/SouthAfrica/6451/2013,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+811,A/SouthAfrica/6388/2013-egg,[],[],[],2013.5639972621493,3c3,K,L,S,G,S,T,K,A,egg,A/SouthAfrica/6388/2013,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+812,A/SouthAfrica/7073/2013-egg,[],[],[],2013.5859000684463,3c3,K,L,S,G,S,T,K,A,egg,A/SouthAfrica/7073/2013,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+813,A/SouthAfrica/6627/2013-egg,[],[],[],2013.5749486652978,3c3,K,L,S,G,S,T,K,A,egg,A/SouthAfrica/6627/2013,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+814,A/SouthAfrica/9015/2013-egg,[],[],[],2013.7118412046543,3c3,K,L,S,G,S,T,K,A,egg,A/SouthAfrica/9015/2013,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+821,A/SaoPaulo/53699/2013-egg,[],[],[],2013.4818617385351,3c3,K,L,S,G,S,T,K,A,egg,A/SaoPaulo/53699/2013,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+823,A/Arkansas/13/2013-egg,['G186V'],[],[],2013.6187542778919,3c3,K,L,V,G,S,T,K,A,egg,A/Arkansas/13/2013,K,L,S,G,S,T,K,A,0,0,1,0,0,0,0,0
+851,A/SaoPaulo/53873/2013-egg,[],[],[],2013.495550992471,3c3,K,L,S,G,S,T,K,A,egg,A/SaoPaulo/53873/2013,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+856,A/AthensGR/14/2013-egg,"['L194P', 'T203R']",[],[],2013.021902806297,3c3,K,P,S,G,S,R,K,A,egg,A/AthensGR/14/2013,K,L,S,G,S,T,K,A,0,1,0,0,0,1,0,0
+865,A/Wyoming/5/2013-egg,"['G186V', 'M268I']",['D160N'],[],2013.8131416837782,3c3,K,L,V,G,Y,T,K,A,egg,A/Wyoming/5/2013,K,L,S,G,S,T,K,A,0,0,1,0,1,0,0,0
+867,A/Victoria/505/2013-egg,"['G186V', 'S219F']",[],[],2013.457221081451,3c3,K,L,V,G,F,T,K,A,egg,A/Victoria/505/2013,K,L,S,G,S,T,K,A,0,0,1,0,1,0,0,0
+881,A/SaoPaulo/61715/2013-egg,[],['L98I'],[],2013.583162217659,3c3,K,L,S,G,S,T,K,A,egg,A/SaoPaulo/61715/2013,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+882,A/SaoPaulo/11-29688/2013-egg,[],[],[],2013.9390828199862,3c3,K,L,S,G,S,T,K,A,egg,A/SaoPaulo/11-29688/2013,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+883,A/SaoPaulo/88083/2013-egg,[],"['N95R', 'A96S']",[],2013.9007529089665,3c3,K,L,S,G,S,T,K,A,egg,A/SaoPaulo/88083/2013,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+885,A/SaoPaulo/11199/2014-egg,"['G5R', 'V112I', 'A128V']",[],[],2014.1368925393565,3c3,K,L,S,G,S,T,K,A,egg,A/SaoPaulo/11199/2014,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+886,A/MatoGrossodoSul/41977/2014-egg,[],[],[],2014.3039014373717,3c3,K,L,S,G,S,T,K,A,egg,A/MatoGrossodoSul/41977/2014,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+887,A/SaoPaulo/34136/2014-egg,[],['S71L'],[],2014.2874743326488,3c3,K,L,S,G,S,T,K,A,egg,A/SaoPaulo/34136/2014,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+888,A/SaoPaulo/9-130/2014-egg,['I192S'],[],[],2014.955509924709,3c3,K,L,S,G,S,T,K,A,egg,A/SaoPaulo/9-130/2014,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+889,A/SaoPaulo/22930/2014-egg,['I242R'],[],[],2014.2327173169062,3c3,K,L,S,G,S,T,K,A,egg,A/SaoPaulo/22930/2014,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+890,A/Goias/51166/2014-egg,[],[],[],2014.3586584531142,3c3,K,L,S,G,S,T,K,A,egg,A/Goias/51166/2014,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+893,A/Thessaloniki/63/2013-egg,['S124G'],[],[],2013.1204654346338,3c3,K,L,S,G,S,T,K,A,egg,A/Thessaloniki/63/2013,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+907,A/Texas/6/2014-egg,"['G186V', 'S219Y']",[],[],2014.0109514031485,3c3,K,L,V,G,Y,T,K,A,egg,A/Texas/6/2014,K,L,S,G,S,T,K,A,0,0,1,0,1,0,0,0
+923,A/Singapore/GP1599/2013-egg,['S219F'],[],[],2013.8213552361397,3c3,K,L,V,G,F,T,K,A,egg,A/Singapore/GP1599/2013,K,L,S,G,S,T,K,A,0,0,1,0,1,0,0,0
+924,A/Perth/2/2014-egg,['S219Y'],[],[],2014.0,3c3,K,L,V,G,Y,T,K,A,egg,A/Perth/2/2014,K,L,S,G,S,T,K,A,0,0,1,0,1,0,0,0
+934,A/Auckland/21/2013-egg,"['H156R', 'G186V', 'S219F']",[],[],2013.5968514715948,3c3,K,L,V,G,F,T,R,A,egg,A/Auckland/21/2013,K,L,S,G,S,T,K,A,0,0,1,0,1,0,1,0
+945,A/SaoPaulo/72626/2014-egg,"['S95T', 'N96S']",[],[],2014.6187542778919,3c3,K,L,S,G,S,T,K,A,egg,A/SaoPaulo/72626/2014,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+970,A/Guadeloupe/4127/2014-egg,"['G186V', 'S219F']",[],[],2014.1095140314853,3c3,K,L,V,G,F,T,K,A,egg,A/Guadeloupe/4127/2014,K,L,S,G,S,T,K,A,0,0,1,0,1,0,0,0
+978,A/Norway/2605/2015-egg,[],[],[],2015.7501711156742,3c3,K,L,S,G,S,T,K,A,egg,A/Norway/2605/2015,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+980,A/CzechRepublic/63/2015-egg,[],[],[],2015.0876112251883,3c3,K,L,S,G,S,T,K,A,egg,A/CzechRepublic/63/2015,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+982,A/Victoria/1000/2015-egg,"['H156Q', 'G186V']",[],[],2015.457221081451,3c3,K,L,V,G,S,T,Q,A,egg,A/Victoria/1000/2015,K,L,S,G,S,T,K,A,0,0,1,0,0,0,1,0
+986,A/Newcastle/25/2014-egg,['G186V'],[],[],2014.3367556468172,3c3.B,K,L,V,G,S,T,K,A,egg,A/Newcastle/25/2014,K,L,S,G,S,T,K,A,0,0,1,0,0,0,0,0
+987,A/Tucuman/I2377/2014-egg,"['Q1K', 'N22T', 'K259S', 'I260L', 'R307P']",[],[],2014.7310061601643,3c3.B,K,L,S,G,S,T,K,A,egg,A/Tucuman/I2377/2014,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+988,A/Victoria/503/2014-egg,"['G186V', 'F193S']",[],[],2014.3394934976043,3c3.B,K,L,V,G,S,T,K,A,egg,A/Victoria/503/2014,K,L,S,G,S,T,K,A,0,0,1,0,0,0,0,0
+999,A/Tasmania/1012/2015-egg,"['G186V', 'S219F']",[],[],2015.5886379192334,3c3.B,K,L,V,G,F,T,K,A,egg,A/Tasmania/1012/2015,K,L,S,G,S,T,K,A,0,0,1,0,1,0,0,0
+1001,A/Corsica/3501-08/2015-egg,[],[],[],2015.1642710472279,3c3.B,K,L,S,G,S,T,K,A,egg,A/Corsica/3501-08/2015,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+1002,A/Corsica/3521-06/2015-egg,[],[],[],2015.1724845995893,3c3.B,K,L,S,G,S,T,K,A,egg,A/Corsica/3521-06/2015,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+1006,A/CzechRepublic/33/2015-egg,[],[],[],2015.03832991102,3c3.B,K,L,S,G,S,T,K,A,egg,A/CzechRepublic/33/2015,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+1008,A/Washington/18/2013-egg,['L194P'],[],[],2013.908966461328,3c3,K,P,S,G,S,T,K,A,egg,A/Washington/18/2013,K,L,S,G,S,T,K,A,0,1,0,0,0,0,0,0
+1018,A/SriLanka/56/2013-egg,['L194P'],[],[],2013.6789869952088,3c3,K,P,S,G,S,T,K,A,egg,A/SriLanka/56/2013,K,L,S,G,S,T,K,A,0,1,0,0,0,0,0,0
+1021,A/California/61/2013-egg,"['G186V', 'I217V', 'S219Y']",[],[],2013.8213552361397,3c3,K,L,V,G,Y,T,K,A,egg,A/California/61/2013,K,L,S,G,S,T,K,A,0,0,1,0,1,0,0,0
+1023,A/Pennsylvania/8/2013-egg,"['G186V', 'S219Y']",[],[],2013.7611225188227,3c3,K,L,V,G,Y,T,K,A,egg,A/Pennsylvania/8/2013,K,L,S,G,S,T,K,A,0,0,1,0,1,0,0,0
+1030,A/Singapore/H2013422d/2013-egg,[],[],[],2013.4188911704312,3c3,K,L,S,G,S,T,K,A,egg,A/Singapore/H2013422d/2013,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+1031,A/SaoPaulo/3-34891/2014-egg,['T10A'],"['R163F', 'D164V', 'E165K', 'A166P', 'L167R', 'N168D', 'N169G', 'R170W', 'F171Y', 'Q172X', 'I173V', 'K174G', 'G175R', 'V176D', 'E177K', 'L178M', 'K179X', 'S180X', 'G181X', 'Y182X', 'K183X', 'D184X', 'W185X', 'I186X', 'L187X', 'W188X', 'I189X', 'S190X', 'F191X', 'A192X', 'I193X', 'S194X', 'C195X', 'F196X', 'L197X', 'L198X', 'C199X', 'V200X', 'A201X', 'L202X', 'L203X', 'G204X', 'F205X', 'I206X', 'M207X', 'W208X', 'A209X', 'C210X', 'Q211X', 'K212X', 'G213X', 'N214X', 'I215A']",[],2014.7638603696098,3c3,K,L,S,G,S,T,K,A,egg,A/SaoPaulo/3-34891/2014,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+1034,A/Arizona/17/2013-egg,"['G186V', 'S219F']",[],[],2013.9171800136892,3c3,K,L,V,G,F,T,K,A,egg,A/Arizona/17/2013,K,L,S,G,S,T,K,A,0,0,1,0,1,0,0,0
+1035,A/Nevada/9/2014-egg,"['Y94H', 'L194P']",[],[],2014.2573579739903,3c3,K,P,S,G,S,T,K,A,egg,A/Nevada/9/2014,K,L,S,G,S,T,K,A,0,1,0,0,0,0,0,0
+1040,A/Fiji/1/2014-egg,"['G186V', 'S219Y']",[],[],2014.3258042436687,3c3,K,L,V,G,Y,T,K,A,egg,A/Fiji/1/2014,K,L,S,G,S,T,K,A,0,0,1,0,1,0,0,0
+1045,A/Goias/82117/2014-egg,[],[],[],2014.7310061601643,3c3,K,L,S,G,S,T,K,A,egg,A/Goias/82117/2014,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+1046,A/SaoPaulo/5129/2014-egg,[],[],[],2014.0766598220398,3c3,K,L,S,G,S,T,K,A,egg,A/SaoPaulo/5129/2014,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+1047,A/SaoPaulo/17028/2014-egg,[],[],[],2014.1971252566734,3c3,K,L,S,G,S,T,K,A,egg,A/SaoPaulo/17028/2014,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+1054,A/Goias/6394/2015-egg,"['V213I', 'V309I']",[],[],2015.0711841204654,3c3,K,L,S,G,S,T,K,A,egg,A/Goias/6394/2015,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+1057,A/Tocantins/16261/2015-egg,['I140V'],[],[],2015.1314168377824,3c3,K,L,S,G,S,T,K,A,egg,A/Tocantins/16261/2015,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+1059,A/MatoGrossodoSul/66636/2014-egg,[],[],[],2014.5119780971936,3c3,K,L,S,G,S,T,K,A,egg,A/MatoGrossodoSul/66636/2014,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+1060,A/SaoPaulo/2932/2014-egg,[],[],[],2014.03832991102,3c3,K,L,S,G,S,T,K,A,egg,A/SaoPaulo/2932/2014,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+1061,A/SaoPaulo/3-24357/2014-egg,"['I25M', 'N225D']",[],[],2014.3668720054757,3c3,K,L,S,D,S,T,K,A,egg,A/SaoPaulo/3-24357/2014,K,L,S,G,S,T,K,A,0,0,0,1,0,0,0,0
+1062,A/SaoPaulo/95739/2014-egg,[],[],[],2014.9363449691991,3c3,K,L,S,G,S,T,K,A,egg,A/SaoPaulo/95739/2014,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+1063,A/Rondonia/18925/2015-egg,"['L59I', 'K83R', 'S312N']",[],[],2015.1916495550993,3c3,K,L,S,G,S,T,K,A,egg,A/Rondonia/18925/2015,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+1064,A/Rondonia/9097/2015-egg,[],[],[],2015.104038329911,3c3,K,L,S,G,S,T,K,A,egg,A/Rondonia/9097/2015,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+1065,A/Rondonia/5266/2015-egg,"['L244F', 'I245F', 'A253G', 'P254C']",[],[],2015.0793976728269,3c3,K,L,S,G,S,T,K,A,egg,A/Rondonia/5266/2015,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+1066,A/DistritoFederal/75551/2014-egg,[],[],[],2014.643394934976,3c3,K,L,S,G,S,T,K,A,egg,A/DistritoFederal/75551/2014,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+1067,A/Tocantins/29517/2015-egg,[],[],[],2015.2217659137577,3c3,K,L,S,G,S,T,K,A,egg,A/Tocantins/29517/2015,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+1068,A/SaoPaulo/22768/2014-egg,"['R33Q', 'V323I']",[],[],2014.2436687200548,3c3,K,L,S,G,S,T,K,A,egg,A/SaoPaulo/22768/2014,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+1070,A/SaoPaulo/7-6864/2014-egg,[],[],[],2014.435318275154,3c3,K,L,S,G,S,T,K,A,egg,A/SaoPaulo/7-6864/2014,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+1071,A/SaoPaulo/9879/2014-egg,[],['V176I'],[],2014.123203285421,3c3,K,L,S,G,S,T,K,A,egg,A/SaoPaulo/9879/2014,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+1072,A/MatoGrosso/45246/2014-egg,[],[],[],2014.3230663928816,3c3,K,L,S,G,S,T,K,A,egg,A/MatoGrosso/45246/2014,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+1073,A/SaoPaulo/3-24386/2014-egg,[],[],[],2014.3778234086242,3c3,K,L,S,G,S,T,K,A,egg,A/SaoPaulo/3-24386/2014,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+1076,A/Goias/85156/2014-egg,[],[],[],2014.7501711156742,3c3,K,L,S,G,S,T,K,A,egg,A/Goias/85156/2014,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+1077,A/SaoPaulo/2-25786/2014-egg,[],[],[],2014.8596851471596,3c3,K,L,S,G,S,T,K,A,egg,A/SaoPaulo/2-25786/2014,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+1078,A/SaoPaulo/53849/2014-egg,[],[],[],2014.4188911704312,3c3,K,L,S,G,S,T,K,A,egg,A/SaoPaulo/53849/2014,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+1079,A/SaoPaulo/54274/2014-egg,[],[],[],2014.4271047227926,3c3,K,L,S,G,S,T,K,A,egg,A/SaoPaulo/54274/2014,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+1082,A/Florida/40/2012-egg,"['H156Q', 'G186V']",[],[],2012.6324435318274,3c,K,L,V,G,S,T,Q,A,egg,A/Florida/40/2012,K,L,S,G,S,T,K,A,0,0,1,0,0,0,1,0
+1084,A/Vermont/28/2012-egg,"['N144S', 'L194P']",[],['S8G'],2012.9281314168377,3c,K,P,S,G,S,T,K,A,egg,A/Vermont/28/2012,K,L,S,G,S,T,K,A,0,1,0,0,0,0,0,0
+1089,A/Singapore/H2013060/2013-egg,[],[],[],2013.0574948665299,3c,K,L,S,G,S,T,K,A,egg,A/Singapore/H2013060/2013,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+1097,A/Stockholm/36/2012-egg,['G186V'],[],[],2012.8761122518822,3c,K,L,V,G,S,T,K,A,egg,A/Stockholm/36/2012,K,L,S,G,S,T,K,A,0,0,1,0,0,0,0,0
+1118,A/HongKong/32/2013-egg,['G186V'],[],[],2013.0054757015744,3c,K,L,V,G,S,T,K,A,egg,A/HongKong/32/2013,K,L,S,G,S,T,K,A,0,0,1,0,0,0,0,0
+1119,A/Victoria/700/2013-egg,"['H156R', 'G186V']",[],[],2013.084873374401,3c,K,L,V,G,S,T,R,A,egg,A/Victoria/700/2013,K,L,S,G,S,T,K,A,0,0,1,0,0,0,1,0
+1126,A/Singapore/22/2012-egg,['G186V'],[],[],2012.4298425735797,3c,K,L,V,G,S,T,K,A,egg,A/Singapore/22/2012,K,L,S,G,S,T,K,A,0,0,1,0,0,0,0,0
+1149,A/SouthDakota/12/2012-egg,"['G186V', 'N246S', 'R299K']",[],[],2012.8268309377138,3c,K,L,V,G,S,T,K,A,egg,A/SouthDakota/12/2012,K,L,S,G,S,T,K,A,0,0,1,0,0,0,0,0
+1152,A/Missouri/4/2013-egg,"['A138S', 'L194P']",[],[],2013.1998631074607,3c,K,P,S,G,S,T,K,S,egg,A/Missouri/4/2013,K,L,S,G,S,T,K,A,0,1,0,0,0,0,0,1
+1153,A/Pennsylvania/CHOP3/2013-egg,[],[],[],2013.024640657084,3c,K,L,S,G,S,T,K,A,egg,A/Pennsylvania/CHOP3/2013,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+1154,A/Pennsylvania/CHOP10/2012-egg,[],[],[],2012.766598220397,3c,K,L,S,G,S,T,K,A,egg,A/Pennsylvania/CHOP10/2012,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+1155,A/Colorado/18/2012-egg,['H156R'],[],[],2012.7830253251198,3c,K,L,V,G,S,T,R,A,egg,A/Colorado/18/2012,K,L,S,G,S,T,K,A,0,0,1,0,0,0,1,0
+1156,A/Brisbane/1/2013-egg,"['S219F', 'I226S']",[],['C12Y'],2013.0054757015744,3c,K,L,V,G,F,T,K,A,egg,A/Brisbane/1/2013,K,L,S,G,S,T,K,A,0,0,1,0,1,0,0,0
+1184,A/Pennsylvania/CHOP5/2013-egg,['S312N'],[],[],2013.0903490759754,3c,K,L,S,G,S,T,K,A,egg,A/Pennsylvania/CHOP5/2013,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+1187,A/MatoGrossodoSul/53099/2013-egg,['C305F'],[],[],2013.4654346338125,3c,K,L,S,G,S,T,K,A,egg,A/MatoGrossodoSul/53099/2013,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+1188,A/Rondonia/50872/2013-egg,['V309I'],[],[],2013.4435318275155,3c,K,L,S,G,S,T,K,A,egg,A/Rondonia/50872/2013,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+1206,A/Singapore/GP637/2013-egg,"['G186V', 'N246H']",[],[],2013.3039014373717,3c,K,L,V,G,S,T,K,A,egg,A/Singapore/GP637/2013,K,L,S,G,S,T,K,A,0,0,1,0,0,0,0,0
+1220,A/Victoria/506/2013-egg,"['A138S', 'L194P']",[],[],2013.454483230664,3c,K,P,S,G,S,T,K,S,egg,A/Victoria/506/2013,K,L,S,G,S,T,K,A,0,1,0,0,0,0,0,1
+1228,A/Singapore/CGH05/2013-egg,"['N96S', 'L194P']",[],[],2013.4024640657085,3c,K,P,S,G,S,T,K,A,egg,A/Singapore/CGH05/2013,K,L,S,G,S,T,K,A,0,1,0,0,0,0,0,0
+1232,A/Singapore/H2013901/2013-egg,"['N8D', 'R33Q']",['I173V'],[],2013.8980150581792,3c,K,L,S,G,S,T,K,A,egg,A/Singapore/H2013901/2013,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+1237,A/Singapore/H2013238/2013-egg,[],[],[],2013.2354551676933,3c,K,L,S,G,S,T,K,A,egg,A/Singapore/H2013238/2013,K,L,S,G,S,T,K,A,0,0,0,0,0,0,0,0
+1240,A/Brisbane/198/2013-egg,[],[],[],2013.8459958932237,3c,K,P,S,G,S,T,K,A,egg,A/Brisbane/198/2013,K,L,S,G,S,T,K,A,0,1,0,0,0,0,0,0
+1241,A/Perth/239/2013-egg,['T203I'],[],[],2013.7337440109513,3c,K,P,S,G,S,I,K,A,egg,A/Perth/239/2013,K,L,S,G,S,T,K,A,0,1,0,0,0,1,0,0
+1253,A/Bangladesh/9269/2013-egg,"['S145N', 'L194P']",[],[],2013.3586584531142,3c,R,P,S,G,S,T,K,A,egg,A/Bangladesh/9269/2013,K,L,S,G,S,T,K,A,1,1,0,0,0,0,0,0
+1255,A/Washington/13/2013-egg,"['K27R', 'G186V']",['V176I'],[],2013.8624229979466,3c,K,L,V,G,S,T,K,A,egg,A/Washington/13/2013,K,L,S,G,S,T,K,A,0,0,1,0,0,0,0,0
+1270,A/Singapore/GP1523/2014-egg,"['T160K', 'L194P', 'D225N']",[],[],2014.520191649555,3c2.A,K,P,S,G,S,T,K,A,egg,A/Singapore/GP1523/2014,T,L,S,D,S,T,K,A,1,1,0,1,0,0,0,0
+1272,A/HongKong/5738/2014-egg,"['T203I', 'S312N']",[],[],2014.3258042436687,3c2.A,K,P,S,D,S,I,K,A,egg,A/HongKong/5738/2014,T,L,S,D,S,T,K,A,1,1,0,0,0,1,0,0
+1273,A/HongKong/4801/2014-egg,"['N96S', 'I140K']",[],[],2014.1533196440794,3c2.A,K,P,S,D,S,T,K,A,egg,A/HongKong/4801/2014,T,L,S,D,S,T,K,A,1,1,0,0,0,0,0,0
+1293,A/Southaustralia/9/2015-egg,"['I140K', 'T160K', 'L194P']",[],[],2015.1149897330595,3c2.A,K,P,S,D,S,T,K,A,egg,A/Southaustralia/9/2015,T,L,S,D,S,T,K,A,1,1,0,0,0,0,0,0
+1297,A/Hawaii/44/2017-egg,"['T160K', 'L194V', 'D225G', 'I226T']",[],[],2017.6132785763175,A4,K,V,S,G,S,T,K,A,egg,A/Hawaii/44/2017,T,L,S,D,S,T,K,A,1,1,0,1,0,0,0,0
+1301,A/Kanagawa/ZC1710/2017-egg,"['T160K', 'G186V', 'D225N']",[],[],2017.971937029432,A4,K,L,V,G,S,T,K,A,egg,A/Kanagawa/ZC1710/2017,T,L,S,D,S,T,K,A,1,0,1,1,0,0,0,0
+1319,A/Victoria/746/2017-egg,"['T160K', 'L194P', 'T203I']",[],[],2017.6872005475702,A4,K,P,S,D,S,I,K,A,egg,A/Victoria/746/2017,T,L,S,D,S,T,K,A,1,1,0,0,0,1,0,0
+1323,A/SouthAustralia/209/2017-egg,['L194P'],[],[],2017.5311430527036,A4,I,P,S,D,S,T,K,A,egg,A/SouthAustralia/209/2017,T,L,S,D,S,T,K,A,1,1,0,0,0,0,0,0
+1335,A/SaoPaulo/12-15454/2014-egg,['K83N'],[],[],2014.7693360711842,3c2.A,T,L,S,D,S,T,K,A,egg,A/SaoPaulo/12-15454/2014,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+1336,A/SaoPaulo/9-134/2014-egg,['H94Q'],[],[],2014.952772073922,3c2.A,T,L,S,D,S,T,K,A,egg,A/SaoPaulo/9-134/2014,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+1337,A/SaoPaulo/9-1757/2015-egg,[],[],[],2015.1067761806983,3c2.A,T,L,S,D,S,T,K,A,egg,A/SaoPaulo/9-1757/2015,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+1338,A/SaoPaulo/38433/2015-egg,[],[],[],2015.2874743326488,3c2.A,T,L,S,D,S,T,K,A,egg,A/SaoPaulo/38433/2015,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+1339,A/SaoPaulo/20448/2015-egg,[],[],[],2015.186173853525,3c2.A,T,L,S,D,S,T,K,A,egg,A/SaoPaulo/20448/2015,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+1351,A/CzechRepublic/41/2015-egg,['N6D'],[],[],2015.0739219712525,3c2.A,T,L,S,D,S,T,K,A,egg,A/CzechRepublic/41/2015,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+1352,A/SaoPaulo/6-726/2015-egg,['H156Q'],[],['A16T'],2015.041067761807,3c2.A,T,L,S,D,S,T,Q,A,egg,A/SaoPaulo/6-726/2015,T,L,S,D,S,T,K,A,0,0,0,0,0,0,1,0
+1355,A/Corsica/4076-12/2015-egg,"['I3L', 'Y178H', 'G186V', 'S198P']",[],[],2015.1149897330595,3c2.A,T,L,V,D,S,T,K,A,egg,A/Corsica/4076-12/2015,T,L,S,D,S,T,K,A,0,0,1,0,0,0,0,0
+1365,A/Canberra/82/2014-egg,['A304P'],['K82R'],[],2014.577686516085,3c2.A,K,P,S,G,S,T,K,A,egg,A/Canberra/82/2014,T,L,S,D,S,T,K,A,1,1,0,1,0,0,0,0
+1366,A/NewCaledonia/71/2014-egg,['S9N'],['G150E'],[],2014.6132785763175,3c2.A,K,P,S,G,S,T,K,A,egg,A/NewCaledonia/71/2014,T,L,S,D,S,T,K,A,1,1,0,1,0,0,0,0
+1375,A/Corsica/15-12/2015-egg,"['I3L', 'M168V']",[],[],2015.1889117043122,3c2.A,T,L,S,D,S,T,K,A,egg,A/Corsica/15-12/2015,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+1395,A/SouthAfrica/2982/2015-egg,"['T160K', 'L194P']",[],[],2015.4216290212185,3c2.A,K,P,S,D,S,T,K,A,egg,A/SouthAfrica/2982/2015,T,L,S,D,S,T,K,A,1,1,0,0,0,0,0,0
+1417,A/Brisbane/174/2015-egg,"['T167A', 'L194P', 'T203I']",[],['I10T'],2015.6817248459959,3c2.A,T,P,S,D,S,I,K,A,egg,A/Brisbane/174/2015,T,L,S,D,S,T,K,A,0,1,0,0,0,1,0,0
+1419,A/Auckland/10/2015-egg,['L194P'],[],[],2015.5338809034909,3c2.A,T,P,S,D,S,T,K,A,egg,A/Auckland/10/2015,T,L,S,D,S,T,K,A,0,1,0,0,0,0,0,0
+1425,A/SaoPaulo/12-11656/2015-egg,[],[],[],2015.4928131416839,3c2.A,T,L,S,D,S,T,K,A,egg,A/SaoPaulo/12-11656/2015,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+1427,A/Nebraska/19/2015-egg,"['T160K', 'L194P']",[],[],2015.807665982204,3c2.A,K,P,S,D,S,T,K,A,egg,A/Nebraska/19/2015,T,L,S,D,S,T,K,A,1,1,0,0,0,0,0,0
+1439,A/Singapore/GP2050/2015-egg,"['L194P', 'D225N']",[],[],2015.9390828199862,3c2.A,T,P,S,G,S,T,K,A,egg,A/Singapore/GP2050/2015,T,L,S,D,S,T,K,A,0,1,0,1,0,0,0,0
+1489,A/Fiji/7/2015-egg,[],[],[],2015.394250513347,3c2.A,K,P,S,D,S,T,K,A,egg,A/Fiji/7/2015,T,L,S,D,S,T,K,A,1,1,0,0,0,0,0,0
+1490,A/Fiji/4/2015-egg,"['D225G', 'S262N']",[],[],2015.2491444216291,3c2.A,K,P,S,G,S,T,K,A,egg,A/Fiji/4/2015,T,L,S,D,S,T,K,A,1,1,0,1,0,0,0,0
+1501,A/Saitama/103/2014-egg,[],['H106L'],[],2014.8761122518822,3c2.A,T,L,S,D,S,T,K,A,egg,A/Saitama/103/2014,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+1512,A/SaoPaulo/46667/2015-egg,[],[],['L13M'],2015.3422313483916,3c2.A,T,L,S,D,S,T,K,A,egg,A/SaoPaulo/46667/2015,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+1517,A/SaoPaulo/4-21208/2015-egg,[],[],['L7V'],2015.7748117727583,3c2.A,T,L,S,D,S,T,K,A,egg,A/SaoPaulo/4-21208/2015,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+1518,A/SaoPaulo/61282/2015-egg,[],"['C195X', 'K212X']",[],2015.5530458590006,3c2.A,T,L,S,D,S,T,K,A,egg,A/SaoPaulo/61282/2015,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+1519,A/SaoPaulo/2-18547/2015-egg,['V309I'],[],[],2015.6516084873374,3c2.A,T,L,S,D,S,T,K,A,egg,A/SaoPaulo/2-18547/2015,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+1524,A/MatoGrossodoSul/70736/2015-egg,['N216S'],[],[],2015.6461327857633,3c2.A,T,L,S,D,S,T,K,A,egg,A/MatoGrossodoSul/70736/2015,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+1525,A/SaoPaulo/13-8806/2015-egg,[],[],[],2015.7967145790553,3c2.A,T,L,S,D,S,T,K,A,egg,A/SaoPaulo/13-8806/2015,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+1526,A/MatoGrosso/350652/2016-egg,"['I34V', 'R142G']",[],[],2016.6899383983573,3c2.A,T,L,S,D,S,T,K,A,egg,A/MatoGrosso/350652/2016,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+1529,A/SaoPaulo/65194/2015-egg,[],['Q211X'],[],2015.6078028747434,3c2.A,T,L,S,D,S,T,K,A,egg,A/SaoPaulo/65194/2015,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+1530,A/SaoPaulo/76607/2015-egg,"['Q57H', 'E119D']",[],[],2015.7830253251198,3c2.A,T,L,S,D,S,T,K,A,egg,A/SaoPaulo/76607/2015,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+1531,A/SaoPaulo/10-23958/2015-egg,[],[],[],2015.5503080082135,3c2.A,T,L,S,D,S,T,K,A,egg,A/SaoPaulo/10-23958/2015,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+1534,A/SaoPaulo/72317/2015-egg,[],[],[],2015.72553045859,3c2.A,T,L,S,D,S,T,K,A,egg,A/SaoPaulo/72317/2015,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+1535,A/SaoPaulo/3-37389/2015-egg,[],[],[],2015.72553045859,3c2.A,T,L,S,D,S,T,K,A,egg,A/SaoPaulo/3-37389/2015,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+1537,A/MatoGrossodoSul/85939/2015-egg,['N96K'],[],[],2015.8815879534566,3c2.A,T,L,S,D,S,T,K,A,egg,A/MatoGrossodoSul/85939/2015,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+1563,A/SaoPaulo/12-10904/2015-egg,['T135K'],['K123R'],[],2015.3039014373717,3c2.A,T,L,S,D,S,T,K,A,egg,A/SaoPaulo/12-10904/2015,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+1573,A/SaoPaulo/340809/2016-egg,"['C14L', 'L15P', 'G16W', 'H17A']","['L187Q', 'C195G', 'L203W']",[],2016.6817248459959,A3,T,L,S,D,S,T,K,A,egg,A/SaoPaulo/340809/2016,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+1574,A/Catalonia/NSVH100483235/2016-egg,[],[],['V14A'],2016.8350444900752,A3,T,L,S,D,S,T,K,A,egg,A/Catalonia/NSVH100483235/2016,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+1593,A/SaoPaulo/593870/2017-egg,['K259E'],[],[],2017.6570841889118,A3,T,L,S,D,S,T,K,A,egg,A/SaoPaulo/593870/2017,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+1595,A/Romania/207297/2017-egg,['I192T'],[],[],2017.0547570157426,A3,T,L,S,D,S,T,K,A,egg,A/Romania/207297/2017,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+1613,A/Singapore/KK1100/2016-egg,[],[],[],2016.911704312115,A3,K,P,S,D,S,T,K,A,egg,A/Singapore/KK1100/2016,T,L,S,D,S,T,K,A,1,1,0,0,0,0,0,0
+1614,A/Norway/4849/2016-egg,['D225G'],[],[],2016.9199178644765,A3,K,P,S,G,S,T,K,A,egg,A/Norway/4849/2016,T,L,S,D,S,T,K,A,1,1,0,1,0,0,0,0
+1642,A/Ohio/31/2017-egg,"['T160K', 'L194P', 'T203I']",[],[],2017.561259411362,A3,K,P,S,D,S,I,K,A,egg,A/Ohio/31/2017,T,L,S,D,S,T,K,A,1,1,0,0,0,1,0,0
+1649,A/Romania/206784/2017-egg,['Y302H'],[],[],2017.0301163586585,A3,T,L,S,D,S,T,K,A,egg,A/Romania/206784/2017,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+1658,A/SaoPaulo/52727/2015-egg,[],[],[],2015.432580424367,3c2.A,T,L,S,D,S,T,K,A,egg,A/SaoPaulo/52727/2015,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+1659,A/SaoPaulo/12-11416/2015-egg,[],[],[],2015.4216290212185,3c2.A,T,L,S,D,S,T,K,A,egg,A/SaoPaulo/12-11416/2015,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+1676,A/Singapore/KK943/2014-egg,['D225N'],[],[],2014.7638603696098,3c2.A,K,P,S,G,S,T,K,A,egg,A/Singapore/KK943/2014,T,L,S,D,S,T,K,A,1,1,0,1,0,0,0,0
+1677,A/Norway/2178/2014-egg,"['T203I', 'I226T']",[],[],2014.5968514715948,3c2.A,K,P,S,D,S,I,K,A,egg,A/Norway/2178/2014,T,L,S,D,S,T,K,A,1,1,0,0,0,1,0,0
+1678,A/Victoria/265/2014-egg,[],[],[],2014.6078028747434,3c2.A,K,P,S,D,S,T,K,A,egg,A/Victoria/265/2014,T,L,S,D,S,T,K,A,1,1,0,0,0,0,0,0
+1679,A/Brisbane/341/2014-egg,['T203I'],[],[],2014.7529089664613,3c2.A,K,P,S,D,S,I,K,A,egg,A/Brisbane/341/2014,T,L,S,D,S,T,K,A,1,1,0,0,0,1,0,0
+1680,A/HongKong/7127/2014-egg,['D225G'],[],[],2014.5722108145105,3c2.A,K,P,S,G,S,T,K,A,egg,A/HongKong/7127/2014,T,L,S,D,S,T,K,A,1,1,0,1,0,0,0,0
+1681,A/VIctoria/673/2014-egg,[],[],[],2014.6817248459959,3c2.A,K,P,S,D,S,T,K,A,egg,A/VIctoria/673/2014,T,L,S,D,S,T,K,A,1,1,0,0,0,0,0,0
+1682,A/Victoria/673/2014-egg,[],[],[],2014.6817248459959,3c2.A,K,P,S,D,S,T,K,A,egg,A/Victoria/673/2014,T,L,S,D,S,T,K,A,1,1,0,0,0,0,0,0
+1685,A/Victoria/503/2015-egg,"['T160A', 'L194P', 'D225G']",['D158N'],[],2015.2436687200548,3c2.A,A,P,S,G,S,T,K,A,egg,A/Victoria/503/2015,T,L,S,D,S,T,K,A,1,1,0,1,0,0,0,0
+1687,A/Corsica/4076-15/2015-egg,"['I3L', 'Y178H', 'G186V', 'Y195H', 'S198P', 'G200A', 'R201K', 'T203I', 'R269K', 'H311Q']",['G13V'],[],2015.1314168377824,3c2.A,T,L,V,D,S,I,K,A,egg,A/Corsica/4076-15/2015,T,L,S,D,S,T,K,A,0,0,1,0,0,1,0,0
+1693,A/SaoPaulo/60985/2015-egg,['I3X'],[],[],2015.5475701574264,3c2.A,T,L,S,D,S,T,K,A,egg,A/SaoPaulo/60985/2015,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+1711,A/Rondonia/53925/2015-egg,[],[],[],2015.435318275154,3c2.A,T,L,S,D,S,T,K,A,egg,A/Rondonia/53925/2015,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+1719,A/Goias/49684/2015-egg,[],[],[],2015.3175906913073,3c2.A,T,L,S,D,S,T,K,A,egg,A/Goias/49684/2015,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+1725,A/SaoPaulo/3-32002/2015-egg,[],[],[],2015.3860369609856,3c2.A,T,L,S,D,S,T,K,A,egg,A/SaoPaulo/3-32002/2015,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+1802,A/Brisbane/183/2015-egg,"['A138S', 'L194P']",[],[],2015.7802874743327,3c2.A,K,P,S,D,S,T,K,S,egg,A/Brisbane/183/2015,T,L,S,D,S,T,K,A,1,1,0,0,0,0,0,1
+1825,A/Fiji/60/2016-egg,[],[],[],2016.4024640657085,3c2.A,K,P,S,G,S,T,K,A,egg,A/Fiji/60/2016,T,L,S,D,S,T,K,A,1,1,0,1,0,0,0,0
+1857,A/Washington/16/2017-egg,"['T160K', 'L194P']",[],[],2017.065708418891,A2,K,P,S,D,S,T,K,A,egg,A/Washington/16/2017,T,L,S,D,S,T,K,A,1,1,0,0,0,0,0,0
+1860,A/Shaanxi-Hanbin/11305/2016-egg,[],[],[],2016.971937029432,A2,T,L,S,D,S,T,K,A,egg,A/Shaanxi-Hanbin/11305/2016,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+1868,A/Norway/4293/2016-egg,[],[],[],2016.807665982204,A2,T,L,S,D,S,T,K,A,egg,A/Norway/4293/2016,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+1870,A/Brisbane/321/2016-egg,"['T160K', 'L194P']",[],[],2016.9664613278576,A2,K,P,S,D,S,T,K,A,egg,A/Brisbane/321/2016,T,L,S,D,S,T,K,A,1,1,0,0,0,0,0,0
+1880,A/Parana/481/2017-egg,['T283S'],[],[],2017.4106776180697,A2,T,L,S,D,S,T,K,A,egg,A/Parana/481/2017,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+1891,A/Kanagawa/IC1610/2017-egg,"['A138S', 'H183L', 'L194M', 'D225G', 'P227H']",['K82N'],[],2017.024640657084,A2,T,M,S,G,S,T,K,S,egg,A/Kanagawa/IC1610/2017,T,L,S,D,S,T,K,A,0,1,0,1,0,0,0,1
+1896,A/SaoPaulo/733190/2018-egg,['N122T'],[],[],2018.1752224503764,A2,T,L,S,D,S,T,K,A,egg,A/SaoPaulo/733190/2018,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+1897,A/SaoPaulo/1054970/2017-egg,[],[],[],2017.9281314168377,A2,T,L,S,D,S,T,K,A,egg,A/SaoPaulo/1054970/2017,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+1899,A/SaoPaulo/706496/2018-egg,['H17P'],['C195S'],[],2018.084873374401,A2,T,L,S,D,S,T,K,A,egg,A/SaoPaulo/706496/2018,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+1909,A/Saopaulo/603559/2017-egg,['E50K'],[],[],2017.7036276522929,A2/re,T,L,S,D,S,T,K,A,egg,A/Saopaulo/603559/2017,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+1911,A/SaoPaulo/614558/2017-egg,['R220K'],[],[],2017.7364818617386,A2/re,T,L,S,D,S,T,K,A,egg,A/SaoPaulo/614558/2017,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+1912,A/SaoPaulo/1044167/2017-egg,['P21S'],[],[],2017.908966461328,A2/re,T,L,S,D,S,T,K,A,egg,A/SaoPaulo/1044167/2017,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+1913,A/SaoPaulo/662138/2017-egg,[],[],[],2017.8980150581792,A2/re,T,L,S,D,S,T,K,A,egg,A/SaoPaulo/662138/2017,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+1934,A/Christchurch/516/2017-egg,"['T160K', 'L194P']",[],[],2017.7611225188227,A2/re,K,P,S,D,S,T,K,A,egg,A/Christchurch/516/2017,T,L,S,D,S,T,K,A,1,1,0,0,0,0,0,0
+1936,A/SaoPaulo/669992/2017-egg,[],[],[],2017.9281314168377,A2/re,T,L,S,D,S,T,K,A,egg,A/SaoPaulo/669992/2017,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+1938,A/SaoPaulo/625769/2017-egg,[],[],[],2017.7583846680357,A2/re,T,L,S,D,S,T,K,A,egg,A/SaoPaulo/625769/2017,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+1939,A/SaoPaulo/591445/2017-egg,[],[],[],2017.6570841889118,A2/re,T,L,S,D,S,T,K,A,egg,A/SaoPaulo/591445/2017,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+1940,A/Goias/852896/2018-egg,[],[],[],2018.01916495551,A2/re,T,L,S,D,S,T,K,A,egg,A/Goias/852896/2018,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+1941,A/DistritoFederal/756373/2018-egg,['R150K'],[],[],2018.123203285421,A2/re,T,L,S,D,S,T,K,A,egg,A/DistritoFederal/756373/2018,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+1949,A/Kentucky/1/2018-egg,"['K160I', 'D225G']",[],[],2018.0082135523614,A2/re,I,P,S,G,S,T,K,A,egg,A/Kentucky/1/2018,T,L,S,D,S,T,K,A,1,1,0,1,0,0,0,0
+1950,A/SouthAustralia/274/2017-egg,[],[],[],2017.9691991786447,A2/re,K,P,S,D,S,T,K,A,egg,A/SouthAustralia/274/2017,T,L,S,D,S,T,K,A,1,1,0,0,0,0,0,0
+1959,A/Cardiff/7109/2018-egg,[],[],[],2018.0,A2/re,T,L,S,D,S,T,K,A,egg,A/Cardiff/7109/2018,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+1965,A/SaoPaulo/691063/2018-egg,['T12M'],[],[],2018.0301163586585,A2/re,T,L,S,D,S,T,K,A,egg,A/SaoPaulo/691063/2018,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+1977,A/Brisbane/1/2018-egg,[],[],[],2018.002737850787,A2/re,K,P,S,D,S,T,K,A,egg,A/Brisbane/1/2018,T,L,S,D,S,T,K,A,1,1,0,0,0,0,0,0
+1978,A/RhodeIsland/1/2018-egg,[],[],[],2018.0054757015744,A2/re,K,P,S,D,S,T,K,A,egg,A/RhodeIsland/1/2018,T,L,S,D,S,T,K,A,1,1,0,0,0,0,0,0
+1980,A/Kanagawa/IC1739/2018-egg,"['T160K', 'L194P']",[],[],2018.1177275838468,A2/re,K,P,S,D,S,T,K,A,egg,A/Kanagawa/IC1739/2018,T,L,S,D,S,T,K,A,1,1,0,0,0,0,0,0
+1984,A/Romania/225758/2018-egg,[],[],[],2018.1834360027378,A2/re,T,L,S,D,S,T,K,A,egg,A/Romania/225758/2018,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+1992,A/Thessaloniki/62/2018-egg,[],[],[],2018.043805612594,A2/re,T,L,S,D,S,T,K,A,egg,A/Thessaloniki/62/2018,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+2011,A/HongKong/50/2016-egg,"['A138S', 'T160K', 'L194P']",['E155G'],[],2015.993839835729,A1,K,P,S,D,S,T,K,S,egg,A/HongKong/50/2016,T,L,S,D,S,T,K,A,1,1,0,0,0,0,0,1
+2021,A/Parana/484/2017-egg,[],[],['V4I'],2017.4271047227926,A1,T,L,S,D,S,T,K,A,egg,A/Parana/484/2017,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+2022,A/SaoPaulo/913733/2017-egg,[],[],[],2017.6351813826147,A1,T,L,S,D,S,T,K,A,egg,A/SaoPaulo/913733/2017,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+2025,A/SriLanka/61/2015-egg,['T203I'],[],[],2015.908966461328,A1,K,P,S,D,S,I,K,S,egg,A/SriLanka/61/2015,T,L,S,D,S,T,K,A,1,1,0,0,0,1,0,1
+2026,A/Alaska/232/2015-egg,['F193Y'],[],[],2015.6872005475702,A1,K,P,S,D,S,T,K,S,egg,A/Alaska/232/2015,T,L,S,D,S,T,K,A,1,1,0,0,0,0,0,1
+2040,A/Parana/717/2017-egg,"['H56Y', 'S262N']",[],['L13M'],2017.520191649555,A1,T,L,S,D,S,T,K,A,egg,A/Parana/717/2017,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+2041,A/SaoPaulo/348596/2016-egg,['I245F'],[],[],2016.6680355920603,A1,T,L,S,D,S,T,K,A,egg,A/SaoPaulo/348596/2016,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+2042,A/Piaui/494713/2017-egg,[],[],[],2017.2518822724162,A1,T,L,S,D,S,T,K,A,egg,A/Piaui/494713/2017,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+2046,A/Georgia/169/2017-egg,[],[],[],2017.0876112251883,A1,T,L,S,D,S,T,K,A,egg,A/Georgia/169/2017,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+2047,A/Georgia/278/2017-egg,['D104N'],[],[],2017.1423682409309,A1,T,L,S,D,S,T,K,A,egg,A/Georgia/278/2017,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+2048,A/Georgia/238/2017-egg,[],[],[],2017.123203285421,A1,T,L,S,D,S,T,K,A,egg,A/Georgia/238/2017,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+2057,A/MatoGrossodoSul/523791/2017-egg,[],"['W185G', 'L187Q']",[],2017.101300479124,A1,T,L,S,D,S,T,K,A,egg,A/MatoGrossodoSul/523791/2017,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+2058,A/Tocantins/448825/2017-egg,[],"['V84I', 'V200L']",[],2017.1177275838468,A1,T,L,S,D,S,T,K,A,egg,A/Tocantins/448825/2017,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+2130,A/SouthAustralia/135/2016-egg,"['A138S', 'H156R', 'T160K', 'G186V']",[],[],2016.8432580424367,A1,K,L,V,D,S,T,R,S,egg,A/SouthAustralia/135/2016,T,L,S,D,S,T,K,A,1,0,1,0,0,0,1,1
+2138,A/Romania/3784-3835/2016-egg,['T65S'],[],[],2016.993839835729,A1a,T,L,S,D,S,T,K,A,egg,A/Romania/3784-3835/2016,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+2139,A/Romania/205950/2016-egg,[],[],[],2016.955509924709,A1a,T,L,S,D,S,T,K,A,egg,A/Romania/205950/2016,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+2140,A/Romania/207793/2017-egg,[],[],[],2017.104038329911,A1a,T,L,S,D,S,T,K,A,egg,A/Romania/207793/2017,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+2141,A/Norway/3806/2016-egg,"['T160K', 'L194P']",[],[],2016.4490075290896,A1a,K,P,S,D,S,T,K,A,egg,A/Norway/3806/2016,T,L,S,D,S,T,K,A,1,1,0,0,0,0,0,0
+2148,A/Idaho/37/2016-egg,"['R142G', 'T160K', 'L164V', 'G186D', 'D190G', 'D225G']",[],[],2016.766598220397,A1a,K,L,D,G,S,T,K,A,egg,A/Idaho/37/2016,T,L,S,D,S,T,K,A,1,0,1,1,0,0,0,0
+2160,A/Romania/208407/2017-egg,[],[],[],2017.1368925393565,A1a,T,L,S,D,S,T,K,A,egg,A/Romania/208407/2017,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+2163,A/Romania/206417/2017-egg,[],['V161M'],[],2017.0082135523614,A1a,T,L,S,D,S,T,K,A,egg,A/Romania/206417/2017,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+2168,A/SaoPaulo/690385/2018-egg,"['N31D', 'S265G']",['A101T'],[],2018.024640657084,A1a,T,L,S,D,S,T,K,A,egg,A/SaoPaulo/690385/2018,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+2170,A/MatoGrossodoSul/510074/2018-egg,[],['N169K'],[],2018.123203285421,A1a,T,L,S,D,S,T,K,A,egg,A/MatoGrossodoSul/510074/2018,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+2173,A/RioGrandedoSul/667/2017-egg,[],[],[],2017.5448323066394,A1a,T,L,S,D,S,T,K,A,egg,A/RioGrandedoSul/667/2017,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+2181,A/Antananarivo/1067/2016-egg,"['T160K', 'G186V', 'S219F', 'I226S']",[],[],2016.2600958247776,A1,K,L,V,D,F,T,K,A,egg,A/Antananarivo/1067/2016,T,L,S,D,S,T,K,A,1,0,1,0,1,0,0,0
+2204,A/Singapore/Infimh-16-0019/2016-egg,"['T160K', 'L194P']",[],[],2016.4517453798767,A1,K,P,S,D,S,T,K,A,egg,A/Singapore/Infimh-16-0019/2016,T,L,S,D,S,T,K,A,1,1,0,0,0,0,0,0
+2209,A/Kanagawa/ZC1613/2017-egg,"['A138S', 'T160I', 'L194P', 'T203I']",[],[],2017.0985626283368,A1,I,P,S,D,S,I,K,S,egg,A/Kanagawa/ZC1613/2017,T,L,S,D,S,T,K,A,1,1,0,0,0,1,0,1
+2213,A/EspiritoSanto/58/2017-egg,['I25V'],[],[],2017.0465434633813,A1,T,L,S,D,S,T,K,A,egg,A/EspiritoSanto/58/2017,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+2216,A/MinasGerais/66/2017-egg,[],[],[],2017.0082135523614,A1,T,L,S,D,S,T,K,A,egg,A/MinasGerais/66/2017,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+2218,A/SaoPaulo/510403/2017-egg,[],[],[],2017.3477070499657,A1,T,L,S,D,S,T,K,A,egg,A/SaoPaulo/510403/2017,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+2219,A/SaoPaulo/446890/2017-egg,['N96H'],[],[],2017.1368925393565,A1,T,L,S,D,S,T,K,A,egg,A/SaoPaulo/446890/2017,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+2224,A/Piaui/507920/2017-egg,[],['K174R'],[],2017.3093771389458,A1,T,L,S,D,S,T,K,A,egg,A/Piaui/507920/2017,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+2225,A/Delaware/32/2016-egg,"['T128N', 'A138S', 'T160I', 'G186V', 'S219Y', 'D225G']",[],[],2016.8733744010951,A1,I,L,V,G,Y,T,K,S,egg,A/Delaware/32/2016,T,L,S,D,S,T,K,A,1,0,1,1,1,0,0,1
+2236,A/SaoPaulo/510173/2017-egg,"['C14G', 'R92K']","['L187Q', 'I189F', 'S190P', 'F191L', 'A192P', 'C195G']",[],2017.3477070499657,A1b,T,L,S,D,S,T,K,A,egg,A/SaoPaulo/510173/2017,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+2237,A/SaoPaulo/461770/2017-egg,[],['A147T'],[],2017.1752224503764,A1b,T,L,S,D,S,T,K,A,egg,A/SaoPaulo/461770/2017,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+2247,A/Romania/208461/2017-egg,['D53N'],[],[],2017.1368925393565,A1b,T,L,S,D,S,T,K,A,egg,A/Romania/208461/2017,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+2248,A/SantaCatarina/141/2017-egg,[],[],[],2017.2108145106092,A1b,T,L,S,D,S,T,K,A,egg,A/SantaCatarina/141/2017,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+2250,A/Newcastle/35/2017-egg,"['S124N', 'T160K', 'L194P']",[],[],2017.1943874058863,A1b,K,P,S,D,S,T,K,A,egg,A/Newcastle/35/2017,T,L,S,D,S,T,K,A,1,1,0,0,0,0,0,0
+2253,A/SaoPaulo/496292/2017-egg,[],['C195S'],[],2017.2819986310747,A1b,T,L,S,D,S,T,K,A,egg,A/SaoPaulo/496292/2017,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+2256,A/SaoPaulo/535746/2017-egg,[],[],[],2017.432580424367,A1b,T,L,S,D,S,T,K,A,egg,A/SaoPaulo/535746/2017,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+2257,A/Singapore/GP2646/2016-egg,"['T160A', 'G186V', 'D190N', 'D225G']",[],[],2016.9363449691991,A1b,A,L,V,G,S,T,K,A,egg,A/Singapore/GP2646/2016,T,L,S,D,S,T,K,A,1,0,1,1,0,0,0,0
+2261,A/SantaCatarina/479/2017-egg,[],[],[],2017.413415468857,A1b,T,L,S,D,S,T,K,A,egg,A/SantaCatarina/479/2017,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+2262,A/Catalonia/576683S/2016-egg,[],[],[],2016.8131416837782,A1b,T,L,S,D,S,T,K,A,egg,A/Catalonia/576683S/2016,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+2278,A/Georgia/714/2017-egg,[],[],[],2017.5503080082135,A1b/135N,T,L,S,D,S,T,K,A,egg,A/Georgia/714/2017,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+2295,A/Kanagawa/IC1725/2018-egg,"['T131N', 'A138S', 'D190G', 'D225G', 'P227S', 'N246T']",[],[],2018.0465434633813,A1b/135N,T,L,S,G,S,T,K,S,egg,A/Kanagawa/IC1725/2018,T,L,S,D,S,T,K,A,0,0,0,1,0,0,0,1
+2303,A/SriLanka/93/2017-egg,"['T160K', 'L194P', 'T203I']",[],[],2017.870636550308,A1b/135N,K,P,S,D,S,I,K,A,egg,A/SriLanka/93/2017,T,L,S,D,S,T,K,A,1,1,0,0,0,1,0,0
+2316,A/Sydney/52/2017-egg,"['T160K', 'L194P', 'T203I', 'D225G']",[],[],2017.1752224503764,A1b,K,P,S,G,S,I,K,A,egg,A/Sydney/52/2017,T,L,S,D,S,T,K,A,1,1,0,1,0,1,0,0
+2322,A/Newcastle/36/2017-egg,"['T160R', 'L194P', 'T203I']",[],[],2017.2874743326488,A1b,R,P,S,D,S,I,K,A,egg,A/Newcastle/36/2017,T,L,S,D,S,T,K,A,1,1,0,0,0,1,0,0
+2339,A/RioGrandedoSul/663/2017-egg,[],[],[],2017.520191649555,A1b/135K,T,L,S,D,S,T,K,A,egg,A/RioGrandedoSul/663/2017,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+2352,A/Victoria/653/2017-egg,"['T160K', 'L194P', 'T203I']",[],[],2017.6050650239563,A1b/135K,K,P,S,D,S,I,K,A,egg,A/Victoria/653/2017,T,L,S,D,S,T,K,A,1,1,0,0,0,1,0,0
+2359,A/HongKong/2286/2017-egg,"['Q75H', 'T160K', 'G186V', 'S219Y']",[],[],2017.3887748117727,A1b/135K,K,L,V,D,Y,T,K,A,egg,A/HongKong/2286/2017,T,L,S,D,S,T,K,A,1,0,1,0,1,0,0,0
+2397,A/SaoPaulo/734612/2018-egg,[],[],[],2018.1779603011637,A1b/135K,T,L,S,D,S,T,K,A,egg,A/SaoPaulo/734612/2018,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
+2421,A/Romania/225833/2018-egg,[],[],[],2018.2683093771388,A1b/135K,T,L,S,D,S,T,K,A,egg,A/Romania/225833/2018,T,L,S,D,S,T,K,A,0,0,0,0,0,0,0,0
