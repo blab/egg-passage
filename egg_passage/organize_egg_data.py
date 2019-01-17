@@ -142,7 +142,7 @@ def main(prefix, positions, tree_path, sequences_path, flu_ref_seq, tip_mutation
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description= "Organize Augur output into .csv to analyze egg-specific mutations")
-    parser.add_argument('--prefix', default= 'h3n2', help= "specify prefix for naming data files")
+    parser.add_argument('--prefix', default= 'h3n2_6y_notiter', help= "specify prefix for naming data files")
     parser.add_argument('-pos', '--positions', default = '[160, 194, 186, 225, 219, 203, 156, 138]', help="specify a list of HA1 positions to analyze")
     parser.add_argument('-tree','--tree_path', default= 'augur/flu_seasonal_h3n2_ha_6y_notiter_tree.json', help= "specify the filepath to _tree.json file")
     parser.add_argument('-seqs','--sequences_path', default= 'augur/flu_seasonal_h3n2_ha_6y_notiter_sequences.json', help= "specify the filepath to _sequences.json file")
