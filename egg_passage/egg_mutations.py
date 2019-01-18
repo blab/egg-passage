@@ -10,6 +10,9 @@ import seaborn as sns
 from scipy.stats import chi2_contingency
 
 def find_mutation_prevalence(prefix):
+    """
+    Find the overall proportion of egg-, cell- or un-passaged sequences that have a mutation at a given site. Test whether mutation prevalence is statistically different in egg-passaged sequences by chi-square test
+    """
 
     df = pd.read_csv('data/'+prefix+'_df.csv')
 
@@ -36,8 +39,12 @@ def find_mutation_prevalence(prefix):
 
         egg_v_cell_obs = np.array([chi_obs['egg'], chi_obs['cell']])
         ec_chi2, ec_p, ec_dof, ec_expected = chi2_contingency(egg_v_cell_obs)
+        if ec_p > 0.000001:
+            print('%s is not not significantly more mutated in egg-passaged vs. cell-passaged strains' %str(mut_site))
         egg_v_unpassaged_obs = np.array([chi_obs['egg'], chi_obs['0']])
         eu_chi2, eu_p, eu_dof, eu_expected = chi2_contingency(egg_v_unpassaged_obs)
+        if ec_p > 0.000001:
+            print('%s is not not significantly more mutated in egg-passaged vs. unpassaged strains' %str(mut_site))
         chi_pvalues['egg_v_cell'] = ec_p
         chi_pvalues['egg_v_unpassaged'] = eu_p
 
@@ -52,6 +59,9 @@ def find_mutation_prevalence(prefix):
 
 
 def plot_mutation_prev(prefix):
+    """
+    Plot the prevalence of mutations at identified HA sites in egg-passaged, cell-passaged and unpassaged viruses
+    """
 
     mut_prev_df, chi_square_df = find_mutation_prevalence(prefix)
 
@@ -60,7 +70,7 @@ def plot_mutation_prev(prefix):
     for site, stats in chi_square_df.items():
         stat_sig = 0 #statistical significance (0 if neither egg_v_cell or egg_v_unpassaged is significant, 2 if both are, 1 if only 1 is)
         for stat in stats:
-            if stat < 0.0001:
+            if stat < 0.00001:
                 stat_sig+=1
         site_sig[site[3:]] = stat_sig
 
@@ -71,7 +81,7 @@ def plot_mutation_prev(prefix):
     sns.set(style="whitegrid")
     barplot = sns.barplot(x='site', y='prevalence', hue='virus_passage', data=plot_df)
     barplot.set(xlabel='HA position', ylabel='prevalence of mutation')
-    barplot.get_figure().savefig('plots/egg_mutation_prevalence_'+str(prefix)+'.png')
+    barplot.get_figure().savefig('plots/egg_mutation_prevalence_'+str(prefix)+'.pdf')
 
 
 if __name__ == '__main__':
