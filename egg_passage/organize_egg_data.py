@@ -146,7 +146,7 @@ if __name__ == '__main__':
     parser.add_argument('-pos', '--positions', default = '[160, 194, 186, 225, 219, 203, 156, 138]', help="specify a list of HA1 positions to analyze")
     parser.add_argument('-tree','--tree_path', default= 'augur/flu_seasonal_h3n2_ha_6y_notiter_tree.json', help= "specify the filepath to _tree.json file")
     parser.add_argument('-seqs','--sequences_path', default= 'augur/flu_seasonal_h3n2_ha_6y_notiter_sequences.json', help= "specify the filepath to _sequences.json file")
-    parser.add_argument('--flu_ref_seq', default= 'h3n2_outgroup.gb', help= "filepath of h3n2 genbank reference sequence")
+    parser.add_argument('--flu_ref_seq', default= 'input_data/h3n2_outgroup.gb', help= "filepath of h3n2 genbank reference sequence")
     parser.add_argument('--tip_mutations', default= True, help= "refine list of positions to consider based on the locations of the most prevalent tip mutations in egg-passaged sequences")
     args = parser.parse_args()
 

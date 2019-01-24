@@ -58,10 +58,47 @@ def find_aa_titers(prefix):
     fig.savefig('plots/titers_'+str(prefix)+'.pdf', bbox_inches='tight')
 
 
+def find_titer_ratio(prefix):
+    """
+    Calculate ratio between titers of egg-passaged seqs with mutations and average titer of strains in that clade
+    """
+
+    df = pd.read_csv('data/'+prefix+'_df.csv')
+    egg_df = df[df['passage']=='egg']
+
+    clade_titer_df = df.groupby('clade')['cTiterSub'].agg(['mean', 'std', 'size']).reset_index()
+
+    titer_ratios = []
+
+    mut_sites = [col for col in egg_df.columns if col[0:3]=='mut']
+    for k,v in egg_df.iterrows():
+        for mut_site in mut_sites:
+            if v[mut_site] == True:
+                clade_mean = clade_titer_df[clade_titer_df['clade']==v['clade']]['mean']
+                titer_ratios.append({'mut_site':str(mut_site[3:]), 'clade':v['clade'], 'titer_ratio': float(v['cTiterSub'])/float(clade_mean)})
+
+    titer_ratios_df = pd.DataFrame(titer_ratios)
+
+    means = titer_ratios_df.groupby('mut_site')['titer_ratio'].mean().values
+    mean_labels = [str(np.round(x, 2)) for x in means.tolist()]
+    counts = titer_ratios_df.groupby('mut_site')['titer_ratio'].size().values
+    count_labels = ['n= '+str(x) for x in counts.tolist()]
+
+    fig, ax = plt.subplots()
+    sns.boxplot(x = 'mut_site', y = 'titer_ratio', data = titer_ratios_df, color='#33c7bc')
+    ax.set(ylabel='Titer ratio (egg-passaging mutation/ clade average)')
+    ax.set(xlabel='HA position')
+
+    pos = range(len(means))
+    for tick,label in zip(pos,ax.get_xticklabels()):
+        ax.text(pos[tick], means[tick] + 0.55, mean_labels[tick]+'\n'+count_labels[tick], horizontalalignment='center', size='small', color='black')
+
+    fig.savefig('plots/titer_ratios_'+str(prefix)+'.pdf')
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description = "Determines egg-specific mutations")
-    parser.add_argument('--prefix', default= 'h3n2_6y_hi', help= "specify prefix for naming data files")
+    parser.add_argument('--prefix', default= 'h3n2_6y_fra', help= "specify prefix for naming data files")
     args = parser.parse_args()
 
     find_aa_titers(prefix = args.prefix)
+    find_titer_ratio(prefix = args.prefix)

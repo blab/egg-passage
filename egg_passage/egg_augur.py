@@ -68,9 +68,9 @@ def run_augur(fasta_file, summary_file, resolution, titers):
     #Run flu.prepare.py
     if titers != None:
         if titers == 'hi':
-            titer_path = '../../../../egg-passage/egg_passage/h3n2_who_hi_concat_titers.tsv'
+            titer_path = '../../../../egg-passage/egg_passage/input_data/h3n2_who_hi_concat_titers.tsv'
         if titers == 'fra':
-            titer_path = '../../../../egg-passage/egg_passage/h3n2_who_fra_concat_titers.tsv'
+            titer_path = '../../../../egg-passage/egg_passage/input_data/h3n2_who_fra_concat_titers.tsv'
         prep= subprocess.Popen(["python", "flu.prepare.py", "--sequences", "../../../fauna/data/h3n2_ha.fasta", "-r", str(resolution), "--titers", str(titer_path)], stdout=subprocess.PIPE)
         #print prepare.py output in terminal
         print(prep.stdout.read())
