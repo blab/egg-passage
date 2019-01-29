@@ -263,10 +263,8 @@ def plot_heatmap(prefix):
             site2_list = list(aa_epistasis_df[aa_epistasis_df['site2']==str(sites[site2])]['site2_aa'].unique())
             cmap = sns.diverging_palette(220, 20, sep=10, as_cmap=True)
             heatmap = ax[site1, site2].imshow(plot_arrays[site1][site2], cmap=cmap, vmin= -2.0, vmax=2.0, aspect='auto')
-            # heatmap = ax[site1, site2].imshow(plot_arrays[site1][site2], vmin= -2.0, vmax=2.0, cmap='RdBu', aspect='auto')
 
             ax[site1, site2].tick_params(axis='both', which='both', length=0)
-            # ax[site1, site2].tick_params(axis='x', length=0)
             ax[site1, site2].set_xticks([p for p in range(len(site2_list))])
             ax[site1, site2].set_yticks([p for p in range(len(site1_list))])
             ax[site1, site2].tick_params(labelbottom=False)
@@ -293,9 +291,6 @@ def plot_heatmap(prefix):
                 colors= ['red' if str(s) in egg_muts[str(sites[site1])] else 'black' for s in site1_list]
                 for ytick, color in zip(ax[site1, site2].get_yticklabels(), colors):
                     ytick.set_color(color)
-
-
-
 
     cbar_ax = fig.add_axes([0.95, 0.2, 0.05, 0.7])
     colorbar = fig.colorbar(heatmap, cax=cbar_ax)

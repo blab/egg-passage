@@ -100,7 +100,7 @@
 887,A/Jiangsu-Xinpu/1385/2012-egg,[],[],[],2012.640657084189,,,unassigned,K,G,P,A,T,S,S,K,egg,A/Jiangsu-Xinpu/1385/2012,K,G,L,A,T,S,S,K,0,0,1,0,0,0,0,0
 888,A/Jiangsu-Xinpu/1963/2014-egg,[],[],[],2014.9199178644765,,,3c3.A,K,D,L,S,T,R,S,K,egg,A/Jiangsu-Xinpu/1963/2014,K,D,L,S,T,S,S,K,0,0,0,0,0,1,0,0
 907,A/Kalamata/540/2017-egg,"[u'R142G', u'G186I', u'D190S', u'N246H']",[],[],2017.0492813141684,,,A1a,T,D,L,A,T,I,S,K,egg,A/Kalamata/540/2017,T,D,L,A,T,S,S,K,0,0,0,0,0,1,0,0
-928,A/Kanagawa/AC1704/2017-egg,"[u'H156R', u'Y161H', u'G186S', u'D190S', u'S219F', u'D225N']",[],[],2017.9253935660506,,,A2/re,T,G,L,A,T,S,F,R,egg,A/Kanagawa/AC1704/2017,T,D,L,A,T,S,S,K,0,1,0,0,0,0,1,1
+928,A/Kanagawa/AC1704/2017-egg,"[u'H156R', u'Y161H', u'G186S', u'D190S', u'S219F', u'D225N']",[],[],2017.9253935660506,,,A2/re,T,N,L,A,T,S,F,R,egg,A/Kanagawa/AC1704/2017,T,D,L,A,T,S,S,K,0,1,0,0,0,0,1,1
 932,A/Kanagawa/AC1740/2018-egg,"[u'V88I', u'T203I']",[u'I193T'],[],2018.3969883641341,,,A2/re,K,D,P,A,I,S,S,K,egg,A/Kanagawa/AC1740/2018,T,D,L,A,T,S,S,K,1,0,1,0,1,0,0,0
 933,A/Kanagawa/IC1610/2017-egg,"[u'A138S', u'H183L', u'L194M', u'D225G', u'P227H']",[u'K82N'],[],2017.024640657084,,,A2,T,G,M,S,T,S,S,K,egg,A/Kanagawa/IC1610/2017,T,D,L,A,T,S,S,K,0,1,1,1,0,0,0,0
 934,A/Kanagawa/IC1619/2017-egg,"[u'N122D', u'H156R', u'T160K', u'G186V']",[],[],2017.0520191649555,,,A1b,K,D,L,A,T,V,S,R,egg,A/Kanagawa/IC1619/2017,T,D,L,A,T,S,S,K,1,0,0,0,0,1,0,1
@@ -154,10 +154,10 @@
 1670,A/Singapore/C2011545C/2011-egg,[],[],[],2011.542094455852,,,3b,K,G,L,A,T,S,S,K,egg,A/Singapore/C2011545C/2011,K,G,L,A,T,S,S,K,0,0,0,0,0,0,0,0
 1673,A/Singapore/CGH05/2013-egg,"[u'N96S', u'L194P']",[],[],2013.4024640657085,,,3c2,K,G,P,A,T,S,S,K,egg,A/Singapore/CGH05/2013,K,G,L,A,T,S,S,K,0,0,1,0,0,0,0,0
 1678,A/Singapore/GP0077/2018-egg,"[u'T160K', u'L194P', u'T203I']",[],[],2018.0273785078714,,,A1b/135N,K,D,P,A,I,S,S,K,egg,A/Singapore/GP0077/2018,T,D,L,A,T,S,S,K,1,0,1,0,1,0,0,0
-1683,A/Singapore/GP1523/2014-egg,"[u'N31S', u'D225N', u'R269K']",[],[],2014.520191649555,,,3c2.A,K,G,P,A,T,S,S,K,egg,A/Singapore/GP1523/2014,T,D,L,A,T,S,S,K,1,1,1,0,0,0,0,0
+1683,A/Singapore/GP1523/2014-egg,"[u'N31S', u'D225N', u'R269K']",[],[],2014.520191649555,,,3c2.A,K,N,P,A,T,S,S,K,egg,A/Singapore/GP1523/2014,T,D,L,A,T,S,S,K,1,1,1,0,0,0,0,0
 1684,A/Singapore/GP1599/2013-egg,[u'S219F'],[],[],2013.8213552361397,,,3c3,K,G,L,A,T,V,F,K,egg,A/Singapore/GP1599/2013,K,G,L,A,T,S,S,K,0,0,0,0,0,1,1,0
 1686,A/Singapore/GP1940/2013-egg,[],[],[u'A16T'],2013.9281314168377,,,3c3.A,K,G,L,S,T,S,S,R,egg,A/Singapore/GP1940/2013,K,D,L,S,T,S,S,K,0,1,0,0,0,0,0,1
-1688,A/Singapore/GP2050/2015-egg,"[u'L194P', u'D225N']",[],[],2015.9390828199862,,,3c2.A,T,G,P,A,T,S,S,K,egg,A/Singapore/GP2050/2015,T,D,L,A,T,S,S,K,0,1,1,0,0,0,0,0
+1688,A/Singapore/GP2050/2015-egg,"[u'L194P', u'D225N']",[],[],2015.9390828199862,,,3c2.A,T,N,P,A,T,S,S,K,egg,A/Singapore/GP2050/2015,T,D,L,A,T,S,S,K,0,1,1,0,0,0,0,0
 1690,A/Singapore/GP2646/2016-egg,"[u'T160A', u'G186V', u'D190N', u'D225G']",[],[],2016.9363449691991,,,A1b,A,G,L,A,T,V,S,K,egg,A/Singapore/GP2646/2016,T,D,L,A,T,S,S,K,1,1,0,0,0,1,0,0
 1695,A/Singapore/GP637/2013-egg,"[u'G186V', u'N246H']",[],[],2013.3039014373717,,,3c2,K,G,L,A,T,V,S,K,egg,A/Singapore/GP637/2013,K,G,L,A,T,S,S,K,0,0,0,0,0,1,0,0
 1697,A/Singapore/H2009332C/2009-egg,[],[],[],2009.3285420944558,,,unassigned,K,G,L,A,T,S,S,K,egg,A/Singapore/H2009332C/2009,K,G,L,A,T,S,S,K,0,0,0,0,0,0,0,0
@@ -174,7 +174,7 @@
 1735,A/Singapore/Infimh-16-0019/2016-egg,"[u'T160K', u'L194P']",[],[],2016.4517453798767,,,A1,K,D,P,A,T,S,S,K,egg,A/Singapore/Infimh-16-0019/2016,T,D,L,A,T,S,S,K,1,0,1,0,0,0,0,0
 1740,A/Singapore/KK0199/2018-egg,[],[],[],2018.1149897330595,,,A2/re,K,D,P,A,T,S,S,K,egg,A/Singapore/KK0199/2018,T,D,L,A,T,S,S,K,1,0,1,0,0,0,0,0
 1743,A/Singapore/KK1100/2016-egg,[u'T160K'],[],[],2016.911704312115,,,A3,K,D,P,A,T,S,S,K,egg,A/Singapore/KK1100/2016,T,D,L,A,T,S,S,K,1,0,1,0,0,0,0,0
-1747,A/Singapore/KK943/2014-egg,[u'D225N'],[],[],2014.7638603696098,,,3c2.A,K,G,P,A,T,S,S,K,egg,A/Singapore/KK943/2014,T,D,L,A,T,S,S,K,1,1,1,0,0,0,0,0
+1747,A/Singapore/KK943/2014-egg,[u'D225N'],[],[],2014.7638603696098,,,3c2.A,K,N,P,A,T,S,S,K,egg,A/Singapore/KK943/2014,T,D,L,A,T,S,S,K,1,1,1,0,0,0,0,0
 1763,A/SouthAfrica/2982/2015-egg,"[u'T160K', u'L194P']",[],[],2015.4216290212185,,,3c2.A,K,D,P,A,T,S,S,K,egg,A/SouthAfrica/2982/2015,T,D,L,A,T,S,S,K,1,0,1,0,0,0,0,0
 1793,A/SouthAustralia/10/2018-egg,"[u'T160I', u'L194P']",[],[],2018.2518822724162,,,A2/re,I,D,P,A,T,S,S,K,egg,A/SouthAustralia/10/2018,T,D,L,A,T,S,S,K,1,0,1,0,0,0,0,0
 1800,A/SouthAustralia/135/2016-egg,"[u'A138S', u'H156R', u'T160K', u'G186V']",[],[],2016.8432580424367,,,A1,K,D,L,S,T,V,S,R,egg,A/SouthAustralia/135/2016,T,D,L,A,T,S,S,K,1,0,0,1,0,1,0,1

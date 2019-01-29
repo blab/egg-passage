@@ -31,35 +31,54 @@ def organize_egg_data_csv(prefix, positions, tree_path, sequences_path, flu_ref_
 
     #Input desired 0-based HA1 amino acid residue positions, find reference amino acid
     positions = ast.literal_eval(positions)
-    position_refaa = []
+    position_refaa = {}
 
     for pos in positions:
-        position_refaa.append((str(pos-1), ref_seqs['HA1_ref'][pos-1]))
+        position_refaa[str(pos)] = ref_seqs['HA1_ref'][pos-1]
+
 
     tip_muts = {}
 
     def traverse(branch, seq, pos_list):
 
-        if 'children' not in branch.keys():
+        #keep track of mutations at internal nodes
+        if 'children' in branch.keys():
+            for child in branch['children']:
+                if 'aa_muts' in child.keys():
+                    traverse.level.append(child['aa_muts']['HA1'])
+                    traverse(child, seq, pos_list)
+                    traverse.level.remove(child['aa_muts']['HA1'])
+                else:
+                    traverse(child, seq, pos_list)
+
+        elif 'children' not in branch.keys():
+            if 'aa_muts' in branch.keys():
+                traverse.level.append(branch['aa_muts']['HA1'])
+
+            muts_list = [str(mut) for sublist in traverse.level for mut in sublist]
+            branch_pos_aa = []
+            for pos in positions:
+                branch_pos_aa.append(str(pos_list[str(pos)]))
+                for mut in muts_list:
+                    if str(pos) in mut:
+                        branch_pos_aa[positions.index(pos)] = mut[-1]
+
 
             tip_muts[branch['strain']]=[branch['aa_muts']['HA1'], branch['aa_muts']['HA2'],
                                         branch['aa_muts']['SigPep'],branch['attr']['num_date'],
                                         (branch['attr']['dTiterSub'] if 'dTiterSub' in branch['attr'] else None),
                                         (branch['attr']['cTiterSub'] if 'cTiterSub' in branch['attr'] else None),
-                                        branch['attr']['clade_membership']] + [str(seq[str(branch['clade'])]['HA1'][pos]) if pos in seq[str(branch['clade'])]['HA1'] else str(ref_aa)
-                                        for pos, ref_aa in pos_list]
+                                        branch['attr']['clade_membership']] + branch_pos_aa
 
-        else:
-            for child in branch['children']:
-                traverse(child, seq, pos_list)
+            if 'aa_muts' in branch.keys():
+                traverse.level.remove(branch['aa_muts']['HA1'])
 
-
+    traverse.level = []
     traverse(tree, seqs, position_refaa)
 
-    #Organize data in a DF
     df = pd.DataFrame(tip_muts).T
     df.reset_index(inplace=True)
-    df.columns = ['strain', 'tip_HA1_muts', 'tip_HA2_muts', 'tip_SigPep_muts', 'date','dTiterSub','cTiterSub', 'clade']+positions
+    df.columns = ['strain', 'tip_HA1_muts', 'tip_HA2_muts', 'tip_SigPep_muts', 'date','dTiterSub','cTiterSub', 'clade'] + positions
     df['passage'] = np.select((df.strain.str.contains('egg'), df.strain.str.contains('cell')), ('egg', 'cell'))
     df['source'] = np.select((df.passage=='egg', df.passage=='cell', df.passage=='0'),
                              (df.strain.str.replace('-egg',''), df.strain.str.replace('-cell',''), df.strain))
@@ -144,8 +163,8 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description= "Organize Augur output into .csv to analyze egg-specific mutations")
     parser.add_argument('--prefix', default= 'h3n2_6y_notiter', help= "specify prefix for naming data files")
     parser.add_argument('-pos', '--positions', default = '[160, 194, 186, 225, 219, 203, 156, 138]', help="specify a list of HA1 positions to analyze")
-    parser.add_argument('-tree','--tree_path', default= 'augur/flu_seasonal_h3n2_ha_6y_notiter_tree.json', help= "specify the filepath to _tree.json file")
-    parser.add_argument('-seqs','--sequences_path', default= 'augur/flu_seasonal_h3n2_ha_6y_notiter_sequences.json', help= "specify the filepath to _sequences.json file")
+    parser.add_argument('-tree','--tree_path', default= 'augur/notiter/flu_seasonal_h3n2_ha_6y_notiter_tree.json', help= "specify the filepath to _tree.json file")
+    parser.add_argument('-seqs','--sequences_path', default= 'augur/notiter/flu_seasonal_h3n2_ha_6y_notiter_sequences.json', help= "specify the filepath to _sequences.json file")
     parser.add_argument('--flu_ref_seq', default= 'input_data/h3n2_outgroup.gb', help= "filepath of h3n2 genbank reference sequence")
     parser.add_argument('--tip_mutations', default= True, help= "refine list of positions to consider based on the locations of the most prevalent tip mutations in egg-passaged sequences")
     args = parser.parse_args()
