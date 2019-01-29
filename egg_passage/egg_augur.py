@@ -79,7 +79,7 @@ def run_augur(fasta_file, summary_file, resolution, titers):
         print(prep.stdout.read())
 
     #Run flu.process.py
-    proc= subprocess.Popen(["python", "flu.process.py", "--json", "prepared/flu_seasonal_h3n2_ha_"+str(resolution)+".json"], stdout=subprocess.PIPE)
+    proc= subprocess.Popen(["python", "flu.process.py", "--json", "prepared/flu_seasonal_h3n2_ha_"+str(resolution)+".json", "--titers_export"], stdout=subprocess.PIPE)
     #print prepare.py output in terminal
     print(proc.stdout.read())
 
