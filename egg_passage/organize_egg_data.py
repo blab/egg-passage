@@ -3,12 +3,14 @@ Create .csv file containing relevant information from augur output. Find most pr
 mutations in egg-passaged strains and extract the genotype of each sequence at these positions
 """
 
-import pandas as pd
-import numpy as np
+import argparse
+import re
 import json
 import ast
+import pandas as pd
+import numpy as np
 from Bio import SeqIO
-import argparse
+
 
 def organize_egg_data_csv(prefix, positions, tree_path, sequences_path, flu_ref_seq):
 
@@ -28,14 +30,7 @@ def organize_egg_data_csv(prefix, positions, tree_path, sequences_path, flu_ref_
             if feature.type=='CDS':
                 ref_seqs[str(ref_names[feature.qualifiers['product'][0]])]= (feature.location.extract(seq_record).seq.translate())
 
-
-    #Input desired 0-based HA1 amino acid residue positions, find reference amino acid
     positions = ast.literal_eval(positions)
-    position_refaa = {}
-
-    for pos in positions:
-        position_refaa[str(pos)] = ref_seqs['HA1_ref'][pos-1]
-
 
     tip_muts = {}
 
@@ -55,26 +50,26 @@ def organize_egg_data_csv(prefix, positions, tree_path, sequences_path, flu_ref_
             if 'aa_muts' in branch.keys():
                 traverse_level.append(branch['aa_muts']['HA1'])
 
+            #Check if any mutations on internal branchs occured at specified positions
             muts_list = [str(mut) for sublist in traverse_level for mut in sublist]
-            branch_pos_aa = []
-            for pos in positions:
-                branch_pos_aa.append(str(pos_list[str(pos)]))
-                for mut in muts_list:
-                    if str(pos) in mut:
-                        branch_pos_aa[positions.index(pos)] = mut[-1]
 
+            tip_sequence = ref_seqs['HA1_ref']
+            for mut in muts_list:
+                internal_mut_pos = int(re.findall('\d+', mut)[0])
+                internal_mut_aa = mut[-1:]
+                tip_sequence = tip_sequence[:internal_mut_pos-1] + internal_mut_aa + tip_sequence[internal_mut_pos:]
 
             tip_muts[branch['strain']]=[branch['aa_muts']['HA1'], branch['aa_muts']['HA2'],
                                         branch['aa_muts']['SigPep'],branch['attr']['num_date'],
                                         (branch['attr']['dTiterSub'] if 'dTiterSub' in branch['attr'] else None),
                                         (branch['attr']['cTiterSub'] if 'cTiterSub' in branch['attr'] else None),
-                                        branch['attr']['clade_membership']] + branch_pos_aa
+                                        branch['attr']['clade_membership']] + [tip_sequence[pos-1] for pos in pos_list]
 
             if 'aa_muts' in branch.keys():
                 traverse_level.remove(branch['aa_muts']['HA1'])
 
     traverse_level = []
-    traverse(tree, seqs, position_refaa)
+    traverse(tree, seqs, positions)
 
     df = pd.DataFrame(tip_muts).T
     df.reset_index(inplace=True)
