@@ -45,17 +45,17 @@ def organize_egg_data_csv(prefix, positions, tree_path, sequences_path, flu_ref_
         if 'children' in branch.keys():
             for child in branch['children']:
                 if 'aa_muts' in child.keys():
-                    traverse.level.append(child['aa_muts']['HA1'])
+                    traverse_level.append(child['aa_muts']['HA1'])
                     traverse(child, seq, pos_list)
-                    traverse.level.remove(child['aa_muts']['HA1'])
+                    traverse_level.remove(child['aa_muts']['HA1'])
                 else:
                     traverse(child, seq, pos_list)
 
         elif 'children' not in branch.keys():
             if 'aa_muts' in branch.keys():
-                traverse.level.append(branch['aa_muts']['HA1'])
+                traverse_level.append(branch['aa_muts']['HA1'])
 
-            muts_list = [str(mut) for sublist in traverse.level for mut in sublist]
+            muts_list = [str(mut) for sublist in traverse_level for mut in sublist]
             branch_pos_aa = []
             for pos in positions:
                 branch_pos_aa.append(str(pos_list[str(pos)]))
@@ -71,9 +71,9 @@ def organize_egg_data_csv(prefix, positions, tree_path, sequences_path, flu_ref_
                                         branch['attr']['clade_membership']] + branch_pos_aa
 
             if 'aa_muts' in branch.keys():
-                traverse.level.remove(branch['aa_muts']['HA1'])
+                traverse_level.remove(branch['aa_muts']['HA1'])
 
-    traverse.level = []
+    traverse_level = []
     traverse(tree, seqs, position_refaa)
 
     df = pd.DataFrame(tip_muts).T
@@ -157,7 +157,8 @@ def main(prefix, positions, tree_path, sequences_path, flu_ref_seq, tip_mutation
 
     if tip_mutations == True:
         egg_tip_mutations = find_tip_mutations(prefix)
-        organize_egg_data_csv(prefix= 'tip_refine_'+str(prefix), positions= egg_tip_mutations, tree_path= tree_path, sequences_path= sequences_path, flu_ref_seq= flu_ref_seq)
+        if sorted(egg_tip_mutations) != sorted(positions):
+            organize_egg_data_csv(prefix= 'tip_refine_'+str(prefix), positions= egg_tip_mutations, tree_path= tree_path, sequences_path= sequences_path, flu_ref_seq= flu_ref_seq)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description= "Organize Augur output into .csv to analyze egg-specific mutations")
