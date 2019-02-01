@@ -79,7 +79,7 @@ def run_augur(fasta_file, summary_file, resolution, titers):
         print(prep.stdout.read())
 
     #Run flu.process.py
-    proc= subprocess.Popen(["python", "flu.process.py", "--json", "prepared/flu_seasonal_h3n2_ha_"+str(resolution)+".json", "--titers_export"], stdout=subprocess.PIPE)
+    proc= subprocess.Popen(["python", "flu.process.py", "--json", "prepared/flu_seasonal_h3n2_ha_"+str(resolution)+".json", "--titers_export", "--export_translations"], stdout=subprocess.PIPE)
     #print prepare.py output in terminal
     print(proc.stdout.read())
 
@@ -94,10 +94,11 @@ def run_augur(fasta_file, summary_file, resolution, titers):
     if titers == None:
         titer_tag = 'notiter'
 
+    #Copy all necessary files
     for json_file in os.listdir("./auspice/"):
         if json_file.startswith(auspice_prefix+str(resolution)):
             os.rename('auspice/'+str(json_file), 'auspice/'+str(auspice_prefix+str(resolution)+'_'+str(titer_tag)+json_file.split(auspice_prefix+str(resolution))[1]))
-    subprocess.call('cp auspice/flu_seasonal_h3n2_ha_'+str(resolution)+'_'+str(titer_tag)+'_* ../../../../egg-passage/egg_passage/augur', shell=True)
+    subprocess.call('cp auspice/flu_seasonal_h3n2_ha_'+str(resolution)+'_'+str(titer_tag)+'_* ../../../../egg-passage/egg_passage/augur/' + str(titer_tag), shell=True)
 
 
     #Remove force_include from flu_info
@@ -108,6 +109,9 @@ def run_augur(fasta_file, summary_file, resolution, titers):
             if "reference_viruses['h3n2']=reference_viruses['h3n2']+" not in line:
                 f.write(line)
         f.truncate()
+    #Clean augur directories
+    clean = subprocess.Popen(["sh", "clean_directory.sh"], stdout=subprocess.PIPE)
+    print(clean.stdout.read())
 
 
 if __name__ == '__main__':
@@ -115,6 +119,6 @@ if __name__ == '__main__':
     parser.add_argument('-f', '--fasta_file', default = '../../nextstrain/fauna/data/h3n2_ha.fasta', help="filepath of h3n2 sequence fasta file")
     parser.add_argument('-s', '--summary_file', default = 'egg_summary_file.txt', help = "name of file to write summary data to")
     parser.add_argument('--resolution', choices=['2y', '3y', '6y', '12y'], default='6y', type = str,  help = "resolution for flu.prepare.py (default: 6y)")
-    parser.add_argument('--titers', default= None, type = str,  help = ".tsv file with titers data. Specify 'hi' or 'fra' to used combined egg and cell titers from WHO. Otherwise specify filepath to titers data")
+    parser.add_argument('--titers', default= 'hi', type = str,  help = ".tsv file with titers data. Specify 'hi' or 'fra' to used combined egg and cell titers from WHO. Specify 'None' to run without titers. Otherwise specify filepath to titers data")
     args = parser.parse_args()
     run_augur(fasta_file = args.fasta_file, summary_file = args.summary_file, resolution = args.resolution, titers = args.titers)

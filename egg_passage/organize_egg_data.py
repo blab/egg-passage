@@ -12,27 +12,18 @@ import numpy as np
 from Bio import SeqIO
 
 
-def organize_egg_data_csv(prefix, positions, tree_path, sequences_path, flu_ref_seq):
+def organize_egg_data_csv(prefix, positions, tree_path, sequences_path):
 
-    #Load tree and sequence files
+    #Load tree file
     with open(tree_path, 'r') as jsonfile:
         tree = json.load(jsonfile)
-
-    with open(sequences_path, 'r') as jsonfile:
-        seqs = json.load(jsonfile)
-
-    #Load genbank file with reference HA sequence
-    ref_names = {'hemagglutinin':'hemagglutinin','Signal peptide':'SP_ref','HA1 protein':'HA1_ref', 'HA2 protein':'HA2_ref'}
-    ref_seqs = {}
-
-    for seq_record in SeqIO.parse(flu_ref_seq, 'genbank'):
-        for feature in seq_record.features:
-            if feature.type=='CDS':
-                ref_seqs[str(ref_names[feature.qualifiers['product'][0]])]= (feature.location.extract(seq_record).seq.translate())
 
     positions = ast.literal_eval(positions)
 
     tip_muts = {}
+
+    #Get root sequence
+    root_seq = tree['translations']['HA1']
 
     def traverse(branch, seq, pos_list):
 
@@ -50,10 +41,9 @@ def organize_egg_data_csv(prefix, positions, tree_path, sequences_path, flu_ref_
             if 'aa_muts' in branch.keys():
                 traverse_level.append(branch['aa_muts']['HA1'])
 
-            #Check if any mutations on internal branchs occured at specified positions
             muts_list = [str(mut) for sublist in traverse_level for mut in sublist]
 
-            tip_sequence = ref_seqs['HA1_ref']
+            tip_sequence = seq
             for mut in muts_list:
                 internal_mut_pos = int(re.findall('\d+', mut)[0])
                 internal_mut_aa = mut[-1:]
@@ -69,15 +59,24 @@ def organize_egg_data_csv(prefix, positions, tree_path, sequences_path, flu_ref_
                 traverse_level.remove(branch['aa_muts']['HA1'])
 
     traverse_level = []
-    traverse(tree, seqs, positions)
+    traverse(tree, root_seq, positions)
 
     df = pd.DataFrame(tip_muts).T
     df.reset_index(inplace=True)
     df.columns = ['strain', 'tip_HA1_muts', 'tip_HA2_muts', 'tip_SigPep_muts', 'date','dTiterSub','cTiterSub', 'clade'] + positions
+    df['dTiterSub'], df['cTiterSub']= df['dTiterSub'].astype(float, inplace=True), df['cTiterSub'].astype(float, inplace=True)
     df['passage'] = np.select((df.strain.str.contains('egg'), df.strain.str.contains('cell')), ('egg', 'cell'))
+    #Identify pairs where strain sequence exists for multiple passage types
     df['source'] = np.select((df.passage=='egg', df.passage=='cell', df.passage=='0'),
                              (df.strain.str.replace('-egg',''), df.strain.str.replace('-cell',''), df.strain))
-    df['dTiterSub'], df['cTiterSub']= df['dTiterSub'].astype(float, inplace=True), df['cTiterSub'].astype(float, inplace=True)
+    e_u_df = df[(df['passage']=='egg') | (df['passage']=='unpassaged')]
+    pairs_u = e_u_df[e_u_df.duplicated(subset='source', keep=False)]
+    e_c_df = df[(df['passage']=='egg') | (df['passage']=='cell')]
+    pairs_c = e_c_df[e_c_df.duplicated(subset='source', keep=False)]
+    pairs = pd.concat([pairs_u, pairs_c])
+    pair_ids = dict(zip(list(pairs['source'].unique()),[[n+1] for n in range(len(pairs['source'].unique()))]))
+    pair_ids = pd.DataFrame(pair_ids).T.reset_index().rename(columns={'index':'source', 0:'pair_id'})
+    df = df.merge(pair_ids, on='source', how='outer')
 
     #!!!! Must first check all sites of insterest to make sure clades have predeominantly one genotype!!!!
     #At each position, find predominant genotype of circulating virus by clade
@@ -147,22 +146,21 @@ def find_tip_mutations(prefix):
 
     return egg_tip_mutations
 
-def main(prefix, positions, tree_path, sequences_path, flu_ref_seq, tip_mutations):
-    organize_egg_data_csv(prefix, positions, tree_path, sequences_path, flu_ref_seq)
+def main(prefix, positions, tree_path, sequences_path, tip_mutations):
+    organize_egg_data_csv(prefix, positions, tree_path, sequences_path)
 
     if tip_mutations == True:
         egg_tip_mutations = find_tip_mutations(prefix)
         if sorted(egg_tip_mutations) != sorted(positions):
-            organize_egg_data_csv(prefix= 'tip_refine_'+str(prefix), positions= egg_tip_mutations, tree_path= tree_path, sequences_path= sequences_path, flu_ref_seq= flu_ref_seq)
+            organize_egg_data_csv(prefix= 'tip_refine_'+str(prefix), positions= egg_tip_mutations, tree_path= tree_path, sequences_path= sequences_path)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description= "Organize Augur output into .csv to analyze egg-specific mutations")
-    parser.add_argument('--prefix', default= 'h3n2_6y_notiter', help= "specify prefix for naming data files")
+    parser.add_argument('--prefix', default= 'h3n2_6y_hi', help= "specify prefix for naming data files")
     parser.add_argument('-pos', '--positions', default = '[160, 194, 186, 225, 219, 203, 156, 138]', help="specify a list of HA1 positions to analyze")
-    parser.add_argument('-tree','--tree_path', default= 'augur/notiter/flu_seasonal_h3n2_ha_6y_notiter_tree.json', help= "specify the filepath to _tree.json file")
-    parser.add_argument('-seqs','--sequences_path', default= 'augur/notiter/flu_seasonal_h3n2_ha_6y_notiter_sequences.json', help= "specify the filepath to _sequences.json file")
-    parser.add_argument('--flu_ref_seq', default= 'input_data/h3n2_outgroup.gb', help= "filepath of h3n2 genbank reference sequence")
+    parser.add_argument('-tree','--tree_path', default= 'augur/hi/flu_seasonal_h3n2_ha_6y_hi_tree.json', help= "specify the filepath to _tree.json file")
+    parser.add_argument('-seqs','--sequences_path', default= 'augur/hi/flu_seasonal_h3n2_ha_6y_hi_sequences.json', help= "specify the filepath to _sequences.json file")
     parser.add_argument('--tip_mutations', default= True, help= "refine list of positions to consider based on the locations of the most prevalent tip mutations in egg-passaged sequences")
     args = parser.parse_args()
 
-    main(prefix = args.prefix, positions = args.positions, tree_path = args.tree_path, sequences_path=args.sequences_path, flu_ref_seq=args.flu_ref_seq, tip_mutations = args.tip_mutations)
+    main(prefix = args.prefix, positions = args.positions, tree_path = args.tree_path, sequences_path=args.sequences_path, tip_mutations = args.tip_mutations)
