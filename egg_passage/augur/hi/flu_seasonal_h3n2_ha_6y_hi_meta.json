@@ -1,5 +1,5 @@
 {
- "updated": "28 Jan 2019", 
+ "updated": "31 Jan 2019", 
  "author_info": {
   "thai_national_influenza_center": {
    "title": "?", 
@@ -7,7 +7,7 @@
   }, 
   "other_database_import": {
    "title": "?", 
-   "n": 196
+   "n": 197
   }, 
   "ministry_of_health,_singapore": {
    "title": "?", 
@@ -55,7 +55,7 @@
   }, 
   "who_national_influenza_centre_russian_federation": {
    "title": "?", 
-   "n": 21
+   "n": 20
   }, 
   "national_institute_of_communicable_diseases": {
    "title": "?", 
@@ -89,13 +89,13 @@
    "title": "?", 
    "n": 2
   }, 
-  "robert_koch_institute": {
+  "crick_worldwide_influenza_centre": {
    "title": "?", 
-   "n": 5
+   "n": 74
   }, 
   "hangzhou_center_for_disease_control_and_prevention": {
    "title": "?", 
-   "n": 26
+   "n": 24
   }, 
   "hubei_provincial_center_for_disease_control_and_prevention": {
    "title": "?", 
@@ -107,7 +107,7 @@
   }, 
   "hellenic_pasteur_institute": {
    "title": "?", 
-   "n": 1
+   "n": 2
   }, 
   "university_of_hong_kong": {
    "title": "?", 
@@ -115,7 +115,7 @@
   }, 
   "national_institute_of_infectious_diseases__niid_": {
    "title": "?", 
-   "n": 223
+   "n": 221
   }, 
   "hospital_cl?nic_de_barcelona": {
    "title": "?", 
@@ -127,7 +127,7 @@
   }, 
   "who_collaborating_centre_for_reference_and_research_on_influenza": {
    "title": "?", 
-   "n": 310
+   "n": 311
   }, 
   "state_research_center_of_virology_and_biotechnology_vector": {
    "title": "?", 
@@ -163,7 +163,7 @@
   }, 
   "medical_university_vienna": {
    "title": "?", 
-   "n": 1
+   "n": 3
   }, 
   "pasteur_centre": {
    "title": "?", 
@@ -189,9 +189,9 @@
    "title": "?", 
    "n": 18
   }, 
-  "crick_worldwide_influenza_centre": {
+  "robert_koch_institute": {
    "title": "?", 
-   "n": 74
+   "n": 6
   }, 
   "instituto_de_salud_publica_de_chile": {
    "title": "?", 
@@ -199,7 +199,7 @@
   }, 
   "instituto_adolfo_lutz": {
    "title": "?", 
-   "n": 33
+   "n": 32
   }, 
   "evandro_chagas_institute": {
    "title": "?", 
@@ -211,14 +211,14 @@
   }, 
   "centers_for_disease_control_and_prevention": {
    "title": "?", 
-   "n": 882
+   "n": 884
   }, 
   "luxembourg_institute_of_health": {
    "title": "?", 
    "n": 2
   }
  }, 
- "virus_count": 2245, 
+ "virus_count": 2247, 
  "defaults": {
   "geoResolution": "region", 
   "colorBy": "clade_membership", 
@@ -334,7 +334,7 @@
   "region", 
   "country"
  ], 
- "commit": "946f77d9a1be6421253bcefebaf706a7e931d75b", 
+ "commit": "a2bc328785fd17ca014b026f7688b05c765d9db1", 
  "maintainer": [
   "Trevor Bedford and Barney Potter", 
   "http://bedford.io/"

@@ -66,7 +66,7 @@ def run_augur(fasta_file, summary_file, resolution, titers):
         f.write("reference_viruses['h3n2']=reference_viruses['h3n2']+" + str(force_include))
 
     #Run flu.prepare.py
-    if titers != None:
+    if titers != 'notiter':
         if titers == 'hi':
             titer_path = '../../../../egg-passage/egg_passage/input_data/h3n2_who_hi_concat_titers.tsv'
         if titers == 'fra':
@@ -85,13 +85,13 @@ def run_augur(fasta_file, summary_file, resolution, titers):
 
     #Copy augur output to egg_passage
     auspice_prefix = 'flu_seasonal_h3n2_ha_'
-    if titers != None:
+    if titers != 'notiter':
         #Change names of augur output files to contain titer tag
         if titers not in ['hi', 'fra']:
             titer_tag = 'titer'
         else:
             titer_tag = titers
-    if titers == None:
+    if titers == 'notiter':
         titer_tag = 'notiter'
 
     #Copy all necessary files
@@ -119,6 +119,6 @@ if __name__ == '__main__':
     parser.add_argument('-f', '--fasta_file', default = '../../nextstrain/fauna/data/h3n2_ha.fasta', help="filepath of h3n2 sequence fasta file")
     parser.add_argument('-s', '--summary_file', default = 'egg_summary_file.txt', help = "name of file to write summary data to")
     parser.add_argument('--resolution', choices=['2y', '3y', '6y', '12y'], default='6y', type = str,  help = "resolution for flu.prepare.py (default: 6y)")
-    parser.add_argument('--titers', default= 'hi', type = str,  help = ".tsv file with titers data. Specify 'hi' or 'fra' to used combined egg and cell titers from WHO. Specify 'None' to run without titers. Otherwise specify filepath to titers data")
+    parser.add_argument('--titers', default= 'hi', type = str,  help = ".tsv file with titers data. Specify 'hi' or 'fra' to used combined egg and cell titers from WHO. Specify 'notiter' to run without titers. Otherwise specify filepath to titers data")
     args = parser.parse_args()
     run_augur(fasta_file = args.fasta_file, summary_file = args.summary_file, resolution = args.resolution, titers = args.titers)

@@ -301,7 +301,7 @@ def plot_heatmap(prefix):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description = "Determines epistasis between egg-specific mutations")
-    parser.add_argument('--prefix', default= 'h3n2_6y_notiter', help= "specify prefix for naming data files")
+    parser.add_argument('--prefix', default= 'h3n2_6y_hi', help= "specify prefix for naming data files")
     parser.add_argument('--threshold', default= 3.0, type= int, help= "threshold for fold-change in mutation prevalence in order to determine positive and negative epistatic interactions")
     args = parser.parse_args()
 

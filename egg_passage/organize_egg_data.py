@@ -69,14 +69,14 @@ def organize_egg_data_csv(prefix, positions, tree_path, sequences_path):
     #Identify pairs where strain sequence exists for multiple passage types
     df['source'] = np.select((df.passage=='egg', df.passage=='cell', df.passage=='0'),
                              (df.strain.str.replace('-egg',''), df.strain.str.replace('-cell',''), df.strain))
-    e_u_df = df[(df['passage']=='egg') | (df['passage']=='unpassaged')]
+    e_u_df = df[(df['passage']=='egg') | (df['passage']=='0')]
     pairs_u = e_u_df[e_u_df.duplicated(subset='source', keep=False)]
     e_c_df = df[(df['passage']=='egg') | (df['passage']=='cell')]
     pairs_c = e_c_df[e_c_df.duplicated(subset='source', keep=False)]
     pairs = pd.concat([pairs_u, pairs_c])
     pair_ids = dict(zip(list(pairs['source'].unique()),[[n+1] for n in range(len(pairs['source'].unique()))]))
     pair_ids = pd.DataFrame(pair_ids).T.reset_index().rename(columns={'index':'source', 0:'pair_id'})
-    df = df.merge(pair_ids, on='source', how='outer')
+    df = df.merge(pair_ids, on='source', how='left')
 
     #!!!! Must first check all sites of insterest to make sure clades have predeominantly one genotype!!!!
     #At each position, find predominant genotype of circulating virus by clade

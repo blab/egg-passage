@@ -1,21 +1,21 @@
 {
- "updated": "16 Jan 2019", 
+ "updated": "1 Feb 2019", 
  "author_info": {
   "thai_national_influenza_center": {
    "title": "?", 
    "n": 4
   }, 
-  "national_influenza_center,_ministry_of_health": {
+  "national_institute_of_hygiene": {
    "title": "?", 
-   "n": 1
+   "n": 3
   }, 
   "other_database_import": {
    "title": "?", 
-   "n": 186
+   "n": 188
   }, 
   "ministry_of_health,_singapore": {
    "title": "?", 
-   "n": 42
+   "n": 41
   }, 
   "university_hospital_basel": {
    "title": "?", 
@@ -25,63 +25,15 @@
    "title": "?", 
    "n": 1
   }, 
-  "microbiology_university_politecnica_delle_marche": {
-   "title": "?", 
-   "n": 1
-  }, 
   "niigata_university": {
    "title": "?", 
-   "n": 12
+   "n": 10
   }, 
   "who_chinese_national_influenza_center": {
    "title": "?", 
-   "n": 60
+   "n": 65
   }, 
-  "university_of_buea": {
-   "title": "?", 
-   "n": 4
-  }, 
-  "ministry_of_health_turkey": {
-   "title": "?", 
-   "n": 4
-  }, 
-  "microbiology_services_colindale,_public_health_england": {
-   "title": "?", 
-   "n": 21
-  }, 
-  "hong_kong_department_of_health": {
-   "title": "?", 
-   "n": 11
-  }, 
-  "central_research_institute_for_epidemiology": {
-   "title": "?", 
-   "n": 6
-  }, 
-  "who_national_influenza_centre_russian_federation": {
-   "title": "?", 
-   "n": 9
-  }, 
-  "centers_for_disease_control,_r.o.c.__taiwan_": {
-   "title": "?", 
-   "n": 6
-  }, 
-  "robert_koch_institute_nationales_referenzzentrum_f?r_influenza": {
-   "title": "?", 
-   "n": 1
-  }, 
-  "hospital_cl?nic_de_barcelona": {
-   "title": "?", 
-   "n": 2
-  }, 
-  "national_institute_for_public_health_and_the_environment__rivm_": {
-   "title": "?", 
-   "n": 3
-  }, 
-  "statens_serum_institute": {
-   "title": "?", 
-   "n": 2
-  }, 
-  "national_centre_for_disease_control__ncdc_": {
+  "national_influenza_center,_ministry_of_health": {
    "title": "?", 
    "n": 1
   }, 
@@ -89,35 +41,95 @@
    "title": "?", 
    "n": 1
   }, 
+  "ministry_of_health_turkey": {
+   "title": "?", 
+   "n": 2
+  }, 
+  "microbiology_services_colindale,_public_health_england": {
+   "title": "?", 
+   "n": 16
+  }, 
+  "hong_kong_department_of_health": {
+   "title": "?", 
+   "n": 13
+  }, 
+  "central_research_institute_for_epidemiology": {
+   "title": "?", 
+   "n": 10
+  }, 
+  "central_research_institute_of_epidemiology": {
+   "title": "?", 
+   "n": 1
+  }, 
+  "national_laboratory_for_health_environment_and_food": {
+   "title": "?", 
+   "n": 1
+  }, 
+  "who_national_influenza_centre_russian_federation": {
+   "title": "?", 
+   "n": 13
+  }, 
+  "centers_for_disease_control,_r.o.c.__taiwan_": {
+   "title": "?", 
+   "n": 5
+  }, 
+  "robert_koch_institute_nationales_referenzzentrum_f?r_influenza": {
+   "title": "?", 
+   "n": 3
+  }, 
+  "national_institute_of_communicable_diseases": {
+   "title": "?", 
+   "n": 7
+  }, 
+  "hospital_universitari_vall_d_hebron": {
+   "title": "?", 
+   "n": 4
+  }, 
+  "malbran": {
+   "title": "?", 
+   "n": 1
+  }, 
+  "university_of_buea": {
+   "title": "?", 
+   "n": 5
+  }, 
+  "university_of_michigan": {
+   "title": "?", 
+   "n": 1
+  }, 
+  "institut_pasteur": {
+   "title": "?", 
+   "n": 11
+  }, 
   "state_research_center_of_virology_and_biotechnology__vector_": {
    "title": "?", 
    "n": 3
   }, 
-  "public_health_wales_microbiology": {
-   "title": "?", 
-   "n": 1
-  }, 
   "instituto_de_salud_carlos_iii": {
    "title": "?", 
-   "n": 14
+   "n": 24
   }, 
   "oswaldo_cruz_institute___fiocruz___laboratory_of_respiratory_viruses_and_measles__lvrs_": {
    "title": "?", 
-   "n": 2
+   "n": 1
   }, 
   "cantacuzino_institute": {
    "title": "?", 
-   "n": 1
+   "n": 2
   }, 
   "crick_worldwide_influenza_centre": {
    "title": "?", 
-   "n": 183
+   "n": 177
   }, 
   "hangzhou_center_for_disease_control_and_prevention": {
    "title": "?", 
-   "n": 35
+   "n": 29
   }, 
-  "scientific_institute_of_public_health__wiv_isp_": {
+  "university_college_london": {
+   "title": "?", 
+   "n": 1
+  }, 
+  "insa_national_institute_of_health_portugal": {
    "title": "?", 
    "n": 1
   }, 
@@ -131,69 +143,25 @@
   }, 
   "national_institute_of_infectious_diseases__niid_": {
    "title": "?", 
-   "n": 261
-  }, 
-  "national_center_for_expertise,_kazakhstan": {
-   "title": "?", 
-   "n": 3
-  }, 
-  "national_institute_of_communicable_diseases": {
-   "title": "?", 
-   "n": 3
-  }, 
-  "nhs_greater_glasgow_and_clyde": {
-   "title": "?", 
-   "n": 1
-  }, 
-  "instituto_nacional_enfermedades_infecciosas_c.g.malbran": {
-   "title": "?", 
-   "n": 2
+   "n": 260
   }, 
   "erasmus_medical_center": {
    "title": "?", 
-   "n": 2
+   "n": 3
   }, 
-  "who_collaborating_centre_for_reference_and_research_on_influenza": {
-   "title": "?", 
-   "n": 295
-  }, 
-  "public_health_agency_of_canada__phac_": {
-   "title": "?", 
-   "n": 11
-  }, 
-  "national_institute_for_health_and_welfare": {
-   "title": "?", 
-   "n": 5
-  }, 
-  "national_institute_for_biological_standards_and_control__nibsc_": {
-   "title": "?", 
-   "n": 9
-  }, 
-  "the_university_of_hong_kong": {
-   "title": "?", 
-   "n": 1
-  }, 
-  "national_virus_reference_laboratory": {
+  "instituto_nacional_enfermedades_infecciosas_c.g.malbran": {
    "title": "?", 
    "n": 3
   }, 
-  "instituto_oswaldo_cruz_fiocruz___laboratory_of_respiratory_viruses_and_measles__lvrs_": {
-   "title": "?", 
-   "n": 11
-  }, 
-  "public_health_agency_of_sweden": {
+  "medical_university_vienna": {
    "title": "?", 
    "n": 8
   }, 
-  "medical_university_vienna": {
+  "who_collaborating_centre_for_reference_and_research_on_influenza": {
    "title": "?", 
-   "n": 4
+   "n": 289
   }, 
-  "pasteur_centre": {
-   "title": "?", 
-   "n": 1
-  }, 
-  "national_influenza_centre_for_northern_greece": {
+  "state_research_center_of_virology_and_biotechnology_vector": {
    "title": "?", 
    "n": 1
   }, 
@@ -201,9 +169,45 @@
    "title": "?", 
    "n": 2
   }, 
-  "evandro_chagas_institute": {
+  "national_institute_for_biological_standards_and_control__nibsc_": {
+   "title": "?", 
+   "n": 10
+  }, 
+  "the_university_of_hong_kong": {
+   "title": "?", 
+   "n": 1
+  }, 
+  "national_virus_reference_laboratory": {
    "title": "?", 
    "n": 2
+  }, 
+  "instituto_oswaldo_cruz_fiocruz___laboratory_of_respiratory_viruses_and_measles__lvrs_": {
+   "title": "?", 
+   "n": 14
+  }, 
+  "public_health_agency_of_sweden": {
+   "title": "?", 
+   "n": 8
+  }, 
+  "university_of_bari": {
+   "title": "?", 
+   "n": 2
+  }, 
+  "national_institute_for_public_health_and_the_environment__rivm_": {
+   "title": "?", 
+   "n": 4
+  }, 
+  "pasteur_centre": {
+   "title": "?", 
+   "n": 1
+  }, 
+  "public_health_agency_of_canada__phac_": {
+   "title": "?", 
+   "n": 15
+  }, 
+  "public_health_wales_microbiology": {
+   "title": "?", 
+   "n": 1
   }, 
   "jiangsu_provincial_center_for_disease_control_&_prevention": {
    "title": "?", 
@@ -211,50 +215,54 @@
   }, 
   "norwegian_institute_of_public_health": {
    "title": "?", 
-   "n": 25
+   "n": 31
   }, 
   "swedish_institute_for_infectious_disease_control": {
    "title": "?", 
-   "n": 19
+   "n": 15
+  }, 
+  "scientific_institute_of_public_health__wiv_isp_": {
+   "title": "?", 
+   "n": 1
   }, 
   "robert_koch_institute": {
    "title": "?", 
-   "n": 4
+   "n": 6
   }, 
   "universidad_autonoma_de_yucatan": {
    "title": "?", 
-   "n": 4
+   "n": 1
   }, 
   "instituto_de_salud_publica_de_chile": {
    "title": "?", 
-   "n": 21
+   "n": 20
   }, 
   "centers_for_disease_control_and_prevention": {
    "title": "?", 
-   "n": 725
+   "n": 723
   }, 
-  "institut_pasteur": {
+  "evandro_chagas_institute": {
    "title": "?", 
-   "n": 19
+   "n": 4
   }, 
   "national_institute_for_medical_research": {
    "title": "?", 
-   "n": 120
+   "n": 106
+  }, 
+  "aichi_prefectural_institute_of_public_health": {
+   "title": "?", 
+   "n": 1
+  }, 
+  "instituto_adolfo_lutz": {
+   "title": "?", 
+   "n": 46
   }, 
   "luxembourg_institute_of_health": {
    "title": "?", 
    "n": 6
-  }, 
-  "instituto_adolfo_lutz": {
-   "title": "?", 
-   "n": 45
-  }, 
-  "aichi_prefectural_institute_of_public_health": {
-   "title": "?", 
-   "n": 2
   }
  }, 
- "virus_count": 2238, 
+ "virus_count": 2234, 
  "defaults": {
   "geoResolution": "region", 
   "colorBy": "clade_membership", 
@@ -364,7 +372,7 @@
   "region", 
   "country"
  ], 
- "commit": "946f77d9a1be6421253bcefebaf706a7e931d75b", 
+ "commit": "a2bc328785fd17ca014b026f7688b05c765d9db1", 
  "maintainer": [
   "Trevor Bedford and Barney Potter", 
   "http://bedford.io/"
@@ -404,13 +412,17 @@
     "latitude": 55.41667, 
     "longitude": 24.0
    }, 
-   "micronesia": {
-    "latitude": 6.924, 
-    "longitude": 158.162
+   "mongolia": {
+    "latitude": 46.8250388, 
+    "longitude": 103.8499736
    }, 
-   "tunisia": {
-    "latitude": 36.81897, 
-    "longitude": 10.16579
+   "tanzania": {
+    "latitude": -6.0, 
+    "longitude": 35.0
+   }, 
+   "egypt": {
+    "latitude": 26.2540493, 
+    "longitude": 29.2675469
    }, 
    "rwanda": {
     "latitude": -2.0, 
@@ -459,18 +471,6 @@
    "netherlands": {
     "latitude": 52.2379891, 
     "longitude": 5.53460738162
-   }, 
-   "sierra_leone": {
-    "latitude": 8.5, 
-    "longitude": -11.5
-   }, 
-   "portugal": {
-    "latitude": 39.6945, 
-    "longitude": -8.13057
-   }, 
-   "denmark": {
-    "latitude": 56.0, 
-    "longitude": 10.0
    }, 
    "philippines": {
     "latitude": 12.7503486, 
@@ -528,13 +528,21 @@
     "latitude": 7.33978, 
     "longitude": 134.47326
    }, 
-   "panama": {
-    "latitude": 8.3096067, 
-    "longitude": -81.3066245
+   "morocco": {
+    "latitude": 31.1728192, 
+    "longitude": -7.3366042
+   }, 
+   "tajikistan": {
+    "latitude": 39.0, 
+    "longitude": 71.0
    }, 
    "nepal": {
     "latitude": 28.0, 
     "longitude": 84.0
+   }, 
+   "iceland": {
+    "latitude": 64.9841821, 
+    "longitude": -18.1059012
    }, 
    "venezuela": {
     "latitude": 8.0, 
@@ -588,9 +596,9 @@
     "latitude": 63.2467777, 
     "longitude": 25.9209164
    }, 
-   "puerto_rico": {
-    "latitude": 18.2459121, 
-    "longitude": -66.4164147
+   "mauritius": {
+    "latitude": -20.3, 
+    "longitude": 57.58333
    }, 
    "pakistan": {
     "latitude": 30.0, 
@@ -608,9 +616,9 @@
     "latitude": 21.0, 
     "longitude": 96.0
    }, 
-   "egypt": {
-    "latitude": 26.2540493, 
-    "longitude": 29.2675469
+   "tunisia": {
+    "latitude": 36.81897, 
+    "longitude": 10.16579
    }, 
    "guam": {
     "latitude": 13.51777, 
@@ -624,9 +632,9 @@
     "latitude": -0.7264326, 
     "longitude": 15.6419155
    }, 
-   "mongolia": {
-    "latitude": 46.8250388, 
-    "longitude": 103.8499736
+   "micronesia": {
+    "latitude": 6.924, 
+    "longitude": 158.162
    }, 
    "colombia": {
     "latitude": 2.893108, 
@@ -648,10 +656,6 @@
     "latitude": 39.0, 
     "longitude": 35.0
    }, 
-   "poland": {
-    "latitude": 52.0977181, 
-    "longitude": 19.0258159
-   }, 
    "madagascar": {
     "latitude": -20.0, 
     "longitude": 47.0
@@ -671,14 +675,6 @@
    "france": {
     "latitude": 46.603354, 
     "longitude": 1.8883335
-   }, 
-   "solomon_islands": {
-    "latitude": -8.0, 
-    "longitude": 159.0
-   }, 
-   "slovakia": {
-    "latitude": 48.66667, 
-    "longitude": 19.5
    }, 
    "suriname": {
     "latitude": 4.1413025, 
@@ -732,10 +728,6 @@
     "latitude": -31.7613364, 
     "longitude": -71.3187696
    }, 
-   "nigeria": {
-    "latitude": 10.0, 
-    "longitude": 8.0
-   }, 
    "spain": {
     "latitude": 40.0028028, 
     "longitude": -4.0031039
@@ -748,9 +740,9 @@
     "latitude": 12.5, 
     "longitude": -1.66667
    }, 
-   "morocco": {
-    "latitude": 31.1728192, 
-    "longitude": -7.3366042
+   "mayotte": {
+    "latitude": -12.821908, 
+    "longitude": 45.143906
    }, 
    "sweden": {
     "latitude": 59.6749712, 
@@ -772,13 +764,17 @@
     "latitude": 64.6863136, 
     "longitude": 97.7453061
    }, 
-   "bahrain": {
-    "latitude": 26.22787, 
-    "longitude": 50.58565
+   "american_samoa": {
+    "latitude": -14.27806, 
+    "longitude": -170.7025
    }, 
-   "estonia": {
-    "latitude": 59.0, 
-    "longitude": 26.0
+   "new_caledonia": {
+    "latitude": -20.9043, 
+    "longitude": 165.618
+   }, 
+   "portugal": {
+    "latitude": 39.6945, 
+    "longitude": -8.13057
    }, 
    "uruguay": {
     "latitude": -33.0, 
@@ -787,10 +783,6 @@
    "india": {
     "latitude": 22.3511148, 
     "longitude": 78.6677428
-   }, 
-   "belarus": {
-    "latitude": 53.0, 
-    "longitude": 28.0
    }, 
    "uganda": {
     "latitude": 1.5333554, 
@@ -808,13 +800,17 @@
     "latitude": 49.8175, 
     "longitude": 15.473
    }, 
-   "mauritius": {
-    "latitude": -20.3, 
-    "longitude": 57.58333
+   "puerto_rico": {
+    "latitude": 18.2459121, 
+    "longitude": -66.4164147
    }, 
    "italy": {
     "latitude": 42.6384261, 
     "longitude": 12.674297
+   }, 
+   "bahrain": {
+    "latitude": 26.22787, 
+    "longitude": 50.58565
    }, 
    "cambodia": {
     "latitude": 13.0, 
@@ -836,9 +832,9 @@
     "latitude": 1.2904527, 
     "longitude": 103.852038
    }, 
-   "iceland": {
-    "latitude": 64.9841821, 
-    "longitude": -18.1059012
+   "tuvalu": {
+    "latitude": -8.51719, 
+    "longitude": 179.14478
    }, 
    "slovenia": {
     "latitude": 45.8133113, 
@@ -848,17 +844,13 @@
     "latitude": 51.0834196, 
     "longitude": 10.4234469
    }, 
-   "new_caledonia": {
-    "latitude": -20.9043, 
-    "longitude": 165.618
-   }, 
    "maldives": {
     "latitude": 4.7064352, 
     "longitude": 73.3287853
    }, 
-   "tanzania": {
-    "latitude": -6.0, 
-    "longitude": 35.0
+   "poland": {
+    "latitude": 52.0977181, 
+    "longitude": 19.0258159
    }, 
    "indonesia": {
     "latitude": -5.0, 
