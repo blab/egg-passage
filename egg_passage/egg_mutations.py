@@ -83,6 +83,75 @@ def plot_mutation_prev(prefix):
     barplot.set(xlabel='HA position', ylabel='prevalence of mutation')
     barplot.get_figure().savefig('plots/egg_mutation_prevalence_'+str(prefix)+'.pdf')
 
+    return plot_df
+
+def find_paired_mutations(prefix):
+    """
+    Analysis of strains where sequences are available for the virus before and after egg-passaging (or after cell-passaging and after egg-passaging)
+    """
+
+    df = pd.read_csv('data/'+prefix+'_df.csv')
+    #filter data for only paired sequences
+    df = df[df['pair_id'].notnull()]
+
+    positions = [col[3:] for col in df.columns if col[0:3]=='mut']
+
+    #Re-organize DF to one row per pair
+    sub_egg = df[df['passage']=='egg'][['source'] + [str(pos) for pos in positions]].rename(columns = dict((str(pos), (str(pos)+'_egg')) for pos in positions))
+    sub_u = df[df['passage']=='0'][['source'] + [str(pos) for pos in positions]].rename(columns = dict((str(pos), (str(pos)+'_u')) for pos in positions))
+    sub_cell = df[df['passage']=='cell'][['source'] + [str(pos) for pos in positions]].rename(columns = dict((str(pos), (str(pos)+'_cell')) for pos in positions))
+
+    pairs_u_df = sub_egg.merge(sub_u)
+    pairs_cell_df = sub_egg.merge(sub_cell)
+    pairs_cell_u_df = sub_u.merge(sub_cell)
+    pairs_df = pairs_u_df.merge(pairs_cell_df, how='outer')
+
+    #Find proportion of paired strains where egg is diff than pair
+    egg_u_diff = {} #egg genotype different than paired unpassaged genotype
+    egg_cell_diff = {} #egg genotype different than paired cell-passaged genotype
+    cell_u_diff = {} #cell genotype different than paired unpassaged genotype
+
+    for pos in positions:
+        pairs_u_df[str(pos)+'_diff'] = np.where((pairs_u_df[str(pos)+'_egg'] != pairs_u_df[str(pos)+'_u']), 1, 0)
+        pairs_cell_df[str(pos)+'_diff'] = np.where((pairs_cell_df[str(pos)+'_egg'] != pairs_cell_df[str(pos)+'_cell']), 1, 0)
+        pairs_cell_u_df[str(pos)+'_diff'] = np.where((pairs_cell_u_df[str(pos)+'_u'] != pairs_cell_u_df[str(pos)+'_cell']), 1, 0)
+
+    for pos in positions:
+        egg_u_diff[str(pos)] = float(len(pairs_u_df[pairs_u_df[str(pos)+'_diff'] == 1]))/float(len(pairs_u_df))
+        egg_cell_diff[str(pos)] = float(len(pairs_cell_df[pairs_cell_df[str(pos)+'_diff'] == 1]))/float(len(pairs_cell_df))
+        cell_u_diff[str(pos)] = float(len(pairs_cell_u_df[pairs_cell_u_df[str(pos)+'_diff'] == 1]))/float(len(pairs_cell_u_df))
+    egg_u_diff_df = pd.DataFrame(egg_u_diff, index=['egg_unpassaged'])
+    egg_cell_diff_df = pd.DataFrame(egg_cell_diff, index=['egg_cell'])
+    cell_u_diff_df = pd.DataFrame(cell_u_diff, index=['cell_unpassaged'])
+
+    plot_df = pd.concat([egg_u_diff_df, egg_cell_diff_df, cell_u_diff_df])
+    plot_df = plot_df.unstack().reset_index().rename(columns={'level_0':'site', 'level_1':'comparison', 0:'prevalence'})
+
+    sns.set(style="white")
+    fig, ax = plt.subplots()
+    sns.barplot(x='site', y='prevalence', hue='comparison', data=plot_df)
+    ax.set(xlabel='HA position', ylabel='proportion of pairs with different genotypes')
+    fig.suptitle('Direct comparison of single strains sequenced under multiple conditions')
+    fig.savefig('plots/paired_comparisons_'+str(prefix)+'.pdf', bbox_inches='tight')
+
+    return plot_df
+
+def compare_direct_overall(prefix):
+    """
+    Compare the proportions of egg-passaged sequences mutated at each site seen between paired sequences and overall, inferred mutations (compared to the consensus clade genotype). This plot shows that both the direct and inferred method of determining mutations show similar mutation rates. This is important because the ample size of direct comparisons is very low, so using inferring egg mutations is crucial for further analyses
+    """
+    overall_rates = plot_mutation_prev(prefix)
+    direct_rates = find_paired_mutations(prefix)
+    plot_df = pd.concat([overall_rates[overall_rates['virus_passage']=='egg'], direct_rates[direct_rates['comparison']=='egg_unpassaged'].rename(columns={'comparison':'virus_passage'})]).rename(columns={'virus_passage':'method'})
+    plot_df['method'] = np.where(plot_df['method']=='egg', 'inferred', 'direct')
+
+    fig, ax = plt.subplots()
+    sns.barplot(x='site', y='prevalence', hue='method', data=plot_df)
+    ax.set(xlabel='HA position', ylabel='proportion of egg-passaged sequences with a mutation')
+    fig.suptitle('Comparison of mutation rates between methods')
+    fig.savefig('plots/mutation_inference_method_'+str(prefix)+'.pdf', bbox_inches='tight')
+
+
 def plot_overall_aas(prefix):
     """
     Plot overall amino diversity at each site before egg-passaging. Indicate the proportion of each genotype that mutated during egg-passaging
@@ -181,6 +250,10 @@ def find_mutation_aas(prefix):
                 mut_aas.append({'site': mut_site, 'aa': mutation_group[str(mut_site[3:])][aa_count], 'proportion': float(mutation_group['count'][aa_count])/float(len(df[df[str(mut_site)] == True])), 'stack': aa_count, 'strain': 'egg', 'bottom_proportion': float(mutation_group['count'][aa_count-1]+mutation_group['count'][aa_count-2]+mutation_group['count'][aa_count-3])/float(len(df[df[str(mut_site)] == True]))})
             elif aa_count == 4:
                 mut_aas.append({'site': mut_site, 'aa': mutation_group[str(mut_site[3:])][aa_count], 'proportion': float(mutation_group['count'][aa_count])/float(len(df[df[str(mut_site)] == True])), 'stack': aa_count, 'strain': 'egg', 'bottom_proportion': float(mutation_group['count'][aa_count-1]+mutation_group['count'][aa_count-2]+mutation_group['count'][aa_count-3]+mutation_group['count'][aa_count-4])/float(len(df[df[str(mut_site)] == True]))})
+            elif aa_count == 5:
+                mut_aas.append({'site': mut_site, 'aa': mutation_group[str(mut_site[3:])][aa_count], 'proportion': float(mutation_group['count'][aa_count])/float(len(df[df[str(mut_site)] == True])), 'stack': aa_count, 'strain': 'egg', 'bottom_proportion': float(mutation_group['count'][aa_count-1]+mutation_group['count'][aa_count-2]+mutation_group['count'][aa_count-3]+mutation_group['count'][aa_count-4]+mutation_group['count'][aa_count-5])/float(len(df[df[str(mut_site)] == True]))})
+            elif aa_count == 6:
+                mut_aas.append({'site': mut_site, 'aa': mutation_group[str(mut_site[3:])][aa_count], 'proportion': float(mutation_group['count'][aa_count])/float(len(df[df[str(mut_site)] == True])), 'stack': aa_count, 'strain': 'egg', 'bottom_proportion': float(mutation_group['count'][aa_count-1]+mutation_group['count'][aa_count-2]+mutation_group['count'][aa_count-3]+mutation_group['count'][aa_count-4]+mutation_group['count'][aa_count-5]+mutation_group['count'][aa_count-6])/float(len(df[df[str(mut_site)] == True]))})
 
     mut_aas_df = pd.DataFrame(mut_aas)
 
@@ -199,8 +272,8 @@ def find_mutation_aas(prefix):
         pmap[pos] = x_pos
         x_pos += 2
 
-    cmap_u = {0:'#33c7bc', 1:'#159794', 2:'#008080', 3:'#24aea7', 4:'#40e0d0'}
-    cmap_e = {0:'#cb2f44', 1:'#ffbd84', 2:'#8b0000', 3:'#f47461' , 4:'#FFE4B5'}
+    cmap_u = {0:'#5cd6d6', 1:'#b3e6cc', 2:'#c2f0f0', 3:'#39ac73', 4:'#8cd9b3'}
+    cmap_e = {0:'#ff4d4d', 1:'#ffddcc', 2:'#ff8080', 3:'#ff661a' , 4:'#ffd480', 5:'#ffcccc', 6: '#ffeecc'}
     width = 0.6
 
     fig, ax = plt.subplots()
@@ -231,9 +304,11 @@ def find_mutation_aas(prefix):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description = "Determines egg-specific mutations")
-    parser.add_argument('--prefix', default= 'h3n2_6y_notiter', help= "specify prefix for naming data files")
+    parser.add_argument('--prefix', default= 'h3n2_6y_hi', help= "specify prefix for naming data files")
     args = parser.parse_args()
 
     plot_mutation_prev(prefix = args.prefix)
     find_mutation_aas(prefix = args.prefix)
     plot_overall_aas(prefix = args.prefix)
+    find_paired_mutations(prefix = args.prefix)
+    compare_direct_overall(prefix = args.prefix)
