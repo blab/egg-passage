@@ -65,6 +65,12 @@ def run_augur(fasta_file, summary_file, resolution, titers):
     with open('flu_info.py', 'a') as f:
         f.write("reference_viruses['h3n2']=reference_viruses['h3n2']+" + str(force_include))
 
+    #Add -cell outlier sequences to h3n2_outliers.txt
+    outliers = ['A/StPetersburg/5/2009-cell', 'A/Cambodia/NHRCC00003/2009-cell', 'A/Cambodia/NHRCC00010/2009-cell']
+    with open('metadata/h3n2_outliers.txt', 'a') as o:
+        for outlier in outliers:
+            o.write('%s\n' % outlier)
+
     #Run flu.prepare.py
     if titers != 'notiter':
         if titers == 'hi':
@@ -109,6 +115,16 @@ def run_augur(fasta_file, summary_file, resolution, titers):
             if "reference_viruses['h3n2']=reference_viruses['h3n2']+" not in line:
                 f.write(line)
         f.truncate()
+
+    #Remove appended outliers from h3n2_outliers.txt
+    with open('metadata/h3n2_outliers.txt', 'r+') as o:
+        new_o = o.readlines()
+        o.seek(0)
+        for line in new_o:
+            if not any(outlier in line for outlier in outliers):
+                o.write(line)
+        o.truncate()
+
     #Clean augur directories
     clean = subprocess.Popen(["sh", "clean_directory.sh"], stdout=subprocess.PIPE)
     print(clean.stdout.read())
