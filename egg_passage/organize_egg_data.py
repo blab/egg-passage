@@ -151,7 +151,7 @@ def main(prefix, positions, tree_path, sequences_path, tip_mutations):
 
     if tip_mutations == True:
         egg_tip_mutations = find_tip_mutations(prefix)
-        if sorted(egg_tip_mutations) != sorted(positions):
+        if sorted(ast.literal_eval(egg_tip_mutations)) != sorted(sorted(ast.literal_eval(positions))):
             organize_egg_data_csv(prefix= 'tip_refine_'+str(prefix), positions= egg_tip_mutations, tree_path= tree_path, sequences_path= sequences_path)
 
 if __name__ == '__main__':
