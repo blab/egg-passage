@@ -31,17 +31,27 @@ def organize_egg_data_csv(prefix, positions, tree_path, sequences_path):
         if 'children' in branch.keys():
             for child in branch['children']:
                 if 'aa_muts' in child.keys():
-                    traverse_level.append(child['aa_muts']['HA1'])
-                    traverse(child, seq, pos_list)
-                    traverse_level.remove(child['aa_muts']['HA1'])
+                    traverse_aa.append(child['aa_muts']['HA1'])
+                    if 'muts' in child.keys():
+                        traverse_nt.append(child['muts'])
+                        traverse(child, seq, pos_list)
+                        traverse_nt.remove(child['muts'])
+                        traverse_aa.remove(child['aa_muts']['HA1'])
+                    else:
+                        traverse(child, seq, pos_list)
+                        traverse_aa.remove(child['aa_muts']['HA1'])
                 else:
                     traverse(child, seq, pos_list)
 
         elif 'children' not in branch.keys():
             if 'aa_muts' in branch.keys():
-                traverse_level.append(branch['aa_muts']['HA1'])
+                traverse_aa.append(branch['aa_muts']['HA1'])
+            if 'muts' in branch.keys():
+                traverse_nt.append(branch['muts'])
 
-            muts_list = [str(mut) for sublist in traverse_level for mut in sublist]
+
+            muts_list = [str(mut) for sublist in traverse_aa for mut in sublist]
+            nt_list = [str(mut) for sublist in traverse_nt for mut in sublist]
 
             tip_sequence = seq
             for mut in muts_list:
@@ -51,19 +61,23 @@ def organize_egg_data_csv(prefix, positions, tree_path, sequences_path):
 
             tip_muts[branch['strain']]=[branch['aa_muts']['HA1'], branch['aa_muts']['HA2'],
                                         branch['aa_muts']['SigPep'],branch['attr']['num_date'],
+                                        (branch['muts'] if 'muts' in branch else None),
                                         (branch['attr']['dTiterSub'] if 'dTiterSub' in branch['attr'] else None),
                                         (branch['attr']['cTiterSub'] if 'cTiterSub' in branch['attr'] else None),
-                                        branch['attr']['clade_membership']] + [tip_sequence[pos-1] for pos in pos_list]
+                                        branch['attr']['clade_membership'], nt_list] + [tip_sequence[pos-1] for pos in pos_list]
 
             if 'aa_muts' in branch.keys():
-                traverse_level.remove(branch['aa_muts']['HA1'])
+                traverse_aa.remove(branch['aa_muts']['HA1'])
+            if 'muts' in branch.keys():
+                traverse_nt.remove(branch['muts'])
 
-    traverse_level = []
+    traverse_aa = []
+    traverse_nt = []
     traverse(tree, root_seq, positions)
 
     df = pd.DataFrame(tip_muts).T
     df.reset_index(inplace=True)
-    df.columns = ['strain', 'tip_HA1_muts', 'tip_HA2_muts', 'tip_SigPep_muts', 'date','dTiterSub','cTiterSub', 'clade'] + positions
+    df.columns = ['strain', 'tip_HA1_muts', 'tip_HA2_muts', 'tip_SigPep_muts', 'date', 'tip_nt_muts', 'dTiterSub','cTiterSub', 'clade', 'nt_list'] + positions
     df['dTiterSub'], df['cTiterSub']= df['dTiterSub'].astype(float, inplace=True), df['cTiterSub'].astype(float, inplace=True)
     df['passage'] = np.select((df.strain.str.contains('egg'), df.strain.str.contains('cell')), ('egg', 'cell'))
     #Identify pairs where strain sequence exists for multiple passage types
