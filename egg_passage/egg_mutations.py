@@ -3,11 +3,14 @@ Find egg-passaging-specific mutations
 """
 
 import argparse
+import ast
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy.stats import chi2_contingency
+from Bio import SeqIO
+from collections import Counter
 
 def find_mutation_prevalence(prefix):
     """
@@ -346,6 +349,80 @@ def find_mutation_aas(prefix):
     fig.savefig('plots/before_after_eggpassaging_'+str(prefix)+'.pdf', bbox_inches='tight')
 
 
+def find_nt_mutations(prefix):
+    """
+    Find nucleotide mutations associated with egg-passaging-specific mutations
+    """
+
+    SP_NTS = range(1,49)
+    HA1_NTS = range(49,1036)
+    HA2_NTS = range(1036,1702)
+
+    df = pd.read_csv('data/'+prefix+'_df.csv')
+    tip_df = pd.read_csv('data/'+prefix+'_df_tidy.csv')
+
+    for record in SeqIO.parse("input_data/h3n2_outgroup.gb", "genbank"):
+        sp_nt = record.seq[0:48]
+        sp_aa = sp_nt.translate()
+        ha1_nt = record.seq[48:1035]
+        ha1_aa = ha1_nt.translate()
+        ha2_nt = record.seq[1035:]
+        ha2_aa = ha2_nt.translate()
+
+    positions = [int(col[3:]) for col in df.columns if col[0:3]=='mut']
+    aa_mutations = [x for (x, y) in Counter(tip_df[tip_df['passage']=='egg']['mutation']).most_common(10)]
+
+    #Find egg-specific nucleotide mutations, anywhere along branch
+    top_nts_passage = {}
+    for pas_type in df['passage'].unique():
+        pas_df = df[df['passage']==pas_type]
+        branch_nts = []
+        for k, v in pas_df.iterrows():
+            branch_nts+=[str(x) for x in ast.literal_eval(v['nt_list'])]
+        top_nts_passage[pas_type] = Counter(branch_nts).most_common(100)
+
+    #Find nucleotide mutations that aren't in the top mutations for cell or unpassaged
+    egg_specific = list(set(set([x for (x, y) in top_nts_passage['egg']]) - set([x for (x, y) in top_nts_passage['0']])) - set([x for (x, y) in top_nts_passage['cell']]))
+    #Only consider HA1 nucleotide mutations
+    egg_specific = [x for x in egg_specific if int(x[1:-1]) in HA1_NTS]
+
+    #Find prevalence of these nt mutations in cell and unpassaged
+    passage_nt_counts = {}
+    for pas_type in df['passage'].unique():
+        pas_df = df[df['passage']==pas_type]
+        branch_nts = []
+        for k, v in pas_df.iterrows():
+            branch_nts+=[str(x) for x in ast.literal_eval(v['nt_list']) if x in egg_specific]
+        count_branch_nts = Counter(branch_nts)
+        #Find percent of seqs per passage with given nt mutation
+        for key in count_branch_nts:
+            count_branch_nts[key] = float(count_branch_nts[key])/float(len(pas_df))
+        passage_nt_counts[pas_type] = count_branch_nts
+
+    plot_nts = pd.DataFrame(passage_nt_counts).unstack().reset_index().rename(columns={'level_0':'virus_passage', 'level_1':'nt_mutation', 0:'prevalence'}).fillna(0)
+    plot_nts['virus_passage'] = np.where(plot_nts['virus_passage']=='0', 'unpassaged', plot_nts['virus_passage'])
+    x_order = sorted(x for x in plot_nts['nt_mutation'].unique())
+
+    fig, ax = plt.subplots()
+    sns.set(style="white")
+    passage_palette = {'unpassaged': '#5c3d46', 'cell': '#f8c968', 'egg': '#99bfaa'}
+    fig = sns.barplot(x= 'nt_mutation', y= 'prevalence', hue= 'virus_passage', data= plot_nts, palette = passage_palette, order=x_order)
+    fig.set(xlabel='Nucleotide mutation', ylabel='prevalence of mutation')
+    plt.xticks(rotation=45)
+    #Find which nt muts are within codon of egg-specific amino acid mutation
+    aa_pos = []
+    for mutation in aa_mutations:
+        p = mutation.split('HA1')[1][1:-1]
+        aa_pos += range(49+int(p)*3-3, 49+int(p)*3)
+
+    tick_colors= ['red' if int(s[1:-1]) in aa_pos else 'black' for s in x_order]
+    for xtick, color in zip(ax.get_xticklabels(), tick_colors):
+        xtick.set_color(color)
+    plt.text(16.7, 0.6, 'Within codon of\n egg-specific\n amino acid mutation', color='red', size=10)
+
+    fig.get_figure().savefig('plots/egg_mutation_nt_prevalence_'+str(prefix)+'.pdf', bbox_inches='tight')
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description = "Determines egg-specific mutations")
     parser.add_argument('--prefix', default= 'h3n2_6y_hi', help= "specify prefix for naming data files")
@@ -355,5 +432,6 @@ if __name__ == '__main__':
     plot_mutation_aa(prefix = args.prefix)
     find_mutation_aas(prefix = args.prefix)
     plot_overall_aas(prefix = args.prefix)
+    find_nt_mutations(prefix = args.prefix)
     # find_paired_mutations(prefix = args.prefix)
     # compare_direct_overall(prefix = args.prefix)
