@@ -112,7 +112,7 @@ def plot_mutation_aa(prefix):
         aa_mut_count = {}
 
         for pas_type in df['passage'].unique():
-            mut_count = float(len(df[(df['circulating'+str(site)] == from_aa) & (df[str(site)] == to_aa) & (df['passage'] == pas_type)])) / float(len(df[df.passage == pas_type]))
+            mut_count = float(len(df[(df[str(site)+'_lastnode'] == from_aa) & (df[str(site)] == to_aa) & (df['passage'] == pas_type)])) / float(len(df[df.passage == pas_type]))
             aa_mut_count[pas_type] = mut_count
 
         top_aa_muts[egg_top_mut] = aa_mut_count
@@ -213,15 +213,18 @@ def plot_overall_aas(prefix):
         bottom_proportion = 0.0
         stack = 0
 
-        unpassaged_group = df.groupby('circulating'+str(mut_site[3:])).size().reset_index(name='count')
+        unpassaged_group = df.groupby(str(mut_site[3:])+'_lastnode').size().reset_index(name='count')
 
         for k, v in unpassaged_group.iterrows():
 
-            site_group = df[df['circulating'+str(mut_site[3:])] == v['circulating'+str(mut_site[3:])]].groupby(mut_site).size().reset_index(name='count')
+            site_group = df[df[str(mut_site[3:])+'_lastnode'] == v[str(mut_site[3:])+'_lastnode']].groupby(mut_site).size().reset_index(name='count')
+
+            if len(site_group)!=2:
+                site_group.loc[1] = [True, 0.0]
 
             for i, r in site_group.iterrows():
                 proportion = float(r['count'])/float(len(df))
-                before_aas.append({'site': mut_site, 'aa': v['circulating'+str(mut_site[3:])], 'mutated': r['mut'+str(mut_site[3:])], 'proportion': proportion, 'bottom_proportion': bottom_proportion, 'stack': stack})
+                before_aas.append({'site': mut_site, 'aa': v[str(mut_site[3:])+'_lastnode'], 'mutated': r[mut_site], 'proportion': proportion, 'bottom_proportion': bottom_proportion, 'stack': stack})
                 bottom_proportion += proportion
                 stack +=1
 
@@ -234,8 +237,7 @@ def plot_overall_aas(prefix):
         pmap[pos] = x_pos
         x_pos += 2
 
-    #cmap based off 'stack' (0/1 are first genotype, 2/3 are second)
-    cmap = {0:'#BA7C8E', 1:'#5c3d46', 2:'#C8EAD7', 3:'#99bfaa'}
+    cmap = {0:'#BA7C8E', 1:'#5c3d46', 2:'#C8EAD7', 3:'#99bfaa', 4:'#fbe3b1', 5:'#f8c968', 6: '#cdddf9', 7:'#75a1ef'}
 
     width = 1.2
 
@@ -243,17 +245,26 @@ def plot_overall_aas(prefix):
 
     plt.bar(before_aas_df['site'].map(pmap), before_aas_df['proportion'], width, bottom = before_aas_df['bottom_proportion'], color = before_aas_df['stack'].map(cmap))
     for i, r in before_aas_df[before_aas_df['mutated']==False].iterrows():
-        plt.annotate(r['aa'], xy=((pmap[r['site']]), (r['bottom_proportion']+0.27*r['proportion'])), color="black", ha='center')
+        if r['proportion'] >= 0.02:
+            plt.annotate(r['aa'], xy=((pmap[r['site']]), (r['bottom_proportion']+0.5*r['proportion'])), color="black", ha='center', va='center', size=10)
+        elif r['proportion'] < 0.02:
+            plt.annotate(r['aa'], xy=((pmap[r['site']]+width/1.5), (r['bottom_proportion']+r['proportion'])), color="black", ha='center', va='center', size=6)
 
 
     ax.set(xlabel = 'HA site', ylabel='Genotype')
     ax.set_xticks([p for p in pmap.values()])
     ax.set_xticklabels([s[3:] for s in pmap.keys()])
+    ax.spines['right'].set_visible(False)
+    ax.spines['top'].set_visible(False)
     plt.text(18, 0.97, 'Mutated during \negg-passaging', color='black', size=8, fontweight='bold')
     plt.text(18, 0.87, 'False', color='#BA7C8E', size=10, fontweight='bold')
     plt.text(19.2, 0.87, 'True', color='#5c3d46', size=10, fontweight='bold')
     plt.text(18, 0.79, 'False', color='#C8EAD7', size=10, fontweight='bold')
     plt.text(19.2, 0.79, 'True', color='#99bfaa', size=10, fontweight='bold')
+    plt.text(18, 0.71, 'False', color='#fbe3b1', size=10, fontweight='bold')
+    plt.text(19.2, 0.71, 'True', color='#f8c968', size=10, fontweight='bold')
+    plt.text(18, 0.63, 'False', color='#cdddf9', size=10, fontweight='bold')
+    plt.text(19.2, 0.63, 'True', color='#75a1ef', size=10, fontweight='bold')
     plt.text(6, 1.08, 'H3N2 strain genotypes', color='black', size=12)
 
 
@@ -272,19 +283,19 @@ def find_mutation_aas(prefix):
 
     for mut_site in mut_sites:
 
-        unpassaged_group = df[df[str(mut_site)] == True].groupby('circulating'+str(mut_site[3:])).size().sort_values(ascending=False).reset_index(name='count')
+        unpassaged_group = df[df[str(mut_site)] == True].groupby(str(mut_site[3:])+'_lastnode').size().sort_values(ascending=False).reset_index(name='count')
         mutation_group = df[df[str(mut_site)] == True].groupby(str(mut_site[3:])).size().sort_values(ascending=False).reset_index(name='count')
 
         for aa_count in range(len(unpassaged_group)):
 
             if aa_count == 0:
-                mut_aas.append({'site': mut_site, 'aa': unpassaged_group['circulating'+str(mut_site[3:])][aa_count], 'proportion': float(unpassaged_group['count'][aa_count])/float(len(df[df[str(mut_site)] == True])), 'stack': aa_count, 'strain': 'unpassaged', 'bottom_proportion': 0.0})
+                mut_aas.append({'site': mut_site, 'aa': unpassaged_group[str(mut_site[3:])+'_lastnode'][aa_count], 'proportion': float(unpassaged_group['count'][aa_count])/float(len(df[df[str(mut_site)] == True])), 'stack': aa_count, 'strain': 'unpassaged', 'bottom_proportion': 0.0})
             #Find height where stacked bar should start
             else:
                 prev_bars = unpassaged_group['count'][0]
                 for n in range(1, aa_count):
                     prev_bars += unpassaged_group['count'][aa_count-n]
-                mut_aas.append({'site': mut_site, 'aa': unpassaged_group['circulating'+str(mut_site[3:])][aa_count], 'proportion': float(unpassaged_group['count'][aa_count])/float(len(df[df[str(mut_site)] == True])), 'stack': aa_count, 'strain': 'unpassaged', 'bottom_proportion': float(prev_bars)/float(len(df[df[str(mut_site)] == True]))})
+                mut_aas.append({'site': mut_site, 'aa': unpassaged_group[str(mut_site[3:])+'_lastnode'][aa_count], 'proportion': float(unpassaged_group['count'][aa_count])/float(len(df[df[str(mut_site)] == True])), 'stack': aa_count, 'strain': 'unpassaged', 'bottom_proportion': float(prev_bars)/float(len(df[df[str(mut_site)] == True]))})
 
         for aa_count in range(len(mutation_group)):
 
@@ -418,7 +429,6 @@ def find_nt_mutations(prefix):
     tick_colors= ['red' if int(s[1:-1]) in aa_pos else 'black' for s in x_order]
     for xtick, color in zip(ax.get_xticklabels(), tick_colors):
         xtick.set_color(color)
-    plt.text(16.7, 0.6, 'Within codon of\n egg-specific\n amino acid mutation', color='red', size=10)
 
     fig.get_figure().savefig('plots/egg_mutation_nt_prevalence_'+str(prefix)+'.pdf', bbox_inches='tight')
 

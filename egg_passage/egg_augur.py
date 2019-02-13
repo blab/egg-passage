@@ -67,9 +67,9 @@ def run_augur(fasta_file, summary_file, resolution, titers):
 
     #Add -cell outlier sequences to h3n2_outliers.txt
     outliers = ['A/StPetersburg/5/2009-cell', 'A/Cambodia/NHRCC00003/2009-cell', 'A/Cambodia/NHRCC00010/2009-cell']
-    with open('metadata/h3n2_outliers.txt', 'a') as o:
+    with open('metadata/h3n2_outliers.txt', 'a') as outlier_file:
         for outlier in outliers:
-            o.write('%s\n' % outlier)
+            outlier_file.write('%s\n' % outlier)
 
     #Run flu.prepare.py
     if titers != 'notiter':

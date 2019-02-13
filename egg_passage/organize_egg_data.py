@@ -41,35 +41,36 @@ def organize_egg_data_csv(prefix, positions, tree_path, sequences_path):
                         traverse(child, seq, pos_list)
                         traverse_aa.remove(child['aa_muts']['HA1'])
                 else:
+                    #Append place holder for branches with no mutations
+                    traverse_aa.append([])
                     traverse(child, seq, pos_list)
 
         elif 'children' not in branch.keys():
-            if 'aa_muts' in branch.keys():
-                traverse_aa.append(branch['aa_muts']['HA1'])
-            if 'muts' in branch.keys():
-                traverse_nt.append(branch['muts'])
-
 
             muts_list = [str(mut) for sublist in traverse_aa for mut in sublist]
             nt_list = [str(mut) for sublist in traverse_nt for mut in sublist]
+            last_node = [str(mut) for sublist in traverse_aa[:-1] for mut in sublist]
 
+            #Find sequence of tip and sequence one branch in
             tip_sequence = seq
+            last_node_sequence = seq
+
             for mut in muts_list:
                 internal_mut_pos = int(re.findall('\d+', mut)[0])
                 internal_mut_aa = mut[-1:]
                 tip_sequence = tip_sequence[:internal_mut_pos-1] + internal_mut_aa + tip_sequence[internal_mut_pos:]
+            for mut in last_node:
+                internal_mut_pos = int(re.findall('\d+', mut)[0])
+                internal_mut_aa = mut[-1:]
+                last_node_sequence = last_node_sequence[:internal_mut_pos-1] + internal_mut_aa + last_node_sequence[internal_mut_pos:]
+
 
             tip_muts[branch['strain']]=[branch['aa_muts']['HA1'], branch['aa_muts']['HA2'],
                                         branch['aa_muts']['SigPep'],branch['attr']['num_date'],
                                         (branch['muts'] if 'muts' in branch else None),
                                         (branch['attr']['dTiterSub'] if 'dTiterSub' in branch['attr'] else None),
                                         (branch['attr']['cTiterSub'] if 'cTiterSub' in branch['attr'] else None),
-                                        branch['attr']['clade_membership'], nt_list] + [tip_sequence[pos-1] for pos in pos_list]
-
-            if 'aa_muts' in branch.keys():
-                traverse_aa.remove(branch['aa_muts']['HA1'])
-            if 'muts' in branch.keys():
-                traverse_nt.remove(branch['muts'])
+                                        branch['attr']['clade_membership'], nt_list] + [tip_sequence[pos-1] for pos in pos_list] + [last_node_sequence[pos-1] for pos in pos_list]
 
     traverse_aa = []
     traverse_nt = []
@@ -77,7 +78,7 @@ def organize_egg_data_csv(prefix, positions, tree_path, sequences_path):
 
     df = pd.DataFrame(tip_muts).T
     df.reset_index(inplace=True)
-    df.columns = ['strain', 'tip_HA1_muts', 'tip_HA2_muts', 'tip_SigPep_muts', 'date', 'tip_nt_muts', 'dTiterSub','cTiterSub', 'clade', 'nt_list'] + positions
+    df.columns = ['strain', 'tip_HA1_muts', 'tip_HA2_muts', 'tip_SigPep_muts', 'date', 'tip_nt_muts', 'dTiterSub','cTiterSub', 'clade', 'nt_list'] + positions + [str(x)+'_lastnode' for x in positions]
     df['dTiterSub'], df['cTiterSub']= df['dTiterSub'].astype(float, inplace=True), df['cTiterSub'].astype(float, inplace=True)
     df['passage'] = np.select((df.strain.str.contains('egg'), df.strain.str.contains('cell')), ('egg', 'cell'))
     #Identify pairs where strain sequence exists for multiple passage types
@@ -92,25 +93,10 @@ def organize_egg_data_csv(prefix, positions, tree_path, sequences_path):
     pair_ids = pd.DataFrame(pair_ids).T.reset_index().rename(columns={'index':'source', 0:'pair_id'})
     df = df.merge(pair_ids, on='source', how='left')
 
-    #!!!! Must first check all sites of insterest to make sure clades have predeominantly one genotype!!!!
-    #At each position, find predominant genotype of circulating virus by clade
-    #Use this to determine whether egg-passaged strains have mutated
-    #!!!! Must first check all sites of insterest to make sure clades have predeominantly one genotype!!!!
-
-    clade_gtype = {}
+    #Determine whether there sequence has mutated relative to ancestor 1 branch in, at each position
     for p in positions:
-        clade_gtype_pos = {}
-        for c_name, clade in df[df['passage']=='0'].groupby('clade'):
-            clade_gtype_pos[c_name] = str(clade[p].value_counts().nlargest(1))[0]
-        clade_gtype[p] = clade_gtype_pos
-
-    for p in positions:
-        df['circulating'+str(p)] = df['clade'].map(clade_gtype[p])
-    #Determine whether there sequence has mutated relative to clade background, at each position
-    for p in positions:
-
         df['mut'+str(p)] = np.select(
-        (df[p]==df['circulating'+str(p)], df[p]!=df['circulating'+str(p)]),
+        (df[p]==df[str(p)+'_lastnode'], df[p]!=df[str(p)+'_lastnode']),
         (False, True))
 
     #Save organized data to a .csv
