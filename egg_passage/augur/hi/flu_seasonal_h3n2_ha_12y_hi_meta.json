@@ -1,5 +1,5 @@
 {
- "updated": "5 Feb 2019", 
+ "updated": "12 Feb 2019", 
  "author_info": {
   "thai_national_influenza_center": {
    "title": "?", 
@@ -7,7 +7,7 @@
   }, 
   "other_database_import": {
    "title": "?", 
-   "n": 652
+   "n": 646
   }, 
   "ministry_of_health,_singapore": {
    "title": "?", 
@@ -15,7 +15,7 @@
   }, 
   "university_hospital_basel": {
    "title": "?", 
-   "n": 3
+   "n": 1
   }, 
   "health_protection_agency": {
    "title": "?", 
@@ -31,7 +31,7 @@
   }, 
   "microbiology_services_colindale,_public_health_england": {
    "title": "?", 
-   "n": 2
+   "n": 4
   }, 
   "central_research_institute_for_epidemiology": {
    "title": "?", 
@@ -43,11 +43,11 @@
   }, 
   "statens_serum_institute": {
    "title": "?", 
-   "n": 4
+   "n": 3
   }, 
   "state_research_center_of_virology_and_biotechnology__vector_": {
    "title": "?", 
-   "n": 9
+   "n": 8
   }, 
   "instituto_de_salud_carlos_iii": {
    "title": "?", 
@@ -57,13 +57,17 @@
    "title": "?", 
    "n": 3
   }, 
+  "insa_national_institute_of_health_portugal": {
+   "title": "?", 
+   "n": 1
+  }, 
   "cantacuzino_institute": {
    "title": "?", 
    "n": 1
   }, 
   "crick_worldwide_influenza_centre": {
    "title": "?", 
-   "n": 24
+   "n": 25
   }, 
   "hangzhou_center_for_disease_control_and_prevention": {
    "title": "?", 
@@ -87,7 +91,11 @@
   }, 
   "national_institute_of_infectious_diseases__niid_": {
    "title": "?", 
-   "n": 169
+   "n": 168
+  }, 
+  "public_health_agency_of_canada__phac_": {
+   "title": "?", 
+   "n": 1
   }, 
   "erasmus_medical_center": {
    "title": "?", 
@@ -95,11 +103,11 @@
   }, 
   "medical_university_vienna": {
    "title": "?", 
-   "n": 1
+   "n": 2
   }, 
   "who_collaborating_centre_for_reference_and_research_on_influenza": {
    "title": "?", 
-   "n": 265
+   "n": 262
   }, 
   "state_research_center_of_virology_and_biotechnology_vector": {
    "title": "?", 
@@ -119,11 +127,11 @@
   }, 
   "public_health_agency_of_sweden": {
    "title": "?", 
-   "n": 2
+   "n": 1
   }, 
   "public_health_wales_microbiology_cardiff": {
    "title": "?", 
-   "n": 3
+   "n": 2
   }, 
   "malbran": {
    "title": "?", 
@@ -131,7 +139,7 @@
   }, 
   "who_chinese_national_influenza_center": {
    "title": "?", 
-   "n": 46
+   "n": 47
   }, 
   "pasteur_centre": {
    "title": "?", 
@@ -139,15 +147,11 @@
   }, 
   "public_health_wales_microbiology": {
    "title": "?", 
-   "n": 9
-  }, 
-  "evandro_chagas_institute": {
-   "title": "?", 
-   "n": 1
+   "n": 5
   }, 
   "institut_pasteur": {
    "title": "?", 
-   "n": 7
+   "n": 12
   }, 
   "swedish_institute_for_infectious_disease_control": {
    "title": "?", 
@@ -159,7 +163,7 @@
   }, 
   "instituto_de_salud_publica_de_chile": {
    "title": "?", 
-   "n": 5
+   "n": 1
   }, 
   "instituto_adolfo_lutz": {
    "title": "?", 
@@ -171,7 +175,7 @@
   }, 
   "national_institute_for_medical_research": {
    "title": "?", 
-   "n": 126
+   "n": 125
   }, 
   "ontario_agency_for_health_protection_and_promotion__oahpp_": {
    "title": "?", 
@@ -179,10 +183,10 @@
   }, 
   "centers_for_disease_control_and_prevention": {
    "title": "?", 
-   "n": 622
+   "n": 629
   }
  }, 
- "virus_count": 2149, 
+ "virus_count": 2142, 
  "defaults": {
   "geoResolution": "region", 
   "colorBy": "clade_membership", 
@@ -300,7 +304,7 @@
   "region", 
   "country"
  ], 
- "commit": "a2bc328785fd17ca014b026f7688b05c765d9db1", 
+ "commit": "69a024c7fc4b3efd270f1204d19040a30172f593", 
  "maintainer": [
   "Trevor Bedford and Barney Potter", 
   "http://bedford.io/"
@@ -356,9 +360,9 @@
     "latitude": 64.574131, 
     "longitude": 11.5270102892
    }, 
-   "bahrain": {
-    "latitude": 26.22787, 
-    "longitude": 50.58565
+   "ghana": {
+    "latitude": 8.0300284, 
+    "longitude": -1.080027
    }, 
    "australia": {
     "latitude": -24.7761085, 
@@ -411,6 +415,10 @@
    "bulgaria": {
     "latitude": 42.6073975, 
     "longitude": 25.4856617
+   }, 
+   "jamaica": {
+    "latitude": 18.16667, 
+    "longitude": -77.25
    }, 
    "united_arab_emirates": {
     "latitude": 24.0002488, 
@@ -516,9 +524,9 @@
     "latitude": -28.8166235, 
     "longitude": 24.991639
    }, 
-   "oman": {
-    "latitude": 21.0000287, 
-    "longitude": 57.0036901
+   "gambia": {
+    "latitude": 13.5, 
+    "longitude": -15.5
    }, 
    "finland": {
     "latitude": 63.2467777, 
@@ -684,9 +692,9 @@
     "latitude": 25.0, 
     "longitude": 45.0
    }, 
-   "gambia": {
-    "latitude": 13.5, 
-    "longitude": -15.5
+   "oman": {
+    "latitude": 21.0000287, 
+    "longitude": 57.0036901
    }, 
    "guadeloupe": {
     "latitude": 16.265, 
@@ -696,9 +704,9 @@
     "latitude": 64.6863136, 
     "longitude": 97.7453061
    }, 
-   "ghana": {
-    "latitude": 8.0300284, 
-    "longitude": -1.080027
+   "bahrain": {
+    "latitude": 26.22787, 
+    "longitude": 50.58565
    }, 
    "portugal": {
     "latitude": 39.6945, 

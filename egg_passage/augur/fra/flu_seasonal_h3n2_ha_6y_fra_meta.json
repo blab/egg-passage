@@ -1,5 +1,5 @@
 {
- "updated": "1 Feb 2019", 
+ "updated": "12 Feb 2019", 
  "author_info": {
   "thai_national_influenza_center": {
    "title": "?", 
@@ -7,7 +7,7 @@
   }, 
   "other_database_import": {
    "title": "?", 
-   "n": 204
+   "n": 206
   }, 
   "ministry_of_health,_singapore": {
    "title": "?", 
@@ -27,7 +27,7 @@
   }, 
   "who_chinese_national_influenza_center": {
    "title": "?", 
-   "n": 74
+   "n": 68
   }, 
   "university_of_buea": {
    "title": "?", 
@@ -51,7 +51,7 @@
   }, 
   "who_national_influenza_centre_russian_federation": {
    "title": "?", 
-   "n": 24
+   "n": 21
   }, 
   "national_institute_of_communicable_diseases": {
    "title": "?", 
@@ -67,15 +67,15 @@
   }, 
   "state_research_center_of_virology_and_biotechnology__vector_": {
    "title": "?", 
-   "n": 11
+   "n": 9
   }, 
   "oswaldo_cruz_institute___fiocruz___laboratory_of_respiratory_viruses_and_measles__lvrs_": {
    "title": "?", 
    "n": 1
   }, 
-  "robert_koch_institute": {
+  "crick_worldwide_influenza_centre": {
    "title": "?", 
-   "n": 2
+   "n": 77
   }, 
   "hangzhou_center_for_disease_control_and_prevention": {
    "title": "?", 
@@ -87,7 +87,7 @@
   }, 
   "hellenic_pasteur_institute": {
    "title": "?", 
-   "n": 2
+   "n": 1
   }, 
   "university_of_hong_kong": {
    "title": "?", 
@@ -95,7 +95,7 @@
   }, 
   "national_institute_of_infectious_diseases__niid_": {
    "title": "?", 
-   "n": 225
+   "n": 224
   }, 
   "hospital_cl?nic_de_barcelona": {
    "title": "?", 
@@ -111,11 +111,11 @@
   }, 
   "medical_university_vienna": {
    "title": "?", 
-   "n": 3
+   "n": 1
   }, 
   "who_collaborating_centre_for_reference_and_research_on_influenza": {
    "title": "?", 
-   "n": 313
+   "n": 324
   }, 
   "state_research_center_of_virology_and_biotechnology_vector": {
    "title": "?", 
@@ -163,7 +163,7 @@
   }, 
   "evandro_chagas_institute": {
    "title": "?", 
-   "n": 3
+   "n": 1
   }, 
   "jiangsu_provincial_center_for_disease_control_&_prevention": {
    "title": "?", 
@@ -177,17 +177,17 @@
    "title": "?", 
    "n": 9
   }, 
-  "crick_worldwide_influenza_centre": {
+  "robert_koch_institute": {
    "title": "?", 
-   "n": 77
+   "n": 1
   }, 
   "instituto_de_salud_publica_de_chile": {
    "title": "?", 
-   "n": 12
+   "n": 5
   }, 
-  "centers_for_disease_control_and_prevention": {
+  "instituto_adolfo_lutz": {
    "title": "?", 
-   "n": 873
+   "n": 32
   }, 
   "norwegian_institute_of_public_health": {
    "title": "?", 
@@ -195,18 +195,18 @@
   }, 
   "national_institute_for_medical_research": {
    "title": "?", 
-   "n": 101
+   "n": 108
   }, 
-  "instituto_adolfo_lutz": {
+  "centers_for_disease_control_and_prevention": {
    "title": "?", 
-   "n": 32
+   "n": 934
   }, 
   "luxembourg_institute_of_health": {
    "title": "?", 
    "n": 2
   }
  }, 
- "virus_count": 2238, 
+ "virus_count": 2294, 
  "defaults": {
   "geoResolution": "region", 
   "colorBy": "clade_membership", 
@@ -322,7 +322,7 @@
   "region", 
   "country"
  ], 
- "commit": "a2bc328785fd17ca014b026f7688b05c765d9db1", 
+ "commit": "69a024c7fc4b3efd270f1204d19040a30172f593", 
  "maintainer": [
   "Trevor Bedford and Barney Potter", 
   "http://bedford.io/"
@@ -421,6 +421,10 @@
    "bulgaria": {
     "latitude": 42.6073975, 
     "longitude": 25.4856617
+   }, 
+   "jamaica": {
+    "latitude": 18.16667, 
+    "longitude": -77.25
    }, 
    "albania": {
     "latitude": 41.000028, 
