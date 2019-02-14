@@ -44,7 +44,7 @@ def find_mutation_prevalence(prefix):
         ec_chi2, ec_p, ec_dof, ec_expected = chi2_contingency(egg_v_cell_obs)
         if ec_p > 0.000001:
             print('%s is not not significantly more mutated in egg-passaged vs. cell-passaged strains' %str(mut_site))
-        egg_v_unpassaged_obs = np.array([chi_obs['egg'], chi_obs['0']])
+        egg_v_unpassaged_obs = np.array([chi_obs['egg'], chi_obs['unpassaged']])
         eu_chi2, eu_p, eu_dof, eu_expected = chi2_contingency(egg_v_unpassaged_obs)
         if ec_p > 0.000001:
             print('%s is not not significantly more mutated in egg-passaged vs. unpassaged strains' %str(mut_site))
@@ -79,14 +79,13 @@ def plot_mutation_site(prefix):
 
     plot_df = mut_prev_df.unstack().reset_index().rename(columns={'level_0':'site', 'level_1':'virus_passage', 0:'prevalence'})
     plot_df['site'] = plot_df['site'].str[3:]
-    plot_df['virus_passage'] = np.where(plot_df['virus_passage']=='0', 'unpassaged', plot_df['virus_passage'])
 
     sns.set(style="white")
     fig, ax = plt.subplots()
     passage_palette = {'unpassaged': '#5c3d46', 'cell': '#f8c968', 'egg': '#99bfaa'}
     fig = sns.barplot(x='site', y='prevalence', hue='virus_passage', data=plot_df, palette= passage_palette)
     fig.set(xlabel='HA position', ylabel='prevalence of mutation')
-    fig.get_figure().savefig('plots/egg_mutation_site_prevalence_'+str(prefix)+'.pdf')
+    fig.get_figure().savefig('plots/'+str(prefix)+'/egg_mutation_site_prevalence_'+str(prefix)+'.pdf')
 
     # return plot_df
 
@@ -119,7 +118,6 @@ def plot_mutation_aa(prefix):
 
     aa_muts_df = pd.DataFrame(top_aa_muts)
     plot_aa_muts_df = aa_muts_df.unstack().reset_index().rename(columns={'level_0':'mutation', 'level_1':'virus_passage', 0:'prevalence'})
-    plot_aa_muts_df['virus_passage'] = np.where(plot_aa_muts_df['virus_passage']=='0', 'unpassaged', plot_aa_muts_df['virus_passage'])
 
     aa_barplot, ax = plt.subplots()
     sns.set(style="white")
@@ -127,7 +125,7 @@ def plot_mutation_aa(prefix):
     aa_barplot = sns.barplot(x= 'mutation', y= 'prevalence', hue= 'virus_passage', data= plot_aa_muts_df, palette = passage_palette)
     aa_barplot.set(xlabel='HA1 mutation', ylabel='prevalence of mutation')
     plt.xticks(rotation=45)
-    aa_barplot.get_figure().savefig('plots/egg_mutation_aa_prevalence_'+str(prefix)+'.pdf', bbox_inches='tight')
+    aa_barplot.get_figure().savefig('plots/'+str(prefix)+'/egg_mutation_aa_prevalence_'+str(prefix)+'.pdf', bbox_inches='tight')
 
 
 
@@ -144,7 +142,7 @@ def plot_mutation_aa(prefix):
 #
 #     #Re-organize DF to one row per pair
 #     sub_egg = df[df['passage']=='egg'][['source'] + [str(pos) for pos in positions]].rename(columns = dict((str(pos), (str(pos)+'_egg')) for pos in positions))
-#     sub_u = df[df['passage']=='0'][['source'] + [str(pos) for pos in positions]].rename(columns = dict((str(pos), (str(pos)+'_u')) for pos in positions))
+#     sub_u = df[df['passage']=='unpassaged'][['source'] + [str(pos) for pos in positions]].rename(columns = dict((str(pos), (str(pos)+'_u')) for pos in positions))
 #     sub_cell = df[df['passage']=='cell'][['source'] + [str(pos) for pos in positions]].rename(columns = dict((str(pos), (str(pos)+'_cell')) for pos in positions))
 #
 #     pairs_u_df = sub_egg.merge(sub_u)
@@ -268,7 +266,7 @@ def plot_overall_aas(prefix):
     plt.text(6, 1.08, 'H3N2 strain genotypes', color='black', size=12)
 
 
-    fig.savefig('plots/genotypes_'+str(prefix)+'.pdf', bbox_inches='tight')
+    fig.savefig('plots/'+str(prefix)+'/genotypes_'+str(prefix)+'.pdf', bbox_inches='tight')
 
 def find_mutation_aas(prefix):
     """
@@ -357,7 +355,7 @@ def find_mutation_aas(prefix):
     plt.text(3, 1.08, 'H3N2 strains that mutated during egg-passaging', color='black', size=12)
 
 
-    fig.savefig('plots/before_after_eggpassaging_'+str(prefix)+'.pdf', bbox_inches='tight')
+    fig.savefig('plots/'+str(prefix)+'/before_after_eggpassaging_'+str(prefix)+'.pdf', bbox_inches='tight')
 
 
 def find_nt_mutations(prefix):
@@ -393,7 +391,7 @@ def find_nt_mutations(prefix):
         top_nts_passage[pas_type] = Counter(branch_nts).most_common(100)
 
     #Find nucleotide mutations that aren't in the top mutations for cell or unpassaged
-    egg_specific = list(set(set([x for (x, y) in top_nts_passage['egg']]) - set([x for (x, y) in top_nts_passage['0']])) - set([x for (x, y) in top_nts_passage['cell']]))
+    egg_specific = list(set(set([x for (x, y) in top_nts_passage['egg']]) - set([x for (x, y) in top_nts_passage['unpassaged']])) - set([x for (x, y) in top_nts_passage['cell']]))
     #Only consider HA1 nucleotide mutations
     egg_specific = [x for x in egg_specific if int(x[1:-1]) in HA1_NTS]
 
@@ -411,26 +409,26 @@ def find_nt_mutations(prefix):
         passage_nt_counts[pas_type] = count_branch_nts
 
     plot_nts = pd.DataFrame(passage_nt_counts).unstack().reset_index().rename(columns={'level_0':'virus_passage', 'level_1':'nt_mutation', 0:'prevalence'}).fillna(0)
-    plot_nts['virus_passage'] = np.where(plot_nts['virus_passage']=='0', 'unpassaged', plot_nts['virus_passage'])
-    x_order = sorted(x for x in plot_nts['nt_mutation'].unique())
+    if len(plot_nts)!=0:
+        x_order = sorted(x for x in plot_nts['nt_mutation'].unique())
 
-    fig, ax = plt.subplots()
-    sns.set(style="white")
-    passage_palette = {'unpassaged': '#5c3d46', 'cell': '#f8c968', 'egg': '#99bfaa'}
-    fig = sns.barplot(x= 'nt_mutation', y= 'prevalence', hue= 'virus_passage', data= plot_nts, palette = passage_palette, order=x_order)
-    fig.set(xlabel='Nucleotide mutation', ylabel='prevalence of mutation')
-    plt.xticks(rotation=45)
-    #Find which nt muts are within codon of egg-specific amino acid mutation
-    aa_pos = []
-    for mutation in aa_mutations:
-        p = mutation.split('HA1')[1][1:-1]
-        aa_pos += range(49+int(p)*3-3, 49+int(p)*3)
+        fig, ax = plt.subplots()
+        sns.set(style="white")
+        passage_palette = {'unpassaged': '#5c3d46', 'cell': '#f8c968', 'egg': '#99bfaa'}
+        fig = sns.barplot(x= 'nt_mutation', y= 'prevalence', hue= 'virus_passage', data= plot_nts, palette = passage_palette, order=x_order)
+        fig.set(xlabel='Nucleotide mutation', ylabel='prevalence of mutation')
+        plt.xticks(rotation=45)
+        #Find which nt muts are within codon of egg-specific amino acid mutation
+        aa_pos = []
+        for mutation in aa_mutations:
+            p = mutation.split('HA1')[1][1:-1]
+            aa_pos += range(49+int(p)*3-3, 49+int(p)*3)
 
-    tick_colors= ['red' if int(s[1:-1]) in aa_pos else 'black' for s in x_order]
-    for xtick, color in zip(ax.get_xticklabels(), tick_colors):
-        xtick.set_color(color)
+        tick_colors= ['red' if int(s[1:-1]) in aa_pos else 'black' for s in x_order]
+        for xtick, color in zip(ax.get_xticklabels(), tick_colors):
+            xtick.set_color(color)
 
-    fig.get_figure().savefig('plots/egg_mutation_nt_prevalence_'+str(prefix)+'.pdf', bbox_inches='tight')
+        fig.get_figure().savefig('plots/'+str(prefix)+'/egg_mutation_nt_prevalence_'+str(prefix)+'.pdf', bbox_inches='tight')
 
 
 if __name__ == '__main__':

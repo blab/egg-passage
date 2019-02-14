@@ -84,7 +84,7 @@ def find_epistasis(prefix, threshold):
 
     fig.text(0.5, 0.04, 'HA position of mutation', ha='center', va='center')
     fig.subplots_adjust(wspace=0.4)
-    fig.savefig('plots/egg_mutation_epistasis_'+str(prefix)+'.pdf')
+    fig.savefig('plots/'+str(prefix)+'/egg_mutation_epistasis_'+str(prefix)+'.pdf')
 
 def find_aa_epistasis(prefix):
     """
@@ -132,7 +132,7 @@ def find_aa_epistasis(prefix):
     aa_epistasis_df = pd.DataFrame(aa_epistasis)
 
     #Dict of most prevalent egg mutations, for outlining bars
-    egg_muts = {'160':['K'], '194': ['P'], '186':['V'], '225':['G'], '219':['F','Y'], '203':['I'], '156':['R','Q'], '138':['S']}
+    egg_muts = {'160':['K'], '194': ['P'], '186':['V'], '225':['G'], '219':['F','Y'], '203':['I'], '156':['R','Q'], '138':['S'], '246':['H'], '183':['L']}
 
     for site in sites:
         site_df = aa_epistasis_df[aa_epistasis_df['site1']==site]
@@ -188,7 +188,7 @@ def find_aa_epistasis(prefix):
             fig.text(0.92, 0.8, 'Prevalent \negg-mutations', color='red', ha='left', va='center', size=8)
             fig.text(0.075, 0.9, 'Number of \nstrains', ha='center', va='center', size=8)
             fig.suptitle('Epistasis between %s and other HA sites' %str(site), fontsize=12)
-            fig.savefig('plots/epistasis/%s_epistasis_'%str(site)+str(prefix)+'.pdf', bbox_inches='tight')
+            fig.savefig('plots/'+str(prefix)+'/epistasis/%s_epistasis_'%str(site)+str(prefix)+'.pdf', bbox_inches='tight')
 
 def plot_heatmap(prefix):
     """
@@ -255,7 +255,7 @@ def plot_heatmap(prefix):
         plot_arrays[sites.index(v['site1'])][sites.index(v['site2'])][site1_list.index(v['site1_aa'])][site2_list.index(v['site2_aa'])]= log_enrichment
 
     #Manually enter predominant egg mutation genotypes
-    egg_muts = {'160':'K', '194': 'P', '186':'V', '225':'G', '219':['F','Y'], '203':'I', '156':['R','Q'], '138':'S'}
+    egg_muts = {'160':'K', '194': 'P', '186':'V', '225':'G', '219':['F','Y'], '203':'I', '156':['R','Q'], '138':'S', '246':['H'], '183':['L']}
 
     for site1 in range(len(sites)):
         for site2 in range(len(sites)):
@@ -297,7 +297,7 @@ def plot_heatmap(prefix):
     colorbar.ax.get_yaxis().labelpad = 15
     colorbar.ax.set_ylabel('log2 enrichment ratio', rotation=270)
     fig.suptitle('Epistasis between HA sites in egg-passaged influenza H3N2', fontsize=12, y=1.05, x=0.6)
-    fig.savefig('plots/epistasis_heatmap.pdf', bbox_inches='tight')
+    fig.savefig('plots/'+str(prefix)+'/epistasis_heatmap.pdf', bbox_inches='tight')
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description = "Determines epistasis between egg-specific mutations")
