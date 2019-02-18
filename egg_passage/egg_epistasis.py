@@ -229,7 +229,7 @@ def plot_heatmap(prefix):
 
     #set threshold to exclude groups with only a few sequences
     #note: this means proportions won't exactly add to 1- doesn't matter for comparison to exp.
-    aa_epistasis_df = aa_epistasis_df[aa_epistasis_df['count'] >= 10]
+    aa_epistasis_df = aa_epistasis_df[aa_epistasis_df['count'] >= 5]
 
 
     fig, ax = plt.subplots(len(sites), len(sites), sharex='col', sharey='row')
@@ -241,7 +241,10 @@ def plot_heatmap(prefix):
     #Add matrix with number of amino acid genotypes as dimensions
     for site_x in sites:
         for site_y in sites:
-            plot_arrays[sites.index(site_x)][sites.index(site_y)] = np.zeros(shape = (len(list(aa_epistasis_df[aa_epistasis_df['site1']==site_x]['site1_aa'].unique())), len(list(aa_epistasis_df[aa_epistasis_df['site2']==site_y]['site2_aa'].unique()))))
+            # plot_arrays[sites.index(site_x)][sites.index(site_y)] = np.zeros(shape = (len(list(aa_epistasis_df[aa_epistasis_df['site1']==site_x]['site1_aa'].unique())), len(list(aa_epistasis_df[aa_epistasis_df['site2']==site_y]['site2_aa'].unique()))))
+            plot_arrays[sites.index(site_x)][sites.index(site_y)] = np.empty(shape = (len(list(aa_epistasis_df[aa_epistasis_df['site1']==site_x]['site1_aa'].unique())), len(list(aa_epistasis_df[aa_epistasis_df['site2']==site_y]['site2_aa'].unique()))))
+            #Fill all with -2.0, so if observed count is 0, log enrichment will be -2.0
+            plot_arrays[sites.index(site_x)][sites.index(site_y)].fill(-2.0)
 
 
     #Fill in plot_arrays with enrichment ratios
