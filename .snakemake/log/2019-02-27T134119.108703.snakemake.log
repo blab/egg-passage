@@ -1,0 +1,26 @@
+Building DAG of jobs...
+Using shell: /anaconda2/envs/py3/bin/bash
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	2	concatenate_titers
+	1	download_all
+	3
+
+[Wed Feb 27 13:41:20 2019]
+Job 6: Concatenating egg and cell titers
+
+[Wed Feb 27 13:41:20 2019]
+Error in rule concatenate_titers:
+    jobid: 6
+    output: data/who_h3n2_concat_hi_titers.tsv
+
+RuleException:
+CalledProcessError in line 222 of /Users/katekistler/nextstrain/egg-passage/Snakefile:
+Command 'set -euo pipefail;  python3 scripts/concatenate_titers.py             --titer_tsvs data/who_h3n2_cell_hi_titers.tsv data/who_h3n2_egg_hi_titers.tsv             --output data/who_h3n2_concat_hi_titers.tsv' returned non-zero exit status 1.
+  File "/Users/katekistler/nextstrain/egg-passage/Snakefile", line 222, in __rule_concatenate_titers
+  File "/anaconda2/envs/py3/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /Users/katekistler/nextstrain/egg-passage/.snakemake/log/2019-02-27T134119.108703.snakemake.log

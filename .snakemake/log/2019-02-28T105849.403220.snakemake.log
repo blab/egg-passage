@@ -1,0 +1,108 @@
+Building DAG of jobs...
+Using shell: /anaconda2/envs/py3/bin/bash
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	2	align
+	1	all_live
+	2	ancestral
+	2	clades
+	2	distances
+	2	export
+	2	extract
+	1	filter
+	2	lbi
+	6	reconstruct_translations
+	2	refine
+	2	select_strains
+	2	simplify_auspice_names
+	2	tip_frequencies
+	2	titers_sub
+	2	titers_tree
+	2	traits
+	2	translate
+	2	tree
+	40
+
+[Thu Feb 28 10:58:51 2019]
+Job 40: 
+        Filtering h3n2 ha cell sequences:
+          - less than 900 bases
+          - outliers
+          - samples with missing region and country metadata
+          - samples that are egg-passaged if cell build
+        
+
+[Thu Feb 28 11:00:26 2019]
+Finished job 40.
+1 of 40 steps (2%) done
+
+[Thu Feb 28 11:00:26 2019]
+rule select_strains:
+    input: results/filtered_h3n2_ha_cell.fasta, results/metadata_h3n2_ha.tsv, data/who_h3n2_cell_hi_titers.tsv, config/forceinclude_h3n2.txt
+    output: results/strains_who_h3n2_6y_cell_hi.txt
+    jobid: 41
+    wildcards: center=who, lineage=h3n2, resolution=6y, passage=cell, assay=hi
+
+[Thu Feb 28 11:00:41 2019]
+Finished job 41.
+2 of 40 steps (5%) done
+
+[Thu Feb 28 11:00:41 2019]
+rule select_strains:
+    input: results/filtered_h3n2_ha_cell.fasta, results/metadata_h3n2_ha.tsv, data/who_h3n2_cell_hi_titers.tsv, config/forceinclude_h3n2.txt
+    output: results/strains_who_h3n2_12y_cell_hi.txt
+    jobid: 42
+    wildcards: center=who, lineage=h3n2, resolution=12y, passage=cell, assay=hi
+
+[Thu Feb 28 11:00:56 2019]
+Finished job 42.
+3 of 40 steps (8%) done
+
+[Thu Feb 28 11:00:56 2019]
+rule extract:
+    input: results/filtered_h3n2_ha_cell.fasta, results/strains_who_h3n2_12y_cell_hi.txt
+    output: results/extracted_who_h3n2_ha_12y_cell_hi.fasta
+    jobid: 39
+    wildcards: center=who, lineage=h3n2, segment=ha, resolution=12y, passage=cell, assay=hi
+
+[Thu Feb 28 11:00:58 2019]
+Finished job 39.
+4 of 40 steps (10%) done
+
+[Thu Feb 28 11:00:58 2019]
+rule extract:
+    input: results/filtered_h3n2_ha_cell.fasta, results/strains_who_h3n2_6y_cell_hi.txt
+    output: results/extracted_who_h3n2_ha_6y_cell_hi.fasta
+    jobid: 38
+    wildcards: center=who, lineage=h3n2, segment=ha, resolution=6y, passage=cell, assay=hi
+
+[Thu Feb 28 11:00:59 2019]
+Finished job 38.
+5 of 40 steps (12%) done
+
+[Thu Feb 28 11:00:59 2019]
+Job 34: 
+        Aligning sequences to config/reference_h3n2_ha.gb
+        
+
+[Thu Feb 28 11:04:07 2019]
+Finished job 34.
+6 of 40 steps (15%) done
+
+[Thu Feb 28 11:04:07 2019]
+Job 33: Building tree
+
+Terminating processes on user request, this might take some time.
+[Thu Feb 28 11:12:48 2019]
+Error in rule tree:
+    jobid: 33
+    output: results/tree-raw_who_h3n2_ha_12y_cell_hi.nwk
+
+RuleException:
+CalledProcessError in line 381 of /Users/katekistler/nextstrain/egg-passage/Snakefile:
+Command 'set -euo pipefail;  augur tree             --alignment results/aligned_who_h3n2_ha_12y_cell_hi.fasta             --output results/tree-raw_who_h3n2_ha_12y_cell_hi.nwk             --nthreads 1             --exclude-sites config/exclude-sites_h3n2.txt' returned non-zero exit status 1.
+  File "/Users/katekistler/nextstrain/egg-passage/Snakefile", line 381, in __rule_tree
+  File "/anaconda2/envs/py3/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Complete log: /Users/katekistler/nextstrain/egg-passage/.snakemake/log/2019-02-28T105849.403220.snakemake.log

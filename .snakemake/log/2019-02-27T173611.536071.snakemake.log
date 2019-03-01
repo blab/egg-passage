@@ -1,0 +1,4 @@
+Building DAG of jobs...
+MissingInputException in line 140 of /Users/katekistler/nextstrain/egg-passage/Snakefile:
+Missing input files for rule all:
+config/forceinclude_h3n2.txt

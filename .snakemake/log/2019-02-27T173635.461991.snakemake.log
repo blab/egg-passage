@@ -1,0 +1,28 @@
+Building DAG of jobs...
+Using shell: /anaconda2/envs/py3/bin/bash
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	1	find_egg_seqs
+	2
+
+[Wed Feb 27 17:36:36 2019]
+Job 1: Finding all egg-passaged viruses
+
+[Wed Feb 27 17:36:37 2019]
+Error in rule find_egg_seqs:
+    jobid: 1
+    output: config/forceinclude_h3n2_ha.txt
+
+RuleException:
+CalledProcessError in line 229 of /Users/katekistler/nextstrain/egg-passage/Snakefile:
+Command 'set -euo pipefail;  python3 scripts/find_egg_seqs.py             --fasta_file data/h3n2_ha.fasta             --force_include_file config/forceinclude_h3n2_ha.txt' returned non-zero exit status 1.
+  File "/Users/katekistler/nextstrain/egg-passage/Snakefile", line 229, in __rule_find_egg_seqs
+  File "/anaconda2/envs/py3/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Removing output files of failed job find_egg_seqs since they might be corrupted:
+config/forceinclude_h3n2_ha.txt
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /Users/katekistler/nextstrain/egg-passage/.snakemake/log/2019-02-27T173635.461991.snakemake.log

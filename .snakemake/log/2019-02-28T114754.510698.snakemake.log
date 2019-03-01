@@ -1,0 +1,7 @@
+Building DAG of jobs...
+MissingInputException in line 718 of /Users/katekistler/nextstrain/egg-passage/Snakefile:
+Missing input files for rule simplify_auspice_names:
+auspice/flu_who_h3n2_ha_6y_cell_hi_meta.json
+auspice/flu_who_h3n2_ha_6y_cell_hi_tree.json
+auspice/flu_who_h3n2_ha_6y_cell_hi_tip-frequencies.json
+auspice/flu_who_h3n2_ha_6y_cell_hi_root-sequence.json

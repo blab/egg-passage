@@ -1,4 +1,0 @@
-Number of egg-passaged sequences: 726 
-Egg-passaged seqs with cell-passaged match: 304 
-Egg-passaged seqs with unpassaged match: 213 
-Egg-passaged seqs with unpassaged AND cell-passaged match: 89 

@@ -1,0 +1,27 @@
+Building DAG of jobs...
+Using shell: /anaconda2/envs/py3/bin/bash
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	download_all
+	1	download_sequences
+	4	download_titers
+	6
+
+[Wed Feb 27 11:24:15 2019]
+Job 5: Downloading sequences from fauna
+
+[Wed Feb 27 11:24:15 2019]
+Error in rule download_sequences:
+    jobid: 5
+    output: data/h3n2_ha.fasta
+
+RuleException:
+CalledProcessError in line 162 of /Users/katekistler/nextstrain/egg-passage/Snakefile:
+Command 'set -euo pipefail;  python3 ../fauna/vdb/download.py             --database vdb             --virus flu             --fasta_fields strain virus accession collection_date region country division location passage_category submitting_lab age gender             --resolve_method split_passage             --select locus:ha lineage:seasonal_h3n2             --path data             --fstem h3n2_ha' returned non-zero exit status 1.
+  File "/Users/katekistler/nextstrain/egg-passage/Snakefile", line 162, in __rule_download_sequences
+  File "/anaconda2/envs/py3/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /Users/katekistler/nextstrain/egg-passage/.snakemake/log/2019-02-27T112413.636584.snakemake.log

@@ -1,0 +1,33 @@
+Building DAG of jobs...
+Using shell: /anaconda2/envs/py3/bin/bash
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	2	concatenate_titers
+	1	download_all
+	3
+
+[Wed Feb 27 13:43:59 2019]
+Job 6: Concatenating egg and cell titers
+
+[Wed Feb 27 13:44:00 2019]
+Finished job 6.
+1 of 3 steps (33%) done
+
+[Wed Feb 27 13:44:00 2019]
+Job 7: Concatenating egg and cell titers
+
+[Wed Feb 27 13:44:01 2019]
+Finished job 7.
+2 of 3 steps (67%) done
+
+[Wed Feb 27 13:44:01 2019]
+localrule download_all:
+    input: data/who_h3n2_cell_hi_titers.tsv, data/who_h3n2_cell_fra_titers.tsv, data/who_h3n2_egg_hi_titers.tsv, data/who_h3n2_egg_fra_titers.tsv, data/h3n2_ha.fasta, data/who_h3n2_concat_hi_titers.tsv, data/who_h3n2_concat_fra_titers.tsv
+    jobid: 0
+
+[Wed Feb 27 13:44:01 2019]
+Finished job 0.
+3 of 3 steps (100%) done
+Complete log: /Users/katekistler/nextstrain/egg-passage/.snakemake/log/2019-02-27T134357.868593.snakemake.log

@@ -1,0 +1,16 @@
+Building DAG of jobs...
+Using shell: /anaconda2/envs/py3/bin/bash
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	download_titers
+	1
+
+[Wed Feb 27 13:23:46 2019]
+Job 0: Downloading titers from fauna: h3n2, fra, who
+
+[Wed Feb 27 13:23:56 2019]
+Finished job 0.
+1 of 1 steps (100%) done
+Complete log: /Users/katekistler/nextstrain/egg-passage/.snakemake/log/2019-02-27T132344.605055.snakemake.log

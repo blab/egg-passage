@@ -13,7 +13,9 @@ centers = ['who']
 wildcard_constraints:
     passage= "(cell|egg)",
     lineage="[a-z0-9]+",
-    segment="[a-z]+[0-9]?"
+    segment="[a-z]+[0-9]?",
+    center="(who)",
+    assay="(hi|fra)"
 
 
 min_length = 900
@@ -91,10 +93,8 @@ def _get_tdb_databases(wildcards):
         return wildcards.center + "_tdb tdb"
 
 def exclude_where(wildcards):
-    if wildcards.passage == 'cell':
-        return "country=? region=? passage=egg"
-    else:
-        return "country=? region=?"
+    return "country=? region=?"
+
 
 #
 # Define LBI parameters and functions.
@@ -138,18 +138,17 @@ def _get_mask_names_by_wildcards(wildcards):
     return " ".join(config.loc[:, "mask"].values)
 
 
-rule all_live:
-    input:
-        auspice_tree = expand("auspice/flu_seasonal_{lineage}_{segment}_{resolution}_tree.json",
-                              lineage=lineages, segment=segments, resolution=resolutions),
-        auspice_meta = expand("auspice/flu_seasonal_{lineage}_{segment}_{resolution}_meta.json",
-                              lineage=lineages, segment=segments, resolution=resolutions),
-        auspice_tip_frequencies = expand("auspice/flu_seasonal_{lineage}_{segment}_{resolution}_tip-frequencies.json",
-                              lineage=lineages, segment=segments, resolution=resolutions)
-
 rule all:
     input:
-        egg_seqs = expand("config/forceinclude_{lineage}.txt", lineage=lineages)
+        auspice_tree = expand("auspice/flu_seasonal_{lineage}_{segment}_{resolution}_{assay}_tree.json",
+                              lineage=lineages, segment=segments, resolution=resolutions,
+                              assay=assays),
+        auspice_meta = expand("auspice/flu_seasonal_{lineage}_{segment}_{resolution}_{assay}_meta.json",
+                              lineage=lineages, segment=segments, resolution=resolutions,
+                              assay=assays),
+        auspice_tip_frequencies = expand("auspice/flu_seasonal_{lineage}_{segment}_{resolution}_{assay}_tip-frequencies.json",
+                              lineage=lineages, segment=segments, resolution=resolutions,
+                              assay=assays)
 
 rule download_all:
     input:
@@ -253,6 +252,14 @@ rule concatenate_titers:
             --output {output.concatenated_titers}
         """
 
+passages = ['concat']
+wildcard_constraints:
+    passage= "(concat)",
+    lineage="[a-z0-9]+",
+    segment="[a-z]+[0-9]?",
+    center="(who)",
+    assay="(hi|fra)"
+
 rule find_egg_seqs:
     message: "Finding all egg-passaged viruses"
     input:
@@ -320,7 +327,7 @@ rule select_strains:
     input:
         sequences = expand("results/filtered_{{lineage}}_{segment}_{{passage}}.fasta", segment=segments),
         metadata = expand("results/metadata_{{lineage}}_{segment}.tsv", segment=segments),
-        titers = rules.download_titers.output.titers,
+        titers = rules.concatenate_titers.output.concatenated_titers,
         include = files.force_include
     output:
         strains = "results/strains_{center}_{lineage}_{resolution}_{passage}_{assay}.txt",
@@ -503,7 +510,7 @@ rule traits:
 
 rule titers_sub:
     input:
-        titers = rules.download_titers.output.titers,
+        titers = rules.concatenate_titers.output.concatenated_titers,
         aa_muts = rules.translate.output,
         alignments = translations,
         tree = rules.refine.output.tree
@@ -523,7 +530,7 @@ rule titers_sub:
 
 rule titers_tree:
     input:
-        titers = rules.download_titers.output.titers,
+        titers = rules.concatenate_titers.output.concatenated_titers,
         tree = rules.refine.output.tree
     output:
         titers_model = "results/titers-tree-model_{center}_{lineage}_{segment}_{resolution}_{passage}_{assay}.json",
@@ -713,15 +720,15 @@ rule export:
 
 rule simplify_auspice_names:
     input:
-        tree = "auspice/flu_cdc_{lineage}_{segment}_{resolution}_cell_hi_tree.json",
-        meta = "auspice/flu_cdc_{lineage}_{segment}_{resolution}_cell_hi_meta.json",
-        seq = "auspice/flu_cdc_{lineage}_{segment}_{resolution}_cell_hi_root-sequence.json",
-        frequencies = "auspice/flu_cdc_{lineage}_{segment}_{resolution}_cell_hi_tip-frequencies.json"
+        tree = "auspice/flu_who_{lineage}_{segment}_{resolution}_concat_{assay}_tree.json",
+        meta = "auspice/flu_who_{lineage}_{segment}_{resolution}_concat_{assay}_meta.json",
+        seq = "auspice/flu_who_{lineage}_{segment}_{resolution}_concat_{assay}_root-sequence.json",
+        frequencies = "auspice/flu_who_{lineage}_{segment}_{resolution}_concat_{assay}_tip-frequencies.json"
     output:
-        tree = "auspice/flu_seasonal_{lineage}_{segment}_{resolution}_tree.json",
-        meta = "auspice/flu_seasonal_{lineage}_{segment}_{resolution}_meta.json",
-        seq = "auspice/flu_seasonal_{lineage}_{segment}_{resolution}_root-sequence.json",
-        frequencies = "auspice/flu_seasonal_{lineage}_{segment}_{resolution}_tip-frequencies.json"
+        tree = "auspice/flu_seasonal_{lineage}_{segment}_{resolution}_{assay}_tree.json",
+        meta = "auspice/flu_seasonal_{lineage}_{segment}_{resolution}_{assay}_meta.json",
+        seq = "auspice/flu_seasonal_{lineage}_{segment}_{resolution}_{assay}_root-sequence.json",
+        frequencies = "auspice/flu_seasonal_{lineage}_{segment}_{resolution}_{assay}_tip-frequencies.json"
     shell:
         '''
         mv {input.tree} {output.tree} &
@@ -732,12 +739,12 @@ rule simplify_auspice_names:
 
 rule targets:
     input:
-        tree = "auspice/flu_seasonal_{lineage}_{segment}_{resolution}_tree.json",
-        meta = "auspice/flu_seasonal_{lineage}_{segment}_{resolution}_meta.json",
-        seq = "auspice/flu_seasonal_{lineage}_{segment}_{resolution}_root-sequence.json",
-        frequencies = "auspice/flu_seasonal_{lineage}_{segment}_{resolution}_tip-frequencies.json"
+        tree = "auspice/flu_seasonal_{lineage}_{segment}_{resolution}_{assay}_tree.json",
+        meta = "auspice/flu_seasonal_{lineage}_{segment}_{resolution}_{assay}_meta.json",
+        seq = "auspice/flu_seasonal_{lineage}_{segment}_{resolution}_{assay}_root-sequence.json",
+        frequencies = "auspice/flu_seasonal_{lineage}_{segment}_{resolution}_{assay}_tip-frequencies.json"
     output:
-        target = "targets/flu_seasonal_{lineage}_{segment}_{resolution}"
+        target = "targets/flu_seasonal_{lineage}_{segment}_{resolution}_{assay}"
     shell:
         '''
         touch {output.target}

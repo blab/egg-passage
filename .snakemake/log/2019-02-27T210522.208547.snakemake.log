@@ -1,0 +1,90 @@
+Building DAG of jobs...
+Using shell: /anaconda2/envs/py3/bin/bash
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	2	align
+	1	all_live
+	2	ancestral
+	2	clades
+	2	distances
+	1	download_titers
+	2	export
+	2	extract
+	1	filter
+	2	lbi
+	6	reconstruct_translations
+	2	refine
+	2	select_strains
+	2	simplify_auspice_names
+	2	tip_frequencies
+	2	titers_sub
+	2	titers_tree
+	2	traits
+	2	translate
+	2	tree
+	41
+
+[Wed Feb 27 21:05:23 2019]
+Job 40: 
+        Filtering h3n2 ha cell sequences:
+          - less than 900 bases
+          - outliers
+          - samples with missing region and country metadata
+          - samples that are egg-passaged if cell build
+        
+
+[Wed Feb 27 21:07:10 2019]
+Finished job 40.
+1 of 41 steps (2%) done
+
+[Wed Feb 27 21:07:10 2019]
+Job 29: Downloading titers from fauna: h3n2, hi, cdc
+
+[Wed Feb 27 21:07:34 2019]
+Finished job 29.
+2 of 41 steps (5%) done
+
+[Wed Feb 27 21:07:34 2019]
+rule select_strains:
+    input: results/filtered_h3n2_ha_cell.fasta, results/metadata_h3n2_ha.tsv, data/cdc_h3n2_cell_hi_titers.tsv, config/forceinclude_h3n2.txt
+    output: results/strains_cdc_h3n2_6y_cell_hi.txt
+    jobid: 41
+    wildcards: center=cdc, lineage=h3n2, resolution=6y, passage=cell, assay=hi
+
+[Wed Feb 27 21:07:49 2019]
+Finished job 41.
+3 of 41 steps (7%) done
+
+[Wed Feb 27 21:07:49 2019]
+rule select_strains:
+    input: results/filtered_h3n2_ha_cell.fasta, results/metadata_h3n2_ha.tsv, data/cdc_h3n2_cell_hi_titers.tsv, config/forceinclude_h3n2.txt
+    output: results/strains_cdc_h3n2_12y_cell_hi.txt
+    jobid: 42
+    wildcards: center=cdc, lineage=h3n2, resolution=12y, passage=cell, assay=hi
+
+[Wed Feb 27 21:08:05 2019]
+Finished job 42.
+4 of 41 steps (10%) done
+
+[Wed Feb 27 21:08:05 2019]
+rule extract:
+    input: results/filtered_h3n2_ha_cell.fasta, results/strains_cdc_h3n2_12y_cell_hi.txt
+    output: results/extracted_cdc_h3n2_ha_12y_cell_hi.fasta
+    jobid: 39
+    wildcards: center=cdc, lineage=h3n2, segment=ha, resolution=12y, passage=cell, assay=hi
+
+[Wed Feb 27 21:08:05 2019]
+Error in rule extract:
+    jobid: 39
+    output: results/extracted_cdc_h3n2_ha_12y_cell_hi.fasta
+
+RuleException:
+CalledProcessError in line 350 of /Users/katekistler/nextstrain/egg-passage/Snakefile:
+Command 'set -euo pipefail;  python3 scripts/extract_sequences.py             --sequences results/filtered_h3n2_ha_cell.fasta             --samples results/strains_cdc_h3n2_12y_cell_hi.txt             --output results/extracted_cdc_h3n2_ha_12y_cell_hi.fasta' returned non-zero exit status 2.
+  File "/Users/katekistler/nextstrain/egg-passage/Snakefile", line 350, in __rule_extract
+  File "/anaconda2/envs/py3/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /Users/katekistler/nextstrain/egg-passage/.snakemake/log/2019-02-27T210522.208547.snakemake.log

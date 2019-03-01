@@ -1,0 +1,12 @@
+Building DAG of jobs...
+AmbiguousRuleException:
+Rules concatenate_titers and download_titers are ambiguous for the file data/who_h3n2_concat_fra_titers.tsv.
+Consider starting rule output with a unique prefix, constrain your wildcards, or use the ruleorder directive.
+Wildcards:
+	concatenate_titers: assay=fra,center=who,lineage=h3n2
+	download_titers: assay=fra,center=who,lineage=h3n2,passage=concat
+Expected input files:
+	concatenate_titers: data/who_h3n2_cell_fra_titers.tsv data/who_h3n2_egg_fra_titers.tsv
+	download_titers: Expected output files:
+	concatenate_titers: data/who_h3n2_concat_fra_titers.tsv
+	download_titers: data/who_h3n2_concat_fra_titers.tsv

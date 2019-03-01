@@ -1,0 +1,27 @@
+Building DAG of jobs...
+Using shell: /anaconda2/envs/py3/bin/bash
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	download_all
+	1	download_sequences
+	4	download_titers
+	6
+
+[Wed Feb 27 11:19:51 2019]
+Job 2: Downloading titers from fauna: h3n2, fra, who
+
+[Wed Feb 27 11:19:51 2019]
+Error in rule download_titers:
+    jobid: 2
+    output: data/who_h3n2_cell_fra_titers.tsv
+
+RuleException:
+CalledProcessError in line 180 of /Users/katekistler/nextstrain/egg-passage/Snakefile:
+Command 'set -euo pipefail;  python3 ../fauna/tdb/download.py             --database cdc_tdb crick_tdb niid_tdb vidrl_tdb tdb             --virus flu             --subtype h3n2             --select assay_type:fra serum_passage_category:cell             --path data             --fstem who_h3n2_cell_fra' returned non-zero exit status 1.
+  File "/Users/katekistler/nextstrain/egg-passage/Snakefile", line 180, in __rule_download_titers
+  File "/anaconda2/envs/py3/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /Users/katekistler/nextstrain/egg-passage/.snakemake/log/2019-02-27T111949.640689.snakemake.log

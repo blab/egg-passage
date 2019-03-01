@@ -1,0 +1,9 @@
+Building DAG of jobs...
+InputFunctionException in line 556 of /Users/katekistler/nextstrain/egg-passage/Snakefile:
+KeyError: '6y_cell'
+Wildcards:
+center=who
+lineage=h3n2
+segment=ha
+resolution=6y_cell
+assay=hi
