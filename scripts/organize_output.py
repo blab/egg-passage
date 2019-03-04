@@ -28,23 +28,31 @@ def organize_output(tree_path, seq_path, root_path, positions, prefix):
         if 'children' in branch.keys():
             for child in branch['children']:
                 if 'HA1' in child['aa_muts']:
-                    traverse_aa.append(child['aa_muts']['HA1'])
-                    aa_mut_clade.append({str(child['clade']):child['aa_muts']['HA1']})
+                    traverse_aa.append({str(child['clade']):child['aa_muts']['HA1']})
+                    # traverse_aa.append(child['aa_muts']['HA1'])
+                    # aa_mut_clade.append({str(child['clade']):child['aa_muts']['HA1']})
                     traverse(child, seq, root, pos_list)
-                    traverse_aa.remove(child['aa_muts']['HA1'])
-                    aa_mut_clade.remove({str(child['clade']):child['aa_muts']['HA1']})
+                    traverse_aa.remove({str(child['clade']):child['aa_muts']['HA1']})
+                    # traverse_aa.remove(child['aa_muts']['HA1'])
+                    # aa_mut_clade.remove({str(child['clade']):child['aa_muts']['HA1']})
 
                 else:
-                    #Append place holder for branches with no mutations
-                    traverse_aa.append([])
                     traverse(child, seq, root, pos_list)
-                    traverse_aa.remove([])
 
         elif 'children' not in branch.keys():
 
-            muts_list = [str(mut) for sublist in traverse_aa for mut in sublist]
-            aa_mut_clade_list = [str(mut) for mut in aa_mut_clade]
-            last_node = [str(mut) for sublist in traverse_aa[:-1] for mut in sublist]
+            # muts_list = [str(mut) for sublist in traverse_aa for mut in sublist]
+            # aa_mut_clade_list = [str(mut) for mut in aa_mut_clade]
+            # last_node = [str(mut) for sublist in traverse_aa[:-1] for mut in sublist]
+
+            aa_mut_clade_list = [str(mut) for mut in traverse_aa]
+            muts_list = [str(mut) for sublist in [list(ast.literal_eval(x).values())[0]
+                                                  for x in aa_mut_clade_list] for mut in sublist]
+            last_node = muts_list
+
+            if 'HA1' in branch['aa_muts']:
+                branch_tip_muts = len(branch['aa_muts']['HA1'])
+                last_node = last_node[:-(branch_tip_muts)]
 
             #Find sequence of tip and sequence one branch in
             tip_sequence = seq[branch['strain']].seq
@@ -71,7 +79,6 @@ def organize_output(tree_path, seq_path, root_path, positions, prefix):
                                         [last_node_sequence[pos-1] for pos in pos_list])
 
     traverse_aa = []
-    aa_mut_clade = []
     traverse(tree, seqs, root_seq, positions)
 
     df = pd.DataFrame(tip_muts).T
@@ -102,33 +109,25 @@ def organize_output(tree_path, seq_path, root_path, positions, prefix):
     for p in positions:
         df['aa_mut'+str(p)] = np.where(df['mut'+str(p)]==1, df[str(p)+'_lastnode']+str(p)+df[p], None)
 
+    #Find clusters of egg-passaged sequences,
+    #allow mutations shared by these clusters to be called as mutations in egg or strains
+    #If multiple mutations occur at the same site within cluster, most recent mutation should be taken
+    #Tips=cluster of size 1, so tip mutations override ancestral
     max_internal_length=df['aa_mut_list'].map(len).max()
 
-    #Find clusters of egg-passaged sequences,
-    #allow mutations shared by these clusters to be called as mutations in egg or cell strains
     for internal_branch in range(0,max_internal_length):
         sub_df = df[df['aa_mut_list'].map(len) > internal_branch]
 
-    #     print(sub_df.mut_list.apply(lambda col: col[0:(internal_branch+1)]))
         group= sub_df.groupby((sub_df.aa_mut_list.apply(lambda col: col[0:(internal_branch+1)])).map(tuple))
         for k, v in group:
             if len(v[v['passage']=='egg']) != 0:
                 if len(v.groupby('passage')) == 1:
-
-                    k = [ast.literal_eval(x) for x in list(k)]
-                    k_dict = {}
-                    for d in k:
-                        for d_k, d_v in d.items():
-                            if d_k not in k_dict.keys():
-                                k_dict[d_k] = d_v
-                            else:
-                                k_dict[d_k]+=d_v
+                    recent_muts = list(ast.literal_eval(k[-1]).values())[0]
 
                     #Find most recent mutation(s)
-                    for recent_mut in k_dict[max(k_dict, key=int)]:
+                    for recent_mut in recent_muts:
                         site = int(re.findall('\d+', recent_mut)[0])
-    #                     print(df.at[v.index, 'mut' + str(site)])
-                        if str(site) in positions:
+                        if site in positions:
                             df.at[v.index, 'mut' + str(site)] = 1
                             df.at[v.index, 'aa_mut' + str(site)] = recent_mut
                             df.at[v.index, str(site) + '_lastnode'] = recent_mut[0]

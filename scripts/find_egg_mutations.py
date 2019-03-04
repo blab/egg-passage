@@ -4,6 +4,7 @@ Find egg-passaging-specific mutations
 
 import argparse
 import ast
+import re
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -118,11 +119,12 @@ def plot_mutation_aa(prefix):
 
     aa_muts_df = pd.DataFrame(top_aa_muts)
     plot_aa_muts_df = aa_muts_df.unstack().reset_index().rename(columns={'level_0':'mutation', 'level_1':'virus_passage', 0:'prevalence'})
+    order = sorted([x for x in plot_aa_muts_df['mutation'].unique()], key = (lambda x: x[4:-1]))
 
     aa_barplot, ax = plt.subplots()
     sns.set(style="white")
     passage_palette = {'unpassaged': '#5c3d46', 'cell': '#f8c968', 'egg': '#99bfaa'}
-    aa_barplot = sns.barplot(x= 'mutation', y= 'prevalence', hue= 'virus_passage', data= plot_aa_muts_df, palette = passage_palette)
+    aa_barplot = sns.barplot(x= 'mutation', y= 'prevalence', hue= 'virus_passage', order=order, data= plot_aa_muts_df, palette = passage_palette)
     aa_barplot.set(xlabel='HA1 mutation', ylabel='prevalence of mutation')
     plt.xticks(rotation=45)
     aa_barplot.get_figure().savefig('plots/'+str(prefix)+'/egg_mutation_aa_prevalence_'+str(prefix)+'.pdf', bbox_inches='tight')
