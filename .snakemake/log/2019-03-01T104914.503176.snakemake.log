@@ -1,0 +1,297 @@
+Building DAG of jobs...
+Using shell: /anaconda2/envs/py3/bin/bash
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	4	align
+	1	all
+	4	ancestral
+	4	clades
+	4	distances
+	4	export
+	4	extract
+	1	filter
+	4	lbi
+	1	parse
+	12	reconstruct_translations
+	4	refine
+	4	select_strains
+	4	simplify_auspice_names
+	4	tip_frequencies
+	4	titers_sub
+	4	titers_tree
+	4	traits
+	4	translate
+	4	tree
+	79
+
+[Fri Mar  1 10:49:16 2019]
+Job 14: Parsing fasta into sequences and metadata
+
+[Fri Mar  1 10:49:23 2019]
+Finished job 14.
+1 of 79 steps (1%) done
+
+[Fri Mar  1 10:49:23 2019]
+Job 81: 
+        Filtering h3n2 ha concat sequences:
+          - less than 900 bases
+          - outliers
+          - samples with missing region and country metadata
+          - samples that are egg-passaged if cell build
+        
+
+[Fri Mar  1 10:50:54 2019]
+Finished job 81.
+2 of 79 steps (3%) done
+
+[Fri Mar  1 10:50:54 2019]
+rule select_strains:
+    input: results/filtered_h3n2_ha_concat.fasta, results/metadata_h3n2_ha.tsv, data/who_h3n2_concat_hi_titers.tsv, config/forceinclude_h3n2.txt
+    output: results/strains_who_h3n2_12y_concat_hi.txt
+    jobid: 84
+    wildcards: center=who, lineage=h3n2, resolution=12y, passage=concat, assay=hi
+
+[Fri Mar  1 10:51:09 2019]
+Finished job 84.
+3 of 79 steps (4%) done
+
+[Fri Mar  1 10:51:09 2019]
+rule select_strains:
+    input: results/filtered_h3n2_ha_concat.fasta, results/metadata_h3n2_ha.tsv, data/who_h3n2_concat_hi_titers.tsv, config/forceinclude_h3n2.txt
+    output: results/strains_who_h3n2_6y_concat_hi.txt
+    jobid: 82
+    wildcards: center=who, lineage=h3n2, resolution=6y, passage=concat, assay=hi
+
+[Fri Mar  1 10:51:23 2019]
+Finished job 82.
+4 of 79 steps (5%) done
+
+[Fri Mar  1 10:51:23 2019]
+rule select_strains:
+    input: results/filtered_h3n2_ha_concat.fasta, results/metadata_h3n2_ha.tsv, data/who_h3n2_concat_fra_titers.tsv, config/forceinclude_h3n2.txt
+    output: results/strains_who_h3n2_12y_concat_fra.txt
+    jobid: 85
+    wildcards: center=who, lineage=h3n2, resolution=12y, passage=concat, assay=fra
+
+[Fri Mar  1 10:51:38 2019]
+Finished job 85.
+5 of 79 steps (6%) done
+
+[Fri Mar  1 10:51:38 2019]
+rule select_strains:
+    input: results/filtered_h3n2_ha_concat.fasta, results/metadata_h3n2_ha.tsv, data/who_h3n2_concat_fra_titers.tsv, config/forceinclude_h3n2.txt
+    output: results/strains_who_h3n2_6y_concat_fra.txt
+    jobid: 83
+    wildcards: center=who, lineage=h3n2, resolution=6y, passage=concat, assay=fra
+
+[Fri Mar  1 10:51:53 2019]
+Finished job 83.
+6 of 79 steps (8%) done
+
+[Fri Mar  1 10:51:53 2019]
+rule extract:
+    input: results/filtered_h3n2_ha_concat.fasta, results/strains_who_h3n2_12y_concat_fra.txt
+    output: results/extracted_who_h3n2_ha_12y_concat_fra.fasta
+    jobid: 80
+    wildcards: center=who, lineage=h3n2, segment=ha, resolution=12y, passage=concat, assay=fra
+
+[Fri Mar  1 10:51:54 2019]
+Finished job 80.
+7 of 79 steps (9%) done
+
+[Fri Mar  1 10:51:54 2019]
+rule extract:
+    input: results/filtered_h3n2_ha_concat.fasta, results/strains_who_h3n2_12y_concat_hi.txt
+    output: results/extracted_who_h3n2_ha_12y_concat_hi.fasta
+    jobid: 79
+    wildcards: center=who, lineage=h3n2, segment=ha, resolution=12y, passage=concat, assay=hi
+
+[Fri Mar  1 10:51:56 2019]
+Finished job 79.
+8 of 79 steps (10%) done
+
+[Fri Mar  1 10:51:56 2019]
+rule extract:
+    input: results/filtered_h3n2_ha_concat.fasta, results/strains_who_h3n2_6y_concat_fra.txt
+    output: results/extracted_who_h3n2_ha_6y_concat_fra.fasta
+    jobid: 76
+    wildcards: center=who, lineage=h3n2, segment=ha, resolution=6y, passage=concat, assay=fra
+
+[Fri Mar  1 10:51:57 2019]
+Finished job 76.
+9 of 79 steps (11%) done
+
+[Fri Mar  1 10:51:57 2019]
+rule extract:
+    input: results/filtered_h3n2_ha_concat.fasta, results/strains_who_h3n2_6y_concat_hi.txt
+    output: results/extracted_who_h3n2_ha_6y_concat_hi.fasta
+    jobid: 73
+    wildcards: center=who, lineage=h3n2, segment=ha, resolution=6y, passage=concat, assay=hi
+
+[Fri Mar  1 10:51:59 2019]
+Finished job 73.
+10 of 79 steps (13%) done
+
+[Fri Mar  1 10:51:59 2019]
+Job 69: 
+        Aligning sequences to config/reference_h3n2_ha.gb
+        
+
+[Fri Mar  1 10:55:01 2019]
+Finished job 69.
+11 of 79 steps (14%) done
+
+[Fri Mar  1 10:55:01 2019]
+Job 68: Building tree
+
+[Fri Mar  1 12:25:25 2019]
+Finished job 68.
+12 of 79 steps (15%) done
+
+[Fri Mar  1 12:25:25 2019]
+Job 41: 
+        Refining tree
+          - estimate timetree
+          - use const coalescent timescale
+          - estimate marginal node dates
+          - filter tips more than 4 IQDs from clock expectation
+        
+
+[Sat Mar  2 08:45:13 2019]
+Finished job 41.
+13 of 79 steps (16%) done
+
+[Sat Mar  2 08:45:13 2019]
+rule tip_frequencies:
+    input: results/tree_who_h3n2_ha_12y_concat_fra.nwk, results/metadata_h3n2_ha.tsv, config/frequency_weights_by_region.json
+    output: auspice/flu_who_h3n2_ha_12y_concat_fra_tip-frequencies.json
+    jobid: 12
+    wildcards: center=who, lineage=h3n2, segment=ha, resolution=12y, passage=concat, assay=fra
+
+[Sat Mar  2 12:48:10 2019]
+Finished job 12.
+14 of 79 steps (18%) done
+
+[Sat Mar  2 12:48:10 2019]
+Job 47: 
+        Inferring ancestral traits for region
+        
+
+[Sat Mar  2 12:48:29 2019]
+Finished job 47.
+15 of 79 steps (19%) done
+
+[Sat Mar  2 12:48:29 2019]
+rule titers_tree:
+    input: data/who_h3n2_concat_fra_titers.tsv, results/tree_who_h3n2_ha_12y_concat_fra.nwk
+    output: results/titers-tree-model_who_h3n2_ha_12y_concat_fra.json
+    jobid: 44
+    wildcards: center=who, lineage=h3n2, segment=ha, resolution=12y, passage=concat, assay=fra
+
+[Sat Mar  2 12:48:34 2019]
+Finished job 44.
+16 of 79 steps (20%) done
+
+[Sat Mar  2 12:48:34 2019]
+Job 42: Reconstructing ancestral sequences and mutations
+
+[Sat Mar  2 12:49:28 2019]
+Finished job 42.
+17 of 79 steps (22%) done
+
+[Sat Mar  2 12:49:28 2019]
+Job 43: Translating amino acid sequences
+
+[Sat Mar  2 12:49:34 2019]
+Finished job 43.
+18 of 79 steps (23%) done
+
+[Sat Mar  2 12:49:34 2019]
+Job 46: Annotating clades
+
+[Sat Mar  2 12:50:02 2019]
+Finished job 46.
+19 of 79 steps (24%) done
+
+[Sat Mar  2 12:50:02 2019]
+Job 64: 
+        Aligning sequences to config/reference_h3n2_ha.gb
+        
+
+[Sat Mar  2 12:53:00 2019]
+Finished job 64.
+20 of 79 steps (25%) done
+
+[Sat Mar  2 12:53:00 2019]
+Job 63: Building tree
+
+[Sat Mar  2 13:05:48 2019]
+Finished job 63.
+21 of 79 steps (27%) done
+
+[Sat Mar  2 13:05:48 2019]
+Job 32: 
+        Refining tree
+          - estimate timetree
+          - use const coalescent timescale
+          - estimate marginal node dates
+          - filter tips more than 4 IQDs from clock expectation
+        
+
+[Sat Mar  2 16:53:23 2019]
+Finished job 32.
+22 of 79 steps (28%) done
+
+[Sat Mar  2 16:53:23 2019]
+rule titers_tree:
+    input: data/who_h3n2_concat_hi_titers.tsv, results/tree_who_h3n2_ha_12y_concat_hi.nwk
+    output: results/titers-tree-model_who_h3n2_ha_12y_concat_hi.json
+    jobid: 35
+    wildcards: center=who, lineage=h3n2, segment=ha, resolution=12y, passage=concat, assay=hi
+
+[Sat Mar  2 16:53:34 2019]
+Finished job 35.
+23 of 79 steps (29%) done
+
+[Sat Mar  2 16:53:34 2019]
+rule tip_frequencies:
+    input: results/tree_who_h3n2_ha_12y_concat_hi.nwk, results/metadata_h3n2_ha.tsv, config/frequency_weights_by_region.json
+    output: auspice/flu_who_h3n2_ha_12y_concat_hi_tip-frequencies.json
+    jobid: 10
+    wildcards: center=who, lineage=h3n2, segment=ha, resolution=12y, passage=concat, assay=hi
+
+[Sat Mar  2 16:53:47 2019]
+Finished job 10.
+24 of 79 steps (30%) done
+
+[Sat Mar  2 16:53:47 2019]
+Job 38: 
+        Inferring ancestral traits for region
+        
+
+[Sat Mar  2 16:54:06 2019]
+Finished job 38.
+25 of 79 steps (32%) done
+
+[Sat Mar  2 16:54:06 2019]
+Job 33: Reconstructing ancestral sequences and mutations
+
+[Sat Mar  2 16:54:53 2019]
+Finished job 33.
+26 of 79 steps (33%) done
+
+[Sat Mar  2 16:54:53 2019]
+Job 34: Translating amino acid sequences
+
+[Sat Mar  2 16:54:58 2019]
+Finished job 34.
+27 of 79 steps (34%) done
+
+[Sat Mar  2 16:54:58 2019]
+Job 37: Annotating clades
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /Users/katekistler/nextstrain/egg-passage/.snakemake/log/2019-03-01T104914.503176.snakemake.log

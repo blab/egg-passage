@@ -22,12 +22,6 @@
     }
   },
   "author_info": {
-    "aichi_prefectural_institute_of_public_health": {
-      "n": 11
-    },
-    "al_quds_university": {
-      "n": 12
-    },
     "cantacuzino_institute": {
       "n": 141
     },
@@ -39,6 +33,9 @@
     },
     "central_research_institute_for_epidemiology": {
       "n": 151
+    },
+    "central_research_institute_of_epidemiology": {
+      "n": 7
     },
     "centre_sanitary_epidemiological_expertise_in_astana": {
       "n": 12
@@ -67,6 +64,9 @@
     "hospital_universitari_vall_d'hebron": {
       "n": 239
     },
+    "hubei_provincial_center_for_disease_control_and_prevention": {
+      "n": 7
+    },
     "hungarian_national_center_of_epidemiology": {
       "n": 71
     },
@@ -85,9 +85,6 @@
     "instituto_oswaldo_cruz_fiocruz___laboratory_of_respiratory_viruses_and_measles_(lvrs)": {
       "n": 137
     },
-    "istituto_superiore_di_sanit?": {
-      "n": 34
-    },
     "jiangsu_provincial_center_for_disease_control_&_prevention": {
       "n": 3
     },
@@ -96,9 +93,6 @@
     },
     "luxembourg_institute_of_health": {
       "n": 29
-    },
-    "malbran": {
-      "n": 60
     },
     "medical_university_vienna": {
       "n": 523
@@ -130,14 +124,8 @@
     "national_institute_of_communicable_diseases": {
       "n": 63
     },
-    "national_institute_of_hygiene": {
-      "n": 13
-    },
     "national_institute_of_infectious_diseases_(niid)": {
       "n": 2822
-    },
-    "national_laboratory_for_health_environment_and_food": {
-      "n": 128
     },
     "national_virus_reference_laboratory": {
       "n": 184
@@ -163,6 +151,15 @@
     "public_health_agency_of_sweden": {
       "n": 164
     },
+    "public_health_laboratory_services_branch,_centre_for_health_protection": {
+      "n": 9
+    },
+    "public_health_wales_microbiology": {
+      "n": 129
+    },
+    "public_health_wales_microbiology_cardiff": {
+      "n": 13
+    },
     "robert_koch_institute": {
       "n": 420
     },
@@ -172,20 +169,14 @@
     "scientific_institute_of_public_health_(wiv_isp)": {
       "n": 48
     },
-    "state_research_center_of_virology_and_biotechnology_vector": {
-      "n": 16
+    "state_research_center_of_virology_and_biotechnology_(vector)": {
+      "n": 46
     },
     "state_veterinary_institute_prague": {
       "n": 70
     },
-    "statens_serum_institute": {
-      "n": 137
-    },
     "swedish_institute_for_infectious_disease_control": {
       "n": 494
-    },
-    "taiwan_cdc": {
-      "n": 10
     },
     "thai_national_influenza_center": {
       "n": 12
@@ -359,6 +350,10 @@
         "latitude": 47.2000338,
         "longitude": 13.199959
       },
+      "azerbaijan": {
+        "latitude": 40.37767,
+        "longitude": 49.89201
+      },
       "bahrain": {
         "latitude": 26.22787,
         "longitude": 50.58565
@@ -366,10 +361,6 @@
       "bangladesh": {
         "latitude": 24.4768783,
         "longitude": 90.2932426
-      },
-      "belarus": {
-        "latitude": 53.0,
-        "longitude": 28.0
       },
       "belgium": {
         "latitude": 50.6407351,
@@ -407,10 +398,6 @@
         "latitude": 61.0666922,
         "longitude": -107.991707
       },
-      "central_african_republic": {
-        "latitude": 7.0,
-        "longitude": 21.0
-      },
       "chile": {
         "latitude": -31.7613364,
         "longitude": -71.3187696
@@ -435,17 +422,13 @@
         "latitude": 7.9897371,
         "longitude": -5.5679457
       },
-      "cyprus": {
-        "latitude": 35.0,
-        "longitude": 33.0
+      "croatia": {
+        "latitude": 45.16667,
+        "longitude": 15.5
       },
       "czech_republic": {
         "latitude": 49.8175,
         "longitude": 15.473
-      },
-      "denmark": {
-        "latitude": 56.0,
-        "longitude": 10.0
       },
       "dominican_republic": {
         "latitude": 18.50012,
@@ -482,6 +465,10 @@
       "french_guiana": {
         "latitude": 4.93333,
         "longitude": -52.33333
+      },
+      "french_polynesia": {
+        "latitude": -17.6797,
+        "longitude": -149.4068
       },
       "germany": {
         "latitude": 51.0834196,
@@ -570,10 +557,6 @@
       "kuwait": {
         "latitude": 29.3117,
         "longitude": 47.4818
-      },
-      "kyrgyzstan": {
-        "latitude": 41.5,
-        "longitude": 75.0
       },
       "laos": {
         "latitude": 20.0171109,
@@ -687,18 +670,6 @@
         "latitude": 7.33978,
         "longitude": 134.47326
       },
-      "palestine": {
-        "latitude": 31.5,
-        "longitude": 34.46667
-      },
-      "panama": {
-        "latitude": 8.3096067,
-        "longitude": -81.3066245
-      },
-      "papua_new_guinea": {
-        "latitude": -6.0,
-        "longitude": 147.0
-      },
       "paraguay": {
         "latitude": -23.33333,
         "longitude": -58.0
@@ -731,6 +702,10 @@
         "latitude": 64.6863136,
         "longitude": 97.7453061
       },
+      "rwanda": {
+        "latitude": -2.0,
+        "longitude": 30.0
+      },
       "saudi_arabia": {
         "latitude": 25.0,
         "longitude": 45.0
@@ -739,13 +714,13 @@
         "latitude": 14.5,
         "longitude": -14.25
       },
+      "sierra_leone": {
+        "latitude": 8.5,
+        "longitude": -11.5
+      },
       "singapore": {
         "latitude": 1.2904527,
         "longitude": 103.852038
-      },
-      "slovakia": {
-        "latitude": 48.66667,
-        "longitude": 19.5
       },
       "slovenia": {
         "latitude": 45.8133113,
@@ -803,10 +778,6 @@
         "latitude": 8.66667,
         "longitude": 1.08333
       },
-      "trinidad_and_tobago": {
-        "latitude": 10.8677845,
-        "longitude": -60.9821066
-      },
       "tunisia": {
         "latitude": 36.81897,
         "longitude": 10.16579
@@ -818,6 +789,10 @@
       "tuvalu": {
         "latitude": -8.521152,
         "longitude": 179.197605
+      },
+      "uganda": {
+        "latitude": 1.5333554,
+        "longitude": 32.2166578
       },
       "ukraine": {
         "latitude": 49.4871968,
@@ -838,6 +813,10 @@
       "usa": {
         "latitude": 39.7837304,
         "longitude": -100.4458824
+      },
+      "venezuela": {
+        "latitude": 8.0,
+        "longitude": -66.0
       },
       "vietnam": {
         "latitude": 16.16667,
@@ -901,7 +880,7 @@
     "frequencies"
   ],
   "title": "Real-time tracking of influenza A/H3N2 evolution",
-  "updated": "28 Feb 2019",
+  "updated": "03 Mar 2019",
   "vaccine_choices": {
     "A/Brisbane/10/2007": "2007-09-25",
     "A/HongKong/4801/2014": "2015-09-24",
@@ -913,5 +892,5 @@
     "A/Victoria/361/2011": "2012-02-21",
     "A/Wisconsin/67/2005": "2006-02-21"
   },
-  "virus_count": 2815
+  "virus_count": 2778
 }

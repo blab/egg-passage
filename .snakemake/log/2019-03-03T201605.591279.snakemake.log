@@ -1,0 +1,26 @@
+Building DAG of jobs...
+Using shell: /anaconda2/envs/py3/bin/bash
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all_egg_analyses
+	4	egg_epistasis
+	3	find_egg_mutations
+	8
+
+[Sun Mar  3 20:16:07 2019]
+rule egg_epistasis:
+    input: dataframes/h3n2_ha_12y_fra.csv
+    output: plots/h3n2_ha_12y_fra/epistasis_heatmap_h3n2_ha_12y_fra.pdf
+    jobid: 12
+    wildcards: lineage=h3n2, segment=ha, resolution=12y, assay=fra
+
+Waiting at most 10 seconds for missing files.
+MissingOutputException in line 777 of /Users/katekistler/nextstrain/egg-passage/Snakefile:
+Missing files after 10 seconds:
+plots/h3n2_ha_12y_fra/epistasis_heatmap_h3n2_ha_12y_fra.pdf
+This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait.
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /Users/katekistler/nextstrain/egg-passage/.snakemake/log/2019-03-03T201605.591279.snakemake.log

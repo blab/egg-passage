@@ -82,11 +82,11 @@
     "instituto_de_salud_publica_de_chile": {
       "n": 185
     },
+    "instituto_nacional_enfermedades_infecciosas_c.g.malbran": {
+      "n": 48
+    },
     "instituto_oswaldo_cruz_fiocruz___laboratory_of_respiratory_viruses_and_measles_(lvrs)": {
       "n": 137
-    },
-    "istituto_superiore_di_sanit?_(iss)": {
-      "n": 29
     },
     "jiangsu_provincial_center_for_disease_control_&_prevention": {
       "n": 3
@@ -96,6 +96,9 @@
     },
     "luxembourg_institute_of_health": {
       "n": 29
+    },
+    "malbran": {
+      "n": 60
     },
     "medical_university_vienna": {
       "n": 523
@@ -108,9 +111,6 @@
     },
     "ministry_of_health,_singapore": {
       "n": 323
-    },
-    "ministry_of_health_turkey": {
-      "n": 94
     },
     "national_influenza_center,_ministry_of_health": {
       "n": 4
@@ -127,17 +127,11 @@
     "national_institute_for_public_health_and_the_environment_(rivm)": {
       "n": 216
     },
-    "national_institute_of_communicable_diseases": {
-      "n": 63
-    },
     "national_institute_of_hygiene": {
       "n": 13
     },
     "national_institute_of_infectious_diseases_(niid)": {
       "n": 2822
-    },
-    "national_laboratory_for_health_environment_and_food": {
-      "n": 128
     },
     "national_virus_reference_laboratory": {
       "n": 184
@@ -160,29 +154,29 @@
     "pasteur_centre": {
       "n": 1
     },
+    "public_health_agency_of_canada_(phac)": {
+      "n": 3218
+    },
     "public_health_agency_of_sweden": {
       "n": 164
     },
     "public_health_laboratory_services_branch,_centre_for_health_protection": {
       "n": 9
     },
-    "robert_koch_institute": {
-      "n": 420
-    },
-    "robert_koch_institute_nationales_referenzzentrum_f?r_influenza": {
-      "n": 39
-    },
     "scientific_institute_of_public_health_(wiv_isp)": {
       "n": 48
+    },
+    "state_research_center_of_virology_and_biotechnology_(vector)": {
+      "n": 46
+    },
+    "statens_serum_institute": {
+      "n": 137
     },
     "swedish_institute_for_infectious_disease_control": {
       "n": 494
     },
     "thai_national_influenza_center": {
       "n": 12
-    },
-    "the_university_of_hong_kong": {
-      "n": 1
     },
     "universidad_autonoma_de_yucatan": {
       "n": 19
@@ -398,6 +392,10 @@
         "latitude": 61.0666922,
         "longitude": -107.991707
       },
+      "central_african_republic": {
+        "latitude": 7.0,
+        "longitude": 21.0
+      },
       "chile": {
         "latitude": -31.7613364,
         "longitude": -71.3187696
@@ -430,6 +428,10 @@
         "latitude": 49.8175,
         "longitude": 15.473
       },
+      "denmark": {
+        "latitude": 56.0,
+        "longitude": 10.0
+      },
       "dominica": {
         "latitude": 15.5,
         "longitude": -61.33333
@@ -445,14 +447,6 @@
       "egypt": {
         "latitude": 26.2540493,
         "longitude": 29.2675469
-      },
-      "el_salvador": {
-        "latitude": 13.68935,
-        "longitude": -89.18718
-      },
-      "estonia": {
-        "latitude": 59.0,
-        "longitude": 26.0
       },
       "ethiopia": {
         "latitude": 9.0,
@@ -562,13 +556,13 @@
         "latitude": 29.3117,
         "longitude": 47.4818
       },
-      "kyrgyzstan": {
-        "latitude": 41.5,
-        "longitude": 75.0
-      },
       "laos": {
         "latitude": 20.0171109,
         "longitude": 103.378253
+      },
+      "latvia": {
+        "latitude": 57.0,
+        "longitude": 25.0
       },
       "lebanon": {
         "latitude": 33.88894,
@@ -622,13 +616,13 @@
         "latitude": 6.924,
         "longitude": 158.162
       },
-      "moldova": {
-        "latitude": 47.41281,
-        "longitude": 28.565826
-      },
       "mongolia": {
         "latitude": 46.8250388,
         "longitude": 103.8499736
+      },
+      "montenegro": {
+        "latitude": 43.0285558,
+        "longitude": 19.291739
       },
       "morocco": {
         "latitude": 31.1728192,
@@ -726,10 +720,6 @@
         "latitude": 64.6863136,
         "longitude": 97.7453061
       },
-      "saint_vincent_and_the_grenadines": {
-        "latitude": 12.9843,
-        "longitude": -61.2872
-      },
       "saudi_arabia": {
         "latitude": 25.0,
         "longitude": 45.0
@@ -738,9 +728,17 @@
         "latitude": 14.5,
         "longitude": -14.25
       },
+      "serbia": {
+        "latitude": 44.1534121,
+        "longitude": 20.55144
+      },
       "singapore": {
         "latitude": 1.2904527,
         "longitude": 103.852038
+      },
+      "slovakia": {
+        "latitude": 48.66667,
+        "longitude": 19.5
       },
       "slovenia": {
         "latitude": 45.8133113,
@@ -781,6 +779,10 @@
       "taiwan": {
         "latitude": 23.6978,
         "longitude": 120.9605
+      },
+      "tajikistan": {
+        "latitude": 39.0,
+        "longitude": 71.0
       },
       "tanzania": {
         "latitude": -6.0,
@@ -900,7 +902,7 @@
     "frequencies"
   ],
   "title": "Real-time tracking of influenza A/H3N2 evolution",
-  "updated": "28 Feb 2019",
+  "updated": "03 Mar 2019",
   "vaccine_choices": {
     "A/Brisbane/10/2007": "2007-09-25",
     "A/HongKong/4801/2014": "2015-09-24",
@@ -912,5 +914,5 @@
     "A/Victoria/361/2011": "2012-02-21",
     "A/Wisconsin/67/2005": "2006-02-21"
   },
-  "virus_count": 2769
+  "virus_count": 2738
 }

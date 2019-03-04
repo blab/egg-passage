@@ -1,0 +1,494 @@
+Building DAG of jobs...
+Using shell: /anaconda2/envs/py3/bin/bash
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	2	align
+	1	all
+	2	ancestral
+	3	clades
+	4	distances
+	4	export
+	4	lbi
+	12	reconstruct_translations
+	2	refine
+	4	simplify_auspice_names
+	2	tip_frequencies
+	4	titers_sub
+	2	titers_tree
+	2	traits
+	2	translate
+	2	tree
+	52
+
+[Sat Mar  2 17:57:57 2019]
+Job 37: Annotating clades
+
+[Sat Mar  2 17:58:37 2019]
+Finished job 37.
+1 of 52 steps (2%) done
+
+[Sat Mar  2 17:58:37 2019]
+Job 58: 
+        Aligning sequences to config/reference_h3n2_ha.gb
+        
+
+[Sat Mar  2 18:01:27 2019]
+Finished job 58.
+2 of 52 steps (4%) done
+
+[Sat Mar  2 18:01:27 2019]
+Job 57: Building tree
+
+[Sat Mar  2 18:07:32 2019]
+Finished job 57.
+3 of 52 steps (6%) done
+
+[Sat Mar  2 18:07:32 2019]
+Job 23: 
+        Refining tree
+          - estimate timetree
+          - use const coalescent timescale
+          - estimate marginal node dates
+          - filter tips more than 4 IQDs from clock expectation
+        
+
+[Sat Mar  2 18:37:27 2019]
+Finished job 23.
+4 of 52 steps (8%) done
+
+[Sat Mar  2 18:37:27 2019]
+rule tip_frequencies:
+    input: results/tree_who_h3n2_ha_6y_concat_fra.nwk, results/metadata_h3n2_ha.tsv, config/frequency_weights_by_region.json
+    output: auspice/flu_who_h3n2_ha_6y_concat_fra_tip-frequencies.json
+    jobid: 8
+    wildcards: center=who, lineage=h3n2, segment=ha, resolution=6y, passage=concat, assay=fra
+
+[Sat Mar  2 18:37:41 2019]
+Finished job 8.
+5 of 52 steps (10%) done
+
+[Sat Mar  2 18:37:41 2019]
+Job 29: 
+        Inferring ancestral traits for region
+        
+
+[Sat Mar  2 18:37:56 2019]
+Finished job 29.
+6 of 52 steps (12%) done
+
+[Sat Mar  2 18:37:56 2019]
+rule titers_tree:
+    input: data/who_h3n2_concat_fra_titers.tsv, results/tree_who_h3n2_ha_6y_concat_fra.nwk
+    output: results/titers-tree-model_who_h3n2_ha_6y_concat_fra.json
+    jobid: 26
+    wildcards: center=who, lineage=h3n2, segment=ha, resolution=6y, passage=concat, assay=fra
+
+[Sat Mar  2 18:38:02 2019]
+Finished job 26.
+7 of 52 steps (13%) done
+
+[Sat Mar  2 18:38:02 2019]
+Job 24: Reconstructing ancestral sequences and mutations
+
+[Sat Mar  2 18:38:37 2019]
+Finished job 24.
+8 of 52 steps (15%) done
+
+[Sat Mar  2 18:38:37 2019]
+Job 25: Translating amino acid sequences
+
+[Sat Mar  2 18:38:42 2019]
+Finished job 25.
+9 of 52 steps (17%) done
+
+[Sat Mar  2 18:38:42 2019]
+Job 28: Annotating clades
+
+[Sat Mar  2 18:39:03 2019]
+Finished job 28.
+10 of 52 steps (19%) done
+
+[Sat Mar  2 18:39:03 2019]
+Job 51: 
+        Aligning sequences to config/reference_h3n2_ha.gb
+        
+
+[Sat Mar  2 18:41:54 2019]
+Finished job 51.
+11 of 52 steps (21%) done
+
+[Sat Mar  2 18:41:54 2019]
+Job 50: Building tree
+
+[Sat Mar  2 18:47:50 2019]
+Finished job 50.
+12 of 52 steps (23%) done
+
+[Sat Mar  2 18:47:50 2019]
+Job 13: 
+        Refining tree
+          - estimate timetree
+          - use const coalescent timescale
+          - estimate marginal node dates
+          - filter tips more than 4 IQDs from clock expectation
+        
+
+[Sat Mar  2 19:28:24 2019]
+Finished job 13.
+13 of 52 steps (25%) done
+
+[Sat Mar  2 19:28:24 2019]
+rule titers_tree:
+    input: data/who_h3n2_concat_hi_titers.tsv, results/tree_who_h3n2_ha_6y_concat_hi.nwk
+    output: results/titers-tree-model_who_h3n2_ha_6y_concat_hi.json
+    jobid: 17
+    wildcards: center=who, lineage=h3n2, segment=ha, resolution=6y, passage=concat, assay=hi
+
+[Sat Mar  2 19:28:37 2019]
+Finished job 17.
+14 of 52 steps (27%) done
+
+[Sat Mar  2 19:28:37 2019]
+rule tip_frequencies:
+    input: results/tree_who_h3n2_ha_6y_concat_hi.nwk, results/metadata_h3n2_ha.tsv, config/frequency_weights_by_region.json
+    output: auspice/flu_who_h3n2_ha_6y_concat_hi_tip-frequencies.json
+    jobid: 6
+    wildcards: center=who, lineage=h3n2, segment=ha, resolution=6y, passage=concat, assay=hi
+
+[Sat Mar  2 19:28:54 2019]
+Finished job 6.
+15 of 52 steps (29%) done
+
+[Sat Mar  2 19:28:54 2019]
+Job 20: 
+        Inferring ancestral traits for region
+        
+
+[Sat Mar  2 19:29:15 2019]
+Finished job 20.
+16 of 52 steps (31%) done
+
+[Sat Mar  2 19:29:15 2019]
+Job 15: Reconstructing ancestral sequences and mutations
+
+[Sat Mar  2 19:30:03 2019]
+Finished job 15.
+17 of 52 steps (33%) done
+
+[Sat Mar  2 19:30:03 2019]
+Job 16: Translating amino acid sequences
+
+[Sat Mar  2 19:30:09 2019]
+Finished job 16.
+18 of 52 steps (35%) done
+
+[Sat Mar  2 19:30:09 2019]
+Job 19: Annotating clades
+
+[Sat Mar  2 19:30:37 2019]
+Finished job 19.
+19 of 52 steps (37%) done
+
+[Sat Mar  2 19:30:37 2019]
+Job 48: Calculating LBI
+
+[Sat Mar  2 19:30:41 2019]
+Finished job 48.
+20 of 52 steps (38%) done
+
+[Sat Mar  2 19:30:41 2019]
+Job 39: Calculating LBI
+
+[Sat Mar  2 19:30:45 2019]
+Finished job 39.
+21 of 52 steps (40%) done
+
+[Sat Mar  2 19:30:45 2019]
+Job 30: Calculating LBI
+
+[Sat Mar  2 19:30:48 2019]
+Finished job 30.
+22 of 52 steps (42%) done
+
+[Sat Mar  2 19:30:48 2019]
+Job 21: Calculating LBI
+
+[Sat Mar  2 19:30:52 2019]
+Finished job 21.
+23 of 52 steps (44%) done
+
+[Sat Mar  2 19:30:52 2019]
+Job 71: Reconstructing translations required for titer models and frequencies
+
+[Sat Mar  2 19:30:55 2019]
+Finished job 71.
+24 of 52 steps (46%) done
+
+[Sat Mar  2 19:30:55 2019]
+Job 72: Reconstructing translations required for titer models and frequencies
+
+[Sat Mar  2 19:30:58 2019]
+Finished job 72.
+25 of 52 steps (48%) done
+
+[Sat Mar  2 19:30:58 2019]
+Job 70: Reconstructing translations required for titer models and frequencies
+
+[Sat Mar  2 19:31:02 2019]
+Finished job 70.
+26 of 52 steps (50%) done
+
+[Sat Mar  2 19:31:02 2019]
+rule titers_sub:
+    input: data/who_h3n2_concat_fra_titers.tsv, results/aa-muts_who_h3n2_ha_12y_concat_fra.json, results/aa-seq_who_h3n2_ha_12y_concat_fra_SigPep.fasta, results/aa-seq_who_h3n2_ha_12y_concat_fra_HA1.fasta, results/aa-seq_who_h3n2_ha_12y_concat_fra_HA2.fasta, results/tree_who_h3n2_ha_12y_concat_fra.nwk
+    output: results/titers-sub-model_who_h3n2_ha_12y_concat_fra.json
+    jobid: 45
+    wildcards: center=who, lineage=h3n2, segment=ha, resolution=12y, passage=concat, assay=fra
+
+[Sat Mar  2 19:31:12 2019]
+Finished job 45.
+27 of 52 steps (52%) done
+
+[Sat Mar  2 19:31:12 2019]
+rule distances:
+    input: results/tree_who_h3n2_ha_12y_concat_fra.nwk, results/aa-seq_who_h3n2_ha_12y_concat_fra_SigPep.fasta, results/aa-seq_who_h3n2_ha_12y_concat_fra_HA1.fasta, results/aa-seq_who_h3n2_ha_12y_concat_fra_HA2.fasta, config/ha_masks.tsv
+    output: results/distances_who_h3n2_ha_12y_concat_fra.json
+    jobid: 49
+    wildcards: center=who, lineage=h3n2, segment=ha, resolution=12y, passage=concat, assay=fra
+
+[Sat Mar  2 19:31:16 2019]
+Finished job 49.
+28 of 52 steps (54%) done
+
+[Sat Mar  2 19:31:16 2019]
+rule export:
+    input: results/tree_who_h3n2_ha_12y_concat_fra.nwk, results/metadata_h3n2_ha.tsv, config/auspice_config_h3n2.json, results/branch-lengths_who_h3n2_ha_12y_concat_fra.json, results/nt-muts_who_h3n2_ha_12y_concat_fra.json, results/aa-muts_who_h3n2_ha_12y_concat_fra.json, results/titers-tree-model_who_h3n2_ha_12y_concat_fra.json, results/titers-sub-model_who_h3n2_ha_12y_concat_fra.json, results/clades_who_h3n2_ha_12y_concat_fra.json, results/traits_who_h3n2_ha_12y_concat_fra.json, results/lbi_who_h3n2_ha_12y_concat_fra.json, results/distances_who_h3n2_ha_12y_concat_fra.json
+    output: auspice/flu_who_h3n2_ha_12y_concat_fra_tree.json, auspice/flu_who_h3n2_ha_12y_concat_fra_meta.json, auspice/flu_who_h3n2_ha_12y_concat_fra_root-sequence.json
+    jobid: 11
+    wildcards: center=who, lineage=h3n2, segment=ha, resolution=12y, passage=concat, assay=fra
+
+[Sat Mar  2 19:31:44 2019]
+Finished job 11.
+29 of 52 steps (56%) done
+
+[Sat Mar  2 19:31:44 2019]
+rule simplify_auspice_names:
+    input: auspice/flu_who_h3n2_ha_12y_concat_fra_tree.json, auspice/flu_who_h3n2_ha_12y_concat_fra_meta.json, auspice/flu_who_h3n2_ha_12y_concat_fra_root-sequence.json, auspice/flu_who_h3n2_ha_12y_concat_fra_tip-frequencies.json
+    output: auspice/flu_seasonal_h3n2_ha_12y_fra_tree.json, auspice/flu_seasonal_h3n2_ha_12y_fra_meta.json, auspice/flu_seasonal_h3n2_ha_12y_fra_root-sequence.json, auspice/flu_seasonal_h3n2_ha_12y_fra_tip-frequencies.json
+    jobid: 4
+    wildcards: lineage=h3n2, segment=ha, resolution=12y, assay=fra
+
+Waiting at most 5 seconds for missing files.
+[Sat Mar  2 19:31:45 2019]
+Finished job 4.
+30 of 52 steps (58%) done
+
+[Sat Mar  2 19:31:45 2019]
+Job 65: Reconstructing translations required for titer models and frequencies
+
+[Sat Mar  2 19:31:48 2019]
+Finished job 65.
+31 of 52 steps (60%) done
+
+[Sat Mar  2 19:31:48 2019]
+Job 67: Reconstructing translations required for titer models and frequencies
+
+[Sat Mar  2 19:31:51 2019]
+Finished job 67.
+32 of 52 steps (62%) done
+
+[Sat Mar  2 19:31:51 2019]
+Job 66: Reconstructing translations required for titer models and frequencies
+
+[Sat Mar  2 19:31:55 2019]
+Finished job 66.
+33 of 52 steps (63%) done
+
+[Sat Mar  2 19:31:55 2019]
+rule titers_sub:
+    input: data/who_h3n2_concat_hi_titers.tsv, results/aa-muts_who_h3n2_ha_12y_concat_hi.json, results/aa-seq_who_h3n2_ha_12y_concat_hi_SigPep.fasta, results/aa-seq_who_h3n2_ha_12y_concat_hi_HA1.fasta, results/aa-seq_who_h3n2_ha_12y_concat_hi_HA2.fasta, results/tree_who_h3n2_ha_12y_concat_hi.nwk
+    output: results/titers-sub-model_who_h3n2_ha_12y_concat_hi.json
+    jobid: 36
+    wildcards: center=who, lineage=h3n2, segment=ha, resolution=12y, passage=concat, assay=hi
+
+[Sat Mar  2 19:32:19 2019]
+Finished job 36.
+34 of 52 steps (65%) done
+
+[Sat Mar  2 19:32:19 2019]
+rule distances:
+    input: results/tree_who_h3n2_ha_12y_concat_hi.nwk, results/aa-seq_who_h3n2_ha_12y_concat_hi_SigPep.fasta, results/aa-seq_who_h3n2_ha_12y_concat_hi_HA1.fasta, results/aa-seq_who_h3n2_ha_12y_concat_hi_HA2.fasta, config/ha_masks.tsv
+    output: results/distances_who_h3n2_ha_12y_concat_hi.json
+    jobid: 40
+    wildcards: center=who, lineage=h3n2, segment=ha, resolution=12y, passage=concat, assay=hi
+
+[Sat Mar  2 19:32:23 2019]
+Finished job 40.
+35 of 52 steps (67%) done
+
+[Sat Mar  2 19:32:23 2019]
+rule export:
+    input: results/tree_who_h3n2_ha_12y_concat_hi.nwk, results/metadata_h3n2_ha.tsv, config/auspice_config_h3n2.json, results/branch-lengths_who_h3n2_ha_12y_concat_hi.json, results/nt-muts_who_h3n2_ha_12y_concat_hi.json, results/aa-muts_who_h3n2_ha_12y_concat_hi.json, results/titers-tree-model_who_h3n2_ha_12y_concat_hi.json, results/titers-sub-model_who_h3n2_ha_12y_concat_hi.json, results/clades_who_h3n2_ha_12y_concat_hi.json, results/traits_who_h3n2_ha_12y_concat_hi.json, results/lbi_who_h3n2_ha_12y_concat_hi.json, results/distances_who_h3n2_ha_12y_concat_hi.json
+    output: auspice/flu_who_h3n2_ha_12y_concat_hi_tree.json, auspice/flu_who_h3n2_ha_12y_concat_hi_meta.json, auspice/flu_who_h3n2_ha_12y_concat_hi_root-sequence.json
+    jobid: 9
+    wildcards: center=who, lineage=h3n2, segment=ha, resolution=12y, passage=concat, assay=hi
+
+[Sat Mar  2 19:32:53 2019]
+Finished job 9.
+36 of 52 steps (69%) done
+
+[Sat Mar  2 19:32:53 2019]
+rule simplify_auspice_names:
+    input: auspice/flu_who_h3n2_ha_12y_concat_hi_tree.json, auspice/flu_who_h3n2_ha_12y_concat_hi_meta.json, auspice/flu_who_h3n2_ha_12y_concat_hi_root-sequence.json, auspice/flu_who_h3n2_ha_12y_concat_hi_tip-frequencies.json
+    output: auspice/flu_seasonal_h3n2_ha_12y_hi_tree.json, auspice/flu_seasonal_h3n2_ha_12y_hi_meta.json, auspice/flu_seasonal_h3n2_ha_12y_hi_root-sequence.json, auspice/flu_seasonal_h3n2_ha_12y_hi_tip-frequencies.json
+    jobid: 3
+    wildcards: lineage=h3n2, segment=ha, resolution=12y, assay=hi
+
+Waiting at most 5 seconds for missing files.
+[Sat Mar  2 19:32:54 2019]
+Finished job 3.
+37 of 52 steps (71%) done
+
+[Sat Mar  2 19:32:54 2019]
+Job 60: Reconstructing translations required for titer models and frequencies
+
+[Sat Mar  2 19:32:57 2019]
+Finished job 60.
+38 of 52 steps (73%) done
+
+[Sat Mar  2 19:32:57 2019]
+Job 62: Reconstructing translations required for titer models and frequencies
+
+[Sat Mar  2 19:33:00 2019]
+Finished job 62.
+39 of 52 steps (75%) done
+
+[Sat Mar  2 19:33:00 2019]
+Job 61: Reconstructing translations required for titer models and frequencies
+
+[Sat Mar  2 19:33:04 2019]
+Finished job 61.
+40 of 52 steps (77%) done
+
+[Sat Mar  2 19:33:04 2019]
+rule titers_sub:
+    input: data/who_h3n2_concat_fra_titers.tsv, results/aa-muts_who_h3n2_ha_6y_concat_fra.json, results/aa-seq_who_h3n2_ha_6y_concat_fra_SigPep.fasta, results/aa-seq_who_h3n2_ha_6y_concat_fra_HA1.fasta, results/aa-seq_who_h3n2_ha_6y_concat_fra_HA2.fasta, results/tree_who_h3n2_ha_6y_concat_fra.nwk
+    output: results/titers-sub-model_who_h3n2_ha_6y_concat_fra.json
+    jobid: 27
+    wildcards: center=who, lineage=h3n2, segment=ha, resolution=6y, passage=concat, assay=fra
+
+[Sat Mar  2 19:33:14 2019]
+Finished job 27.
+41 of 52 steps (79%) done
+
+[Sat Mar  2 19:33:14 2019]
+rule distances:
+    input: results/tree_who_h3n2_ha_6y_concat_fra.nwk, results/aa-seq_who_h3n2_ha_6y_concat_fra_SigPep.fasta, results/aa-seq_who_h3n2_ha_6y_concat_fra_HA1.fasta, results/aa-seq_who_h3n2_ha_6y_concat_fra_HA2.fasta, config/ha_masks.tsv
+    output: results/distances_who_h3n2_ha_6y_concat_fra.json
+    jobid: 31
+    wildcards: center=who, lineage=h3n2, segment=ha, resolution=6y, passage=concat, assay=fra
+
+[Sat Mar  2 19:33:17 2019]
+Finished job 31.
+42 of 52 steps (81%) done
+
+[Sat Mar  2 19:33:17 2019]
+rule export:
+    input: results/tree_who_h3n2_ha_6y_concat_fra.nwk, results/metadata_h3n2_ha.tsv, config/auspice_config_h3n2.json, results/branch-lengths_who_h3n2_ha_6y_concat_fra.json, results/nt-muts_who_h3n2_ha_6y_concat_fra.json, results/aa-muts_who_h3n2_ha_6y_concat_fra.json, results/titers-tree-model_who_h3n2_ha_6y_concat_fra.json, results/titers-sub-model_who_h3n2_ha_6y_concat_fra.json, results/clades_who_h3n2_ha_6y_concat_fra.json, results/traits_who_h3n2_ha_6y_concat_fra.json, results/lbi_who_h3n2_ha_6y_concat_fra.json, results/distances_who_h3n2_ha_6y_concat_fra.json
+    output: auspice/flu_who_h3n2_ha_6y_concat_fra_tree.json, auspice/flu_who_h3n2_ha_6y_concat_fra_meta.json, auspice/flu_who_h3n2_ha_6y_concat_fra_root-sequence.json
+    jobid: 7
+    wildcards: center=who, lineage=h3n2, segment=ha, resolution=6y, passage=concat, assay=fra
+
+[Sat Mar  2 19:33:40 2019]
+Finished job 7.
+43 of 52 steps (83%) done
+
+[Sat Mar  2 19:33:40 2019]
+rule simplify_auspice_names:
+    input: auspice/flu_who_h3n2_ha_6y_concat_fra_tree.json, auspice/flu_who_h3n2_ha_6y_concat_fra_meta.json, auspice/flu_who_h3n2_ha_6y_concat_fra_root-sequence.json, auspice/flu_who_h3n2_ha_6y_concat_fra_tip-frequencies.json
+    output: auspice/flu_seasonal_h3n2_ha_6y_fra_tree.json, auspice/flu_seasonal_h3n2_ha_6y_fra_meta.json, auspice/flu_seasonal_h3n2_ha_6y_fra_root-sequence.json, auspice/flu_seasonal_h3n2_ha_6y_fra_tip-frequencies.json
+    jobid: 2
+    wildcards: lineage=h3n2, segment=ha, resolution=6y, assay=fra
+
+Waiting at most 5 seconds for missing files.
+[Sat Mar  2 19:33:41 2019]
+Finished job 2.
+44 of 52 steps (85%) done
+
+[Sat Mar  2 19:33:41 2019]
+Job 55: Reconstructing translations required for titer models and frequencies
+
+[Sat Mar  2 19:33:44 2019]
+Finished job 55.
+45 of 52 steps (87%) done
+
+[Sat Mar  2 19:33:44 2019]
+Job 56: Reconstructing translations required for titer models and frequencies
+
+[Sat Mar  2 19:33:48 2019]
+Finished job 56.
+46 of 52 steps (88%) done
+
+[Sat Mar  2 19:33:48 2019]
+Job 54: Reconstructing translations required for titer models and frequencies
+
+[Sat Mar  2 19:33:51 2019]
+Finished job 54.
+47 of 52 steps (90%) done
+
+[Sat Mar  2 19:33:51 2019]
+rule titers_sub:
+    input: data/who_h3n2_concat_hi_titers.tsv, results/aa-muts_who_h3n2_ha_6y_concat_hi.json, results/aa-seq_who_h3n2_ha_6y_concat_hi_SigPep.fasta, results/aa-seq_who_h3n2_ha_6y_concat_hi_HA1.fasta, results/aa-seq_who_h3n2_ha_6y_concat_hi_HA2.fasta, results/tree_who_h3n2_ha_6y_concat_hi.nwk
+    output: results/titers-sub-model_who_h3n2_ha_6y_concat_hi.json
+    jobid: 18
+    wildcards: center=who, lineage=h3n2, segment=ha, resolution=6y, passage=concat, assay=hi
+
+[Sat Mar  2 19:34:14 2019]
+Finished job 18.
+48 of 52 steps (92%) done
+
+[Sat Mar  2 19:34:14 2019]
+rule distances:
+    input: results/tree_who_h3n2_ha_6y_concat_hi.nwk, results/aa-seq_who_h3n2_ha_6y_concat_hi_SigPep.fasta, results/aa-seq_who_h3n2_ha_6y_concat_hi_HA1.fasta, results/aa-seq_who_h3n2_ha_6y_concat_hi_HA2.fasta, config/ha_masks.tsv
+    output: results/distances_who_h3n2_ha_6y_concat_hi.json
+    jobid: 22
+    wildcards: center=who, lineage=h3n2, segment=ha, resolution=6y, passage=concat, assay=hi
+
+[Sat Mar  2 19:34:18 2019]
+Finished job 22.
+49 of 52 steps (94%) done
+
+[Sat Mar  2 19:34:18 2019]
+rule export:
+    input: results/tree_who_h3n2_ha_6y_concat_hi.nwk, results/metadata_h3n2_ha.tsv, config/auspice_config_h3n2.json, results/branch-lengths_who_h3n2_ha_6y_concat_hi.json, results/nt-muts_who_h3n2_ha_6y_concat_hi.json, results/aa-muts_who_h3n2_ha_6y_concat_hi.json, results/titers-tree-model_who_h3n2_ha_6y_concat_hi.json, results/titers-sub-model_who_h3n2_ha_6y_concat_hi.json, results/clades_who_h3n2_ha_6y_concat_hi.json, results/traits_who_h3n2_ha_6y_concat_hi.json, results/lbi_who_h3n2_ha_6y_concat_hi.json, results/distances_who_h3n2_ha_6y_concat_hi.json
+    output: auspice/flu_who_h3n2_ha_6y_concat_hi_tree.json, auspice/flu_who_h3n2_ha_6y_concat_hi_meta.json, auspice/flu_who_h3n2_ha_6y_concat_hi_root-sequence.json
+    jobid: 5
+    wildcards: center=who, lineage=h3n2, segment=ha, resolution=6y, passage=concat, assay=hi
+
+[Sat Mar  2 19:34:40 2019]
+Finished job 5.
+50 of 52 steps (96%) done
+
+[Sat Mar  2 19:34:40 2019]
+rule simplify_auspice_names:
+    input: auspice/flu_who_h3n2_ha_6y_concat_hi_tree.json, auspice/flu_who_h3n2_ha_6y_concat_hi_meta.json, auspice/flu_who_h3n2_ha_6y_concat_hi_root-sequence.json, auspice/flu_who_h3n2_ha_6y_concat_hi_tip-frequencies.json
+    output: auspice/flu_seasonal_h3n2_ha_6y_hi_tree.json, auspice/flu_seasonal_h3n2_ha_6y_hi_meta.json, auspice/flu_seasonal_h3n2_ha_6y_hi_root-sequence.json, auspice/flu_seasonal_h3n2_ha_6y_hi_tip-frequencies.json
+    jobid: 1
+    wildcards: lineage=h3n2, segment=ha, resolution=6y, assay=hi
+
+Waiting at most 5 seconds for missing files.
+[Sat Mar  2 19:34:41 2019]
+Finished job 1.
+51 of 52 steps (98%) done
+
+[Sat Mar  2 19:34:41 2019]
+localrule all:
+    input: auspice/flu_seasonal_h3n2_ha_6y_hi_tree.json, auspice/flu_seasonal_h3n2_ha_6y_fra_tree.json, auspice/flu_seasonal_h3n2_ha_12y_hi_tree.json, auspice/flu_seasonal_h3n2_ha_12y_fra_tree.json, auspice/flu_seasonal_h3n2_ha_6y_hi_meta.json, auspice/flu_seasonal_h3n2_ha_6y_fra_meta.json, auspice/flu_seasonal_h3n2_ha_12y_hi_meta.json, auspice/flu_seasonal_h3n2_ha_12y_fra_meta.json, auspice/flu_seasonal_h3n2_ha_6y_hi_tip-frequencies.json, auspice/flu_seasonal_h3n2_ha_6y_fra_tip-frequencies.json, auspice/flu_seasonal_h3n2_ha_12y_hi_tip-frequencies.json, auspice/flu_seasonal_h3n2_ha_12y_fra_tip-frequencies.json
+    jobid: 0
+
+[Sat Mar  2 19:34:41 2019]
+Finished job 0.
+52 of 52 steps (100%) done
+Complete log: /Users/katekistler/nextstrain/egg-passage/.snakemake/log/2019-03-02T175756.060174.snakemake.log

@@ -138,6 +138,12 @@ def _get_mask_names_by_wildcards(wildcards):
     return " ".join(config.loc[:, "mask"].values)
 
 
+rule all_egg_analyses:
+    input:
+        dataframe = expand("dataframes/{lineage}_{segment}_{resolution}_{assay}.csv", lineage=lineages, segment=segments, resolution=resolutions, assay=assays),
+        aa_mut_plot = expand("plots/{lineage}_{segment}_{resolution}_{assay}/egg_mutation_aa_prevalence_{lineage}_{segment}_{resolution}_{assay}.pdf", lineage=lineages, segment=segments, resolution=resolutions, assay=assays),
+        epistasis_plot = expand("plots/{lineage}_{segment}_{resolution}_{assay}/epistasis_heatmap_{lineage}_{segment}_{resolution}_{assay}.pdf", lineage=lineages, segment=segments, resolution=resolutions, assay=assays)
+
 rule all:
     input:
         auspice_tree = expand("auspice/flu_seasonal_{lineage}_{segment}_{resolution}_{assay}_tree.json",
@@ -736,6 +742,48 @@ rule simplify_auspice_names:
         mv {input.seq} {output.seq} &
         mv {input.frequencies} {output.frequencies} &
         '''
+
+rule organize_output:
+    input:
+        tree = "auspice/flu_seasonal_{lineage}_{segment}_{resolution}_{assay}_tree.json",
+        seqs = "results/aa-seq_who_{lineage}_{segment}_{resolution}_concat_{assay}_HA1.fasta",
+        root_seq = "auspice/flu_seasonal_{lineage}_{segment}_{resolution}_{assay}_root-sequence.json",
+    output:
+        dataframe = "dataframes/{lineage}_{segment}_{resolution}_{assay}.csv",
+        egg_dataframe = "dataframes/{lineage}_{segment}_{resolution}_{assay}_egg.csv",
+        tidy_dataframe = "dataframes/{lineage}_{segment}_{resolution}_{assay}_tidy.csv",
+
+    shell:
+        """
+        python3 scripts/organize_output.py \
+            --tree {input.tree} \
+            --seqs {input.seqs} \
+            --root_seq {input.root_seq} \
+        """
+
+rule find_egg_mutations:
+    input:
+        dataframe = "dataframes/{lineage}_{segment}_{resolution}_{assay}.csv",
+    output:
+        aa_mut_plot = "plots/{lineage}_{segment}_{resolution}_{assay}/egg_mutation_aa_prevalence_{lineage}_{segment}_{resolution}_{assay}.pdf",
+        site_mut_plot = "plots/{lineage}_{segment}_{resolution}_{assay}/egg_mutation_site_prevalence_{lineage}_{segment}_{resolution}_{assay}.pdf",
+        before_after_plot = "plots/{lineage}_{segment}_{resolution}_{assay}/before_after_eggpassaging_{lineage}_{segment}_{resolution}_{assay}.pdf",
+    shell:
+        """
+        python3 scripts/find_egg_mutations.py \
+            --in_file {input.dataframe} \
+        """
+
+rule egg_epistasis:
+    input:
+        dataframe = "dataframes/{lineage}_{segment}_{resolution}_{assay}.csv",
+    output:
+        epistasis_plot = "plots/{lineage}_{segment}_{resolution}_{assay}/epistasis_heatmap_{lineage}_{segment}_{resolution}_{assay}.pdf",
+    shell:
+        """
+        python3 scripts/plot_egg_epistasis.py \
+            --in_file {input.dataframe} \
+        """
 
 rule targets:
     input:

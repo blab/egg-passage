@@ -3,6 +3,7 @@ import json
 import re
 import ast
 import pandas as pd
+import numpy as np
 from Bio import SeqIO
 
 def organize_output(tree_path, seq_path, root_path, positions, prefix):
@@ -26,8 +27,7 @@ def organize_output(tree_path, seq_path, root_path, positions, prefix):
         #keep track of mutations at internal nodes
         if 'children' in branch.keys():
             for child in branch['children']:
-                # if 'aa_muts' in child.keys():
-                if child['mut']:
+                if 'HA1' in child['aa_muts']:
                     traverse_aa.append(child['aa_muts']['HA1'])
                     aa_mut_clade.append({str(child['clade']):child['aa_muts']['HA1']})
                     traverse(child, seq, root, pos_list)
@@ -47,7 +47,7 @@ def organize_output(tree_path, seq_path, root_path, positions, prefix):
             last_node = [str(mut) for sublist in traverse_aa[:-1] for mut in sublist]
 
             #Find sequence of tip and sequence one branch in
-            tip_sequence = seq[branch['strain']]
+            tip_sequence = seq[branch['strain']].seq
             last_node_sequence = root_seq['HA1']
 
             for mut in last_node:
@@ -55,17 +55,20 @@ def organize_output(tree_path, seq_path, root_path, positions, prefix):
                 internal_mut_aa = mut[-1:]
                 last_node_sequence = last_node_sequence[:internal_mut_pos-1] + internal_mut_aa + last_node_sequence[internal_mut_pos:]
 
-            tip_muts[branch['strain']]=[branch['aa_muts']['HA1'],
-                                        branch['aa_muts']['HA2'],
-                                        branch['aa_muts']['SigPep'],
+            tip_muts[branch['strain']]=([(branch['aa_muts']['HA1']
+                                        if 'HA1' in branch['aa_muts'] else []),
+                                        (branch['aa_muts']['HA2']
+                                        if 'HA2' in branch['aa_muts'] else []),
+                                        (branch['aa_muts']['SigPep']
+                                        if 'SigPep' in branch['aa_muts'] else []),
                                         branch['attr']['num_date'],
-                                        (branch['muts'] if 'muts' in branch else None),
+                                        (branch['muts'] if 'muts' in branch else []),
                                         (branch['attr']['dTiterSub'] if 'dTiterSub' in branch['attr'] else None),
                                         (branch['attr']['cTiterSub'] if 'cTiterSub' in branch['attr'] else None),
                                         branch['attr']['clade_membership'],
                                         aa_mut_clade_list] +
                                         [tip_sequence[pos-1] for pos in pos_list] +
-                                        [last_node_sequence[pos-1] for pos in pos_list]
+                                        [last_node_sequence[pos-1] for pos in pos_list])
 
     traverse_aa = []
     aa_mut_clade = []
@@ -73,7 +76,7 @@ def organize_output(tree_path, seq_path, root_path, positions, prefix):
 
     df = pd.DataFrame(tip_muts).T
     df.reset_index(inplace=True)
-    df.columns = ['strain', 'tip_HA1_muts', 'tip_HA2_muts', 'tip_SigPep_muts', 'date', 'tip_nt_muts', 'dTiterSub','cTiterSub', 'clade', 'aa_mut_clade'] + positions + [str(x)+'_lastnode' for x in positions]
+    df.columns = ['strain', 'tip_HA1_muts', 'tip_HA2_muts', 'tip_SigPep_muts', 'date', 'tip_nt_muts', 'dTiterSub','cTiterSub', 'clade', 'aa_mut_list'] + positions + [str(x)+'_lastnode' for x in positions]
     df['dTiterSub'], df['cTiterSub']= df['dTiterSub'].astype(float, inplace=True), df['cTiterSub'].astype(float, inplace=True)
     df['passage'] = np.select((df.strain.str.contains('egg'), df.strain.str.contains('cell')), ('egg', 'cell'))
     df['passage'] = np.where(df['passage']=='0', 'unpassaged', df['passage'])
@@ -88,6 +91,8 @@ def organize_output(tree_path, seq_path, root_path, positions, prefix):
     pair_ids = dict(zip(list(pairs['source'].unique()),[[n+1] for n in range(len(pairs['source'].unique()))]))
     pair_ids = pd.DataFrame(pair_ids).T.reset_index().rename(columns={'index':'source', 0:'pair_id'})
     df = df.merge(pair_ids, on='source', how='left')
+    df['pair_id']= df['pair_id'].fillna(0)
+    df['pair_id'] = df['pair_id'].astype(int, inplace=True)
 
     #Determine whether there sequence has mutated relative to ancestor 1 branch in, at each position
     for p in positions:
@@ -97,12 +102,70 @@ def organize_output(tree_path, seq_path, root_path, positions, prefix):
     for p in positions:
         df['aa_mut'+str(p)] = np.where(df['mut'+str(p)]==1, df[str(p)+'_lastnode']+str(p)+df[p], None)
 
+    max_internal_length=df['aa_mut_list'].map(len).max()
+
+    #Find clusters of egg-passaged sequences,
+    #allow mutations shared by these clusters to be called as mutations in egg or cell strains
+    for internal_branch in range(0,max_internal_length):
+        sub_df = df[df['aa_mut_list'].map(len) > internal_branch]
+
+    #     print(sub_df.mut_list.apply(lambda col: col[0:(internal_branch+1)]))
+        group= sub_df.groupby((sub_df.aa_mut_list.apply(lambda col: col[0:(internal_branch+1)])).map(tuple))
+        for k, v in group:
+            if len(v[v['passage']=='egg']) != 0:
+                if len(v.groupby('passage')) == 1:
+
+                    k = [ast.literal_eval(x) for x in list(k)]
+                    k_dict = {}
+                    for d in k:
+                        for d_k, d_v in d.items():
+                            if d_k not in k_dict.keys():
+                                k_dict[d_k] = d_v
+                            else:
+                                k_dict[d_k]+=d_v
+
+                    #Find most recent mutation(s)
+                    for recent_mut in k_dict[max(k_dict, key=int)]:
+                        site = int(re.findall('\d+', recent_mut)[0])
+    #                     print(df.at[v.index, 'mut' + str(site)])
+                        if str(site) in positions:
+                            df.at[v.index, 'mut' + str(site)] = 1
+                            df.at[v.index, 'aa_mut' + str(site)] = recent_mut
+                            df.at[v.index, str(site) + '_lastnode'] = recent_mut[0]
+
+    #Save organized data to a .csv
+    df.to_csv('dataframes/'+prefix+'.csv')
+
+    #Make egg-seq only DF and save to .csv
+    egg_df = df[df['passage']=='egg']
+    egg_df.to_csv('dataframes/'+prefix+'_egg.csv')
+
+    #make tidy version of df where each mutation gets a row
+    mut_df = pd.DataFrame(columns=['mutation']+ list(df.columns))
+
+    count=0
+    for i, r in df.iterrows():
+
+        for ha1_mut in r['tip_HA1_muts']:
+            mut_df.loc[count]= ['HA1'+str(ha1_mut)] + list(df.loc[i])
+            count+=1
+
+        for ha2_mut in r['tip_HA2_muts']:
+            mut_df.loc[count]= ['HA2'+str(ha2_mut)] + list(df.loc[i])
+            count+=1
+
+        for sp_mut in r['tip_SigPep_muts']:
+            mut_df.loc[count]= ['SP'+str(sp_mut)] + list(df.loc[i])
+            count+=1
+
+    #Save organized data to a .csv
+    mut_df.to_csv('dataframes/'+prefix+'_tidy.csv')
 
 def find_tip_mutations(prefix):
     """
     Find egg-passaging-specific mutations and re-run organize_output with these positions
     """
-    tip_df = pd.read_csv('data/'+prefix+'_df_tidy.csv')
+    tip_df = pd.read_csv('dataframes/'+prefix+'_tidy.csv')
 
     top_muts = {}
     for pas_type in tip_df['passage'].unique():
@@ -115,7 +178,12 @@ def find_tip_mutations(prefix):
 
     return egg_tip_mutations
 
-def main(tree_path, seq_path, root_path, prefix, positions, tip_mutations):
+def main(tree_path, seq_path, root_path, positions, tip_mutations):
+    lineage = str.split(tree_path, '_')[2]
+    segment = str.split(tree_path, '_')[3]
+    resolution = str.split(tree_path, '_')[4]
+    assay = str.split(tree_path, '_')[5]
+    prefix = lineage + '_' + segment + '_' + resolution + '_' + assay
     organize_output(tree_path, seq_path, root_path, positions, prefix)
 
     if tip_mutations == True:
@@ -132,10 +200,9 @@ if __name__ == '__main__':
     parser.add_argument('--tree', help= "path to _tree.json file")
     parser.add_argument('--seqs', help= "path to aa-seq_ fasta file")
     parser.add_argument('--root_seq', help= "path to sequence of tree root")
-    parser.add_argument('--prefix', help= "prefix for the csv output files")
     parser.add_argument('--positions', default = '[160, 194, 186, 225, 219, 203, 156, 138]', help="list of HA1 positions to analyze")
     parser.add_argument('--tip_mutations', default= True, help= "refine list of positions to consider based on the locations of the most prevalent tip mutations in egg-passaged sequences")
 
     args = parser.parse_args()
 
-    main(tree_path = args.tree, seq_path = args.seqs, root_path = args.root_seq, prefix = args.prefix, positions = args.positions, tip_mutations= args.tip_mutations)
+    main(tree_path = args.tree, seq_path = args.seqs, root_path = args.root_seq, positions = args.positions, tip_mutations= args.tip_mutations)
