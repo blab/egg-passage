@@ -142,7 +142,8 @@ rule all_egg_analyses:
     input:
         dataframe = expand("dataframes/{lineage}_{segment}_{resolution}_{assay}.csv", lineage=lineages, segment=segments, resolution=resolutions, assay=assays),
         aa_mut_plot = expand("plots/{lineage}_{segment}_{resolution}_{assay}/egg_mutation_aa_prevalence_{lineage}_{segment}_{resolution}_{assay}.pdf", lineage=lineages, segment=segments, resolution=resolutions, assay=assays),
-        epistasis_plot = expand("plots/{lineage}_{segment}_{resolution}_{assay}/epistasis_heatmap_{lineage}_{segment}_{resolution}_{assay}.pdf", lineage=lineages, segment=segments, resolution=resolutions, assay=assays)
+        epistasis_plot = expand("plots/{lineage}_{segment}_{resolution}_{assay}/epistasis_heatmap_{lineage}_{segment}_{resolution}_{assay}.pdf", lineage=lineages, segment=segments, resolution=resolutions, assay=assays),
+        pairs_json = expand("egg_results/egg_mutation_accuracy_{lineage}_{segment}_{resolution}_{assay}.json", lineage=lineages, segment=segments, resolution=resolutions, assay=assays)
 
 rule all:
     input:
@@ -782,6 +783,17 @@ rule egg_epistasis:
     shell:
         """
         python3 scripts/plot_egg_epistasis.py \
+            --in_file {input.dataframe} \
+        """
+
+rule compair_pairs:
+    input:
+        dataframe = "dataframes/{lineage}_{segment}_{resolution}_{assay}.csv",
+    output:
+        pairs_json = "egg_results/egg_mutation_accuracy_{lineage}_{segment}_{resolution}_{assay}.json",
+    shell:
+        """
+        python3 scripts/compare_pairs.py \
             --in_file {input.dataframe} \
         """
 
