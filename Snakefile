@@ -143,6 +143,7 @@ rule all_egg_analyses:
         dataframe = expand("dataframes/{lineage}_{segment}_{resolution}_{assay}.csv", lineage=lineages, segment=segments, resolution=resolutions, assay=assays),
         aa_mut_plot = expand("plots/{lineage}_{segment}_{resolution}_{assay}/egg_mutation_aa_prevalence_{lineage}_{segment}_{resolution}_{assay}.pdf", lineage=lineages, segment=segments, resolution=resolutions, assay=assays),
         epistasis_plot = expand("plots/{lineage}_{segment}_{resolution}_{assay}/epistasis_heatmap_{lineage}_{segment}_{resolution}_{assay}.pdf", lineage=lineages, segment=segments, resolution=resolutions, assay=assays),
+        chord_plot = expand("plots/{lineage}_{segment}_{resolution}_{assay}/epistasis_chord_diagram_{lineage}_{segment}_{resolution}_{assay}.pdf", lineage=lineages, segment=segments, resolution=resolutions, assay=assays),
         pairs_json = expand("egg_results/egg_mutation_accuracy_{lineage}_{segment}_{resolution}_{assay}.json", lineage=lineages, segment=segments, resolution=resolutions, assay=assays)
 
 rule all:
@@ -780,6 +781,7 @@ rule egg_epistasis:
         dataframe = "dataframes/{lineage}_{segment}_{resolution}_{assay}.csv",
     output:
         epistasis_plot = "plots/{lineage}_{segment}_{resolution}_{assay}/epistasis_heatmap_{lineage}_{segment}_{resolution}_{assay}.pdf",
+        chord_plot = "plots/{lineage}_{segment}_{resolution}_{assay}/epistasis_chord_diagram_{lineage}_{segment}_{resolution}_{assay}.pdf",
     shell:
         """
         python3 scripts/plot_egg_epistasis.py \
