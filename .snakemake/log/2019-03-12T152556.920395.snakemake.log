@@ -1,0 +1,41 @@
+Building DAG of jobs...
+Using shell: /anaconda2/envs/py3/bin/bash
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all_egg_analyses
+	2	plot_background
+	3
+
+[Tue Mar 12 15:25:58 2019]
+rule plot_background:
+    input: dataframes/h3n2_ha_6y_fra.csv, config/clades_h3n2_ha.tsv
+    output: plots/h3n2_ha_6y_fra/background_heatmap_h3n2_ha_6y_fra.pdf
+    jobid: 14
+    wildcards: lineage=h3n2, segment=ha, assay=fra
+
+[Tue Mar 12 15:26:02 2019]
+Finished job 14.
+1 of 3 steps (33%) done
+
+[Tue Mar 12 15:26:02 2019]
+rule plot_background:
+    input: dataframes/h3n2_ha_6y_hi.csv, config/clades_h3n2_ha.tsv
+    output: plots/h3n2_ha_6y_hi/background_heatmap_h3n2_ha_6y_hi.pdf
+    jobid: 13
+    wildcards: lineage=h3n2, segment=ha, assay=hi
+
+[Tue Mar 12 15:26:05 2019]
+Finished job 13.
+2 of 3 steps (67%) done
+
+[Tue Mar 12 15:26:05 2019]
+localrule all_egg_analyses:
+    input: dataframes/h3n2_ha_6y_hi.csv, dataframes/h3n2_ha_6y_fra.csv, dataframes/h3n2_ha_12y_hi.csv, dataframes/h3n2_ha_12y_fra.csv, plots/h3n2_ha_6y_hi/egg_mutation_aa_prevalence_h3n2_ha_6y_hi.pdf, plots/h3n2_ha_6y_fra/egg_mutation_aa_prevalence_h3n2_ha_6y_fra.pdf, plots/h3n2_ha_12y_hi/egg_mutation_aa_prevalence_h3n2_ha_12y_hi.pdf, plots/h3n2_ha_12y_fra/egg_mutation_aa_prevalence_h3n2_ha_12y_fra.pdf, plots/h3n2_ha_6y_hi/epistasis_heatmap_h3n2_ha_6y_hi.pdf, plots/h3n2_ha_6y_fra/epistasis_heatmap_h3n2_ha_6y_fra.pdf, plots/h3n2_ha_12y_hi/epistasis_heatmap_h3n2_ha_12y_hi.pdf, plots/h3n2_ha_12y_fra/epistasis_heatmap_h3n2_ha_12y_fra.pdf, plots/h3n2_ha_6y_hi/background_heatmap_h3n2_ha_6y_hi.pdf, plots/h3n2_ha_6y_fra/background_heatmap_h3n2_ha_6y_fra.pdf, plots/h3n2_ha_6y_hi/epistasis_chord_diagram_h3n2_ha_6y_hi.pdf, plots/h3n2_ha_6y_fra/epistasis_chord_diagram_h3n2_ha_6y_fra.pdf, plots/h3n2_ha_12y_hi/epistasis_chord_diagram_h3n2_ha_12y_hi.pdf, plots/h3n2_ha_12y_fra/epistasis_chord_diagram_h3n2_ha_12y_fra.pdf, egg_results/egg_mutation_accuracy_h3n2_ha_6y_hi.json, egg_results/egg_mutation_accuracy_h3n2_ha_6y_fra.json, egg_results/egg_mutation_accuracy_h3n2_ha_12y_hi.json, egg_results/egg_mutation_accuracy_h3n2_ha_12y_fra.json
+    jobid: 0
+
+[Tue Mar 12 15:26:05 2019]
+Finished job 0.
+3 of 3 steps (100%) done
+Complete log: /Users/katekistler/nextstrain/egg-passage/.snakemake/log/2019-03-12T152556.920395.snakemake.log

@@ -19,9 +19,9 @@ def plot_background_heatmap(prefix):
     sites = sorted(sites)
 
     #Remove clades with less than 5 seqs from analysis
-    clade_size = df.groupby('clade').size().reset_index().rename(columns={0:'count'})
+    clade_size = df.groupby('clade').size().reset_index().rename(columns={0:'clade_total'})
     for k, v in clade_size.iterrows():
-        if v['count']<=5:
+        if v['clade_total']<=5:
             index_names = df[df['clade']==v['clade']].index
             df.drop(index_names, inplace=True)
 
@@ -43,6 +43,14 @@ def plot_background_heatmap(prefix):
         clade_enrichment.append(pd.DataFrame(site_clade))
 
     clade_enrichment = pd.concat(clade_enrichment, axis=0)
+    #Reorder clades to reflect tree topology
+    clade_enrichment.clade = pd.CategoricalIndex(clade_enrichment.clade,
+                                                 categories= ["unassigned", "3b", "3c", "3c3",
+                                                 "3c3.A", "3c3.B", "3c2", "3c2.A", "A4", "A3",
+                                                 "A2", "A2/re", "A1", "A1a", "A1b", "A1b/135N",
+                                                 "A1b/135K", "A1b/131K"])
+    clade_enrichment.sort_values(by='clade', inplace=True)
+
     clade_heatmap = clade_enrichment.pivot('clade', 'site', 'log_enrichment')
     heatmap_annotate = clade_enrichment.pivot('clade', 'site', 'pct')
 
