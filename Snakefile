@@ -143,7 +143,7 @@ rule all_egg_analyses:
         dataframe = expand("dataframes/{lineage}_{segment}_{resolution}_{assay}.csv", lineage=lineages, segment=segments, resolution=resolutions, assay=assays),
         aa_mut_plot = expand("plots/{lineage}_{segment}_{resolution}_{assay}/egg_mutation_aa_prevalence_{lineage}_{segment}_{resolution}_{assay}.pdf", lineage=lineages, segment=segments, resolution=resolutions, assay=assays),
         epistasis_plot = expand("plots/{lineage}_{segment}_{resolution}_{assay}/epistasis_heatmap_{lineage}_{segment}_{resolution}_{assay}.pdf", lineage=lineages, segment=segments, resolution=resolutions, assay=assays),
-        background_heatmap = expand("plots/{lineage}_{segment}_6y_{assay}/background_heatmap_{lineage}_{segment}_6y_{assay}.pdf", lineage=lineages, segment=segments, assay=assays),
+        background_heatmap = expand("plots/{lineage}_{segment}_6y_{assay}/genetic_background_heatmap_{lineage}_{segment}_6y_{assay}.pdf", lineage=lineages, segment=segments, assay=assays),
         chord_plot = expand("plots/{lineage}_{segment}_{resolution}_{assay}/epistasis_chord_diagram_{lineage}_{segment}_{resolution}_{assay}.pdf", lineage=lineages, segment=segments, resolution=resolutions, assay=assays),
         pairs_json = expand("egg_results/egg_mutation_accuracy_{lineage}_{segment}_{resolution}_{assay}.json", lineage=lineages, segment=segments, resolution=resolutions, assay=assays)
 
@@ -794,7 +794,7 @@ rule plot_background:
         dataframe = "dataframes/{lineage}_{segment}_6y_{assay}.csv",
         clades = _get_clades_file_for_wildcards,
     output:
-        background_heatmap = "plots/{lineage}_{segment}_6y_{assay}/background_heatmap_{lineage}_{segment}_6y_{assay}.pdf",
+        background_heatmap = "plots/{lineage}_{segment}_6y_{assay}/genetic_background_heatmap_{lineage}_{segment}_6y_{assay}.pdf",
     shell:
         """
         python3 scripts/plot_background.py \

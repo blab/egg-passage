@@ -11,16 +11,36 @@ import plotly.io as pio
 import plotly.plotly as py
 import plotly.graph_objs as go
 
-def plot_heatmap(prefix):
+def plot_heatmap(prefix, limit_clades):
     """
     Plot heatmaps indicating epistatic interactions between genotypes. Heat maps indicate whether the genotype of certain HA sites are correlated via a log enrichment ratio, that compares the frequency of observing genotype 1 at site 1 AND genotype 2 at site 2 versus the expected frequency (based on overall prevalence of the genotypes)
     """
 
     df = pd.read_csv('dataframes/'+prefix+'_egg.csv')
 
-    mut_sites = [col for col in df.columns if col[0:3]=='mut']
-    sites = [str(x[3:]) for x in mut_sites]
+    #Analyze only viruses from clades where greater than 10% of egg-seqs have mutation at 186 AND 194
+    if limit_clades==True:
+        clade_pct_186 = (df[df['mut186']==True].groupby('clade').size()/
+                         df.groupby('clade').size()).reset_index().rename(columns={0:'pct_186'})
+        clade_pct_194 = (df[df['mut194']==True].groupby('clade').size()/
+                         df.groupby('clade').size()).reset_index().rename(columns={0:'pct_194'})
+        clade_pcts = pd.merge(clade_pct_186, clade_pct_194, on='clade').fillna(0.0)
+        limited_clades = []
+        for k, v in clade_pcts.iterrows():
+            if v['pct_186']>0.1:
+                if v['pct_194']>0.1:
+                    limited_clades.append(v.clade)
+        df = df[df['clade'].isin(limited_clades)]
 
+    mut_sites = [col for col in df.columns if col[0:3]=='mut']
+
+    #Exclude sites 225 and 246 because no epistatic interaction with 186 or 194
+    if limit_clades==True:
+        for x in ['mut138', 'mut225', 'mut246']:
+            if x in mut_sites:
+                mut_sites.remove(x)
+
+    sites = [str(x[3:]) for x in mut_sites]
 
     aa_epistasis = []
     aa_alone = []
@@ -51,7 +71,6 @@ def plot_heatmap(prefix):
     #set threshold to exclude groups with only a few sequences
     #note: this means proportions won't exactly add to 1- doesn't matter for comparison to exp.
     aa_epistasis_df = aa_epistasis_df[aa_epistasis_df['count'] >= 5]
-
 
     fig, ax = plt.subplots(len(sites), len(sites), sharex='col', sharey='row')
 
@@ -120,18 +139,46 @@ def plot_heatmap(prefix):
     colorbar = fig.colorbar(heatmap, cax=cbar_ax)
     colorbar.ax.get_yaxis().labelpad = 15
     colorbar.ax.set_ylabel('log2 enrichment ratio', rotation=270)
-    fig.suptitle('Epistasis between HA sites in egg-passaged influenza H3N2', fontsize=12, y=1.05, x=0.6)
-    fig.savefig('plots/'+str(prefix)+'/epistasis_heatmap_'+str(prefix)+'.pdf', bbox_inches='tight')
 
-def plot_chord(prefix):
+    if limit_clades==False:
+        fig.suptitle('Epistasis between HA sites in egg-passaged influenza H3N2', fontsize=12, y=1.05, x=0.6)
+        fig.savefig('plots/'+str(prefix)+'/epistasis_heatmap_'+str(prefix)+'.pdf',
+                    bbox_inches='tight')
+    elif limit_clades==True:
+        fig.suptitle('Epistasis between HA sites in egg-passaged H3N2 viruses \n(from clades without a 186 vs. 194 mutation preference)', fontsize=12, y=1.05, x=0.6)
+        fig.savefig('plots/'+str(prefix)+'/epistasis_heatmap_'+str(prefix)+'_limit_clades.pdf',
+                    bbox_inches='tight')
+
+def plot_chord(prefix, limit_clades):
     #Adapted from https://nbviewer.jupyter.org/github/empet/Plotly-plots/blob/master/Chord-diagram.ipynb?flush_cache=true
 
     df = pd.read_csv('dataframes/'+prefix+'_egg.csv')
+
+    #Analyze only viruses from clades where greater than 10% of egg-seqs have mutation at 186 AND 194
+    if limit_clades==True:
+        clade_pct_186 = (df[df['mut186']==True].groupby('clade').size()/
+                         df.groupby('clade').size()).reset_index().rename(columns={0:'pct_186'})
+        clade_pct_194 = (df[df['mut194']==True].groupby('clade').size()/
+                         df.groupby('clade').size()).reset_index().rename(columns={0:'pct_194'})
+        clade_pcts = pd.merge(clade_pct_186, clade_pct_194, on='clade').fillna(0.0)
+        limited_clades = []
+        for k, v in clade_pcts.iterrows():
+            if v['pct_186']>0.1:
+                if v['pct_194']>0.1:
+                    limited_clades.append(v.clade)
+        df = df[df['clade'].isin(limited_clades)]
 
     sites = ['186','194','138','156','203','219','225','246']
     for site in sites:
         if site not in df.columns:
             sites.remove(site)
+    #Exclude sites 225 and 246 because no epistatic interaction with 186 or 194
+    if limit_clades==True:
+        for x in ['138', '225', '246']:
+            if x in sites:
+                sites.remove(x)
+
+
     egg_muts = {'186':['V'], '225':['G'], '219':['F','Y'],
                 '203':['I'], '156':['R','Q'], '138':['S'],
                 '246':['H'], '183':['L'], '194': ['P'], '246':['H']}
@@ -159,7 +206,14 @@ def plot_chord(prefix):
                         matrix_entry+= len(df[(df[site_a]==egg_genotype_a)&(df[site_b]==egg_genotype_b)])
             matrix[sites.index(site_a)][sites.index(site_b)] = matrix_entry
 
-    labels = ['186 V','194 P','138 S','156 R/Q','203 I','219 F/Y','225 G','246 H']
+    labels = []
+    for site in sites:
+        site_label = str(site)+egg_muts[site][0]
+        for x in range(1,len(egg_muts[site])):
+            site_label+='/'+str(egg_muts[site][x])
+
+        labels.append(site_label)
+
     ideo_colors = ['rgba(26,152,80, 0.75)',
                    'rgba(215,48,39, 0.75)',
                  'rgba(244,109,67, 0.75)',
@@ -376,7 +430,10 @@ def plot_chord(prefix):
             inv[s] = i
         return inv
 
-    layout=make_layout('Pairwise interactions between common egg mutation genotypes', 800)
+    if limit_clades==False:
+        layout=make_layout('Pairwise interactions between common egg mutation genotypes', 800)
+    elif limit_clades==True:
+        layout=make_layout('Pairwise interactions between common egg mutation genotypes <br> (in clades without a 186 vs. 194 mutation preference)', 800)
 
     ribbon_info=[]
     shapes=[]
@@ -477,13 +534,19 @@ def plot_chord(prefix):
     layout['shapes'] = shapes
     layout['annotations'] = annotations
     fig = go.Figure(data=data, layout=layout)
-    pio.write_image(fig, 'plots/'+str(prefix)+'/epistasis_chord_diagram_'+str(prefix)+'.pdf')
+    if limit_clades==False:
+        pio.write_image(fig, 'plots/'+str(prefix)+'/epistasis_chord_diagram_'+str(prefix)+'.pdf')
+    elif limit_clades==True:
+        pio.write_image(fig, 'plots/'+str(prefix)+'/epistasis_chord_diagram_'+str(prefix)+'_limit_clades.pdf')
 
 def main(input_df):
     df_name = str.split(input_df, 'dataframes/')[1]
     prefix = str.split(df_name, '.csv')[0]
-    plot_heatmap(prefix)
-    plot_chord(prefix)
+    plot_heatmap(prefix, limit_clades=False)
+    plot_chord(prefix, limit_clades=False)
+    if '6y' in prefix:
+        plot_heatmap(prefix, limit_clades=True)
+        plot_chord(prefix, limit_clades=True)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description = "Determines epistasis between egg-specific mutations")

@@ -64,7 +64,7 @@ def plot_background_heatmap(prefix):
                       annot_kws={'fontsize':6})
     fig.set_xlabel('HA1 position \n (overall frequency in egg-passaged viruses)',fontsize=14)
     fig.set_ylabel('Clade',fontsize=14)
-    fig.get_figure().savefig('plots/'+str(prefix)+'/background_heatmap_'+str(prefix)+'.pdf', bbox_inches='tight')
+    fig.get_figure().savefig('plots/'+str(prefix)+'/genetic_background_heatmap_'+str(prefix)+'.pdf', bbox_inches='tight')
 
 def main(input_df, clades_file):
     df_name = str.split(input_df, 'dataframes/')[1]
