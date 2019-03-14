@@ -236,6 +236,12 @@
       "menuItem": "date",
       "type": "continuous"
     },
+    "passage": {
+      "key": "passage",
+      "legendTitle": "Viral passage",
+      "menuItem": "passage",
+      "type": "discrete"
+    },
     "rb": {
       "key": "rb",
       "legendTitle": "RBS adjacent mutations",
@@ -909,7 +915,7 @@
     "frequencies"
   ],
   "title": "Real-time tracking of influenza A/H3N2 evolution",
-  "updated": "03 Mar 2019",
+  "updated": "14 Mar 2019",
   "vaccine_choices": {
     "A/Brisbane/10/2007": "2007-09-25",
     "A/HongKong/4801/2014": "2015-09-24",

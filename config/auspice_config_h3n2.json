@@ -19,6 +19,12 @@
       "menuItem":"region",
       "type":"discrete"
     },
+    "passage": {
+      "key":"passage",
+      "legendTitle":"Viral passage",
+      "menuItem":"passage",
+      "type":"discrete"
+    },
     "clade_membership": {
       "key": "clade_membership",
       "legendTitle": "Clade",

@@ -13,6 +13,12 @@
       "type": "continuous",
       "key": "num_date"
     },
+    "passage": {
+      "key":"passage",
+      "legendTitle":"Viral passage",
+      "menuItem":"passage",
+      "type":"discrete"
+    },
     "region": {
       "key":"region",
       "legendTitle":"Region",
