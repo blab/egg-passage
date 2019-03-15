@@ -231,6 +231,12 @@
       "menuItem": "genotype",
       "type": "discrete"
     },
+    "kk_clade": {
+      "key": "kk_clade",
+      "legendTitle": "KK Clade",
+      "menuItem": "kk clade",
+      "type": "discrete"
+    },
     "lbi": {
       "key": "lbi",
       "legendTitle": "local branching index",
@@ -886,7 +892,7 @@
     "frequencies"
   ],
   "title": "Real-time tracking of influenza A/H3N2 evolution",
-  "updated": "14 Mar 2019",
+  "updated": "15 Mar 2019",
   "vaccine_choices": {
     "A/Brisbane/10/2007": "2007-09-25",
     "A/HongKong/4801/2014": "2015-09-24",

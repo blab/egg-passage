@@ -25,6 +25,12 @@
       "menuItem":"passage",
       "type":"discrete"
     },
+    "kk_clade": {
+      "key":"kk_clade",
+      "legendTitle":"KK Clade",
+      "menuItem":"kk clade",
+      "type":"discrete"
+    },
     "clade_membership": {
       "key": "clade_membership",
       "legendTitle": "Clade",

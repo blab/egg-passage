@@ -1,0 +1,92 @@
+Building DAG of jobs...
+Using shell: /anaconda2/envs/py3/bin/bash
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	4	export
+	4	simplify_auspice_names
+	4	tip_frequencies
+	13
+
+[Fri Mar 15 17:11:59 2019]
+rule export:
+    input: results/tree_who_h3n2_ha_12y_concat_fra.nwk, results/metadata_h3n2_ha.tsv, config/auspice_config_h3n2.json, results/branch-lengths_who_h3n2_ha_12y_concat_fra.json, results/nt-muts_who_h3n2_ha_12y_concat_fra.json, results/aa-muts_who_h3n2_ha_12y_concat_fra.json, results/titers-tree-model_who_h3n2_ha_12y_concat_fra.json, results/titers-sub-model_who_h3n2_ha_12y_concat_fra.json, results/clades_who_h3n2_ha_12y_concat_fra.json, results/traits_who_h3n2_ha_12y_concat_fra.json, results/lbi_who_h3n2_ha_12y_concat_fra.json, results/distances_who_h3n2_ha_12y_concat_fra.json
+    output: auspice/flu_who_h3n2_ha_12y_concat_fra_tree.json, auspice/flu_who_h3n2_ha_12y_concat_fra_meta.json, auspice/flu_who_h3n2_ha_12y_concat_fra_root-sequence.json
+    jobid: 11
+    wildcards: center=who, lineage=h3n2, segment=ha, resolution=12y, passage=concat, assay=fra
+
+[Fri Mar 15 17:12:24 2019]
+Finished job 11.
+1 of 13 steps (8%) done
+
+[Fri Mar 15 17:12:24 2019]
+rule export:
+    input: results/tree_who_h3n2_ha_12y_concat_hi.nwk, results/metadata_h3n2_ha.tsv, config/auspice_config_h3n2.json, results/branch-lengths_who_h3n2_ha_12y_concat_hi.json, results/nt-muts_who_h3n2_ha_12y_concat_hi.json, results/aa-muts_who_h3n2_ha_12y_concat_hi.json, results/titers-tree-model_who_h3n2_ha_12y_concat_hi.json, results/titers-sub-model_who_h3n2_ha_12y_concat_hi.json, results/clades_who_h3n2_ha_12y_concat_hi.json, results/traits_who_h3n2_ha_12y_concat_hi.json, results/lbi_who_h3n2_ha_12y_concat_hi.json, results/distances_who_h3n2_ha_12y_concat_hi.json
+    output: auspice/flu_who_h3n2_ha_12y_concat_hi_tree.json, auspice/flu_who_h3n2_ha_12y_concat_hi_meta.json, auspice/flu_who_h3n2_ha_12y_concat_hi_root-sequence.json
+    jobid: 9
+    wildcards: center=who, lineage=h3n2, segment=ha, resolution=12y, passage=concat, assay=hi
+
+[Fri Mar 15 17:12:46 2019]
+Finished job 9.
+2 of 13 steps (15%) done
+
+[Fri Mar 15 17:12:46 2019]
+rule export:
+    input: results/tree_who_h3n2_ha_6y_concat_hi.nwk, results/metadata_h3n2_ha.tsv, config/auspice_config_h3n2.json, results/branch-lengths_who_h3n2_ha_6y_concat_hi.json, results/nt-muts_who_h3n2_ha_6y_concat_hi.json, results/aa-muts_who_h3n2_ha_6y_concat_hi.json, results/titers-tree-model_who_h3n2_ha_6y_concat_hi.json, results/titers-sub-model_who_h3n2_ha_6y_concat_hi.json, results/clades_who_h3n2_ha_6y_concat_hi.json, results/traits_who_h3n2_ha_6y_concat_hi.json, results/lbi_who_h3n2_ha_6y_concat_hi.json, results/distances_who_h3n2_ha_6y_concat_hi.json
+    output: auspice/flu_who_h3n2_ha_6y_concat_hi_tree.json, auspice/flu_who_h3n2_ha_6y_concat_hi_meta.json, auspice/flu_who_h3n2_ha_6y_concat_hi_root-sequence.json
+    jobid: 5
+    wildcards: center=who, lineage=h3n2, segment=ha, resolution=6y, passage=concat, assay=hi
+
+[Fri Mar 15 17:13:04 2019]
+Finished job 5.
+3 of 13 steps (23%) done
+
+[Fri Mar 15 17:13:04 2019]
+rule export:
+    input: results/tree_who_h3n2_ha_6y_concat_fra.nwk, results/metadata_h3n2_ha.tsv, config/auspice_config_h3n2.json, results/branch-lengths_who_h3n2_ha_6y_concat_fra.json, results/nt-muts_who_h3n2_ha_6y_concat_fra.json, results/aa-muts_who_h3n2_ha_6y_concat_fra.json, results/titers-tree-model_who_h3n2_ha_6y_concat_fra.json, results/titers-sub-model_who_h3n2_ha_6y_concat_fra.json, results/clades_who_h3n2_ha_6y_concat_fra.json, results/traits_who_h3n2_ha_6y_concat_fra.json, results/lbi_who_h3n2_ha_6y_concat_fra.json, results/distances_who_h3n2_ha_6y_concat_fra.json
+    output: auspice/flu_who_h3n2_ha_6y_concat_fra_tree.json, auspice/flu_who_h3n2_ha_6y_concat_fra_meta.json, auspice/flu_who_h3n2_ha_6y_concat_fra_root-sequence.json
+    jobid: 7
+    wildcards: center=who, lineage=h3n2, segment=ha, resolution=6y, passage=concat, assay=fra
+
+[Fri Mar 15 17:13:22 2019]
+Finished job 7.
+4 of 13 steps (31%) done
+
+[Fri Mar 15 17:13:22 2019]
+rule tip_frequencies:
+    input: results/tree_who_h3n2_ha_12y_concat_fra.nwk, results/metadata_h3n2_ha.tsv, config/frequency_weights_by_region.json
+    output: auspice/flu_who_h3n2_ha_12y_concat_fra_tip-frequencies.json
+    jobid: 12
+    wildcards: center=who, lineage=h3n2, segment=ha, resolution=12y, passage=concat, assay=fra
+
+[Fri Mar 15 17:13:35 2019]
+Finished job 12.
+5 of 13 steps (38%) done
+
+[Fri Mar 15 17:13:35 2019]
+rule simplify_auspice_names:
+    input: auspice/flu_who_h3n2_ha_12y_concat_fra_tree.json, auspice/flu_who_h3n2_ha_12y_concat_fra_meta.json, auspice/flu_who_h3n2_ha_12y_concat_fra_root-sequence.json, auspice/flu_who_h3n2_ha_12y_concat_fra_tip-frequencies.json
+    output: auspice/flu_seasonal_h3n2_ha_12y_fra_tree.json, auspice/flu_seasonal_h3n2_ha_12y_fra_meta.json, auspice/flu_seasonal_h3n2_ha_12y_fra_root-sequence.json, auspice/flu_seasonal_h3n2_ha_12y_fra_tip-frequencies.json
+    jobid: 4
+    wildcards: lineage=h3n2, segment=ha, resolution=12y, assay=fra
+
+[Fri Mar 15 17:13:47 2019]
+Error in rule simplify_auspice_names:
+    jobid: 4
+    output: auspice/flu_seasonal_h3n2_ha_12y_fra_tree.json, auspice/flu_seasonal_h3n2_ha_12y_fra_meta.json, auspice/flu_seasonal_h3n2_ha_12y_fra_root-sequence.json, auspice/flu_seasonal_h3n2_ha_12y_fra_tip-frequencies.json
+
+RuleException:
+CalledProcessError in line 740 of /Users/katekistler/nextstrain/egg-passage/Snakefile:
+Command 'set -euo pipefail;  python3 scripts/convert_undetermined.py             --tree auspice/flu_who_h3n2_ha_12y_concat_fra_tree.json 
+        python3 scripts/assign_clades.py             --tree auspice/flu_who_h3n2_ha_12y_concat_fra_tree.json 
+        mv auspice/flu_who_h3n2_ha_12y_concat_fra_tree.json auspice/flu_seasonal_h3n2_ha_12y_fra_tree.json &
+        mv auspice/flu_who_h3n2_ha_12y_concat_fra_meta.json auspice/flu_seasonal_h3n2_ha_12y_fra_meta.json &
+        mv auspice/flu_who_h3n2_ha_12y_concat_fra_root-sequence.json auspice/flu_seasonal_h3n2_ha_12y_fra_root-sequence.json &
+        mv auspice/flu_who_h3n2_ha_12y_concat_fra_tip-frequencies.json auspice/flu_seasonal_h3n2_ha_12y_fra_tip-frequencies.json &' returned non-zero exit status 1.
+  File "/Users/katekistler/nextstrain/egg-passage/Snakefile", line 740, in __rule_simplify_auspice_names
+  File "/anaconda2/envs/py3/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /Users/katekistler/nextstrain/egg-passage/.snakemake/log/2019-03-15T171157.946257.snakemake.log
