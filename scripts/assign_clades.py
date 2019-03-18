@@ -2,7 +2,7 @@ import argparse
 import json
 import pandas as pd
 
-def assign_clades(tree_path):
+def assign_clades(tree_path, output_csv):
 
     with open(tree_path, 'r') as tree_json:
         tree = json.load(tree_json)
@@ -38,6 +38,7 @@ def assign_clades(tree_path):
     max_path_length=df['path'].map(len).max()
 
     current_clade = 0
+    assigned_clades = {}
 
     for internal_branch in reversed(range(0,max_path_length)):
         exclude_assigned = df[df['clade']=='unassigned']
@@ -48,18 +49,37 @@ def assign_clades(tree_path):
             if len(v)>=100:
                 current_clade+=1
                 df.at[v.index, 'clade']=current_clade
+                assigned_clades[current_clade] = {'clade_mrca':k[-1]}
 
             elif len(v)>=50:
                 if clock_lengths[str(k[-1])] >= 0.0008:
                     current_clade+=1
                     df.at[v.index, 'clade']=current_clade
+                    assigned_clades[current_clade] = {'clade_mrca':k[-1]}
 
             elif len(v)>=20:
                 if clock_lengths[str(k[-1])] >= 0.003:
                     current_clade+=1
                     df.at[v.index, 'clade']=current_clade
+                    assigned_clades[current_clade] = {'clade_mrca':k[-1]}
 
     df = df.set_index('strain')
+
+    #Find mutations that occur on most recent common ascestor of kk_clades
+    def find_defining_genotypes(branch):
+
+        if 'children' in branch.keys():
+            for child in branch['children']:
+                for k,v in assigned_clades.items():
+                    if str(branch['clade']) == v['clade_mrca']:
+                        assigned_clades[k]['aa_muts'] = branch['aa_muts']
+                        assigned_clades[k]['nt_muts'] = branch['muts']
+                find_defining_genotypes(child)
+
+    find_defining_genotypes(tree)
+    assigned_clades_df = pd.DataFrame(assigned_clades).T.reset_index().rename(columns={'index':'kk_clade'})
+    assigned_clades_df = assigned_clades_df[['kk_clade', 'clade_mrca', 'aa_muts', 'nt_muts']]
+    assigned_clades_df.to_csv(output_csv, index=False)
 
     def add_clades(branch, clade_assignments):
         if 'children' in branch.keys():
@@ -80,7 +100,8 @@ if __name__ == '__main__':
         description="Assign clades by grouping viruses into groups of at least 100 strains")
 
     parser.add_argument('--tree', help= "path to _tree.json file")
+    parser.add_argument('--kk-clades-file', help= "path to output file listing clades and clade-defining mutations")
 
     args = parser.parse_args()
 
-    assign_clades(tree_path = args.tree)
+    assign_clades(tree_path = args.tree, output_csv = args.kk_clades_file)

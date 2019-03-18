@@ -149,12 +149,13 @@ rule all:
         auspice_tip_frequencies = expand("auspice/flu_seasonal_{lineage}_{segment}_{resolution}_{assay}_tip-frequencies.json",
                               lineage=lineages, segment=segments, resolution=resolutions,
                               assay=assays),
-        # dataframe = expand("dataframes/{lineage}_{segment}_{resolution}_{assay}.csv", lineage=lineages, segment=segments, resolution=resolutions, assay=assays),
-        # aa_mut_plot = expand("plots/{lineage}_{segment}_{resolution}_{assay}/egg_mutation_aa_prevalence_{lineage}_{segment}_{resolution}_{assay}.pdf", lineage=lineages, segment=segments, resolution=resolutions, assay=assays),
-        # epistasis_plot = expand("plots/{lineage}_{segment}_{resolution}_{assay}/epistasis_heatmap_{lineage}_{segment}_{resolution}_{assay}.pdf", lineage=lineages, segment=segments, resolution=resolutions, assay=assays),
-        # background_heatmap = expand("plots/{lineage}_{segment}_6y_{assay}/genetic_background_heatmap_{lineage}_{segment}_6y_{assay}.pdf", lineage=lineages, segment=segments, assay=assays),
-        # chord_plot = expand("plots/{lineage}_{segment}_{resolution}_{assay}/epistasis_chord_diagram_{lineage}_{segment}_{resolution}_{assay}.pdf", lineage=lineages, segment=segments, resolution=resolutions, assay=assays),
-        # pairs_json = expand("egg_results/egg_mutation_accuracy_{lineage}_{segment}_{resolution}_{assay}.json", lineage=lineages, segment=segments, resolution=resolutions, assay=assays)
+        dataframe = expand("dataframes/{lineage}_{segment}_{resolution}_{assay}.csv", lineage=lineages, segment=segments, resolution=resolutions, assay=assays),
+        aa_mut_plot = expand("plots/{lineage}_{segment}_{resolution}_{assay}/egg_mutation_aa_prevalence_{lineage}_{segment}_{resolution}_{assay}.pdf", lineage=lineages, segment=segments, resolution=resolutions, assay=assays),
+        epistasis_plot = expand("plots/{lineage}_{segment}_{resolution}_{assay}/epistasis_heatmap_{lineage}_{segment}_{resolution}_{assay}.pdf", lineage=lineages, segment=segments, resolution=resolutions, assay=assays),
+        background_heatmap = expand("plots/{lineage}_{segment}_6y_{assay}/genetic_background_heatmap_{lineage}_{segment}_6y_{assay}.pdf", lineage=lineages, segment=segments, assay=assays),
+        kkclade_heatmap = expand("plots/{lineage}_{segment}_{resolution}_{assay}/genetic_background_kkclade_heatmap_{lineage}_{segment}_{resolution}_{assay}.pdf", lineage=lineages, segment=segments, resolution=resolutions, assay=assays),
+        chord_plot = expand("plots/{lineage}_{segment}_{resolution}_{assay}/epistasis_chord_diagram_{lineage}_{segment}_{resolution}_{assay}.pdf", lineage=lineages, segment=segments, resolution=resolutions, assay=assays),
+        pairs_json = expand("egg_results/egg_mutation_accuracy_{lineage}_{segment}_{resolution}_{assay}.json", lineage=lineages, segment=segments, resolution=resolutions, assay=assays)
 
 rule download_all:
     input:
@@ -733,6 +734,7 @@ rule simplify_auspice_names:
         frequencies = "auspice/flu_who_{lineage}_{segment}_{resolution}_concat_{assay}_tip-frequencies.json"
     output:
         tree = "auspice/flu_seasonal_{lineage}_{segment}_{resolution}_{assay}_tree.json",
+        kk_clades = "results/kk_clades_{lineage}_{segment}_{resolution}_{assay}.csv",
         meta = "auspice/flu_seasonal_{lineage}_{segment}_{resolution}_{assay}_meta.json",
         seq = "auspice/flu_seasonal_{lineage}_{segment}_{resolution}_{assay}_root-sequence.json",
         frequencies = "auspice/flu_seasonal_{lineage}_{segment}_{resolution}_{assay}_tip-frequencies.json"
@@ -743,6 +745,7 @@ rule simplify_auspice_names:
 
         python3 scripts/assign_clades.py \
             --tree {input.tree} \
+            --kk-clades-file {output.kk_clades} \
 
         mv {input.tree} {output.tree} &
         mv {input.meta} {output.meta} &
@@ -799,6 +802,21 @@ rule plot_background:
         clades = _get_clades_file_for_wildcards,
     output:
         background_heatmap = "plots/{lineage}_{segment}_6y_{assay}/genetic_background_heatmap_{lineage}_{segment}_6y_{assay}.pdf",
+
+    shell:
+        """
+        python3 scripts/plot_background.py \
+            --in_file {input.dataframe} \
+            --clades {input.clades} \
+        """
+
+rule plot_background_kkclades:
+    input:
+        dataframe = "dataframes/{lineage}_{segment}_{resolution}_{assay}.csv",
+        clades = _get_clades_file_for_wildcards,
+    output:
+        kkclade_heatmap = "plots/{lineage}_{segment}_{resolution}_{assay}/genetic_background_kkclade_heatmap_{lineage}_{segment}_{resolution}_{assay}.pdf",
+
     shell:
         """
         python3 scripts/plot_background.py \

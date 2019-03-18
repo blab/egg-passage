@@ -74,6 +74,7 @@ def organize_output(tree_path, seq_path, root_path, positions, prefix):
                                         (branch['attr']['dTiterSub'] if 'dTiterSub' in branch['attr'] else None),
                                         (branch['attr']['cTiterSub'] if 'cTiterSub' in branch['attr'] else None),
                                         branch['attr']['clade_membership'],
+                                        branch['attr']['kk_clade'],
                                         aa_mut_clade_list] +
                                         [tip_sequence[pos-1] for pos in pos_list] +
                                         [last_node_sequence[pos-1] for pos in pos_list])
@@ -83,7 +84,7 @@ def organize_output(tree_path, seq_path, root_path, positions, prefix):
 
     df = pd.DataFrame(tip_muts).T
     df.reset_index(inplace=True)
-    df.columns = ['strain', 'tip_HA1_muts', 'tip_HA2_muts', 'tip_SigPep_muts', 'date', 'tip_nt_muts', 'dTiterSub','cTiterSub', 'clade', 'aa_mut_list'] + positions + [str(x)+'_lastnode' for x in positions]
+    df.columns = ['strain', 'tip_HA1_muts', 'tip_HA2_muts', 'tip_SigPep_muts', 'date', 'tip_nt_muts', 'dTiterSub','cTiterSub', 'clade', 'kk_clade', 'aa_mut_list'] + positions + [str(x)+'_lastnode' for x in positions]
     df['dTiterSub'], df['cTiterSub']= df['dTiterSub'].astype(float, inplace=True), df['cTiterSub'].astype(float, inplace=True)
     df['passage'] = np.select((df.strain.str.contains('egg'), df.strain.str.contains('cell')), ('egg', 'cell'))
     df['passage'] = np.where(df['passage']=='0', 'unpassaged', df['passage'])
