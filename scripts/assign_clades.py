@@ -2,19 +2,22 @@ import argparse
 import json
 import pandas as pd
 
-def assign_clades(tree_path, output_csv):
+def assign_clades(tree_path, output_csv, method):
 
     with open(tree_path, 'r') as tree_json:
         tree = json.load(tree_json)
 
     leaf_paths = {}
-    clock_lengths = {}
+    branch_traits = {}
 
     def find_path(branch):
 
         node_path.append(branch['clade'])
-        if branch['clade'] not in clock_lengths.keys():
-            clock_lengths[str(branch['clade'])] = branch['attr']['clock_length']
+        if branch['clade'] not in branch_traits.keys():
+            if method == 'clock_length':
+                branch_traits[str(branch['clade'])] = branch['attr']['clock_length']
+            elif method == 'mutations':
+                branch_traits[str(branch['clade'])] = branch['muts']
         if 'children' in branch.keys():
             for child in branch['children']:
                 find_path(child)
@@ -28,6 +31,7 @@ def assign_clades(tree_path, output_csv):
 
     node_path = []
     find_path(tree)
+
 
     df = pd.DataFrame(leaf_paths).T
     df.reset_index(inplace=True)
@@ -52,16 +56,28 @@ def assign_clades(tree_path, output_csv):
                 assigned_clades[current_clade] = {'clade_mrca':k[-1]}
 
             elif len(v)>=50:
-                if clock_lengths[str(k[-1])] >= 0.0008:
-                    current_clade+=1
-                    df.at[v.index, 'clade']=current_clade
-                    assigned_clades[current_clade] = {'clade_mrca':k[-1]}
+                if method == 'clock_length':
+                    if branch_traits[str(k[-1])] >= 0.0008:
+                        current_clade+=1
+                        df.at[v.index, 'clade']=current_clade
+                        assigned_clades[current_clade] = {'clade_mrca':k[-1]}
+                elif method == 'mutations':
+                    if len(branch_traits[str(k[-1])]) >= 1:
+                        current_clade+=1
+                        df.at[v.index, 'clade']=current_clade
+                        assigned_clades[current_clade] = {'clade_mrca':k[-1]}
 
             elif len(v)>=20:
-                if clock_lengths[str(k[-1])] >= 0.003:
-                    current_clade+=1
-                    df.at[v.index, 'clade']=current_clade
-                    assigned_clades[current_clade] = {'clade_mrca':k[-1]}
+                if method == 'clock_length':
+                    if branch_traits[str(k[-1])] >= 0.003:
+                        current_clade+=1
+                        df.at[v.index, 'clade']=current_clade
+                        assigned_clades[current_clade] = {'clade_mrca':k[-1]}
+                elif method == 'mutations':
+                    if len(branch_traits[str(k[-1])]) >= 4:
+                        current_clade+=1
+                        df.at[v.index, 'clade']=current_clade
+                        assigned_clades[current_clade] = {'clade_mrca':k[-1]}
 
     df = df.set_index('strain')
 
@@ -101,7 +117,8 @@ if __name__ == '__main__':
 
     parser.add_argument('--tree', help= "path to _tree.json file")
     parser.add_argument('--kk-clades-file', help= "path to output file listing clades and clade-defining mutations")
+    parser.add_argument('--method', choices=["clock_length", "mutations"], default= "clock_length", help= "determine clades based on clade size and clock length of common ancestor OR number of mutations in common ancestor")
 
     args = parser.parse_args()
 
-    assign_clades(tree_path = args.tree, output_csv = args.kk_clades_file)
+    assign_clades(tree_path = args.tree, output_csv = args.kk_clades_file, method = args.method)

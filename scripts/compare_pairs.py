@@ -68,7 +68,7 @@ def find_paired_mutations(prefix, output):
 def main(input_df):
     df_name = str.split(input_df, 'dataframes/')[1]
     prefix = str.split(df_name, '.csv')[0]
-    output = "egg_results/egg_mutation_accuracy_" + str(prefix) + ".json"
+    output = "plots/egg_results/egg_mutation_accuracy_" + str(prefix) + ".json"
     find_paired_mutations(prefix, output)
 
 if __name__ == '__main__':

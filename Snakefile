@@ -155,7 +155,7 @@ rule all:
         background_heatmap = expand("plots/{lineage}_{segment}_6y_{assay}/genetic_background_heatmap_{lineage}_{segment}_6y_{assay}.pdf", lineage=lineages, segment=segments, assay=assays),
         kkclade_heatmap = expand("plots/{lineage}_{segment}_{resolution}_{assay}/genetic_background_kkclade_heatmap_{lineage}_{segment}_{resolution}_{assay}.pdf", lineage=lineages, segment=segments, resolution=resolutions, assay=assays),
         chord_plot = expand("plots/{lineage}_{segment}_{resolution}_{assay}/epistasis_chord_diagram_{lineage}_{segment}_{resolution}_{assay}.pdf", lineage=lineages, segment=segments, resolution=resolutions, assay=assays),
-        pairs_json = expand("egg_results/egg_mutation_accuracy_{lineage}_{segment}_{resolution}_{assay}.json", lineage=lineages, segment=segments, resolution=resolutions, assay=assays)
+        pairs_json = expand("plots/egg_results/egg_mutation_accuracy_{lineage}_{segment}_{resolution}_{assay}.json", lineage=lineages, segment=segments, resolution=resolutions, assay=assays)
 
 rule download_all:
     input:
@@ -746,6 +746,7 @@ rule simplify_auspice_names:
         python3 scripts/assign_clades.py \
             --tree {input.tree} \
             --kk-clades-file {output.kk_clades} \
+            --method mutations \
 
         mv {input.tree} {output.tree} &
         mv {input.meta} {output.meta} &
@@ -828,7 +829,7 @@ rule compair_pairs:
     input:
         dataframe = "dataframes/{lineage}_{segment}_{resolution}_{assay}.csv",
     output:
-        pairs_json = "egg_results/egg_mutation_accuracy_{lineage}_{segment}_{resolution}_{assay}.json",
+        pairs_json = "plots/egg_results/egg_mutation_accuracy_{lineage}_{segment}_{resolution}_{assay}.json",
     shell:
         """
         python3 scripts/compare_pairs.py \
