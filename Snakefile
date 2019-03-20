@@ -746,7 +746,7 @@ rule simplify_auspice_names:
         python3 scripts/assign_clades.py \
             --tree {input.tree} \
             --kk-clades-file {output.kk_clades} \
-            --method mutations \
+            --method clock_length \
 
         mv {input.tree} {output.tree} &
         mv {input.meta} {output.meta} &

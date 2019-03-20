@@ -1,0 +1,90 @@
+Building DAG of jobs...
+Using shell: /anaconda2/envs/py3/bin/bash
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	4	compair_pairs
+	4	egg_epistasis
+	4	export
+	4	find_egg_mutations
+	4	organize_output
+	2	plot_background
+	4	plot_background_kkclades
+	4	simplify_auspice_names
+	4	tip_frequencies
+	35
+
+[Wed Mar 20 10:45:40 2019]
+rule export:
+    input: results/tree_who_h3n2_ha_12y_concat_fra.nwk, results/metadata_h3n2_ha.tsv, config/auspice_config_h3n2.json, results/branch-lengths_who_h3n2_ha_12y_concat_fra.json, results/nt-muts_who_h3n2_ha_12y_concat_fra.json, results/aa-muts_who_h3n2_ha_12y_concat_fra.json, results/titers-tree-model_who_h3n2_ha_12y_concat_fra.json, results/titers-sub-model_who_h3n2_ha_12y_concat_fra.json, results/clades_who_h3n2_ha_12y_concat_fra.json, results/traits_who_h3n2_ha_12y_concat_fra.json, results/lbi_who_h3n2_ha_12y_concat_fra.json, results/distances_who_h3n2_ha_12y_concat_fra.json
+    output: auspice/flu_who_h3n2_ha_12y_concat_fra_tree.json, auspice/flu_who_h3n2_ha_12y_concat_fra_meta.json, auspice/flu_who_h3n2_ha_12y_concat_fra_root-sequence.json
+    jobid: 33
+    wildcards: center=who, lineage=h3n2, segment=ha, resolution=12y, passage=concat, assay=fra
+
+[Wed Mar 20 10:46:03 2019]
+Finished job 33.
+1 of 35 steps (3%) done
+
+[Wed Mar 20 10:46:03 2019]
+rule export:
+    input: results/tree_who_h3n2_ha_12y_concat_hi.nwk, results/metadata_h3n2_ha.tsv, config/auspice_config_h3n2.json, results/branch-lengths_who_h3n2_ha_12y_concat_hi.json, results/nt-muts_who_h3n2_ha_12y_concat_hi.json, results/aa-muts_who_h3n2_ha_12y_concat_hi.json, results/titers-tree-model_who_h3n2_ha_12y_concat_hi.json, results/titers-sub-model_who_h3n2_ha_12y_concat_hi.json, results/clades_who_h3n2_ha_12y_concat_hi.json, results/traits_who_h3n2_ha_12y_concat_hi.json, results/lbi_who_h3n2_ha_12y_concat_hi.json, results/distances_who_h3n2_ha_12y_concat_hi.json
+    output: auspice/flu_who_h3n2_ha_12y_concat_hi_tree.json, auspice/flu_who_h3n2_ha_12y_concat_hi_meta.json, auspice/flu_who_h3n2_ha_12y_concat_hi_root-sequence.json
+    jobid: 31
+    wildcards: center=who, lineage=h3n2, segment=ha, resolution=12y, passage=concat, assay=hi
+
+[Wed Mar 20 10:46:27 2019]
+Finished job 31.
+2 of 35 steps (6%) done
+
+[Wed Mar 20 10:46:27 2019]
+rule export:
+    input: results/tree_who_h3n2_ha_6y_concat_hi.nwk, results/metadata_h3n2_ha.tsv, config/auspice_config_h3n2.json, results/branch-lengths_who_h3n2_ha_6y_concat_hi.json, results/nt-muts_who_h3n2_ha_6y_concat_hi.json, results/aa-muts_who_h3n2_ha_6y_concat_hi.json, results/titers-tree-model_who_h3n2_ha_6y_concat_hi.json, results/titers-sub-model_who_h3n2_ha_6y_concat_hi.json, results/clades_who_h3n2_ha_6y_concat_hi.json, results/traits_who_h3n2_ha_6y_concat_hi.json, results/lbi_who_h3n2_ha_6y_concat_hi.json, results/distances_who_h3n2_ha_6y_concat_hi.json
+    output: auspice/flu_who_h3n2_ha_6y_concat_hi_tree.json, auspice/flu_who_h3n2_ha_6y_concat_hi_meta.json, auspice/flu_who_h3n2_ha_6y_concat_hi_root-sequence.json
+    jobid: 27
+    wildcards: center=who, lineage=h3n2, segment=ha, resolution=6y, passage=concat, assay=hi
+
+[Wed Mar 20 10:46:44 2019]
+Finished job 27.
+3 of 35 steps (9%) done
+
+[Wed Mar 20 10:46:44 2019]
+rule export:
+    input: results/tree_who_h3n2_ha_6y_concat_fra.nwk, results/metadata_h3n2_ha.tsv, config/auspice_config_h3n2.json, results/branch-lengths_who_h3n2_ha_6y_concat_fra.json, results/nt-muts_who_h3n2_ha_6y_concat_fra.json, results/aa-muts_who_h3n2_ha_6y_concat_fra.json, results/titers-tree-model_who_h3n2_ha_6y_concat_fra.json, results/titers-sub-model_who_h3n2_ha_6y_concat_fra.json, results/clades_who_h3n2_ha_6y_concat_fra.json, results/traits_who_h3n2_ha_6y_concat_fra.json, results/lbi_who_h3n2_ha_6y_concat_fra.json, results/distances_who_h3n2_ha_6y_concat_fra.json
+    output: auspice/flu_who_h3n2_ha_6y_concat_fra_tree.json, auspice/flu_who_h3n2_ha_6y_concat_fra_meta.json, auspice/flu_who_h3n2_ha_6y_concat_fra_root-sequence.json
+    jobid: 29
+    wildcards: center=who, lineage=h3n2, segment=ha, resolution=6y, passage=concat, assay=fra
+
+[Wed Mar 20 10:47:01 2019]
+Finished job 29.
+4 of 35 steps (11%) done
+
+[Wed Mar 20 10:47:01 2019]
+rule tip_frequencies:
+    input: results/tree_who_h3n2_ha_12y_concat_fra.nwk, results/metadata_h3n2_ha.tsv, config/frequency_weights_by_region.json
+    output: auspice/flu_who_h3n2_ha_12y_concat_fra_tip-frequencies.json
+    jobid: 34
+    wildcards: center=who, lineage=h3n2, segment=ha, resolution=12y, passage=concat, assay=fra
+
+[Wed Mar 20 10:47:15 2019]
+Finished job 34.
+5 of 35 steps (14%) done
+
+[Wed Mar 20 10:47:15 2019]
+rule simplify_auspice_names:
+    input: auspice/flu_who_h3n2_ha_12y_concat_fra_tree.json, auspice/flu_who_h3n2_ha_12y_concat_fra_meta.json, auspice/flu_who_h3n2_ha_12y_concat_fra_root-sequence.json, auspice/flu_who_h3n2_ha_12y_concat_fra_tip-frequencies.json
+    output: auspice/flu_seasonal_h3n2_ha_12y_fra_tree.json, results/kk_clades_h3n2_ha_12y_fra.csv, auspice/flu_seasonal_h3n2_ha_12y_fra_meta.json, auspice/flu_seasonal_h3n2_ha_12y_fra_root-sequence.json, auspice/flu_seasonal_h3n2_ha_12y_fra_tip-frequencies.json
+    jobid: 4
+    wildcards: lineage=h3n2, segment=ha, resolution=12y, assay=fra
+
+Waiting at most 5 seconds for missing files.
+MissingOutputException in line 729 of /Users/katekistler/nextstrain/egg-passage/Snakefile:
+Missing files after 5 seconds:
+results/kk_clades_h3n2_ha_12y_fra.csv
+This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait.
+Removing output files of failed job simplify_auspice_names since they might be corrupted:
+auspice/flu_seasonal_h3n2_ha_12y_fra_tree.json, auspice/flu_seasonal_h3n2_ha_12y_fra_meta.json, auspice/flu_seasonal_h3n2_ha_12y_fra_root-sequence.json, auspice/flu_seasonal_h3n2_ha_12y_fra_tip-frequencies.json
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /Users/katekistler/nextstrain/egg-passage/.snakemake/log/2019-03-20T104538.729826.snakemake.log

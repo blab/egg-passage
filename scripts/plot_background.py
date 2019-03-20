@@ -99,8 +99,7 @@ def plot_kkclade_heatmap(prefix):
     clade_enrichment = pd.concat(clade_enrichment, axis=0)
     #Reorder clades
     clade_enrichment.kk_clade = pd.CategoricalIndex(clade_enrichment.kk_clade,
-                                                 categories= ["unassigned"]+
-                                                   [str(y) for y in (sorted([int(x) for x in clade_enrichment.kk_clade.unique() if x!='unassigned'], reverse=True))])
+                                                 categories= [v['kk_clade'] for k,v in (df.groupby('kk_clade')['date'].mean().reset_index().sort_values(by='date')).iterrows()])
     clade_enrichment.sort_values(by='kk_clade', inplace=True)
 
     clade_heatmap = clade_enrichment.pivot('kk_clade', 'site', 'log_enrichment')

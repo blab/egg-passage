@@ -12,16 +12,23 @@ def assign_clades(tree_path, output_csv, method):
 
     def find_path(branch):
 
-        node_path.append(branch['clade'])
-        if branch['clade'] not in branch_traits.keys():
+        node_path.append(branch['strain'])
+        if branch['strain'] not in branch_traits.keys():
             if method == 'clock_length':
-                branch_traits[str(branch['clade'])] = branch['attr']['clock_length']
+                branch_traits[str(branch['strain'])] = branch['attr']['clock_length']
             elif method == 'mutations':
-                branch_traits[str(branch['clade'])] = branch['muts']
+                branch_traits[str(branch['strain'])] = branch['muts']
         if 'children' in branch.keys():
             for child in branch['children']:
+                #Find correlation between num aa mutations and clock length
+                num_aa_muts = sum([len(child['aa_muts'][x]) for x in child['aa_muts']])
+                if num_aa_muts in clocklength_per_aamut.keys():
+                    clocklength_per_aamut[num_aa_muts].append(child['attr']['clock_length'])
+                else:
+                    clocklength_per_aamut[num_aa_muts] = [child['attr']['clock_length']]
+
                 find_path(child)
-                node_path.remove(child['clade'])
+                node_path.remove(child['strain'])
 
 
         elif 'children' not in branch.keys():
@@ -30,13 +37,18 @@ def assign_clades(tree_path, output_csv, method):
             leaf_paths[branch['strain']] = [branch['attr']['clade_membership'], node_path_list]
 
     node_path = []
+    clocklength_per_aamut = {}
     find_path(tree)
 
 
     df = pd.DataFrame(leaf_paths).T
     df.reset_index(inplace=True)
     df.columns = ['strain', 'clade_membership', 'path']
-    df['clade'] = 'unassigned'
+    df['kk_clade'] = 'unassigned'
+
+    #Find correlation between num aa mutations and clock length
+    avg_clocklength = {k: (float(sum(v))/len(v))
+                       for k,v in clocklength_per_aamut.items() if len(v)>1}
 
     #Find clades
     max_path_length=df['path'].map(len).max()
@@ -45,39 +57,46 @@ def assign_clades(tree_path, output_csv, method):
     assigned_clades = {}
 
     for internal_branch in reversed(range(0,max_path_length)):
-        exclude_assigned = df[df['clade']=='unassigned']
+        exclude_assigned = df[df['kk_clade']=='unassigned']
         sub_df = exclude_assigned[exclude_assigned['path'].map(len) > internal_branch]
 
         path_group= sub_df.groupby((sub_df.path.apply(lambda col: col[0:(internal_branch+1)])).map(tuple))
         for k, v in path_group:
             if len(v)>=100:
-                current_clade+=1
-                df.at[v.index, 'clade']=current_clade
-                assigned_clades[current_clade] = {'clade_mrca':k[-1]}
-
-            elif len(v)>=50:
                 if method == 'clock_length':
-                    if branch_traits[str(k[-1])] >= 0.0008:
+                    if branch_traits[str(k[-1])] >= 0.8*avg_clocklength[1]:
                         current_clade+=1
-                        df.at[v.index, 'clade']=current_clade
-                        assigned_clades[current_clade] = {'clade_mrca':k[-1]}
+                        df.at[v.index, 'kk_clade'] = 'c'+str(current_clade)
+                        assigned_clades['c'+str(current_clade)] = {'clade_mrca':k[-1]}
                 elif method == 'mutations':
                     if len(branch_traits[str(k[-1])]) >= 1:
                         current_clade+=1
-                        df.at[v.index, 'clade']=current_clade
-                        assigned_clades[current_clade] = {'clade_mrca':k[-1]}
+                        df.at[v.index, 'kk_clade'] = 'c'+str(current_clade)
+                        assigned_clades['c'+str(current_clade)] = {'clade_mrca':k[-1]}
 
-            elif len(v)>=20:
+            elif len(v)>=50:
                 if method == 'clock_length':
-                    if branch_traits[str(k[-1])] >= 0.003:
+                    if branch_traits[str(k[-1])] >= 0.8*avg_clocklength[2]:
                         current_clade+=1
-                        df.at[v.index, 'clade']=current_clade
-                        assigned_clades[current_clade] = {'clade_mrca':k[-1]}
+                        df.at[v.index, 'kk_clade'] = 'c'+str(current_clade)
+                        assigned_clades['c'+str(current_clade)] = {'clade_mrca':k[-1]}
+                elif method == 'mutations':
+                    if len(branch_traits[str(k[-1])]) >= 2:
+                        current_clade+=1
+                        df.at[v.index, 'kk_clade'] = 'c'+str(current_clade)
+                        assigned_clades['c'+str(current_clade)] = {'clade_mrca':k[-1]}
+
+            if len(v)>=20:
+                if method == 'clock_length':
+                    if branch_traits[str(k[-1])] >= 0.8*avg_clocklength[3]:
+                        current_clade+=1
+                        df.at[v.index, 'kk_clade'] = 'c'+str(current_clade)
+                        assigned_clades['c'+str(current_clade)] = {'clade_mrca':k[-1]}
                 elif method == 'mutations':
                     if len(branch_traits[str(k[-1])]) >= 4:
                         current_clade+=1
-                        df.at[v.index, 'clade']=current_clade
-                        assigned_clades[current_clade] = {'clade_mrca':k[-1]}
+                        df.at[v.index, 'kk_clade'] = 'c'+str(current_clade)
+                        assigned_clades['c'+str(current_clade)] = {'clade_mrca':k[-1]}
 
     df = df.set_index('strain')
 
@@ -87,7 +106,7 @@ def assign_clades(tree_path, output_csv, method):
         if 'children' in branch.keys():
             for child in branch['children']:
                 for k,v in assigned_clades.items():
-                    if str(branch['clade']) == v['clade_mrca']:
+                    if str(branch['strain']) == v['clade_mrca']:
                         assigned_clades[k]['aa_muts'] = branch['aa_muts']
                         assigned_clades[k]['nt_muts'] = branch['muts']
                 find_defining_genotypes(child)
@@ -103,7 +122,7 @@ def assign_clades(tree_path, output_csv, method):
                 add_clades(child, df)
 
         elif 'children' not in branch.keys():
-            assigned_clade = df.loc[branch['strain']]['clade']
+            assigned_clade = df.loc[branch['strain']]['kk_clade']
             branch['attr']['kk_clade'] = assigned_clade
 
     add_clades(tree, df)
