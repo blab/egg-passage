@@ -729,6 +729,7 @@ rule export:
 rule simplify_auspice_names:
     input:
         tree = "auspice/flu_who_{lineage}_{segment}_{resolution}_concat_{assay}_tree.json",
+        newick_tree = "results/tree_who_{lineage}_{segment}_{resolution}_concat_{assay}.nwk",
         meta = "auspice/flu_who_{lineage}_{segment}_{resolution}_concat_{assay}_meta.json",
         seq = "auspice/flu_who_{lineage}_{segment}_{resolution}_concat_{assay}_root-sequence.json",
         frequencies = "auspice/flu_who_{lineage}_{segment}_{resolution}_concat_{assay}_tip-frequencies.json"
@@ -745,8 +746,9 @@ rule simplify_auspice_names:
 
         python3 scripts/assign_clades.py \
             --tree {input.tree} \
+            --newick-path {input.newick_tree} \
             --kk-clades-file {output.kk_clades} \
-            --method clock_length \
+            --method mutations \
 
         mv {input.tree} {output.tree} &
         mv {input.meta} {output.meta} &
