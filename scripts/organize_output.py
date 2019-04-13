@@ -2,6 +2,7 @@ import argparse
 import json
 import re
 import ast
+import collections
 import pandas as pd
 import numpy as np
 from Bio import SeqIO
@@ -128,14 +129,31 @@ def organize_output(tree_path, seq_path, root_path, positions, prefix):
                     for k_strain, v_strain in v.iterrows():
                         df.at[k_strain, 'egg_muts']+=recent_muts
 
-                        #Find mutation(s) at specified positions
-                        for recent_mut in recent_muts:
-                            site = int(re.findall('\d+', recent_mut)[0])
-                            if site in positions:
-                                df.at[k_strain, 'mut' + str(site)] = 1
-                                df.at[k_strain, 'aa_mut' + str(site)] = recent_mut
-                                df.at[k_strain, str(site) + '_lastnode'] = recent_mut[0]
+    for k,v in df.iterrows():
+        #Find mutations for all egg seqs
+        if len(v['egg_muts'])>=1:
+            revised_egg_muts = list(v['egg_muts'])
+            mutated_sites = [int(re.findall('\d+', egg_mut)[0]) for egg_mut in v['egg_muts']]
+            multiple_mut_sites = [item for item, count in collections.Counter(mutated_sites).items() if count > 1]
 
+            for dup_site in multiple_mut_sites:
+                mult_mutations = []
+                for egg_mut in v['egg_muts']:
+                    if str(dup_site) in egg_mut:
+                        mult_mutations.append(egg_mut)
+                        revised_egg_muts.remove(egg_mut)
+                start_aa = mult_mutations[0][0]
+                end_aa = mult_mutations[len(mult_mutations)-1][-1]
+                if start_aa != end_aa:
+                    revised_egg_muts.append(start_aa+str(dup_site)+end_aa)
+            df.at[k, 'egg_muts'] = revised_egg_muts
+            #Find mutation(s) at specified positions
+            for recent_mut in revised_egg_muts:
+                site = int(re.findall('\d+', recent_mut)[0])
+                if site in positions:
+                    df.at[k, 'mut' + str(site)] = 1
+                    df.at[k, 'aa_mut' + str(site)] = recent_mut
+                    df.at[k, str(site) + '_lastnode'] = recent_mut[0]
     #Save organized data to a .csv
     df.to_csv('dataframes/'+prefix+'.csv')
 
