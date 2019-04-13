@@ -111,9 +111,10 @@ def organize_output(tree_path, seq_path, root_path, positions, prefix):
         df['aa_mut'+str(p)] = np.where(df['mut'+str(p)]==1, df[str(p)+'_lastnode']+str(p)+df[p], None)
 
     #Find clusters of egg-passaged sequences,
-    #allow mutations shared by these clusters to be called as mutations in egg or strains
+    #allow mutations shared by these clusters to be called as mutations in egg strains
     #If multiple mutations occur at the same site within cluster, most recent mutation should be taken
     #Tips=cluster of size 1, so tip mutations override ancestral
+    df['egg_muts'] = np.empty((len(df), 0)).tolist()
     max_internal_length=df['aa_mut_list'].map(len).max()
 
     for internal_branch in range(0,max_internal_length):
@@ -124,14 +125,16 @@ def organize_output(tree_path, seq_path, root_path, positions, prefix):
             if len(v[v['passage']=='egg']) != 0:
                 if len(v.groupby('passage')) == 1:
                     recent_muts = list(ast.literal_eval(k[-1]).values())[0]
+                    for k_strain, v_strain in v.iterrows():
+                        df.at[k_strain, 'egg_muts']+=recent_muts
 
-                    #Find most recent mutation(s)
-                    for recent_mut in recent_muts:
-                        site = int(re.findall('\d+', recent_mut)[0])
-                        if site in positions:
-                            df.at[v.index, 'mut' + str(site)] = 1
-                            df.at[v.index, 'aa_mut' + str(site)] = recent_mut
-                            df.at[v.index, str(site) + '_lastnode'] = recent_mut[0]
+                        #Find mutation(s) at specified positions
+                        for recent_mut in recent_muts:
+                            site = int(re.findall('\d+', recent_mut)[0])
+                            if site in positions:
+                                df.at[k_strain, 'mut' + str(site)] = 1
+                                df.at[k_strain, 'aa_mut' + str(site)] = recent_mut
+                                df.at[k_strain, str(site) + '_lastnode'] = recent_mut[0]
 
     #Save organized data to a .csv
     df.to_csv('dataframes/'+prefix+'.csv')
