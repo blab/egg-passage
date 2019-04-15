@@ -141,14 +141,16 @@ def organize_output(tree_path, seq_path, root_path, positions, prefix):
                         start_aa = recent_mut[0]
                         site = int(re.findall('\d+', recent_mut)[0])
                         end_aa = recent_mut[-1]
-                        reversion_mut = end_aa + str(site) + start_aa
+                        reversion_mut = end_aa + str(site)
 
                         for k_strain, v_strain in v.iterrows():
                             if v_strain['passage']!='egg':
-                                if reversion_mut in v_strain['tip_HA1_muts']:
+                                strain_aa = seqs[v_strain['strain']][int(site)-1]
+                                if strain_aa != end_aa:
                                     non_egg_in_cluster_reversion+=1
 
                         if non_egg_in_cluster == non_egg_in_cluster_reversion:
+
                             for k_strain, v_strain in v.iterrows():
                                 if v_strain['passage']=='egg':
                                     df.at[k_strain, 'egg_muts'] += [recent_mut]

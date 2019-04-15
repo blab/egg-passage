@@ -830,12 +830,14 @@ rule plot_background_kkclades:
 rule compair_pairs:
     input:
         dataframe = "dataframes/{lineage}_{segment}_{resolution}_{assay}.csv",
+        seqs = "results/aa-seq_who_{lineage}_{segment}_{resolution}_concat_{assay}_HA1.fasta",
     output:
         pairs_json = "plots/egg_results/egg_mutation_accuracy_{lineage}_{segment}_{resolution}_{assay}.json",
     shell:
         """
         python3 scripts/compare_pairs.py \
             --in_file {input.dataframe} \
+            --seqs {input.seqs} \
         """
 
 rule targets:

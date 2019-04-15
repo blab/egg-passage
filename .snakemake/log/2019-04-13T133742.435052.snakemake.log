@@ -1,0 +1,35 @@
+Building DAG of jobs...
+Using shell: /anaconda2/envs/py3/bin/bash
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	4	compair_pairs
+	4	egg_epistasis
+	4	find_egg_mutations
+	4	organize_output
+	2	plot_background
+	4	plot_background_kkclades
+	23
+
+[Sat Apr 13 13:37:44 2019]
+rule organize_output:
+    input: auspice/flu_seasonal_h3n2_ha_12y_hi_tree.json, results/aa-seq_who_h3n2_ha_12y_concat_hi_HA1.fasta, auspice/flu_seasonal_h3n2_ha_12y_hi_root-sequence.json
+    output: dataframes/h3n2_ha_12y_hi.csv, dataframes/h3n2_ha_12y_hi_egg.csv, dataframes/h3n2_ha_12y_hi_tidy.csv
+    jobid: 7
+    wildcards: lineage=h3n2, segment=ha, resolution=12y, assay=hi
+
+[Sat Apr 13 13:37:49 2019]
+Error in rule organize_output:
+    jobid: 7
+    output: dataframes/h3n2_ha_12y_hi.csv, dataframes/h3n2_ha_12y_hi_egg.csv, dataframes/h3n2_ha_12y_hi_tidy.csv
+
+RuleException:
+CalledProcessError in line 770 of /Users/katekistler/nextstrain/egg-passage/Snakefile:
+Command 'set -euo pipefail;  python3 scripts/organize_output.py             --tree auspice/flu_seasonal_h3n2_ha_12y_hi_tree.json             --seqs results/aa-seq_who_h3n2_ha_12y_concat_hi_HA1.fasta             --root_seq auspice/flu_seasonal_h3n2_ha_12y_hi_root-sequence.json' returned non-zero exit status 1.
+  File "/Users/katekistler/nextstrain/egg-passage/Snakefile", line 770, in __rule_organize_output
+  File "/anaconda2/envs/py3/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /Users/katekistler/nextstrain/egg-passage/.snakemake/log/2019-04-13T133742.435052.snakemake.log

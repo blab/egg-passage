@@ -1,24 +1,52 @@
 {
     "paired_egg_viruses": {
-        "miscalled_muts": [
+        "num_strains_with_pair": 308,
+        "all_ha1_mutations": [
             {
-                "strain": "A/Connecticut/25/2018",
-                "HA1_position": "219",
-                "genotype": "F",
-                "paired_virus_passage": "unpassaged"
+                "num_inferred_mutations": 551,
+                "num_false_positives": 24,
+                "false_positive_rate": 0.043557168784029036
             },
             {
-                "strain": "A/Fiji/7/2015",
-                "HA1_position": "225",
-                "genotype": "D",
-                "paired_virus_passage": "cell"
+                "real_num_mutations": 562,
+                "num_false_negatives": 44,
+                "false_negative_rate": 0.07829181494661921
             }
         ],
-        "num_inferred_muts": 416,
-        "num_miscalled_muts": 2
+        "top_sites_only": [
+            {
+                "num_inferred_mutations": 447,
+                "num_false_positives": 3,
+                "false_positive_rate": 0.006711409395973154
+            },
+            {
+                "real_num_mutations": 477,
+                "num_false_negatives": 42,
+                "false_negative_rate": 0.0880503144654088
+            }
+        ]
     },
     "total_egg_viruses": {
-        "num_inferred_muts": 572,
-        "estimated_num_miscalled_muts": 2.75
+        "total_num_egg_strains": 410,
+        "all_ha1_mutations": [
+            {
+                "num_inferred_mutations": 704,
+                "estimated_num_false_positives": 30.664246823956443
+            },
+            {
+                "estimated_num_mutations": 748.1168831168832,
+                "estimated_num_false_negatives": 58.57142857142858
+            }
+        ],
+        "top_sites_only": [
+            {
+                "num_inferred_mutations": 541,
+                "estimated_num_false_positives": 3.6308724832214763
+            },
+            {
+                "estimated_num_mutations": 634.9675324675325,
+                "estimated_num_false_negatives": 55.909090909090914
+            }
+        ]
     }
 }

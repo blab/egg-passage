@@ -1,0 +1,266 @@
+Building DAG of jobs...
+Using shell: /anaconda2/envs/py3/bin/bash
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	4	compair_pairs
+	4	egg_epistasis
+	4	find_egg_mutations
+	4	organize_output
+	2	plot_background
+	4	plot_background_kkclades
+	23
+
+[Mon Apr 15 13:37:50 2019]
+rule organize_output:
+    input: auspice/flu_seasonal_h3n2_ha_12y_hi_tree.json, results/aa-seq_who_h3n2_ha_12y_concat_hi_HA1.fasta, auspice/flu_seasonal_h3n2_ha_12y_hi_root-sequence.json
+    output: dataframes/h3n2_ha_12y_hi.csv, dataframes/h3n2_ha_12y_hi_egg.csv, dataframes/h3n2_ha_12y_hi_tidy.csv
+    jobid: 7
+    wildcards: lineage=h3n2, segment=ha, resolution=12y, assay=hi
+
+[Mon Apr 15 13:39:21 2019]
+Finished job 7.
+1 of 23 steps (4%) done
+
+[Mon Apr 15 13:39:21 2019]
+rule organize_output:
+    input: auspice/flu_seasonal_h3n2_ha_12y_fra_tree.json, results/aa-seq_who_h3n2_ha_12y_concat_fra_HA1.fasta, auspice/flu_seasonal_h3n2_ha_12y_fra_root-sequence.json
+    output: dataframes/h3n2_ha_12y_fra.csv, dataframes/h3n2_ha_12y_fra_egg.csv, dataframes/h3n2_ha_12y_fra_tidy.csv
+    jobid: 8
+    wildcards: lineage=h3n2, segment=ha, resolution=12y, assay=fra
+
+[Mon Apr 15 13:40:46 2019]
+Finished job 8.
+2 of 23 steps (9%) done
+
+[Mon Apr 15 13:40:47 2019]
+rule organize_output:
+    input: auspice/flu_seasonal_h3n2_ha_6y_fra_tree.json, results/aa-seq_who_h3n2_ha_6y_concat_fra_HA1.fasta, auspice/flu_seasonal_h3n2_ha_6y_fra_root-sequence.json
+    output: dataframes/h3n2_ha_6y_fra.csv, dataframes/h3n2_ha_6y_fra_egg.csv, dataframes/h3n2_ha_6y_fra_tidy.csv
+    jobid: 6
+    wildcards: lineage=h3n2, segment=ha, resolution=6y, assay=fra
+
+[Mon Apr 15 13:41:54 2019]
+Finished job 6.
+3 of 23 steps (13%) done
+
+[Mon Apr 15 13:41:54 2019]
+rule organize_output:
+    input: auspice/flu_seasonal_h3n2_ha_6y_hi_tree.json, results/aa-seq_who_h3n2_ha_6y_concat_hi_HA1.fasta, auspice/flu_seasonal_h3n2_ha_6y_hi_root-sequence.json
+    output: dataframes/h3n2_ha_6y_hi.csv, dataframes/h3n2_ha_6y_hi_egg.csv, dataframes/h3n2_ha_6y_hi_tidy.csv
+    jobid: 5
+    wildcards: lineage=h3n2, segment=ha, resolution=6y, assay=hi
+
+[Mon Apr 15 13:42:27 2019]
+Finished job 5.
+4 of 23 steps (17%) done
+
+[Mon Apr 15 13:42:27 2019]
+rule plot_background_kkclades:
+    input: dataframes/h3n2_ha_12y_fra.csv, config/clades_h3n2_ha.tsv
+    output: plots/h3n2_ha_12y_fra/genetic_background_kkclade_heatmap_h3n2_ha_12y_fra.pdf
+    jobid: 22
+    wildcards: lineage=h3n2, segment=ha, resolution=12y, assay=fra
+
+[Mon Apr 15 13:42:31 2019]
+Finished job 22.
+5 of 23 steps (22%) done
+
+[Mon Apr 15 13:42:31 2019]
+rule compair_pairs:
+    input: dataframes/h3n2_ha_12y_fra.csv
+    output: plots/egg_results/egg_mutation_accuracy_h3n2_ha_12y_fra.json
+    jobid: 26
+    wildcards: lineage=h3n2, segment=ha, resolution=12y, assay=fra
+
+[Mon Apr 15 13:42:32 2019]
+Finished job 26.
+6 of 23 steps (26%) done
+
+[Mon Apr 15 13:42:32 2019]
+rule find_egg_mutations:
+    input: dataframes/h3n2_ha_12y_fra.csv
+    output: plots/h3n2_ha_12y_fra/egg_mutation_aa_prevalence_h3n2_ha_12y_fra.pdf, plots/h3n2_ha_12y_fra/egg_mutation_site_prevalence_h3n2_ha_12y_fra.pdf, plots/h3n2_ha_12y_fra/before_after_eggpassaging_h3n2_ha_12y_fra.pdf
+    jobid: 12
+    wildcards: lineage=h3n2, segment=ha, resolution=12y, assay=fra
+
+[Mon Apr 15 13:42:36 2019]
+Finished job 12.
+7 of 23 steps (30%) done
+
+[Mon Apr 15 13:42:36 2019]
+rule egg_epistasis:
+    input: dataframes/h3n2_ha_12y_fra.csv
+    output: plots/h3n2_ha_12y_fra/epistasis_heatmap_h3n2_ha_12y_fra.pdf, plots/h3n2_ha_12y_fra/epistasis_chord_diagram_h3n2_ha_12y_fra.pdf
+    jobid: 16
+    wildcards: lineage=h3n2, segment=ha, resolution=12y, assay=fra
+
+[Mon Apr 15 13:42:54 2019]
+Finished job 16.
+8 of 23 steps (35%) done
+
+[Mon Apr 15 13:42:54 2019]
+rule plot_background_kkclades:
+    input: dataframes/h3n2_ha_12y_hi.csv, config/clades_h3n2_ha.tsv
+    output: plots/h3n2_ha_12y_hi/genetic_background_kkclade_heatmap_h3n2_ha_12y_hi.pdf
+    jobid: 21
+    wildcards: lineage=h3n2, segment=ha, resolution=12y, assay=hi
+
+[Mon Apr 15 13:42:57 2019]
+Finished job 21.
+9 of 23 steps (39%) done
+
+[Mon Apr 15 13:42:57 2019]
+rule egg_epistasis:
+    input: dataframes/h3n2_ha_12y_hi.csv
+    output: plots/h3n2_ha_12y_hi/epistasis_heatmap_h3n2_ha_12y_hi.pdf, plots/h3n2_ha_12y_hi/epistasis_chord_diagram_h3n2_ha_12y_hi.pdf
+    jobid: 15
+    wildcards: lineage=h3n2, segment=ha, resolution=12y, assay=hi
+
+[Mon Apr 15 13:43:13 2019]
+Finished job 15.
+10 of 23 steps (43%) done
+
+[Mon Apr 15 13:43:13 2019]
+rule compair_pairs:
+    input: dataframes/h3n2_ha_12y_hi.csv
+    output: plots/egg_results/egg_mutation_accuracy_h3n2_ha_12y_hi.json
+    jobid: 25
+    wildcards: lineage=h3n2, segment=ha, resolution=12y, assay=hi
+
+[Mon Apr 15 13:43:14 2019]
+Finished job 25.
+11 of 23 steps (48%) done
+
+[Mon Apr 15 13:43:14 2019]
+rule find_egg_mutations:
+    input: dataframes/h3n2_ha_12y_hi.csv
+    output: plots/h3n2_ha_12y_hi/egg_mutation_aa_prevalence_h3n2_ha_12y_hi.pdf, plots/h3n2_ha_12y_hi/egg_mutation_site_prevalence_h3n2_ha_12y_hi.pdf, plots/h3n2_ha_12y_hi/before_after_eggpassaging_h3n2_ha_12y_hi.pdf
+    jobid: 11
+    wildcards: lineage=h3n2, segment=ha, resolution=12y, assay=hi
+
+[Mon Apr 15 13:43:19 2019]
+Finished job 11.
+12 of 23 steps (52%) done
+
+[Mon Apr 15 13:43:19 2019]
+rule plot_background_kkclades:
+    input: dataframes/h3n2_ha_6y_fra.csv, config/clades_h3n2_ha.tsv
+    output: plots/h3n2_ha_6y_fra/genetic_background_kkclade_heatmap_h3n2_ha_6y_fra.pdf
+    jobid: 20
+    wildcards: lineage=h3n2, segment=ha, resolution=6y, assay=fra
+
+[Mon Apr 15 13:43:23 2019]
+Finished job 20.
+13 of 23 steps (57%) done
+
+[Mon Apr 15 13:43:23 2019]
+rule plot_background:
+    input: dataframes/h3n2_ha_6y_fra.csv, config/clades_h3n2_ha.tsv
+    output: plots/h3n2_ha_6y_fra/genetic_background_heatmap_h3n2_ha_6y_fra.pdf
+    jobid: 18
+    wildcards: lineage=h3n2, segment=ha, assay=fra
+
+[Mon Apr 15 13:43:27 2019]
+Finished job 18.
+14 of 23 steps (61%) done
+
+[Mon Apr 15 13:43:27 2019]
+rule compair_pairs:
+    input: dataframes/h3n2_ha_6y_fra.csv
+    output: plots/egg_results/egg_mutation_accuracy_h3n2_ha_6y_fra.json
+    jobid: 24
+    wildcards: lineage=h3n2, segment=ha, resolution=6y, assay=fra
+
+[Mon Apr 15 13:43:28 2019]
+Finished job 24.
+15 of 23 steps (65%) done
+
+[Mon Apr 15 13:43:28 2019]
+rule find_egg_mutations:
+    input: dataframes/h3n2_ha_6y_fra.csv
+    output: plots/h3n2_ha_6y_fra/egg_mutation_aa_prevalence_h3n2_ha_6y_fra.pdf, plots/h3n2_ha_6y_fra/egg_mutation_site_prevalence_h3n2_ha_6y_fra.pdf, plots/h3n2_ha_6y_fra/before_after_eggpassaging_h3n2_ha_6y_fra.pdf
+    jobid: 10
+    wildcards: lineage=h3n2, segment=ha, resolution=6y, assay=fra
+
+[Mon Apr 15 13:43:33 2019]
+Finished job 10.
+16 of 23 steps (70%) done
+
+[Mon Apr 15 13:43:33 2019]
+rule egg_epistasis:
+    input: dataframes/h3n2_ha_6y_fra.csv
+    output: plots/h3n2_ha_6y_fra/epistasis_heatmap_h3n2_ha_6y_fra.pdf, plots/h3n2_ha_6y_fra/epistasis_chord_diagram_h3n2_ha_6y_fra.pdf
+    jobid: 14
+    wildcards: lineage=h3n2, segment=ha, resolution=6y, assay=fra
+
+[Mon Apr 15 13:43:51 2019]
+Finished job 14.
+17 of 23 steps (74%) done
+
+[Mon Apr 15 13:43:51 2019]
+rule plot_background:
+    input: dataframes/h3n2_ha_6y_hi.csv, config/clades_h3n2_ha.tsv
+    output: plots/h3n2_ha_6y_hi/genetic_background_heatmap_h3n2_ha_6y_hi.pdf
+    jobid: 17
+    wildcards: lineage=h3n2, segment=ha, assay=hi
+
+[Mon Apr 15 13:43:55 2019]
+Finished job 17.
+18 of 23 steps (78%) done
+
+[Mon Apr 15 13:43:55 2019]
+rule plot_background_kkclades:
+    input: dataframes/h3n2_ha_6y_hi.csv, config/clades_h3n2_ha.tsv
+    output: plots/h3n2_ha_6y_hi/genetic_background_kkclade_heatmap_h3n2_ha_6y_hi.pdf
+    jobid: 19
+    wildcards: lineage=h3n2, segment=ha, resolution=6y, assay=hi
+
+[Mon Apr 15 13:43:59 2019]
+Finished job 19.
+19 of 23 steps (83%) done
+
+[Mon Apr 15 13:43:59 2019]
+rule egg_epistasis:
+    input: dataframes/h3n2_ha_6y_hi.csv
+    output: plots/h3n2_ha_6y_hi/epistasis_heatmap_h3n2_ha_6y_hi.pdf, plots/h3n2_ha_6y_hi/epistasis_chord_diagram_h3n2_ha_6y_hi.pdf
+    jobid: 13
+    wildcards: lineage=h3n2, segment=ha, resolution=6y, assay=hi
+
+[Mon Apr 15 13:44:16 2019]
+Finished job 13.
+20 of 23 steps (87%) done
+
+[Mon Apr 15 13:44:16 2019]
+rule compair_pairs:
+    input: dataframes/h3n2_ha_6y_hi.csv
+    output: plots/egg_results/egg_mutation_accuracy_h3n2_ha_6y_hi.json
+    jobid: 23
+    wildcards: lineage=h3n2, segment=ha, resolution=6y, assay=hi
+
+[Mon Apr 15 13:44:17 2019]
+Finished job 23.
+21 of 23 steps (91%) done
+
+[Mon Apr 15 13:44:17 2019]
+rule find_egg_mutations:
+    input: dataframes/h3n2_ha_6y_hi.csv
+    output: plots/h3n2_ha_6y_hi/egg_mutation_aa_prevalence_h3n2_ha_6y_hi.pdf, plots/h3n2_ha_6y_hi/egg_mutation_site_prevalence_h3n2_ha_6y_hi.pdf, plots/h3n2_ha_6y_hi/before_after_eggpassaging_h3n2_ha_6y_hi.pdf
+    jobid: 9
+    wildcards: lineage=h3n2, segment=ha, resolution=6y, assay=hi
+
+[Mon Apr 15 13:44:21 2019]
+Finished job 9.
+22 of 23 steps (96%) done
+
+[Mon Apr 15 13:44:21 2019]
+localrule all:
+    input: auspice/flu_seasonal_h3n2_ha_6y_hi_tree.json, auspice/flu_seasonal_h3n2_ha_6y_fra_tree.json, auspice/flu_seasonal_h3n2_ha_12y_hi_tree.json, auspice/flu_seasonal_h3n2_ha_12y_fra_tree.json, auspice/flu_seasonal_h3n2_ha_6y_hi_meta.json, auspice/flu_seasonal_h3n2_ha_6y_fra_meta.json, auspice/flu_seasonal_h3n2_ha_12y_hi_meta.json, auspice/flu_seasonal_h3n2_ha_12y_fra_meta.json, auspice/flu_seasonal_h3n2_ha_6y_hi_tip-frequencies.json, auspice/flu_seasonal_h3n2_ha_6y_fra_tip-frequencies.json, auspice/flu_seasonal_h3n2_ha_12y_hi_tip-frequencies.json, auspice/flu_seasonal_h3n2_ha_12y_fra_tip-frequencies.json, dataframes/h3n2_ha_6y_hi.csv, dataframes/h3n2_ha_6y_fra.csv, dataframes/h3n2_ha_12y_hi.csv, dataframes/h3n2_ha_12y_fra.csv, plots/h3n2_ha_6y_hi/egg_mutation_aa_prevalence_h3n2_ha_6y_hi.pdf, plots/h3n2_ha_6y_fra/egg_mutation_aa_prevalence_h3n2_ha_6y_fra.pdf, plots/h3n2_ha_12y_hi/egg_mutation_aa_prevalence_h3n2_ha_12y_hi.pdf, plots/h3n2_ha_12y_fra/egg_mutation_aa_prevalence_h3n2_ha_12y_fra.pdf, plots/h3n2_ha_6y_hi/epistasis_heatmap_h3n2_ha_6y_hi.pdf, plots/h3n2_ha_6y_fra/epistasis_heatmap_h3n2_ha_6y_fra.pdf, plots/h3n2_ha_12y_hi/epistasis_heatmap_h3n2_ha_12y_hi.pdf, plots/h3n2_ha_12y_fra/epistasis_heatmap_h3n2_ha_12y_fra.pdf, plots/h3n2_ha_6y_hi/genetic_background_heatmap_h3n2_ha_6y_hi.pdf, plots/h3n2_ha_6y_fra/genetic_background_heatmap_h3n2_ha_6y_fra.pdf, plots/h3n2_ha_6y_hi/genetic_background_kkclade_heatmap_h3n2_ha_6y_hi.pdf, plots/h3n2_ha_6y_fra/genetic_background_kkclade_heatmap_h3n2_ha_6y_fra.pdf, plots/h3n2_ha_12y_hi/genetic_background_kkclade_heatmap_h3n2_ha_12y_hi.pdf, plots/h3n2_ha_12y_fra/genetic_background_kkclade_heatmap_h3n2_ha_12y_fra.pdf, plots/h3n2_ha_6y_hi/epistasis_chord_diagram_h3n2_ha_6y_hi.pdf, plots/h3n2_ha_6y_fra/epistasis_chord_diagram_h3n2_ha_6y_fra.pdf, plots/h3n2_ha_12y_hi/epistasis_chord_diagram_h3n2_ha_12y_hi.pdf, plots/h3n2_ha_12y_fra/epistasis_chord_diagram_h3n2_ha_12y_fra.pdf, plots/egg_results/egg_mutation_accuracy_h3n2_ha_6y_hi.json, plots/egg_results/egg_mutation_accuracy_h3n2_ha_6y_fra.json, plots/egg_results/egg_mutation_accuracy_h3n2_ha_12y_hi.json, plots/egg_results/egg_mutation_accuracy_h3n2_ha_12y_fra.json
+    jobid: 0
+
+[Mon Apr 15 13:44:21 2019]
+Finished job 0.
+23 of 23 steps (100%) done
+Complete log: /Users/katekistler/nextstrain/egg-passage/.snakemake/log/2019-04-15T133748.516275.snakemake.log
