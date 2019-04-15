@@ -124,10 +124,34 @@ def organize_output(tree_path, seq_path, root_path, positions, prefix):
         group= sub_df.groupby((sub_df.aa_mut_list.apply(lambda col: col[0:(internal_branch+1)])).map(tuple))
         for k, v in group:
             if len(v[v['passage']=='egg']) != 0:
+                #For egg-only clusters
                 if len(v.groupby('passage')) == 1:
                     recent_muts = list(ast.literal_eval(k[-1]).values())[0]
                     for k_strain, v_strain in v.iterrows():
                         df.at[k_strain, 'egg_muts']+=recent_muts
+
+                #If all non-egg seqs have phylogenetically inferred 'reversion' at cluster-defining mutation
+                else:
+                    non_egg_in_cluster = len(v[v['passage']!='egg'])
+                    recent_muts = list(ast.literal_eval(k[-1]).values())[0]
+
+                    for recent_mut in recent_muts:
+                        non_egg_in_cluster_reversion = 0
+
+                        start_aa = recent_mut[0]
+                        site = int(re.findall('\d+', recent_mut)[0])
+                        end_aa = recent_mut[-1]
+                        reversion_mut = end_aa + str(site) + start_aa
+
+                        for k_strain, v_strain in v.iterrows():
+                            if v_strain['passage']!='egg':
+                                if reversion_mut in v_strain['tip_HA1_muts']:
+                                    non_egg_in_cluster_reversion+=1
+
+                        if non_egg_in_cluster == non_egg_in_cluster_reversion:
+                            for k_strain, v_strain in v.iterrows():
+                                if v_strain['passage']=='egg':
+                                    df.at[k_strain, 'egg_muts'] += [recent_mut]
 
     for k,v in df.iterrows():
         #Find mutations for all egg seqs
