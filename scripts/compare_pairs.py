@@ -40,6 +40,7 @@ def find_paired_mutations(prefix, output, seq_path):
     #Find false positives (mutation inferred, but strain is not mutated)
     num_muts_inferred = 0
     num_false_pos = 0
+    false_pos_strain = []
     num_muts_inferred_limitsites = 0
     num_false_pos_limitsites = 0
 
@@ -59,6 +60,7 @@ def find_paired_mutations(prefix, output, seq_path):
                     num_false_pos+=1
                     if str(egg_mut_pos) in positions:
                         num_false_pos_limitsites+=1
+                        false_pos_strain.append({'strain':(v['source']+'-egg'), 'paired_strain': v['source'], 'mutation': egg_mut})
 
             if v['cell_pair']==True:
                 cell_aa = seqs[v['source']+'-cell'][(egg_mut_pos-1)]
@@ -66,12 +68,13 @@ def find_paired_mutations(prefix, output, seq_path):
                     num_false_pos+=1
                     if str(egg_mut_pos) in positions:
                         num_false_pos_limitsites+=1
+                        false_pos_strain.append({'strain':(v['source']+'-egg'), 'paired_strain': (v['source']+'-cell'), 'mutation': egg_mut})
 
     pairs_json['paired_egg_viruses']['num_strains_with_pair'] = len(pairs_df)
     pairs_json['paired_egg_viruses']['all_ha1_mutations'] = []
     pairs_json['paired_egg_viruses']['top_sites_only'] = []
     pairs_json['paired_egg_viruses']['all_ha1_mutations'].append({'num_inferred_mutations':num_muts_inferred, 'num_false_positives':num_false_pos, 'false_positive_rate': num_false_pos/num_muts_inferred})
-    pairs_json['paired_egg_viruses']['top_sites_only'].append({'num_inferred_mutations':num_muts_inferred_limitsites, 'num_false_positives':num_false_pos_limitsites, 'false_positive_rate': num_false_pos_limitsites/num_muts_inferred_limitsites})
+    pairs_json['paired_egg_viruses']['top_sites_only'].append({'num_inferred_mutations':num_muts_inferred_limitsites, 'num_false_positives':num_false_pos_limitsites, 'false_positive_rate': num_false_pos_limitsites/num_muts_inferred_limitsites, 'false_positive_strains': false_pos_strain})
 
     #Extrapolate false positive numbers to ALL egg strains
     pairs_json['total_egg_viruses']['total_num_egg_strains'] = len(egg_df)
@@ -110,25 +113,28 @@ def find_paired_mutations(prefix, output, seq_path):
             if v['unpassaged_pair']==True:
                 u_ha1 = seqs[v['source']]
                 u_aa = u_ha1[int(residue)-1]
-                if egg_aa != u_aa:
-                    num_muts_direct+=1
-                    u_mutation = u_aa + str(residue) + egg_aa
-                    if u_mutation not in ast.literal_eval(v['egg_muts']):
-                        num_false_neg+=1
 
-                    if str(residue) in positions:
-                        num_muts_direct_limitsites+=1
+                #Only want egg muts, not unpassaged muts
+                u_tip_muts = df[df['strain']==(v['source'])]['tip_HA1_muts'].item()
+                if str(residue) not in u_tip_muts:
+                    if egg_aa != u_aa:
+                        num_muts_direct+=1
+                        u_mutation = u_aa + str(residue) + egg_aa
                         if u_mutation not in ast.literal_eval(v['egg_muts']):
-                            num_false_neg_limitsites+=1
+                            num_false_neg+=1
+
+                        if str(residue) in positions:
+                            num_muts_direct_limitsites+=1
+                            if u_mutation not in ast.literal_eval(v['egg_muts']):
+                                num_false_neg_limitsites+=1
 
 
             if v['cell_pair']==True:
                 cell_ha1 = seqs[v['source']+'-cell']
                 cell_aa = cell_ha1[int(residue)-1]
 
-                cell_tip_muts = df[df['strain']==(v['source']+'-cell')]['tip_HA1_muts'].item()
-
                 #Only want egg muts, not cell muts
+                cell_tip_muts = df[df['strain']==(v['source']+'-cell')]['tip_HA1_muts'].item()
                 if str(residue) not in cell_tip_muts:
                     if egg_aa != cell_aa:
                         num_muts_direct+=1

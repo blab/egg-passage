@@ -8,21 +8,33 @@
                 "false_positive_rate": 0.03553299492385787
             },
             {
-                "real_num_mutations": 603,
-                "num_false_negatives": 46,
-                "false_negative_rate": 0.07628524046434494
+                "real_num_mutations": 600,
+                "num_false_negatives": 43,
+                "false_negative_rate": 0.07166666666666667
             }
         ],
         "top_sites_only": [
             {
                 "num_inferred_mutations": 473,
                 "num_false_positives": 2,
-                "false_positive_rate": 0.004228329809725159
+                "false_positive_rate": 0.004228329809725159,
+                "false_positive_strains": [
+                    {
+                        "strain": "A/Singapore/KK1100/2016-egg",
+                        "paired_strain": "A/Singapore/KK1100/2016",
+                        "mutation": "G225D"
+                    },
+                    {
+                        "strain": "A/Bretagne/1565/2017-egg",
+                        "paired_strain": "A/Bretagne/1565/2017",
+                        "mutation": "S219F"
+                    }
+                ]
             },
             {
-                "real_num_mutations": 497,
-                "num_false_negatives": 39,
-                "false_negative_rate": 0.07847082494969819
+                "real_num_mutations": 496,
+                "num_false_negatives": 38,
+                "false_negative_rate": 0.07661290322580645
             }
         ]
     },
@@ -34,8 +46,8 @@
                 "estimated_num_false_positives": 31.979695431472084
             },
             {
-                "estimated_num_mutations": 928.9459459459459,
-                "estimated_num_false_negatives": 70.86486486486487
+                "estimated_num_mutations": 924.3243243243244,
+                "estimated_num_false_negatives": 66.24324324324324
             }
         ],
         "top_sites_only": [
@@ -44,8 +56,8 @@
                 "estimated_num_false_positives": 2.608879492600423
             },
             {
-                "estimated_num_mutations": 765.6486486486486,
-                "estimated_num_false_negatives": 60.08108108108108
+                "estimated_num_mutations": 764.1081081081081,
+                "estimated_num_false_negatives": 58.54054054054054
             }
         ]
     }

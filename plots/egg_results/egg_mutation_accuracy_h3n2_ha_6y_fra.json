@@ -17,7 +17,24 @@
             {
                 "num_inferred_mutations": 447,
                 "num_false_positives": 3,
-                "false_positive_rate": 0.006711409395973154
+                "false_positive_rate": 0.006711409395973154,
+                "false_positive_strains": [
+                    {
+                        "strain": "A/Connecticut/25/2018-egg",
+                        "paired_strain": "A/Connecticut/25/2018",
+                        "mutation": "S219F"
+                    },
+                    {
+                        "strain": "A/Tasmania/37/2017-egg",
+                        "paired_strain": "A/Tasmania/37/2017-cell",
+                        "mutation": "G186V"
+                    },
+                    {
+                        "strain": "A/SouthAustralia/90/2017-egg",
+                        "paired_strain": "A/SouthAustralia/90/2017-cell",
+                        "mutation": "D225G"
+                    }
+                ]
             },
             {
                 "real_num_mutations": 477,

@@ -17,7 +17,24 @@
             {
                 "num_inferred_mutations": 446,
                 "num_false_positives": 3,
-                "false_positive_rate": 0.006726457399103139
+                "false_positive_rate": 0.006726457399103139,
+                "false_positive_strains": [
+                    {
+                        "strain": "A/Singapore/KK1100/2016-egg",
+                        "paired_strain": "A/Singapore/KK1100/2016",
+                        "mutation": "G225D"
+                    },
+                    {
+                        "strain": "A/Connecticut/25/2018-egg",
+                        "paired_strain": "A/Connecticut/25/2018",
+                        "mutation": "S219F"
+                    },
+                    {
+                        "strain": "A/Brisbane/190/2017-egg",
+                        "paired_strain": "A/Brisbane/190/2017-cell",
+                        "mutation": "T160K"
+                    }
+                ]
             },
             {
                 "real_num_mutations": 458,
