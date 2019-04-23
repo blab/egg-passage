@@ -20,23 +20,23 @@ def plot_heatmap(prefix, limit_clades):
 
     #Analyze only viruses from clades where greater than 10% of egg-seqs have mutation at 186 AND 194
     if limit_clades==True:
-        clade_pct_186 = (df[df['mut186']==True].groupby('clade').size()/
-                         df.groupby('clade').size()).reset_index().rename(columns={0:'pct_186'})
-        clade_pct_194 = (df[df['mut194']==True].groupby('clade').size()/
-                         df.groupby('clade').size()).reset_index().rename(columns={0:'pct_194'})
-        clade_pcts = pd.merge(clade_pct_186, clade_pct_194, on='clade').fillna(0.0)
+        clade_pct_186 = (df[df['mut186']==True].groupby('kk_clade').size()/
+                         df.groupby('kk_clade').size()).reset_index().rename(columns={0:'pct_186'})
+        clade_pct_194 = (df[df['mut194']==True].groupby('kk_clade').size()/
+                         df.groupby('kk_clade').size()).reset_index().rename(columns={0:'pct_194'})
+        clade_pcts = pd.merge(clade_pct_186, clade_pct_194, on='kk_clade').fillna(0.0)
         limited_clades = []
         for k, v in clade_pcts.iterrows():
             if v['pct_186']>0.1:
                 if v['pct_194']>0.1:
-                    limited_clades.append(v.clade)
-        df = df[df['clade'].isin(limited_clades)]
+                    limited_clades.append(v.kk_clade)
+        df = df[df['kk_clade'].isin(limited_clades)]
 
     mut_sites = [col for col in df.columns if col[0:3]=='mut']
 
-    #Exclude sites 225 and 246 because no epistatic interaction with 186 or 194
+    #Exclude sites 225 and 138 because no epistatic interaction with 186 or 194
     if limit_clades==True:
-        for x in ['mut138', 'mut225', 'mut246']:
+        for x in ['mut138', 'mut225', 'mut160']:
             if x in mut_sites:
                 mut_sites.remove(x)
 
@@ -156,27 +156,28 @@ def plot_chord(prefix, limit_clades):
 
     #Analyze only viruses from clades where greater than 10% of egg-seqs have mutation at 186 AND 194
     if limit_clades==True:
-        clade_pct_186 = (df[df['mut186']==True].groupby('clade').size()/
-                         df.groupby('clade').size()).reset_index().rename(columns={0:'pct_186'})
-        clade_pct_194 = (df[df['mut194']==True].groupby('clade').size()/
-                         df.groupby('clade').size()).reset_index().rename(columns={0:'pct_194'})
-        clade_pcts = pd.merge(clade_pct_186, clade_pct_194, on='clade').fillna(0.0)
+        clade_pct_186 = (df[df['mut186']==True].groupby('kk_clade').size()/
+                         df.groupby('kk_clade').size()).reset_index().rename(columns={0:'pct_186'})
+        clade_pct_194 = (df[df['mut194']==True].groupby('kk_clade').size()/
+                         df.groupby('kk_clade').size()).reset_index().rename(columns={0:'pct_194'})
+        clade_pcts = pd.merge(clade_pct_186, clade_pct_194, on='kk_clade').fillna(0.0)
         limited_clades = []
         for k, v in clade_pcts.iterrows():
             if v['pct_186']>0.1:
                 if v['pct_194']>0.1:
-                    limited_clades.append(v.clade)
-        df = df[df['clade'].isin(limited_clades)]
+                    limited_clades.append(v.kk_clade)
+        df = df[df['kk_clade'].isin(limited_clades)]
 
     sites = ['186','194','138','156','203','219','225','246']
     for site in sites:
         if site not in df.columns:
             sites.remove(site)
-    #Exclude sites 225 and 246 because no epistatic interaction with 186 or 194
+    #Exclude sites 225 and 138 because no epistatic interaction with 186 or 194
     if limit_clades==True:
-        for x in ['138', '225', '246']:
-            if x in sites:
-                sites.remove(x)
+        sites = ['186','194','156','203','246','219']
+        # for x in ['138', '225']:
+        #     if x in sites:
+        #         sites.remove(x)
 
 
     egg_muts = {'186':['V'], '225':['G'], '219':['F','Y'],
@@ -544,9 +545,9 @@ def main(input_df):
     prefix = str.split(df_name, '.csv')[0]
     plot_heatmap(prefix, limit_clades=False)
     plot_chord(prefix, limit_clades=False)
-    if '6y' in prefix:
-        plot_heatmap(prefix, limit_clades=True)
-        plot_chord(prefix, limit_clades=True)
+    # if '6y' in prefix:
+    plot_heatmap(prefix, limit_clades=True)
+    plot_chord(prefix, limit_clades=True)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description = "Determines epistasis between egg-specific mutations")

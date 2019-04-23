@@ -83,7 +83,7 @@ def plot_mutation_site(prefix):
 
     sns.set(style="white")
     fig, ax = plt.subplots()
-    passage_palette = {'unpassaged': '#5c3d46', 'cell': '#f8c968', 'egg': '#99bfaa'}
+    passage_palette = {'unpassaged': '#d73027', 'cell': '#fcb44f', 'egg': '#1a9951'}
     fig = sns.barplot(x='site', y='prevalence', hue='virus_passage', data=plot_df, palette= passage_palette)
     fig.set(xlabel='HA position', ylabel='prevalence of mutation')
     fig.get_figure().savefig('plots/'+str(prefix)+'/egg_mutation_site_prevalence_'+str(prefix)+'.pdf')
@@ -102,13 +102,20 @@ def plot_mutation_aa(prefix):
         top = (tip_df[tip_df.passage==pas_type].groupby('mutation')['mutation']
                 ).count().sort_values(ascending=False)[:10]
         top_muts[pas_type] = list((g_name, g) for g_name, g in top.iteritems())
-    egg_top_muts = [x[0] for x in top_muts['egg']]
+    # egg_top_muts = [x[0] for x in top_muts['egg']]
+    egg_top_muts = ['A138S','H156Q','H156R','T160K','G186V','L194P','T203I','S219F','S219Y','D225G','N246H']
+    for egg_mut in egg_top_muts:
+        if egg_mut[1:4] not in df.columns:
+            egg_top_muts.remove(egg_mut)
 
     top_aa_muts = {}
     for egg_top_mut in egg_top_muts:
-        site = egg_top_mut.split('HA1')[1][1:-1]
-        from_aa = egg_top_mut.split('HA1')[1][0]
-        to_aa = egg_top_mut.split('HA1')[1][-1]
+        # site = egg_top_mut.split('HA1')[1][1:-1]
+        # from_aa = egg_top_mut.split('HA1')[1][0]
+        # to_aa = egg_top_mut.split('HA1')[1][-1]
+        site = egg_top_mut[1:-1]
+        from_aa = egg_top_mut[0]
+        to_aa = egg_top_mut[-1]
         aa_mut_count = {}
 
         for pas_type in df['passage'].unique():
@@ -119,15 +126,47 @@ def plot_mutation_aa(prefix):
 
     aa_muts_df = pd.DataFrame(top_aa_muts)
     plot_aa_muts_df = aa_muts_df.unstack().reset_index().rename(columns={'level_0':'mutation', 'level_1':'virus_passage', 0:'prevalence'})
-    order = sorted([x for x in plot_aa_muts_df['mutation'].unique()], key = (lambda x: x[4:-1]))
+    # order = sorted([x for x in plot_aa_muts_df['mutation'].unique()], key = (lambda x: x[4:-1]))
+    order = egg_top_muts
 
     aa_barplot, ax = plt.subplots()
     sns.set(style="white")
-    passage_palette = {'unpassaged': '#5c3d46', 'cell': '#f8c968', 'egg': '#99bfaa'}
+    passage_palette = {'unpassaged': '#d73027', 'cell': '#fcb44f', 'egg': '#1a9951'}
     aa_barplot = sns.barplot(x= 'mutation', y= 'prevalence', hue= 'virus_passage', order=order, data= plot_aa_muts_df, palette = passage_palette)
     aa_barplot.set(xlabel='HA1 mutation', ylabel='prevalence of mutation')
     plt.xticks(rotation=45)
     aa_barplot.get_figure().savefig('plots/'+str(prefix)+'/egg_mutation_aa_prevalence_'+str(prefix)+'.pdf', bbox_inches='tight')
+
+def plot_mutation_passage(prefix):
+    """
+    Plot number of total strains with mutation, divided by passage type
+    """
+    df = pd.read_csv('dataframes/'+prefix+'.csv')
+    egg_mutations = ['A138S', 'H156R', 'H156Q', 'T160K', 'G186V', 'L194P', 'T203I', 'S219F', 'S219Y', 'D225G', 'N246H']
+    for egg_mut in egg_mutations:
+        if egg_mut[1:4] not in df.columns:
+            egg_mutations.remove(egg_mut)
+
+    plot_muts_passage = {}
+    for egg_mutation in egg_mutations:
+        column_header = 'aa_mut'+str(egg_mutation[1:-1])
+        mut_passage_count = {}
+        for pas_type in df['passage'].unique():
+            mut_passage_count[pas_type] = float(len(df[(df[column_header]==egg_mutation)&(df['passage']==pas_type)]))
+        plot_muts_passage[egg_mutation] = mut_passage_count
+
+    plot_muts_passage_df = pd.DataFrame(plot_muts_passage)
+    plot_muts_passage_df = plot_muts_passage_df.unstack().reset_index().rename(columns={'level_0':'mutation', 'level_1':'virus_passage', 0:'count'})
+
+    order = egg_mutations
+
+    mutation_barplot, ax = plt.subplots()
+    sns.set(style="white")
+    passage_palette = {'unpassaged': '#d73027', 'cell': '#fcb44f', 'egg': '#1a9951'}
+    mutation_barplot = sns.barplot(x= 'mutation', y= 'count', hue= 'virus_passage', order=order, data= plot_muts_passage_df, palette = passage_palette)
+    mutation_barplot.set(xlabel='HA1 mutation', ylabel='number of strains with mutation')
+    plt.xticks(rotation=45)
+    mutation_barplot.get_figure().savefig('plots/'+str(prefix)+'/egg_mutation_passage_prevalence_'+str(prefix)+'.pdf', bbox_inches='tight')
 
 def plot_overall_aas(prefix):
     """
@@ -295,6 +334,7 @@ def main(input_df):
     prefix = str.split(df_name, '.csv')[0]
     plot_mutation_site(prefix)
     plot_mutation_aa(prefix)
+    plot_mutation_passage(prefix)
     find_mutation_aas(prefix)
     plot_overall_aas(prefix)
 

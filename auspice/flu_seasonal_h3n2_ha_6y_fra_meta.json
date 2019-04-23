@@ -231,6 +231,34 @@
       "menuItem": "genotype",
       "type": "discrete"
     },
+    "ha160": {
+      "color_map": [
+        [
+          "K",
+          "#60AA9E"
+        ],
+        [
+          "R",
+          "#D9AD3D"
+        ],
+        [
+          "T",
+          "#5097BA"
+        ],
+        [
+          "A",
+          "#E67030"
+        ],
+        [
+          "I",
+          "#8EBC66"
+        ]
+      ],
+      "key": "ha160",
+      "legendTitle": "ha160",
+      "menuItem": "ha160",
+      "type": "discrete"
+    },
     "kk_clade": {
       "key": "kk_clade",
       "legendTitle": "KK Clade",
@@ -892,7 +920,7 @@
     "frequencies"
   ],
   "title": "Real-time tracking of influenza A/H3N2 evolution",
-  "updated": "22 Mar 2019",
+  "updated": "23 Apr 2019",
   "vaccine_choices": {
     "A/Brisbane/10/2007": "2007-09-25",
     "A/HongKong/4801/2014": "2015-09-24",

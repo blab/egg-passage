@@ -1,0 +1,38 @@
+Building DAG of jobs...
+Using shell: /anaconda2/envs/py3/bin/bash
+Provided cores: 1
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	all
+	4	color_genotypes_and_find_egg_mutations
+	4	compair_pairs
+	4	egg_epistasis
+	3	organize_output
+	2	plot_background
+	4	plot_background_kkclades
+	3	simplify_auspice_names
+	3	tip_frequencies
+	28
+
+[Tue Apr 23 10:45:50 2019]
+rule color_genotypes_and_find_egg_mutations:
+    input: auspice/flu_seasonal_h3n2_ha_12y_fra_tree.json, results/aa-seq_who_h3n2_ha_12y_concat_fra_HA1.fasta, auspice/flu_seasonal_h3n2_ha_12y_fra_meta.json, results/tree_who_h3n2_ha_12y_concat_fra.nwk, config/auspice_config_h3n2.json, dataframes/h3n2_ha_12y_fra.csv
+    output: plots/h3n2_ha_12y_fra/egg_mutation_aa_prevalence_h3n2_ha_12y_fra.pdf, plots/h3n2_ha_12y_fra/egg_mutation_site_prevalence_h3n2_ha_12y_fra.pdf, plots/h3n2_ha_12y_fra/before_after_eggpassaging_h3n2_ha_12y_fra.pdf
+    jobid: 12
+    wildcards: lineage=h3n2, segment=ha, resolution=12y, assay=fra
+
+[Tue Apr 23 10:45:51 2019]
+Error in rule color_genotypes_and_find_egg_mutations:
+    jobid: 12
+    output: plots/h3n2_ha_12y_fra/egg_mutation_aa_prevalence_h3n2_ha_12y_fra.pdf, plots/h3n2_ha_12y_fra/egg_mutation_site_prevalence_h3n2_ha_12y_fra.pdf, plots/h3n2_ha_12y_fra/before_after_eggpassaging_h3n2_ha_12y_fra.pdf
+
+RuleException:
+CalledProcessError in line 790 of /Users/katekistler/nextstrain/egg-passage/Snakefile:
+Command 'set -euo pipefail;  python3 scripts/color_genotypes.py             --tree auspice/flu_seasonal_h3n2_ha_12y_fra_tree.json             --meta auspice/flu_seasonal_h3n2_ha_12y_fra_meta.json             --seqs results/aa-seq_who_h3n2_ha_12y_concat_fra_HA1.fasta             --newick results/tree_who_h3n2_ha_12y_concat_fra.nwk             --config config/auspice_config_h3n2.json             --dataframe dataframes/h3n2_ha_12y_fra.csv 
+        python3 scripts/find_egg_mutations.py             --in_file dataframes/h3n2_ha_12y_fra.csv' returned non-zero exit status 1.
+  File "/Users/katekistler/nextstrain/egg-passage/Snakefile", line 790, in __rule_color_genotypes_and_find_egg_mutations
+  File "/anaconda2/envs/py3/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /Users/katekistler/nextstrain/egg-passage/.snakemake/log/2019-04-23T104548.197643.snakemake.log

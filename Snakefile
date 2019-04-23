@@ -774,8 +774,13 @@ rule organize_output:
             --root_seq {input.root_seq} \
         """
 
-rule find_egg_mutations:
+rule color_genotypes_and_find_egg_mutations:
     input:
+        tree = "auspice/flu_seasonal_{lineage}_{segment}_{resolution}_{assay}_tree.json",
+        seqs = "results/aa-seq_who_{lineage}_{segment}_{resolution}_concat_{assay}_HA1.fasta",
+        meta = "auspice/flu_seasonal_{lineage}_{segment}_{resolution}_{assay}_meta.json",
+        newick = "results/tree_who_{lineage}_{segment}_{resolution}_concat_{assay}.nwk",
+        config = "config/auspice_config_{lineage}.json",
         dataframe = "dataframes/{lineage}_{segment}_{resolution}_{assay}.csv",
     output:
         aa_mut_plot = "plots/{lineage}_{segment}_{resolution}_{assay}/egg_mutation_aa_prevalence_{lineage}_{segment}_{resolution}_{assay}.pdf",
@@ -783,6 +788,14 @@ rule find_egg_mutations:
         before_after_plot = "plots/{lineage}_{segment}_{resolution}_{assay}/before_after_eggpassaging_{lineage}_{segment}_{resolution}_{assay}.pdf",
     shell:
         """
+        python3 scripts/color_genotypes.py \
+            --tree {input.tree} \
+            --meta {input.meta} \
+            --seqs {input.seqs} \
+            --newick {input.newick} \
+            --config {input.config} \
+            --dataframe {input.dataframe} \
+
         python3 scripts/find_egg_mutations.py \
             --in_file {input.dataframe} \
         """

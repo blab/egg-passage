@@ -1,42 +1,5 @@
 {
-  "title": "Real-time tracking of influenza A/H3N2 evolution",
   "color_options": {
-    "gt": {
-      "menuItem": "genotype",
-      "legendTitle": "Genotype",
-      "type": "discrete",
-      "key": "genotype"
-    },
-    "num_date": {
-      "menuItem": "date",
-      "legendTitle": "Sampling date",
-      "type": "continuous",
-      "key": "num_date"
-    },
-    "region": {
-      "key":"region",
-      "legendTitle":"Region",
-      "menuItem":"region",
-      "type":"discrete"
-    },
-    "passage": {
-      "key":"passage",
-      "legendTitle":"Viral passage",
-      "menuItem":"passage",
-      "type":"discrete"
-    },
-    "kk_clade": {
-      "key":"kk_clade",
-      "legendTitle":"KK Clade",
-      "menuItem":"kk clade",
-      "type":"discrete"
-    },
-    "clade_membership": {
-      "key": "clade_membership",
-      "legendTitle": "Clade",
-      "menuItem": "clade",
-      "type": "discrete"
-    },
     "cTiter": {
       "key": "cTiter",
       "legendTitle": "Antigenic advance (tree model)",
@@ -49,65 +12,130 @@
       "menuItem": "antigenic advance (sub model)",
       "type": "continuous"
     },
-    "lbi": {
-      "vmin": 0,
-      "vmax": 0.7,
-      "legendTitle": "local branching index",
-      "key": "lbi",
-      "menuItem": "local branching index",
-      "type": "continuous"
+    "clade_membership": {
+      "key": "clade_membership",
+      "legendTitle": "Clade",
+      "menuItem": "clade",
+      "type": "discrete"
     },
     "ep": {
-      "menuItem": "epitope mutations",
+      "key": "ep",
       "legendTitle": "Epitope mutations",
+      "menuItem": "epitope mutations",
+      "type": "continuous"
+    },
+    "gt": {
+      "key": "genotype",
+      "legendTitle": "Genotype",
+      "menuItem": "genotype",
+      "type": "discrete"
+    },
+    "ha160": {
+      "color_map": [
+        [
+          "K",
+          "#60AA9E"
+        ],
+        [
+          "R",
+          "#D9AD3D"
+        ],
+        [
+          "T",
+          "#5097BA"
+        ],
+        [
+          "A",
+          "#E67030"
+        ],
+        [
+          "I",
+          "#8EBC66"
+        ]
+      ],
+      "key": "ha160",
+      "legendTitle": "ha160",
+      "menuItem": "ha160",
+      "type": "discrete"
+    },
+    "kk_clade": {
+      "key": "kk_clade",
+      "legendTitle": "KK Clade",
+      "menuItem": "kk clade",
+      "type": "discrete"
+    },
+    "lbi": {
+      "key": "lbi",
+      "legendTitle": "local branching index",
+      "menuItem": "local branching index",
       "type": "continuous",
-      "key": "ep"
+      "vmax": 0.7,
+      "vmin": 0
     },
     "ne": {
-      "menuItem": "non-epitope mutations",
+      "key": "ne",
       "legendTitle": "Non-epitope mutations",
-      "type": "continuous",
-      "key": "ne"
+      "menuItem": "non-epitope mutations",
+      "type": "continuous"
+    },
+    "num_date": {
+      "key": "num_date",
+      "legendTitle": "Sampling date",
+      "menuItem": "date",
+      "type": "continuous"
+    },
+    "passage": {
+      "key": "passage",
+      "legendTitle": "Viral passage",
+      "menuItem": "passage",
+      "type": "discrete"
     },
     "rb": {
-      "menuItem": "RBS adjacent mutations",
+      "key": "rb",
       "legendTitle": "RBS adjacent mutations",
-      "type": "continuous",
-      "key": "rb"
+      "menuItem": "RBS adjacent mutations",
+      "type": "continuous"
+    },
+    "region": {
+      "key": "region",
+      "legendTitle": "Region",
+      "menuItem": "region",
+      "type": "discrete"
     }
   },
-  "geo": [
-    "country",
-    "region"
-  ],
   "defaults": {
-    "mapTriplicate": true,
-    "colorBy": "clade_membership"
+    "colorBy": "clade_membership",
+    "mapTriplicate": true
   },
-  "maintainer": [
-    "Trevor Bedford and Barney Potter",
-    "http://bedford.io/"
-  ],
   "filters": [
     "clade_membership",
     "region",
     "country",
     "authors"
   ],
+  "geo": [
+    "country",
+    "region"
+  ],
+  "maintainer": [
+    "Trevor Bedford and Barney Potter",
+    "http://bedford.io/"
+  ],
   "panels": [
     "tree",
     "entropy",
     "frequencies"
   ],
+  "title": "Real-time tracking of influenza A/H3N2 evolution",
   "vaccine_choices": {
-    "A/Wisconsin/67/2005": "2006-02-21", 
     "A/Brisbane/10/2007": "2007-09-25",
-    "A/Perth/16/2009": "2009-09-25", 
-    "A/Victoria/361/2011": "2012-02-21",
-    "A/Texas/50/2012": "2013-09-25", 
+    "A/HongKong/4801/2014": "2015-09-24",
+    "A/Perth/16/2009": "2009-09-25",
+    "A/Singapore/Infimh-16-0019/2016": "2017-09-28",
+    "A/Switzerland/8060/2017": "2018-09-27",
     "A/Switzerland/9715293/2013": "2014-09-25",
-    "A/HongKong/4801/2014": "2015-09-24", 
-    "A/Singapore/Infimh-16-0019/2016": "2017-09-28", 
-    "A/Switzerland/8060/2017": "2018-09-27"
-  } 
+    "A/Texas/50/2012": "2013-09-25",
+    "A/Victoria/361/2011": "2012-02-21",
+    "A/Wisconsin/67/2005": "2006-02-21"
+  }
 }
