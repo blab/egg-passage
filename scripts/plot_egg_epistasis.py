@@ -169,16 +169,14 @@ def plot_chord(prefix, limit_clades):
         df = df[df['kk_clade'].isin(limited_clades)]
 
     sites = ['186','194','138','156','203','219','225','246']
-    for site in sites:
-        if site not in df.columns:
-            sites.remove(site)
+
     #Exclude sites 225 and 138 because no epistatic interaction with 186 or 194
     if limit_clades==True:
         sites = ['186','194','156','203','246','219']
-        # for x in ['138', '225']:
-        #     if x in sites:
-        #         sites.remove(x)
 
+    for site in sites:
+        if site not in df.columns:
+            sites.remove(site)
 
     egg_muts = {'186':['V'], '225':['G'], '219':['F','Y'],
                 '203':['I'], '156':['R','Q'], '138':['S'],

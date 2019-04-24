@@ -155,7 +155,8 @@ rule all:
         background_heatmap = expand("plots/{lineage}_{segment}_6y_{assay}/genetic_background_heatmap_{lineage}_{segment}_6y_{assay}.pdf", lineage=lineages, segment=segments, assay=assays),
         kkclade_heatmap = expand("plots/{lineage}_{segment}_{resolution}_{assay}/genetic_background_kkclade_heatmap_{lineage}_{segment}_{resolution}_{assay}.pdf", lineage=lineages, segment=segments, resolution=resolutions, assay=assays),
         chord_plot = expand("plots/{lineage}_{segment}_{resolution}_{assay}/epistasis_chord_diagram_{lineage}_{segment}_{resolution}_{assay}.pdf", lineage=lineages, segment=segments, resolution=resolutions, assay=assays),
-        pairs_json = expand("plots/egg_results/egg_mutation_accuracy_{lineage}_{segment}_{resolution}_{assay}.json", lineage=lineages, segment=segments, resolution=resolutions, assay=assays)
+        pairs_json = expand("plots/egg_results/egg_mutation_accuracy_{lineage}_{segment}_{resolution}_{assay}.json", lineage=lineages, segment=segments, resolution=resolutions, assay=assays),
+        titer_plot = expand("plots/{lineage}_{segment}_{resolution}_hi/titer_diffs_{lineage}_{segment}_{resolution}.pdf", lineage=lineages, segment=segments, resolution=resolutions)
 
 rule download_all:
     input:
@@ -851,6 +852,17 @@ rule compair_pairs:
         python3 scripts/compare_pairs.py \
             --in_file {input.dataframe} \
             --seqs {input.seqs} \
+        """
+
+rule plot_titer_diffs:
+    input:
+        dataframe = "dataframes/{lineage}_{segment}_{resolution}_hi.csv",
+    output:
+        titer_plot = "plots/{lineage}_{segment}_{resolution}_hi/titer_diffs_{lineage}_{segment}_{resolution}.pdf",
+    shell:
+        """
+        python3 scripts/plot_titer_diffs.py \
+            --in_file {input.dataframe} \
         """
 
 rule targets:

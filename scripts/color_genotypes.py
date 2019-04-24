@@ -4,7 +4,7 @@ import pandas as pd
 from Bio import SeqIO
 from ete3 import Tree
 
-def main(tree_path, meta_path, seq_path, newick_tree, config_path, dataframe, sites, manual_colors):
+def main(tree_path, meta_path, seq_path, newick_tree, config_path, dataframe, sites, manual_colors=True):
 
     with open(tree_path, 'r') as tree_json:
         tree = json.load(tree_json)
