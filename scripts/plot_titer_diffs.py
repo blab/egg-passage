@@ -35,9 +35,10 @@ def plot_ctitersub(input_df):
                 diff = v['egg_titer'] - v['pair_titer']
                 titer_diffs_singlemut.append({'mutation':'overall', 'titer_diff': diff, 'assay': assay})
                 for egg_mut in muts_to_consider:
-                    if egg_mut in ast.literal_eval(v['egg_muts']):
-                        titer_diff = v['egg_titer'] - v['pair_titer']
-                        titer_diffs_singlemut.append({'mutation': egg_mut, 'titer_diff': titer_diff, 'assay': assay})
+                    if egg_mut in ['G186V', 'L194P']:
+                        if egg_mut in ast.literal_eval(v['egg_muts']):
+                            titer_diff = v['egg_titer'] - v['pair_titer']
+                            titer_diffs_singlemut.append({'mutation': egg_mut, 'titer_diff': titer_diff, 'assay': assay})
             else:
                 diff = v['egg_titer'] - v['pair_titer']
                 titer_diffs.append({'mutation':'overall', 'titer_diff': diff, 'assay': assay})
@@ -57,10 +58,10 @@ def plot_ctitersub(input_df):
 
     #Antigenic effect of single mutation
     fig2, ax2 = plt.subplots()
-    fig2 = sns.barplot(x='mutation', y='titer_diff', hue='assay', order=['overall', 'T160K', 'L194P', 'G186V'], data=titer_diffs_singlemut_df, palette= ['#d73027', '#fdae61'])
+    fig2 = sns.barplot(x='mutation', y='titer_diff', hue='assay', order=['overall', 'L194P', 'G186V'], data=titer_diffs_singlemut_df, palette= ['#d73027', '#fdae61'])
     ax2.set(xlabel = '', ylabel='log2(egg titer)-log2(paired titer)')
     fig2.get_figure().savefig('plots/'+str(prefix)+'/titer_diffs_singlemut_'+str(pre_prefix)+'.pdf', bbox_inches='tight')
-    
+
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description = "Plot titer differences between paired strains")
