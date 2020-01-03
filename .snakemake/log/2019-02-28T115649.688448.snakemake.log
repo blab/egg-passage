@@ -1,3 +1,0 @@
-ValueError in line 144 of /Users/katekistler/nextstrain/egg-passage/Snakefile:
-Single '}' encountered in format string
-  File "/Users/katekistler/nextstrain/egg-passage/Snakefile", line 144, in <module>

@@ -1,5 +1,49 @@
-.ipynb_checkpoints
-.DS_Store
-__pycache__/
+# Files created by the pipeline, which we want to keep out of git
+# (or at least out of _this_ git repo).
+data/
+results/
+
+# Sensitive environment variables
+environment*
+
+# Snakemake state dir
+/.snakemake
+
+# iPython checkpoints
+.ipynb_checkpoints/
+
+# Local config overrides
+/config_local.yaml
+
+# For Python #
+##############
 *.pyc
+.tox/
 .cache/
+
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+*~
+
+# nohup output
+nohup.out
+
+# cluster logs
+slurm-*

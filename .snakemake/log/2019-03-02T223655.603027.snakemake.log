@@ -1,3 +1,0 @@
-WildcardError in line 143 of /Users/katekistler/nextstrain/egg-passage/Snakefile:
-No values given for wildcard 'segment'.
-  File "/Users/katekistler/nextstrain/egg-passage/Snakefile", line 143, in <module>

@@ -1,9 +1,0 @@
-Building DAG of jobs...
-MissingInputException in line 141 of /Users/katekistler/nextstrain/egg-passage/Snakefile:
-Missing input files for rule all_live:
-auspice/flu_seasonal_h3n2_ha_12y_tree.json
-auspice/flu_seasonal_h3n2_ha_12y_meta.json
-auspice/flu_seasonal_h3n2_ha_6y_meta.json
-auspice/flu_seasonal_h3n2_ha_6y_tree.json
-auspice/flu_seasonal_h3n2_ha_6y_tip-frequencies.json
-auspice/flu_seasonal_h3n2_ha_12y_tip-frequencies.json

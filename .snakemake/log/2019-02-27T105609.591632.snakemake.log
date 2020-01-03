@@ -1,3 +1,0 @@
-WorkflowError in line 1 of /Users/katekistler/nextstrain/egg-passage/Snakefile:
-Failed to open /Users/katekistler/nextstrain/egg-passage/Snakefile_base.
-  File "/Users/katekistler/nextstrain/egg-passage/Snakefile", line 1, in <module>

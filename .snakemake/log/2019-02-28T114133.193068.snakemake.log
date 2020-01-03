@@ -1,4 +1,0 @@
-Building DAG of jobs...
-MissingInputException in line 285 of /Users/katekistler/nextstrain/egg-passage/Snakefile:
-Missing input files for rule filter:
-config/outliers_6y.txt
