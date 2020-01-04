@@ -1,6 +1,6 @@
 # Adaptation, epistasis and antigenic impact of egg-culture associated mutations in influenza H3N2 viruses
 
-#### Kathryn E. Kistler<sup>1,2</sup>, Trevor Bedford<sup>1</sup>
+#### Kathryn E. Kistler<sup>1,2</sup>, Trevor Bedford<sup>1,2</sup>
 
 <sup>1</sup> Molecular and Cellular Biology Program, University of Washington, Seattle, Washington, USA.
 
